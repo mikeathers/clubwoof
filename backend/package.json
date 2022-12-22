@@ -5,10 +5,17 @@
     "backend": "bin/backend.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "setup": "npm install && npm install --prefix src/",
+    "cdk-bootstrap": "npx aws-cdk bootstrap",
+    "cdk-synth": "npx aws-cdk synth clubwoof-dev",
+    "cdk-deploy": "npx aws-cdk deploy clubwoof-dev --outputs-file ../src/cdk-exports-dev.json",
+    "cdk-create-stack": "npm run cdk-bootstrap && npm run cdk-deploy",
+    "cdk-destroy": "npx aws-cdk destroy clubwoof-dev",
     "test": "jest",
-    "cdk": "cdk"
+    "watch": "tsc -w",
+    "build": "tsc",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "eslint . --ext js,jsx,ts,tsx --fix"
   },
   "devDependencies": {
     "@aws-amplify/auth": "^4.6.14",
