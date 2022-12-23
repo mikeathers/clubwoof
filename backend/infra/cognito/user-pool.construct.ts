@@ -1,16 +1,20 @@
-import { Construct } from 'constructs'
+import * as path from 'path'
 import { AccountRecovery, BooleanAttribute, NumberAttribute, UserPool } from 'aws-cdk-lib/aws-cognito'
-import { Duration, RemovalPolicy } from 'aws-cdk-lib'
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
+import { Runtime } from 'aws-cdk-lib/aws-lambda'
 
 import CONFIG from '../../config'
-import { Runtime } from 'aws-cdk-lib/aws-lambda'
-import * as path from 'path'
+import {Construct} from "constructs";
+import {Duration, RemovalPolicy} from "aws-cdk-lib";
+
 
 export class UserPoolConstruct {
+  // @ts-ignore
   public userPool: UserPool
   private readonly scope: Construct
+  // @ts-ignore
   private customMessagesTrigger: NodejsFunction
+  // @ts-ignore
   private postConfirmationTrigger: NodejsFunction
 
   constructor(scope: Construct) {

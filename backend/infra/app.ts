@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { App } from 'aws-cdk-lib'
 import 'source-map-support/register'
-import { BackendStack } from './backend-stack'
+import {App} from "aws-cdk-lib";
 
+import { BackendStack } from './backend-stack'
 import CONFIG from '../config'
 
 const app = new App()

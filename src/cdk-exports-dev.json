@@ -1,0 +1,10 @@
+{
+  "clubwoof-dev": {
+    "userPoolClientId": "1fn4licj1qclu05udbk1d0n3gs",
+    "clubwoofWebAppCloudFrontUrl": "d2dmq2ui49ubwb.cloudfront.net",
+    "clubwoofWebS3Url": "http://clubwoof-webclubwoof.s3-website.eu-west-2.amazonaws.com",
+    "region": "eu-west-2",
+    "userPoolId": "eu-west-2_gLSevxOJD",
+    "identityPoolId": "eu-west-2:0a079491-46ba-4f96-90ff-a8db5d146782"
+  }
+}

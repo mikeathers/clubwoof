@@ -10,12 +10,18 @@ import { FederatedPrincipal, ManagedPolicy, Role } from 'aws-cdk-lib/aws-iam'
 import CONFIG from '../../config'
 
 export class IdentityPoolConstruct {
+  // @ts-ignore
   public identityPool: CfnIdentityPool
   private readonly scope: Construct
+  // @ts-ignore
   private readonly userPool: UserPool
+  // @ts-ignore
   private readonly userPoolClient: UserPoolClient
+  // @ts-ignore
   private adminRole: Role
+  // @ts-ignore
   private anonymousRole: Role
+  // @ts-ignore
   private userRole: Role
 
   constructor(scope: Construct, userPool: UserPool, userPoolClient: UserPoolClient) {

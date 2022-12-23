@@ -1,7 +1,8 @@
 import { Construct } from 'constructs'
-import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib'
+import {CfnOutput, Stack, StackProps} from 'aws-cdk-lib'
 
 import { IdentityPoolConstruct, UserPoolClientConstruct, UserPoolConstruct } from './cognito'
+import {WebAppDeployment} from "./web-app-deployment";
 
 export class BackendStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -11,7 +12,10 @@ export class BackendStack extends Stack {
     const { userPoolClient } = new UserPoolClientConstruct(this, userPool)
     const { identityPool } = new IdentityPoolConstruct(this, userPool, userPoolClient)
 
-    // Outputs
+    new WebAppDeployment(this);
+
+
+      // Outputs
     new CfnOutput(this, 'userPoolId', {
       value: userPool.userPoolId,
     })
