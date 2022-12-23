@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build & next export -o .github/deploy/out",
+    "build": "next build",
+    "export": "next export -o .github/deploy/out",
     "start": "next start",
     "lint": "next lint"
   },
