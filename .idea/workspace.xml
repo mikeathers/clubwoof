@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/deploy/out/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/deploy/scripts/deploy.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build_cdk.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/deploy/scripts/setBranch.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/deploy/workflows/deploy.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/infra/aws/certificate/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/infra/aws/cloudfront/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/infra/aws/helpers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/infra/aws/route53/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/infra/aws/s3/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/infra/functions/mapping-function/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/infra/static-website-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/infra/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/infra/backend-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/infra/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/infra/cognito/identity-pool.construct.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +52,7 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github" />
       <recent name="$PROJECT_DIR$/.github/deploy" />
       <recent name="$PROJECT_DIR$/backend/src/lambdas/format-request" />
     </key>
