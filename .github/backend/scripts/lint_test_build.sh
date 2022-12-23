@@ -13,4 +13,4 @@ echo "--- 🚀 Run next export..."
 npm run export
 
 # For now we only want the static bundle
-zip -r .github/deploy/build.zip .github/deploy/out
+zip -r .github/backend/build.zip .github/backend/out

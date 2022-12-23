@@ -11,11 +11,11 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-      - run: .github/deploy/scripts/lint_test_build.sh
+      - run: .github/backend/scripts/lint_test_build.sh
       - uses: actions/upload-artifact@v2
         with:
           name: build.zip
-          path: build.zip
+          path: .github/backend/build.zip
 
   test-cdk:
     name: Lint and Test CDK
@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-      - run: .github/deploy/scripts/lint_test_build_cdk.sh
+      - run: .github/backend/scripts/lint_test_build_cdk.sh
 
   deploy:
     name: Deploy
@@ -47,9 +47,9 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build.zip
-          path: .github/deploy
-      - run: .github/deploy/scripts/setBranch.sh
-      - run: .github/deploy/scripts/deploy.sh
+          path: .github/backend
+      - run: .github/backend/scripts/setBranch.sh
+      - run: .github/backend/scripts/deploy.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

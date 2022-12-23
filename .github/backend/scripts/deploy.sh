@@ -3,14 +3,11 @@
 set -euo pipefail
 
 # Ok lets's jump into our deploy directory
-cd .github/deploy
+cd .github/backend
 
 # Unzip the build artifact
 echo "--- 🚀 Unzipping the build..."
 unzip -q build.zip
-
-# Ok lets's jump into our CDK directory
-cd .github/backend
 
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."
