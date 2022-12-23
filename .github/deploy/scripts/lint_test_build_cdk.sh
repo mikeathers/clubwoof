@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Ok lets's jump into our CDK directory
-cd .github/deploy/backend
+cd .github/backend
 
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."

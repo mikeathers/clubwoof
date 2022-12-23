@@ -1,45 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="">
+    <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
       <change beforePath="$PROJECT_DIR$/.github/deploy/build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/build.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/out/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/out/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/out/_next/static/04VFQ1YkEhLUwslQ2PPZq/_buildManifest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/out/_next/static/04VFQ1YkEhLUwslQ2PPZq/_ssgManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/out/_next/static/JFPP6ZhT2v3Q50NxC2Y__/_buildManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/out/_next/static/JFPP6ZhT2v3Q50NxC2Y__/_ssgManifest.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/out/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build_cdk.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build_cdk.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/.npmignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/cdk.json" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/cdk.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/aws/certificate/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/aws/cloudfront/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/aws/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/aws/helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/aws/route53/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/aws/route53/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/aws/s3/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/backend-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/cognito/identity-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/cognito/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/cognito/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/cognito/user-pool-client.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/cognito/user-pool-client.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/cognito/user-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/functions/mapping-function/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/functions/mapping-function/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/static-website-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/static-website-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/web-app-deployment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/infra/web-app-deployment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message-entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/src/cognito-triggers/custom-messages/custom-message-entry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/src/cognito-triggers/custom-messages/custom-message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/src/cognito-triggers/custom-messages/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/add-user-to-group.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/src/cognito-triggers/post-confirmation/add-user-to-group.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/src/cognito-triggers/post-confirmation/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/post-confirmation-entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/src/cognito-triggers/post-confirmation/post-confirmation-entry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/.github/backend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +73,14 @@
       <workItem from="1671633855646" duration="458000" />
       <workItem from="1671634361294" duration="155000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: adds package.lock">
+      <created>1671836959214</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671836959214</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,5 +96,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: adds package.lock" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: adds package.lock" />
   </component>
 </project>
