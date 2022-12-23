@@ -10,4 +10,4 @@ echo "--- 🚀 Run next build..."
 npm run build
 
 # For now we only want the static bundle
-zip -r build.zip out
+zip -r .github/deploy/build.zip .github/deploy/out

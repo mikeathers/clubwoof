@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/deploy/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/infra/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/infra/cognito/identity-pool.construct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build_cdk.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/scripts/lint_test_build_cdk.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
