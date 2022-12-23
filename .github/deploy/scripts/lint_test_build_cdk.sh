@@ -12,5 +12,5 @@ npm ci
 echo "--- 🚀 Run lint..."
 npm run lint
 
-echo "--- 🚀 Run tests..."
-npm run test
+# echo "--- 🚀 Run tests..."
+# npm run test
