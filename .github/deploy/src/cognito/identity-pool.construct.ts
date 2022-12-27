@@ -35,7 +35,6 @@ export class IdentityPoolConstruct {
     this.createUserGroupsAndAttachRoles()
 
     console.log('hey')
-    console.log('hey')
   }
 
   private createIdentityPool() {

@@ -11,6 +11,7 @@ const app = new App()
 
 // e.g BRANCH_NAME: my-feature
 // e.g DOMAIN_NAME: tylangesmith.com
+// e.g DOMAIN_NAME: tylangesmith.com
 // e.g. SUBDOMAIN_NAME: nextjs-serverless-static-site
 // e.g. GITHUB_REPOSITORY: tylangesmith-organisation/nextjs-serverless-static-site
 if (!process.env.BRANCH_NAME) throw Error('A BRANCH_NAME must be provided...')
