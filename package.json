@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export -o .github/backend/out",
+    "export": "next export -o .github/deploy/out",
     "start": "next start",
     "lint": "next lint"
   },

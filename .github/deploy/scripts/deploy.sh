@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-# Ok lets's jump into our deploy directory
-cd .github/backend
+# Ok lets's jump into our CDK directory
+cd .github/deploy
 
 # Unzip the build artifact
 echo "--- 🚀 Unzipping the build..."
@@ -21,5 +21,5 @@ npx cdk \
   --execute true \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
-  --app "ts-node infra/app.ts" \
+  --app "ts-node ./src/index.ts" \
   deploy

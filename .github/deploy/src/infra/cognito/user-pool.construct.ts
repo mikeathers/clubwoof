@@ -1,12 +1,11 @@
 import * as path from 'path'
-import { AccountRecovery, BooleanAttribute, NumberAttribute, UserPool } from 'aws-cdk-lib/aws-cognito'
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
-import { Runtime } from 'aws-cdk-lib/aws-lambda'
+import {AccountRecovery, BooleanAttribute, NumberAttribute, UserPool} from 'aws-cdk-lib/aws-cognito'
+import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
+import {Runtime} from 'aws-cdk-lib/aws-lambda'
 
-import CONFIG from '../../config'
+import CONFIG from '../../../config'
 import {Construct} from "constructs";
 import {Duration, RemovalPolicy} from "aws-cdk-lib";
-
 
 export class UserPoolConstruct {
   // @ts-ignore
@@ -30,7 +29,7 @@ export class UserPoolConstruct {
       timeout: Duration.seconds(6),
       handler: 'main',
       entry: path.join(__dirname, '../../src/cognito-triggers/custom-messages/index.ts'),
-      bundling: { externalModules: ['aws-sdk'] },
+      bundling: {externalModules: ['aws-sdk']},
       environment: {
         FRONTEND_BASE_URL: CONFIG.FRONTEND_BASE_URL,
       },
@@ -41,7 +40,7 @@ export class UserPoolConstruct {
       timeout: Duration.seconds(6),
       handler: 'main',
       entry: path.join(__dirname, '../../src/cognito-triggers/post-confirmation/index.ts'),
-      bundling: { externalModules: ['aws-sdk'] },
+      bundling: {externalModules: ['aws-sdk']},
     })
   }
 
@@ -70,8 +69,8 @@ export class UserPoolConstruct {
         },
       },
       customAttributes: {
-        numberOfDogs: new NumberAttribute({ mutable: true }),
-        isAdmin: new BooleanAttribute({ mutable: true }),
+        numberOfDogs: new NumberAttribute({mutable: true}),
+        isAdmin: new BooleanAttribute({mutable: true}),
       },
       passwordPolicy: {
         minLength: 6,

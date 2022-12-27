@@ -3,7 +3,7 @@ import 'source-map-support/register'
 import {App} from "aws-cdk-lib";
 
 import {BackendStack} from './backend-stack'
-import CONFIG from '../config'
+import CONFIG from '../../config'
 import {getBranchedSubDomainName, getStackName, getUrl} from "./aws/helpers";
 import StaticWebsiteStack from "./static-website-stack";
 

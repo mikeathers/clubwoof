@@ -39,7 +39,6 @@ jobs:
       AWS_DEFAULT_REGION: eu-west-2
       DOMAIN_NAME: clubwoof.co.uk
       SUBDOMAIN_NAME: nextjs-serverless-static-site
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -49,9 +48,9 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build.zip
-          path: .github/backend
-      - run: .github/backend/scripts/setBranch.sh
-      - run: .github/backend/scripts/deploy.sh
+          path: .github/deploy
+      - run: .github/deploy/scripts/setBranch.sh
+      - run: .github/deploy/scripts/deploy.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
