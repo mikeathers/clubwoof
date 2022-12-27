@@ -7,7 +7,6 @@ export class BackendStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
-    console.log('hey 4')
     const {userPool} = new UserPoolConstruct(this)
     const {userPoolClient} = new UserPoolClientConstruct(this, userPool)
     const {identityPool} = new IdentityPoolConstruct(this, userPool, userPoolClient)
