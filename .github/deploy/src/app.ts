@@ -2,7 +2,7 @@
 import 'source-map-support/register'
 import {App} from "aws-cdk-lib";
 
-import { BackendStack } from './backend-stack'
+import {BackendStack} from './backend-stack'
 import CONFIG from '../config'
 import {getBranchedSubDomainName, getStackName, getUrl} from "./aws/helpers";
 import StaticWebsiteStack from "./static-website-stack";
@@ -45,17 +45,16 @@ new StaticWebsiteStack(app, {
   domainName: process.env.DOMAIN_NAME,
   subDomainName: branchedSubDomainName,
   env: {
-    // These extra env variables are required for route53 hosted zone lookups
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION
+    account: process.env.AWS_ACCOUNT_ID,
+    region: process.env.AWS_DEFAULT_REGION,
   }
 })
 
 new BackendStack(app, `${CONFIG.STACK_PREFIX}-dev`, {
   stackName: `${CONFIG.STACK_PREFIX}-dev`,
   env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION,
+    account: process.env.AWS_ACCOUNT_ID,
+    region: process.env.AWS_DEFAULT_REGION,
   },
   tags: {env: 'dev'},
 })

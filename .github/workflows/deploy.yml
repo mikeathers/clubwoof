@@ -9,12 +9,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "17"
+          node-version: 18
       - run: .github/deploy/scripts/lint_test_build.sh
       - uses: actions/upload-artifact@v2
         with:
           name: build.zip
-          path: build.zip
+          path: .github/deploy/build.zip
 
   test-cdk:
     name: Lint and Test CDK
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "17"
+          node-version: 18
       - run: .github/deploy/scripts/lint_test_build_cdk.sh
 
   deploy:
@@ -33,15 +33,21 @@ jobs:
     concurrency:
       group: ${{ github.ref }}
     env:
-      ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_DEFAULT_REGION: eu-west-2
       DOMAIN_NAME: clubwoof.co.uk
       SUBDOMAIN_NAME: nextjs-serverless-static-site
     steps:
+      - name: Configure AWS Credentials
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-2
+          role-to-assume: arn:aws:iam::222743583620:user/github-workflow
+          role-session-name: web_app_deploy_role
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "17"
+          node-version: 18
       - uses: actions/download-artifact@v2
         with:
           name: build.zip

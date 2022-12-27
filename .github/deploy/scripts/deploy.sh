@@ -7,7 +7,7 @@ cd .github/deploy
 
 # Unzip the build artifact
 echo "--- 🚀 Unzipping the build..."
-unzip -q build.zip
+unzip -o -q build.zip
 
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."
@@ -21,5 +21,5 @@ npx cdk \
   --execute true \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
-  --app "ts-node ./src/index.ts" \
+  --app "ts-node ./src/app.ts" \
   deploy
