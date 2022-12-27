@@ -10,12 +10,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18
-          registry-url: https://npm.pkg.github.com/
-      - run: .github/backend/scripts/lint_test_build.sh
+      - run: .github/deploy/scripts/lint_test_build.sh
       - uses: actions/upload-artifact@v2
         with:
           name: build.zip
-          path: .github/backend/build.zip
+          path: build.zip
 
   test-cdk:
     name: Lint and Test CDK
@@ -25,8 +24,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18
-          registry-url: https://npm.pkg.github.com/
-      - run: .github/backend/scripts/lint_test_build_cdk.sh
+      - run: .github/deploy/scripts/lint_test_build_cdk.sh
 
   deploy:
     name: Deploy
@@ -44,7 +42,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18
-          registry-url: https://npm.pkg.github.com/
       - uses: actions/download-artifact@v2
         with:
           name: build.zip
