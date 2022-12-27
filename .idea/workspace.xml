@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/aws/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/aws/route53/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/backend-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/cognito/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/cognito/user-pool-client.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool-client.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/functions/mapping-function/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/functions/mapping-function/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/static-website-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/infra/web-app-deployment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/scripts/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/scripts/deploy.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +68,7 @@
       <updated>1671633854344</updated>
       <workItem from="1671633855646" duration="458000" />
       <workItem from="1671634361294" duration="155000" />
-      <workItem from="1671839125094" duration="7287000" />
+      <workItem from="1671839125094" duration="7508000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

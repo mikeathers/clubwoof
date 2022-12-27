@@ -3,7 +3,7 @@ import {AccountRecovery, BooleanAttribute, NumberAttribute, UserPool} from 'aws-
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {Runtime} from 'aws-cdk-lib/aws-lambda'
 
-import CONFIG from '../../../config'
+import CONFIG from '../../config'
 import {Construct} from "constructs";
 import {Duration, RemovalPolicy} from "aws-cdk-lib";
 
