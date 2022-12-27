@@ -33,7 +33,7 @@ jobs:
     concurrency:
       group: ${{ github.ref }}
     env:
-      ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_DEFAULT_REGION: eu-west-2
       DOMAIN_NAME: clubwoof.co.uk
       SUBDOMAIN_NAME: nextjs-serverless-static-site
