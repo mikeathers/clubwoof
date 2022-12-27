@@ -34,7 +34,7 @@ export class IdentityPoolConstruct {
     this.createUserCognitoGroupRole()
     this.createUserGroupsAndAttachRoles()
 
-    console.log('hey 1 2')
+    console.log('hey')
   }
 
   private createIdentityPool() {
