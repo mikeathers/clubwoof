@@ -45,7 +45,7 @@ new StaticWebsiteStack(app, {
   domainName: process.env.DOMAIN_NAME,
   subDomainName: branchedSubDomainName,
   env: {
-    account: process.env.ACCOUNT_ID,
+    account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
   }
 })
@@ -53,7 +53,7 @@ new StaticWebsiteStack(app, {
 new BackendStack(app, `${CONFIG.STACK_PREFIX}-dev`, {
   stackName: `${CONFIG.STACK_PREFIX}-dev`,
   env: {
-    account: process.env.ACCOUNT_ID,
+    account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
   },
   tags: {env: 'dev'},
