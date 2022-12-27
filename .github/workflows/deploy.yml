@@ -38,6 +38,12 @@ jobs:
       DOMAIN_NAME: clubwoof.co.uk
       SUBDOMAIN_NAME: nextjs-serverless-static-site
     steps:
+      - name: Configure AWS Credentials
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-2
+          role-to-assume: arn:aws:iam::222743583620:user/github-workflow
+          role-session-name: web_app_deploy_role
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
