@@ -21,5 +21,5 @@ npx cdk \
   --execute true \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
-  --app "ts-node ./src/infra/app.ts" \
+  --app "ts-node ./src/app.ts" \
   deploy
