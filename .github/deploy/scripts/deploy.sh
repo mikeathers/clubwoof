@@ -22,4 +22,4 @@ npx cdk \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
   --app "ts-node ./src/app.ts" \
-  deploy
+  deploy "*"
