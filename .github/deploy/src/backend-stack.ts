@@ -11,6 +11,10 @@ export class BackendStack extends Stack {
     const {userPoolClient} = new UserPoolClientConstruct(this, userPool)
     const {identityPool} = new IdentityPoolConstruct(this, userPool, userPoolClient)
 
+    console.log(process.env.SUBDOMAIN_NAME)
+    console.log(process.env.BRANCH_NAME)
+    console.log(process.env.GITHUB_REPOSITORY)
+
     // Outputs
     new CfnOutput(this, 'userPoolId', {
       value: userPool.userPoolId,
