@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
