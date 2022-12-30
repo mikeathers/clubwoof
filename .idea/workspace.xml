@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/deploy/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/functions/mapping-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/functions/mapping-function.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
