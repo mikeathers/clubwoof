@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool.construct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/functions/mapping-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/functions/mapping-function.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
