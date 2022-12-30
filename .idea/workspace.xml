@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change beforePath="$PROJECT_DIR$/.github/deploy/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/functions/mapping-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/functions/mapping-function.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,23 +36,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/michaelatherton/Development/clubwoof/.github&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "code.cleanup.on.save": "true",
+    "last_opened_file_path": "/Users/michaelatherton/Development/clubwoof/.github",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/michaelatherton/Development/clubwoof/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.github" />
@@ -83,6 +90,54 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/.github/deploy/config.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/config.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/github-stack.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/app.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/app.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/github-stack.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/backend-stack.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/backend-stack.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/static-website-stack.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/static-website-stack.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/static-site-stack.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool-client.construct.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool-client.construct.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool.construct.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool.construct.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/custom-messages/custom-message-entry.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/custom-messages/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/custom-messages/custom-message.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/custom-messages/custom-message-entry.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/custom-messages/custom-message.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/custom-messages/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/post-confirmation-entry.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/add-user-to-group.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/index.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/post-confirmation-entry.js" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/add-user-to-group.d.ts" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
