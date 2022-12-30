@@ -1,4 +1,4 @@
-import * as path from 'path'
+import {join} from 'path'
 import {AccountRecovery, BooleanAttribute, NumberAttribute, UserPool} from 'aws-cdk-lib/aws-cognito'
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {Runtime} from 'aws-cdk-lib/aws-lambda'
@@ -28,7 +28,7 @@ export class UserPoolConstruct {
       memorySize: 1024,
       timeout: Duration.seconds(6),
       handler: 'main',
-      entry: path.join(__dirname, '../cognito-triggers/custom-messages/index.js'),
+      entry: join(__dirname, '..', 'cognito-triggers', 'custom-messages', 'index.ts'),
       bundling: {externalModules: ['aws-sdk']},
       environment: {
         FRONTEND_BASE_URL: CONFIG.FRONTEND_BASE_URL,
@@ -39,7 +39,7 @@ export class UserPoolConstruct {
       memorySize: 1024,
       timeout: Duration.seconds(6),
       handler: 'main',
-      entry: path.join(__dirname, '../cognito-triggers/post-confirmation/index.js'),
+      entry: join(__dirname, '..', 'cognito-triggers', 'post-confirmation', 'index.ts'),
       bundling: {externalModules: ['aws-sdk']},
     })
   }
