@@ -5,7 +5,7 @@ import {App} from "aws-cdk-lib";
 import {BackendStack} from './backend-stack'
 import CONFIG from '../config'
 import {getBranchedSubDomainName, getStackName, getUrl} from "./aws/helpers";
-import StaticWebsiteStack from "./static-website-stack";
+import {StaticSiteInfraDemoStack} from "./static-site-stack";
 
 const app = new App()
 
@@ -39,16 +39,23 @@ const stackName = getStackName({
   branchName: process.env.BRANCH_NAME
 })
 
-new StaticWebsiteStack(app, {
-  stackName,
-  url,
-  domainName: process.env.DOMAIN_NAME,
-  subDomainName: branchedSubDomainName,
+// new StaticWebsiteStack(app, {
+//   stackName,
+//   url,
+//   domainName: process.env.DOMAIN_NAME,
+//   subDomainName: branchedSubDomainName,
+//   env: {
+//     account: process.env.AWS_ACCOUNT_ID,
+//     region: process.env.AWS_DEFAULT_REGION,
+//   }
+// })
+
+new StaticSiteInfraDemoStack(app, 'StaticSiteInfraDemoStack', {
   env: {
     account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
-  }
-})
+  },
+});
 
 new BackendStack(app, `${CONFIG.STACK_PREFIX}-dev`, {
   stackName: `${CONFIG.STACK_PREFIX}-dev`,
