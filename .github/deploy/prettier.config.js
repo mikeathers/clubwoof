@@ -1,5 +1,13 @@
-const prettierDefaultConfig = require('../prettier-config')
+// const prettierDefaultConfig = require('../prettier-config')
+//
+// module.exports = {
+//   ...prettierDefaultConfig,
+// }
 
 module.exports = {
-  ...prettierDefaultConfig,
+  arrowParens: 'always',
+  printWidth: 120,
+  singleQuote: true,
+  trailingComma: 'all',
+  semi: false,
 }

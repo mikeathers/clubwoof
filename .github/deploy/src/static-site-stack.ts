@@ -1,1 +1,67 @@
-import {Construct} from 'constructs';import {Duration, RemovalPolicy, Stack, StackProps} from 'aws-cdk-lib';import {  Distribution,  Function,  FunctionCode,  FunctionEventType,  HeadersFrameOption,  HeadersReferrerPolicy,  OriginAccessIdentity,  ResponseHeadersPolicy,  ViewerProtocolPolicy} from 'aws-cdk-lib/aws-cloudfront';import {BucketDeployment, Source} from "aws-cdk-lib/aws-s3-deployment";import {ARecord, HostedZone, RecordTarget} from "aws-cdk-lib/aws-route53";import {CloudFrontTarget} from "aws-cdk-lib/aws-route53-targets";import {DnsValidatedCertificate} from "aws-cdk-lib/aws-certificatemanager";import {join} from "path";import {S3Origin} from "aws-cdk-lib/aws-cloudfront-origins";import {Bucket, BucketAccessControl, BucketEncryption, ObjectOwnership} from "aws-cdk-lib/aws-s3";import {CanonicalUserPrincipal, PolicyStatement} from "aws-cdk-lib/aws-iam";export class StaticSiteInfraDemoStack extends Stack {  constructor(scope: Construct, id: string, props?: StackProps) {    super(scope, id, props);    const domainName = "clubwoof.co.uk";    const assetsBucket = new Bucket(this, 'clubwoof-website-bucket', {      bucketName: 'clubwoof-bucket',      //publicReadAccess: false,      autoDeleteObjects: true,      removalPolicy: RemovalPolicy.DESTROY,      accessControl: BucketAccessControl.PRIVATE,      objectOwnership: ObjectOwnership.BUCKET_OWNER_ENFORCED,      encryption: BucketEncryption.S3_MANAGED,    });    new BucketDeployment(this, 'clubwoof-bucket-deployment', {      destinationBucket: assetsBucket,      sources: [        Source.asset('./out')      ],    })    const cloudfrontOriginAccessIdentity = new OriginAccessIdentity(this, 'clubwoof-cloud-front-origin-access-identity');    assetsBucket.grantRead(cloudfrontOriginAccessIdentity);    assetsBucket.addToResourcePolicy(new PolicyStatement({      actions: ['s3:GetObject'],      resources: [assetsBucket.arnForObjects('*')],      principals: [new CanonicalUserPrincipal(cloudfrontOriginAccessIdentity.cloudFrontOriginAccessIdentityS3CanonicalUserId)],    }));    const zone = HostedZone.fromLookup(this, 'HostedZone', {domainName: domainName});    const certificate = new DnsValidatedCertificate(this, 'SiteCertificate',      {        domainName: domainName,        hostedZone: zone,        region: 'us-east-1', // Cloudfront only checks this region for certificates.      });    const rewriteFunction = new Function(this, 'ViewerResponseFunction', {      functionName: 'RedirectURIFunction',      code: FunctionCode.fromFile({filePath: join(__dirname, 'functions', 'mapping-function.js')}),      comment: "adds index.html to requests"    });    const responseHeaderPolicy = new ResponseHeadersPolicy(this, 'security-headers-response-header-policy', {      comment: 'Security headers response header policy',      securityHeadersBehavior: {        contentSecurityPolicy: {          override: true,          contentSecurityPolicy: "default-src 'self'"        },        strictTransportSecurity: {          override: true,          accessControlMaxAge: Duration.days(2 * 365),          includeSubdomains: true,          preload: true        },        contentTypeOptions: {          override: true        },        referrerPolicy: {          override: true,          referrerPolicy: HeadersReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN        },        xssProtection: {          override: true,          protection: true,          modeBlock: true        },        frameOptions: {          override: true,          frameOption: HeadersFrameOption.DENY        }      }    });    const cloudfrontDistribution = new Distribution(this, 'clubwoof-cloud-front-distribution', {      certificate: certificate,      enableLogging: true,      domainNames: [domainName],      defaultRootObject: 'index.html',      defaultBehavior: {        origin: new S3Origin(assetsBucket, {          originAccessIdentity: cloudfrontOriginAccessIdentity        }),        functionAssociations: [{          function: rewriteFunction,          eventType: FunctionEventType.VIEWER_REQUEST        }],        viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,        responseHeadersPolicy: responseHeaderPolicy      },      errorResponses: [        {          httpStatus: 404,          responseHttpStatus: 404,          responsePagePath: '/404.html'        }      ]    });    new ARecord(this, 'ARecord', {      recordName: domainName,      target: RecordTarget.fromAlias(new CloudFrontTarget(cloudfrontDistribution)),      zone    });  }}
+import { Construct } from 'constructs'
+import { Stack, StackProps } from 'aws-cdk-lib'
+import { Function, FunctionCode } from 'aws-cdk-lib/aws-cloudfront'
+import { join } from 'path'
+import { createBucket, createBucketDeployment } from './aws/s3/index'
+import CONFIG from '../config'
+import { handleAccessIdentity } from './aws/helpers/index'
+import { createARecordForDistribution, getHostedZone } from './aws/route53/index'
+import { createCertificate } from './aws/certificate/index'
+import { getSecurityHeader } from './aws/headers'
+import { createDistribution } from './aws/cloudfront/index'
+
+export class StaticSiteInfraDemoStack extends Stack {
+  constructor(scope: Construct, id: string, deploymentEnvironment: 'dev' | 'prod', props?: StackProps) {
+    super(scope, id, props)
+    const isProduction = deploymentEnvironment === 'prod'
+    const domainName = isProduction ? 'clubwoof.co.uk' : 'dev.clubwoof.co.uk'
+
+    const assetsBucket = createBucket({
+      bucketName: `${CONFIG.STACK_PREFIX}-bucket`,
+      scope: this,
+      env: deploymentEnvironment,
+    })
+
+    createBucketDeployment({
+      scope: this,
+      bucket: assetsBucket,
+      filePath: './out',
+      env: deploymentEnvironment,
+    })
+
+    const cloudfrontOriginAccessIdentity = handleAccessIdentity(this, assetsBucket)
+
+    const zone = getHostedZone({ scope: this, domainName })
+
+    const certificate = createCertificate({
+      scope: this,
+      domainName,
+      hostedZone: zone,
+    })
+
+    const rewriteFunction = new Function(this, 'ViewerResponseFunction', {
+      functionName: 'RedirectURIFunction',
+      code: FunctionCode.fromFile({ filePath: join(__dirname, 'functions', 'mapping-function.js') }),
+      comment: 'adds index.html to requests',
+    })
+
+    const responseHeaderPolicy = getSecurityHeader(this)
+
+    const cloudfrontDistribution = createDistribution({
+      scope: this,
+      bucket: assetsBucket,
+      domainName: domainName,
+      certificate: certificate,
+      functionAssociation: rewriteFunction,
+      accessIdentity: cloudfrontOriginAccessIdentity,
+      responseHeaderPolicy: responseHeaderPolicy,
+      env: deploymentEnvironment,
+    })
+    createARecordForDistribution({
+      scope: this,
+      hostedZone: zone,
+      domainName,
+      distribution: cloudfrontDistribution,
+    })
+  }
+}

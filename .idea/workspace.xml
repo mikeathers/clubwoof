@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change afterPath="$PROJECT_DIR$/.github/deploy/src/aws/headers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/prettier.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/prettier.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/scripts/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/scripts/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/github-stack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/github-stack.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,18 +103,12 @@
       <list>
         <option value="$PROJECT_DIR$/.github/deploy/config.d.ts" />
         <option value="$PROJECT_DIR$/.github/deploy/config.js" />
-        <option value="$PROJECT_DIR$/.github/deploy/src/github-stack.js" />
         <option value="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" />
         <option value="$PROJECT_DIR$/.github/deploy/src/app.js" />
         <option value="$PROJECT_DIR$/.github/deploy/src/app.d.ts" />
-        <option value="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.js" />
-        <option value="$PROJECT_DIR$/.github/deploy/src/github-stack.d.ts" />
         <option value="$PROJECT_DIR$/.github/deploy/src/backend-stack.d.ts" />
         <option value="$PROJECT_DIR$/.github/deploy/src/backend-stack.js" />
-        <option value="$PROJECT_DIR$/.github/deploy/src/static-website-stack.d.ts" />
-        <option value="$PROJECT_DIR$/.github/deploy/src/static-website-stack.js" />
         <option value="$PROJECT_DIR$/.github/deploy/src/static-site-stack.d.ts" />
-        <option value="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.d.ts" />
         <option value="$PROJECT_DIR$/.github/deploy/src/cognito/index.js" />
         <option value="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool-client.construct.js" />
         <option value="$PROJECT_DIR$/.github/deploy/src/cognito/user-pool-client.construct.d.ts" />
