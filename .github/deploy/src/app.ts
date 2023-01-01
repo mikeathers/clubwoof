@@ -10,16 +10,16 @@ const app = new App()
 
 new StaticSiteInfraDemoStack(app, 'clubwoof-website-dev', 'dev', {
   env: {
-    account: process.env.AWS_ACCOUNT_ID,
-    region: process.env.AWS_DEFAULT_REGION,
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
   },
   tags: { env: 'dev' },
 })
 
 new StaticSiteInfraDemoStack(app, 'clubwoof-website-prod', 'prod', {
   env: {
-    account: process.env.AWS_ACCOUNT_ID,
-    region: process.env.AWS_DEFAULT_REGION,
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
   },
   tags: { env: 'prod' },
 })

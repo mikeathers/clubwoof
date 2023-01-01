@@ -1,8 +1,6 @@
 import { Stack } from 'aws-cdk-lib'
 import {
   Distribution,
-  Function,
-  FunctionCode,
   FunctionEventType,
   IDistribution,
   IFunction,
@@ -15,42 +13,24 @@ import { ICertificate } from 'aws-cdk-lib/aws-certificatemanager'
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins'
 import CONFIG from '../../../config'
 
-export interface CreateFunctionProps {
-  scope: Stack
-  functionName: string
-  filePath: string
-}
-
-export const createFunction = (props: CreateFunctionProps): IFunction => {
-  const { scope, functionName, filePath } = props
-
-  return new Function(scope, 'mappingFunction', {
-    functionName: functionName,
-    code: FunctionCode.fromFile({
-      filePath,
-    }),
-  })
-}
-
 export interface CreateDistributionProps {
   scope: Stack
   bucket: IBucket
-  domainName: string
+  url: string
   certificate: ICertificate
-  functionAssociation: IFunction
   accessIdentity: OriginAccessIdentity
   responseHeaderPolicy: ResponseHeadersPolicy
+  functionAssociation: IFunction
   env: 'prod' | 'dev'
 }
 
 export const createDistribution = (props: CreateDistributionProps): IDistribution => {
-  const { scope, bucket, domainName, certificate, functionAssociation, accessIdentity, responseHeaderPolicy, env } =
-    props
+  const {scope, bucket, url, certificate, accessIdentity, responseHeaderPolicy, functionAssociation, env} = props
 
   return new Distribution(scope, `${CONFIG.STACK_PREFIX}-cloudfront-distribution-${env}`, {
     certificate: certificate,
     enableLogging: true,
-    domainNames: [domainName],
+    domainNames: [url],
     defaultRootObject: 'index.html',
     defaultBehavior: {
       origin: new S3Origin(bucket, {

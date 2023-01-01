@@ -2,22 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/.github/deploy/src/aws/headers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/prettier.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/prettier.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/scripts/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/scripts/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/github-stack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/github-stack.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/backend-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/backend-stack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/backend-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-website-stack.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/web-app-deployment.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,6 +140,8 @@
         <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/post-confirmation-entry.js" />
         <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/index.d.ts" />
         <option value="$PROJECT_DIR$/.github/deploy/src/cognito-triggers/post-confirmation/add-user-to-group.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/headers/index.d.ts" />
+        <option value="$PROJECT_DIR$/.github/deploy/src/aws/headers/index.js" />
       </list>
     </option>
   </component>
