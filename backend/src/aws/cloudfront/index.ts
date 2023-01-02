@@ -29,7 +29,6 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
 
   return new Distribution(scope, `${CONFIG.STACK_PREFIX}-cloudfront-distribution-${env}`, {
     certificate: certificate,
-    enableLogging: true,
     domainNames: [url],
     defaultRootObject: 'index.html',
     defaultBehavior: {
