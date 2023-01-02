@@ -8,3 +8,6 @@ npm run lint
 
 echo "Running tsc command"
 tsc
+
+cd .github/deploy
+tsc
