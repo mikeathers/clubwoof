@@ -25,7 +25,7 @@ export interface CreateDistributionProps {
 }
 
 export const createDistribution = (props: CreateDistributionProps): IDistribution => {
-  const {scope, bucket, url, certificate, accessIdentity, responseHeaderPolicy, functionAssociation, env} = props
+  const { scope, bucket, url, certificate, accessIdentity, responseHeaderPolicy, functionAssociation, env } = props
 
   return new Distribution(scope, `${CONFIG.STACK_PREFIX}-cloudfront-distribution-${env}`, {
     certificate: certificate,

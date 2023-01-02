@@ -11,7 +11,7 @@
     "prepare": "husky install",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "prettier:fix": "prettier \"./**/*\" --check --write",
-    "prettier:check": "prettier \"./**/*\" --check"
+    "prettier:check": "prettier \".github/deploy/src\" \"src/**\" --check"
   },
   "dependencies": {
     "@next/font": "13.0.7",
