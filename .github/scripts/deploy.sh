@@ -22,4 +22,4 @@ npx cdk \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
   --app "ts-node src/app.ts" \
-  deploy "clubwoof-website-dev clubwoof-backend-dev"
+  deploy "clubwoof-website-dev"
