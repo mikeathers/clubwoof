@@ -10,5 +10,5 @@ echo "Running type-check command"
 npm run type-check
 
 echo "Running prettier command"
-npm run prettier:check
+npm run prettier:fix
 
