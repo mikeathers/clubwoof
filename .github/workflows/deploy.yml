@@ -14,7 +14,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build.zip
-          path: .github/build.zip
+          path: backend/build.zip
 
   deploy:
     name: Deploy
