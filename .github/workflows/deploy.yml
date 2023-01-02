@@ -2,7 +2,7 @@ name: Deploy
 on: [ push ]
 
 jobs:
-  build-website:
+  build-lint-test:
     name: Lint, Test and Build Website
     runs-on: ubuntu-latest
     steps:
@@ -15,16 +15,6 @@ jobs:
         with:
           name: build.zip
           path: .github/build.zip
-
-  test-cdk:
-    name: Lint and Test CDK
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 18
-      - run: .github/scripts/lint_test_build_cdk.sh
 
   deploy:
     name: Deploy

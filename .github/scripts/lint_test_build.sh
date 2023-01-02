@@ -6,6 +6,19 @@ set -euo pipefail
 echo "--- 🚀 Installing npm dependencies..."
 npm ci
 
+# Ok lets's jump into our CDK directory
+cd backend
+
+# Install our npm dependencies
+echo "--- 🚀 Installing npm dependencies..."
+npm ci
+
+echo "--- 🚀 Run lint..."
+npm run lint
+
+# Ok lets's jump back into our Next directory
+cd ..
+
 echo "--- 🚀 Run next build..."
 npm run build
 
