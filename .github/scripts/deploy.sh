@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Ok lets's jump into our CDK directory
-cd .github
+cd backend
 
 # Unzip the build artifact
 echo "--- 🚀 Unzipping the build..."
@@ -21,5 +21,5 @@ npx cdk \
   --execute true \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
-  --app "ts-node ../backend/src/app.ts" \
+  --app "ts-node src/app.ts" \
   deploy 'clubwoof-website-dev clubwoof-backend-dev'

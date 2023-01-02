@@ -2,7 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change beforePath="$PROJECT_DIR$/.github/build.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.2bc265c5e0569aeb24a6349c15bd54e76e845892376515e036627ab0cc70bb64/index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.3f51abb709b8e65167a45aeed02bab11540603d909005d7148230ba5ce6c74d7/__entrypoint__.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.3f51abb709b8e65167a45aeed02bab11540603d909005d7148230ba5ce6c74d7/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.5d8d1d0aacea23824c62f362e1e3c14b7dd14a31c71b53bfae4d14a6373c5510.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/GFCYHFaIYEEe_tETBKGzF/_buildManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/GFCYHFaIYEEe_tETBKGzF/_ssgManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/chunks/framework-114634acb84f8baa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/chunks/main-f8a164d78cff8422.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/chunks/pages/_app-bf55c49910772dbb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/chunks/pages/_error-8353112a01355ec2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/chunks/pages/index-54619e0d36cd0eb8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/chunks/webpack-8fa1640cc84ba8fe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/css/6ab5f331517928b5.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/css/77e878d72d98d937.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/media/2aaf0723e720e8b9.p.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/media/9c4f34569c9b36ca.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/media/ae9ae6716d4f8bf8.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/media/b1db3e28af9ef94a.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/media/b967158bc7d7a9fb.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/media/c0f5ec5bbf5913b7.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/_next/static/media/d1d9458b69004127.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/thirteen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/cdk.out/asset.d9655efd888ea56e787d49f6a6d2f3895373107c1dd0d970ef531d71ddab1308/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/GFCYHFaIYEEe_tETBKGzF/_buildManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/GFCYHFaIYEEe_tETBKGzF/_ssgManifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/chunks/framework-114634acb84f8baa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/chunks/main-f8a164d78cff8422.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/chunks/pages/_app-bf55c49910772dbb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/chunks/pages/_error-8353112a01355ec2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/chunks/pages/index-54619e0d36cd0eb8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/chunks/webpack-8fa1640cc84ba8fe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/css/6ab5f331517928b5.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/css/77e878d72d98d937.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/media/2aaf0723e720e8b9.p.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/media/9c4f34569c9b36ca.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/media/ae9ae6716d4f8bf8.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/media/b1db3e28af9ef94a.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/media/b967158bc7d7a9fb.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/media/c0f5ec5bbf5913b7.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/_next/static/media/d1d9458b69004127.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/thirteen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/out/vercel.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/scripts/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +108,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/.github" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/.github/deploy/src" />
       <recent name="$PROJECT_DIR$/.github/backend/src" />
-      <recent name="$PROJECT_DIR$/.github/backend" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

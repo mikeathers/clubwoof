@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export -o .github/out",
+    "export": "next export -o backend/out",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
