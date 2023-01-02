@@ -10,11 +10,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18
-      - run: .github/backend/scripts/lint_test_build.sh
+      - run: .github/scripts/lint_test_build.sh
       - uses: actions/upload-artifact@v2
         with:
           name: build.zip
-          path: .github/backend/build.zip
+          path: .github/build.zip
 
   test-cdk:
     name: Lint and Test CDK
