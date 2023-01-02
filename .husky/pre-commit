@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running commit hooks..."
+
+echo "Running lint command"
+npm run lint
+
+echo "Running tsc command"
+tsc
