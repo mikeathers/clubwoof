@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/certificate/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/route53/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/s3/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/backend-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/backend-stack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/backend-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/cognito/identity-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>

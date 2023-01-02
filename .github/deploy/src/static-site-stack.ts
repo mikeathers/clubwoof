@@ -10,9 +10,14 @@ import { createDistribution } from './aws/cloudfront/index'
 import { Function, FunctionCode } from 'aws-cdk-lib/aws-cloudfront'
 import { join } from 'path'
 
-export class StaticSiteInfraDemoStack extends Stack {
-  constructor(scope: Construct, id: string, deploymentEnvironment: 'dev' | 'prod', props?: StackProps) {
+interface StaticSiteStackProps extends StackProps {
+  deploymentEnvironment: 'prod' | 'dev'
+}
+
+export class StaticSiteStack extends Stack {
+  constructor(scope: Construct, id: string, props: StaticSiteStackProps) {
     super(scope, id, props)
+    const { deploymentEnvironment } = props
     const isProduction = deploymentEnvironment === 'prod'
     const domainName = 'clubwoof.co.uk'
     const url = isProduction ? 'clubwoof.co.uk' : 'dev.clubwoof.co.uk'
