@@ -8,7 +8,8 @@ import { BackendStack } from './backend-stack'
 
 const app = new App()
 
-new StaticSiteStack(app, `${CONFIG.STACK_PREFIX}-website-dev`, {
+new StaticSiteStack(app, 'clubwoof-website-dev', {
+  stackName: 'clubwoof-website-dev',
   env: {
     account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
@@ -17,7 +18,8 @@ new StaticSiteStack(app, `${CONFIG.STACK_PREFIX}-website-dev`, {
   deploymentEnvironment: 'dev',
 })
 
-new StaticSiteStack(app, `${CONFIG.STACK_PREFIX}-website-prod`, {
+new StaticSiteStack(app, 'clubwoof-website-prod', {
+  stackName: 'clubwoof-website-prod',
   env: {
     account: CONFIG.AWS_ACCOUNT_ID,
     region: CONFIG.AWS_DEFAULT_REGION,
@@ -26,8 +28,8 @@ new StaticSiteStack(app, `${CONFIG.STACK_PREFIX}-website-prod`, {
   deploymentEnvironment: 'prod',
 })
 
-new BackendStack(app, `${CONFIG.STACK_PREFIX}-backend-dev`, {
-  stackName: `${CONFIG.STACK_PREFIX}-dev`,
+new BackendStack(app, 'clubwoof-backend-dev', {
+  stackName: 'clubwoof-backend-dev',
   env: {
     account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
