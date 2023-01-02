@@ -21,5 +21,5 @@ npx cdk \
   --execute true \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
-  --app "ts-node ../backend/src/app.ts" \
+  --app "ts-node ./backend/src/app.ts" \
   deploy 'clubwoof-website-dev clubwoof-backend-dev'
