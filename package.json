@@ -8,7 +8,10 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "prettier:fix": "prettier \"./**/*\" --check --write",
+    "prettier:check": "prettier \"./**/*\" --check"
   },
   "dependencies": {
     "@next/font": "13.0.7",

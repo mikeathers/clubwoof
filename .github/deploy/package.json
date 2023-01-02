@@ -13,10 +13,7 @@
     "cdk-destroy": "npx aws-cdk destroy clubwoof-dev",
     "test": "jest",
     "watch": "tsc -w",
-    "build": "tsc",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "lint": "eslint  --ext js,jsx,ts,tsx --fix",
-    "prepare": "husky install"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.109",

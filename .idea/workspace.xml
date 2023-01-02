@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/aws/cloudfront/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/deploy/src/static-site-stack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
