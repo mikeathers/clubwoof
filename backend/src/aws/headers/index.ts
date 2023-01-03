@@ -5,10 +5,6 @@ export const getSecurityHeader = (scope: Stack) => {
   return new ResponseHeadersPolicy(scope, 'security-headers-response-header-policy', {
     comment: 'Security headers response header policy',
     securityHeadersBehavior: {
-      contentSecurityPolicy: {
-        override: true,
-        contentSecurityPolicy: "default-src 'self'",
-      },
       strictTransportSecurity: {
         override: true,
         accessControlMaxAge: Duration.days(2 * 365),

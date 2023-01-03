@@ -1,6 +1,6 @@
 import { Box, FormField, TextInput } from 'grommet'
 import { ContactInfo, Lock, MailOption } from 'grommet-icons'
-
+import Image from 'next/image'
 import { Layout } from '@clubwoof-components'
 import { colors } from '@clubwoof-styles'
 import { useMediaQueries } from '@clubwoof-hooks'
@@ -14,7 +14,7 @@ export const Register = () => {
   return (
     <Layout backgroundColor={'offWhite'} width={pageWidth}>
       <Container>
-        {/*<Image src="/logo.png" alt={'logo'} width={150} height={140} />*/}
+        <Image src="/logo.png" alt={'logo'} width={150} height={140} />
         <Heading>Hello Hooman, it&apos;s nice to meet you!</Heading>
         <Box gap="medium" width="medium">
           <RegisterForm>

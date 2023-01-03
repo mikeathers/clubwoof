@@ -6,7 +6,12 @@
   },
   "scripts": {
     "setup": "npm install && npm install --prefix src",
-    "deploy-prod": "npx cdk deploy *-prod",
+    "deploy-all-prod": "npx cdk deploy *-prod",
+    "deploy-frontend-prod": "npx cdk deploy clubwoof-website-prod",
+    "deploy-backend-prod": "npx cdk deploy clubwoof-backend-prod",
+    "deploy-all-dev": "npx cdk deploy *-dev",
+    "deploy-frontend-dev": "npx cdk deploy clubwoof-website-dev",
+    "deploy-backend-dev": "npx cdk deploy clubwoof-backend-dev",
     "test": "jest",
     "watch": "tsc -w",
     "build": "tsc",
