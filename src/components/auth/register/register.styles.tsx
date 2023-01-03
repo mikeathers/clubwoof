@@ -33,7 +33,6 @@ export const SubmitButton = styled(Button)`
   border: none;
   width: 150px;
   margin-top: ${spacing.space2x};
-  align-self: center;
   font-family: ${fonts.headingFont};
   color: ${colors.lightBlue};
 

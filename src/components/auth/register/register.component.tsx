@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Box, FormField, TextInput } from 'grommet'
 import { ContactInfo, Lock, MailOption } from 'grommet-icons'
 
@@ -15,7 +14,7 @@ export const Register = () => {
   return (
     <Layout backgroundColor={'offWhite'} width={pageWidth}>
       <Container>
-        <Image src="/logo.png" alt={'logo'} width={150} height={140} />
+        {/*<Image src="/logo.png" alt={'logo'} width={150} height={140} />*/}
         <Heading>Hello Hooman, it&apos;s nice to meet you!</Heading>
         <Box gap="medium" width="medium">
           <RegisterForm>
@@ -55,7 +54,7 @@ export const Register = () => {
                 placeholder={'*******'}
               />
             </FormField>
-            <Box gap="medium" width="large">
+            <Box gap="medium" width="small">
               <SubmitButton size={'large'} type={'submit'} label={"Let's go!"} />
             </Box>
           </RegisterForm>
