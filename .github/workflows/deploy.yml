@@ -33,7 +33,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build.zip
-          path: .github/backend
+          path: backend
       - run: .github/scripts/setBranch.sh
       - run: .github/scripts/deploy.sh
         env:
