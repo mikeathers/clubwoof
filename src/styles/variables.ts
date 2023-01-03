@@ -15,7 +15,7 @@ export const colors: Colors = {
   lightGreen: '#06D6A0',
   lightYellow: '#FFD166',
   lightPink: '#EF476F',
-  offWhite: '#fafafa',
+  pureWhite: '#fff',
   pureBlack: '#000',
   focusYellow: '#EBC160',
 }

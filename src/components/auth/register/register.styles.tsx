@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button, Form } from 'grommet'
+import { Button, Form, TextInput } from 'grommet'
 import {
   colors,
   fonts,
@@ -28,6 +28,21 @@ export const Heading = styled.h1`
 export const RegisterForm = styled(Form)`
   margin-bottom: ${spacing.space5x};
 `
+
+export const FormInput = styled(TextInput)`
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+  border-radius: 0;
+  margin-bottom: ${spacing.space3x};
+  display: flex;
+  align-items: center;
+
+  &:focus {
+    box-shadow: none;
+    border-bottom: 1px solid ${colors.lightYellow};
+  }
+`
+
 export const SubmitButton = styled(Button)`
   background: ${colors.lightYellow};
   border: none;

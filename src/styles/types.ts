@@ -45,7 +45,7 @@ export interface Colors {
   lightGreen: string
   lightYellow: string
   lightPink: string
-  offWhite: string
+  pureWhite: string
   pureBlack: string
   focusYellow: string
 }

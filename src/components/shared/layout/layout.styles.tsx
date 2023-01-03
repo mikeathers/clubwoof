@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
   width: 100%;
   margin: 0 auto;
   background-color: ${({ backgroundColor }) =>
-    backgroundColor ? colors[backgroundColor] : colors.offWhite};
+    backgroundColor ? colors[backgroundColor] : colors.pureWhite};
   min-height: 100vh;
 `
 
