@@ -1,0 +1,36 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "bin": {
+    "backend": "bin/backend.js"
+  },
+  "scripts": {
+    "setup": "npm install && npm install --prefix src",
+    "deploy-prod": "npx cdk deploy *-prod",
+    "test": "jest",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "lint": "eslint 'src/*.{ts,tsx}' --max-warnings 0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.109",
+    "@types/jest": "^29.2.3",
+    "@types/node": "18.11.9",
+    "@types/prettier": "2.6.0",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1274.0",
+    "eslint": "^8.30.0",
+    "husky": "^8.0.0",
+    "jest": "^29.3.1",
+    "prettier": "^2.8.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.9.3",
+    "typescript-eslint": "^0.0.1-alpha.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.54.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21"
+  }
+}
