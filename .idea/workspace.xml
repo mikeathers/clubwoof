@@ -2,18 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/auth/register/register.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/auth/register/register.styles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/auth/register/register.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/layout/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useMediaQueries/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useMediaQueries/useMediaQueries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/about.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/register.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/themes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/variables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/static-site-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prettier.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/prettier.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/hello.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Home.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,17 +64,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "code.cleanup.on.save": "true",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/michaelatherton/Development/clubwoof/.github/deploy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "/Users/michaelatherton/Development/clubwoof/backend/node_modules/eslint",
     "node.js.selected.package.standard": "",
+    "nodejs.jest.jest_package": "/Users/michaelatherton/Development/clubwoof/node_modules/jest",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/michaelatherton/Development/clubwoof/node_modules/prettier",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -59,12 +84,33 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/.github" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/.github/deploy/src" />
-      <recent name="$PROJECT_DIR$/.github/backend/src" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/hooks/useMediaQueries" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/assets/images" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Register Page.should render a page" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/auth/register/register.test.tsx" />
+      <test-names>
+        <test-name value="Register Page" />
+        <test-name value="should render a page" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.Register Page.should render a page" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -77,6 +123,7 @@
       <workItem from="1671633855646" duration="458000" />
       <workItem from="1671634361294" duration="155000" />
       <workItem from="1671839125094" duration="9776000" />
+      <workItem from="1672749221876" duration="10689000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
