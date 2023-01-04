@@ -2,19 +2,19 @@
 
 set -euo pipefail
 
-echo "--- 🚀 Remove old next files..."
-rm -r .next
-
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."
-npm ci
+#npm ci
 
 # Ok lets's jump into our CDK directory
 cd backend
 
+echo "--- 🚀 Remove old next files..."
+rm -r out
+
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."
-npm ci
+#npm ci
 
 echo "--- 🚀 Run lint..."
 npm run lint
