@@ -5,6 +5,8 @@ function handler(event) {
 
   if (uri && !uri.match(hasExtension)) {
     request.uri = `${uri}.html`
+  } else if (uri.endsWith('/')) {
+    request.uri += 'index.html'
   }
 
   return request
