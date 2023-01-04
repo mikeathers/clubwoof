@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."
-#npm ci
+npm ci
 
 # Ok lets's jump into our CDK directory
 cd backend
@@ -14,7 +14,7 @@ rm -r out
 
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."
-#npm ci
+npm ci
 
 echo "--- 🚀 Run lint..."
 npm run lint
