@@ -11,7 +11,9 @@ import {
   FormContainer,
   FormInput,
   Heading,
+  HeadingContainer,
   RegisterForm,
+  SubHeading,
   SubmitButton,
   Text,
 } from './register.styles'
@@ -36,7 +38,10 @@ export const Register = () => {
             width={isMobile ? 140 : 200}
           />
         </Box>
-        <Heading>Hello Hooman, it&apos;s nice to meet you!</Heading>
+        <HeadingContainer>
+          <Heading>Hello Hooman, it&apos;s nice to meet you!</Heading>
+          <SubHeading>Register today and join the club!</SubHeading>
+        </HeadingContainer>
         <FormContainer>
           <RegisterForm>
             <FormInput

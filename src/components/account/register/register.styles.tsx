@@ -22,14 +22,22 @@ export const Container = styled.div`
 export const DogImage = styled(Image)`
   z-index: 1;
 `
+export const HeadingContainer = styled.div`
+  margin-bottom: ${spacing.space7x};
+`
 
 export const Heading = styled.h1`
   font-family: ${fonts.headingFont};
   font-size: ${fontSizes.xxxl};
+  font-weight: ${fontWeights.medium};
   color: ${colors.lightBlue};
-  margin-bottom: ${spacing.space7x};
   line-height: ${lineHeights.display};
 `
+export const SubHeading = styled.h2`
+  font-size: ${fontSizes.m};
+  font-weight: ${fontWeights.medium};
+`
+
 export const RegisterForm = styled(Form)`
   margin-bottom: ${spacing.space5x};
 `
