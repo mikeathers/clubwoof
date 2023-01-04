@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change beforePath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/register.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/functions/mapping-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/mapping-function.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +106,7 @@
       <workItem from="1671633855646" duration="458000" />
       <workItem from="1671634361294" duration="155000" />
       <workItem from="1671839125094" duration="9776000" />
-      <workItem from="1672749221876" duration="27682000" />
+      <workItem from="1672749221876" duration="29184000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

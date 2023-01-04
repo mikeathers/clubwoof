@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+echo "--- 🚀 Remove old next files..."
+rm -r .next
+
 # Install our npm dependencies
 echo "--- 🚀 Installing npm dependencies..."
 npm ci

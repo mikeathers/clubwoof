@@ -1,12 +1,11 @@
 function handler(event) {
   var request = event.request
   var uri = request.uri
-  var hasExtension = /(.+)\.[a-zA-Z0-9]{2,5}$/
 
-  if (uri && !uri.match(hasExtension)) {
-    request.uri = `${uri}.html`
-  } else if (uri.endsWith('/')) {
+  if (uri.endsWith('/')) {
     request.uri += 'index.html'
+  } else if (!uri.includes('.')) {
+    request.uri = `${uri}.html`
   }
 
   return request
