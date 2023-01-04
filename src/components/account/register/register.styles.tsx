@@ -1,9 +1,12 @@
 import styled from 'styled-components'
-import { Button, Form, TextInput } from 'grommet'
+import { Button, Form, Text as GrommetText, TextInput } from 'grommet'
+import Image from 'next/image'
+
 import {
   colors,
   fonts,
   fontSizes,
+  fontWeights,
   lineHeights,
   mediaQueries,
   spacing,
@@ -11,18 +14,20 @@ import {
 
 export const Container = styled.div`
   height: 100%;
-  padding: ${spacing.space1x};
-
+  padding: ${spacing.space5x} ${spacing.space3x};
   @media (${mediaQueries.s}) {
     padding: 0;
   }
+`
+export const DogImage = styled(Image)`
+  z-index: 1;
 `
 
 export const Heading = styled.h1`
   font-family: ${fonts.headingFont};
   font-size: ${fontSizes.xxxl};
   color: ${colors.lightBlue};
-  margin-bottom: ${spacing.space4x};
+  margin-bottom: ${spacing.space7x};
   line-height: ${lineHeights.display};
 `
 export const RegisterForm = styled(Form)`
@@ -31,7 +36,7 @@ export const RegisterForm = styled(Form)`
 
 export const FormInput = styled(TextInput)`
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
   border-radius: 0;
   margin-bottom: ${spacing.space3x};
   display: flex;
@@ -44,14 +49,32 @@ export const FormInput = styled(TextInput)`
 `
 
 export const SubmitButton = styled(Button)`
-  background: ${colors.lightYellow};
+  background: ${colors.lightBlue};
   border: none;
-  width: 150px;
+  width: 100%;
   margin-top: ${spacing.space2x};
-  font-family: ${fonts.headingFont};
-  color: ${colors.lightBlue};
+  font-family: ${fonts.bodyFont};
+  color: ${colors.pureWhite};
+  border-radius: 10px;
+  font-size: ${fontSizes.m};
+  font-weight: ${fontWeights.bold};
 
   &:hover {
-    box-shadow: 0px 0px 0px 2px ${colors.lightYellow};
+    filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.161));
+  }
+`
+export const FormContainer = styled.div`
+  width: 80%;
+  margin: 0 auto;
+`
+
+export const Text = styled(GrommetText)`
+  font-size: ${fontSizes.s};
+  margin-top: ${spacing.space2x};
+
+  & > a {
+    font-weight: ${fontWeights.bold};
+    color: ${colors.lightBlue};
+    text-decoration: none;
   }
 `

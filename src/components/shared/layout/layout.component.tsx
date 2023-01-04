@@ -1,25 +1,48 @@
 import { ReactNode } from 'react'
-import { Container, ContainerProps, Content, ContentProps } from './layout.styles'
+import {
+  Bubble,
+  BubblePositioning,
+  Container,
+  ContainerProps,
+  Content,
+  ContentProps,
+} from './layout.styles'
 import { defaultTheme } from '@clubwoof-styles'
 import { Grommet } from 'grommet'
 
 interface LayoutProps extends ContentProps, ContainerProps {
   children: ReactNode | ReactNode[]
+  bubbleOnePositioning: BubblePositioning
+  bubbleTwoPositioning: BubblePositioning
 }
 
 export const Layout: React.FC<LayoutProps> = ({
   children,
-  width,
   paddingTop,
   backgroundColor,
+  bubbleOnePositioning,
+  bubbleTwoPositioning,
 }) => {
   return (
     <Grommet theme={defaultTheme}>
       <Container backgroundColor={backgroundColor}>
-        <Content width={width} paddingTop={paddingTop}>
-          {children}
-        </Content>
+        <Bubble
+          src={'/yellow-bubble.svg'}
+          alt={'bubbles'}
+          width={100}
+          height={100}
+          position={bubbleOnePositioning}
+        />
+        <Content paddingTop={paddingTop}>{children}</Content>
       </Container>
+
+      <Bubble
+        src={'/yellow-bubble.svg'}
+        alt={'bubbles'}
+        width={100}
+        height={100}
+        position={bubbleTwoPositioning}
+      />
     </Grommet>
   )
 }

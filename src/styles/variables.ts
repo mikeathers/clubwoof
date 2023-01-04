@@ -36,7 +36,7 @@ export const spacing: Spacing = {
 
 export const fonts: Fonts = {
   headingFont: 'Nerko One',
-  bodyFont: 'Montserrat',
+  bodyFont: 'Open Sans',
 }
 
 export const fontSizes: FontSizes = {
