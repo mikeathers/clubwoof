@@ -47,7 +47,8 @@ export interface Colors {
   lightPink: string
   pureWhite: string
   pureBlack: string
-  focusYellow: string
+  purple: string
+  turquoise: string
 }
 
 export interface MediaQueries {

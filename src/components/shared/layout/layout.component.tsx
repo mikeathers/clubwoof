@@ -27,7 +27,7 @@ export const Layout: React.FC<LayoutProps> = ({
     <Grommet theme={defaultTheme}>
       <Container backgroundColor={backgroundColor}>
         <Bubble
-          src={'/yellow-bubble.svg'}
+          src={'/pink-bubbles.svg'}
           alt={'bubbles'}
           width={100}
           height={100}
@@ -37,7 +37,7 @@ export const Layout: React.FC<LayoutProps> = ({
       </Container>
 
       <Bubble
-        src={'/yellow-bubble.svg'}
+        src={'/pink-bubbles.svg'}
         alt={'bubbles'}
         width={100}
         height={100}

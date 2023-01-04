@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/account/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/dog-on-phone.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/thirteen.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/yellow-bubble.svg" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/pink-bubbles.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/purple-bubbles.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/themes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/themes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/variables.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +109,7 @@
       <workItem from="1671634361294" duration="155000" />
       <workItem from="1671839125094" duration="9776000" />
       <workItem from="1672749221876" duration="29860000" />
+      <workItem from="1672835115463" duration="2393000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -147,7 +145,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx</url>
           <line>45</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

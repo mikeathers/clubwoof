@@ -12,10 +12,10 @@ import {
   FormInput,
   Heading,
   HeadingContainer,
+  LoginText,
   RegisterForm,
   SubHeading,
   SubmitButton,
-  Text,
 } from './register.styles'
 import Link from 'next/link'
 import { Box } from 'grommet'
@@ -45,28 +45,28 @@ export const Register = () => {
         <FormContainer>
           <RegisterForm>
             <FormInput
-              icon={<HiUser color={colors.lightBlue} size={'21'} />}
+              icon={<HiUser color={colors.lightPink} size={'21'} />}
               aria-label={'First name'}
               name={'first name'}
               type="name"
               placeholder={'First name'}
             />
             <FormInput
-              icon={<HiUser color={colors.lightBlue} size={'21'} />}
+              icon={<HiUser color={colors.lightPink} size={'21'} />}
               aria-label={'Last name'}
               name={'last name'}
               type="name"
               placeholder={'Last name'}
             />
             <FormInput
-              icon={<HiAtSymbol color={colors.lightBlue} size={'21'} />}
+              icon={<HiAtSymbol color={colors.lightPink} size={'21'} />}
               aria-label={'Email'}
               name={'email'}
               type="email"
               placeholder={'Email'}
             />
             <FormInput
-              icon={<BiLockAlt color={colors.lightBlue} size={'21'} />}
+              icon={<BiLockAlt color={colors.lightPink} size={'21'} />}
               aria-label={'Password'}
               name={'password'}
               type="password"
@@ -75,9 +75,9 @@ export const Register = () => {
 
             <SubmitButton size={'large'} type={'submit'} label={'Get started!'} />
             <Box align={'center'}>
-              <Text>
+              <LoginText>
                 Already part of the club? <Link href={'/account/login'}>Sign in</Link>
-              </Text>
+              </LoginText>
             </Box>
           </RegisterForm>
         </FormContainer>

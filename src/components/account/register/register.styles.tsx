@@ -34,7 +34,7 @@ export const Heading = styled.h1`
   line-height: ${lineHeights.display};
 `
 export const SubHeading = styled.h2`
-  font-size: ${fontSizes.m};
+  font-size: ${fontSizes.l};
   font-weight: ${fontWeights.medium};
 `
 
@@ -52,7 +52,7 @@ export const FormInput = styled(TextInput)`
 
   &:focus {
     box-shadow: none;
-    border-bottom: 1px solid ${colors.lightYellow};
+    border-bottom: 1px solid ${colors.lightPink};
   }
 `
 
@@ -76,13 +76,13 @@ export const FormContainer = styled.div`
   margin: 0 auto;
 `
 
-export const Text = styled(GrommetText)`
+export const LoginText = styled(GrommetText)`
   font-size: ${fontSizes.s};
   margin-top: ${spacing.space2x};
 
   & > a {
     font-weight: ${fontWeights.bold};
-    color: ${colors.lightBlue};
+    color: ${colors.lightPink};
     text-decoration: none;
   }
 `

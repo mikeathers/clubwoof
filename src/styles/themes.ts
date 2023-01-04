@@ -4,7 +4,7 @@ export const defaultTheme = {
   global: {
     colors: {
       brand: colors.lightBlue,
-      focus: colors.focusYellow, // added focus color
+      focus: colors.lightPink, // added focus color
     },
   },
   formField: {

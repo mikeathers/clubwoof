@@ -78,13 +78,14 @@ const rightBubblePositioning = css`
   }
 
   @media (${mediaQueries.m}) {
+    display: block;
     right: -400px;
     bottom: 0;
   }
 
   @media (${mediaQueries.xl}) {
     right: -350px;
-    bottom: 0px;
+    bottom: 0;
   }
 `
 
