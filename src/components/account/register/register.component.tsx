@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Box } from 'grommet'
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 
 import { Layout, TextInput } from '@clubwoof-components'
 import { useMediaQueries } from '@clubwoof-hooks'
@@ -16,31 +16,44 @@ import {
 } from './register.styles'
 import { colors } from '@clubwoof-styles'
 import { inputs } from './inputs'
-import { Controller, useForm } from 'react-hook-form'
+import { Controller, FieldValues, useForm } from 'react-hook-form'
 
 export const Register = () => {
   const { isMobile } = useMediaQueries()
   const { control, handleSubmit, formState } = useForm()
-  const firstNameInput = document.querySelector('[aria-label="First name"]')
-  const lastNameInput = document.querySelector('[aria-label="Last name"]')
-  const emailInput = document.querySelector('[aria-label="Email"]')
-  const passwordInput = document.querySelector('[aria-label="Password"]')
-  const submitButton = document.querySelector('[aria-label="Submit"]')
+  const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
+  const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
 
-  const inputLabels = [firstNameInput, lastNameInput, emailInput, passwordInput]
+  useEffect(() => {
+    const firstNameInput = document.querySelector(
+      '[aria-label="First name"]',
+    ) as HTMLInputElement
+    const lastNameInput = document.querySelector(
+      '[aria-label="Last name"]',
+    ) as HTMLInputElement
+    const emailInput = document.querySelector('[aria-label="Email"]') as HTMLInputElement
+    const passwordInput = document.querySelector(
+      '[aria-label="Password"]',
+    ) as HTMLInputElement
+    const submitButton = document.querySelector(
+      '[aria-label="Submit"]',
+    ) as HTMLButtonElement
+
+    setInputLabels([firstNameInput, lastNameInput, emailInput, passwordInput])
+    setSubmitButton(submitButton)
+  }, [])
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
     if (e.key === 'Enter') {
       if (index < inputs.length) {
-        const input = inputLabels[index] as HTMLInputElement
+        const input = inputLabels[index]
         if (input) {
           input.focus()
         }
       }
       if (index === inputs.length) {
-        const castedButton = submitButton as HTMLButtonElement
-        if (castedButton) {
-          castedButton.focus()
+        if (submitButton) {
+          submitButton.focus()
         }
       }
     }
@@ -48,14 +61,15 @@ export const Register = () => {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
+
     if (Object.keys(formState.errors).length > 0) return
     else {
       handleSubmit(submitForm)()
     }
   }
 
-  const submitForm = () => {
-    alert('FORM SUBMITTED')
+  const submitForm = (data: FieldValues) => {
+    console.log(data)
   }
 
   return (
@@ -78,7 +92,7 @@ export const Register = () => {
           <SubHeading>Register today and join the club!</SubHeading>
         </HeadingContainer>
         <FormContainer>
-          <form onSubmit={onSubmit}>
+          <form>
             {inputs.map((input, index) => (
               <div key={index}>
                 <Controller
@@ -104,7 +118,7 @@ export const Register = () => {
               </div>
             ))}
 
-            <SubmitButton type={'submit'} aria-label={'Submit'}>
+            <SubmitButton aria-label={'Submit'} onClick={onSubmit}>
               Get started!
             </SubmitButton>
 
