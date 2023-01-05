@@ -10,18 +10,20 @@ import { Text } from '../text'
 
 interface TextInputProps extends StyledTextInputProps {
   error?: string
+  // eslint-disable-next-line
   ref: React.RefObject<any> | null
 }
 export const TextInput: React.FC<TextInputProps> = (props) => {
+  const { error, icon } = props
   return (
-    <TextInputContainer error={!!props.error}>
-      <Icon>{props.icon}</Icon>
+    <TextInputContainer error={!!error}>
+      <Icon>{icon}</Icon>
       <Input {...props} />
 
       <ErrorContainer>
-        {props.error && (
-          <Text color={'red'} fontSize={'s'}>
-            {props.error}
+        {error && (
+          <Text color="red" fontSize="s">
+            {error}
           </Text>
         )}
       </ErrorContainer>

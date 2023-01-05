@@ -16,8 +16,13 @@ export class UserPoolConstruct {
   // @ts-ignore
   private postConfirmationTrigger: NodejsFunction
 
-  constructor(scope: Construct) {
+  private readonly deploymentEnvironment: DeploymentEnvironment
+  private readonly isProduction: boolean
+
+  constructor(scope: Construct, deploymentEnvironment: DeploymentEnvironment) {
     this.scope = scope
+    this.deploymentEnvironment = deploymentEnvironment
+    this.isProduction = this.deploymentEnvironment === 'prod'
     this.createLambdas()
     this.createUserPool()
   }
@@ -31,7 +36,7 @@ export class UserPoolConstruct {
       entry: join(__dirname, '..', 'cognito-triggers', 'custom-messages', 'index.ts'),
       bundling: { externalModules: ['aws-sdk'] },
       environment: {
-        FRONTEND_BASE_URL: CONFIG.FRONTEND_BASE_URL,
+        FRONTEND_BASE_URL: this.isProduction ? CONFIG.FRONTEND_BASE_URL_PROD : CONFIG.FRONTEND_BASE_URL_DEV,
       },
     })
     this.postConfirmationTrigger = new NodejsFunction(this.scope, 'post-confirmation', {

@@ -51,9 +51,9 @@ export class StaticSiteStack extends Stack {
       scope: this,
       bucket: assetsBucket,
       url,
-      certificate: certificate,
+      certificate,
       accessIdentity: cloudfrontOriginAccessIdentity,
-      responseHeaderPolicy: responseHeaderPolicy,
+      responseHeaderPolicy,
       functionAssociation: rewriteFunction,
       env: deploymentEnvironment,
     })

@@ -100,6 +100,7 @@ export const Bubble = styled(Image)<BubbleProps>`
         return topBubblePositioning
       case 'right':
         return rightBubblePositioning
+      default:
     }
   }}
 

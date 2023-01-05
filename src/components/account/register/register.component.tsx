@@ -1,9 +1,11 @@
+import React, { SyntheticEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Box } from 'grommet'
-import React, { SyntheticEvent, useEffect, useState } from 'react'
 
 import { Layout, TextInput } from '@clubwoof-components'
 import { useMediaQueries } from '@clubwoof-hooks'
+import { colors } from '@clubwoof-styles'
+import { Controller, FieldValues, useForm } from 'react-hook-form'
 import {
   Container,
   DogImage,
@@ -15,13 +17,11 @@ import {
   SubHeading,
   SubmitButton,
 } from './register.styles'
-import { colors } from '@clubwoof-styles'
 import { inputs } from './inputs'
-import { Controller, FieldValues, useForm } from 'react-hook-form'
 
 export const Register = () => {
   const { isMobile } = useMediaQueries()
-  const { control, handleSubmit, formState } = useForm()
+  const { control, handleSubmit, formState, reset } = useForm()
   const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
   const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
   const inputPattern = (inputName: string) => {
@@ -33,6 +33,16 @@ export const Register = () => {
     }
     return undefined
   }
+  const minLength = (inputName: string) => {
+    if (inputName === 'password') {
+      return {
+        value: 6,
+        message: 'Password must be at least 6 characters.',
+      }
+    }
+    return undefined
+  }
+
   useEffect(() => {
     const firstNameInput = document.querySelector(
       '[aria-label="First name"]',
@@ -44,12 +54,12 @@ export const Register = () => {
     const passwordInput = document.querySelector(
       '[aria-label="Password"]',
     ) as HTMLInputElement
-    const submitButton = document.querySelector(
+    const submitButtonElement = document.querySelector(
       '[aria-label="Submit"]',
     ) as HTMLButtonElement
 
     setInputLabels([firstNameInput, lastNameInput, emailInput, passwordInput])
-    setSubmitButton(submitButton)
+    setSubmitButton(submitButtonElement)
   }, [])
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
@@ -70,29 +80,37 @@ export const Register = () => {
 
   const handleClick = (e: SyntheticEvent) => {
     e.preventDefault()
-    console.log('submitted')
     if (Object.keys(formState.errors).length > 0) return
-    else {
-      handleSubmit(submitForm)()
-    }
+
+    handleSubmit(submitForm)()
   }
 
   const submitForm = (data: FieldValues) => {
-    console.log(data)
+    // const result = await Auth.signUp({
+    //   username: data.email.trim().toLowerCase(),
+    //   password: data.password,
+    //   attributes: {
+    //     given_name: data.firstName.trim().toLowerCase(),
+    //     family_name: data.lastName.trim().toLowerCase(),
+    //   },
+    // })
+
+    localStorage.setItem('TEMP_PASSWORD', data.password)
+    reset()
   }
 
   return (
     <Layout
-      bubbleOnePositioning={'top'}
-      bubbleTwoPositioning={'right'}
-      backgroundColor={'pureWhite'}
+      bubbleOnePositioning="top"
+      bubbleTwoPositioning="right"
+      backgroundColor="pureWhite"
     >
       <Container>
-        {!isMobile && <Logo src={'/logo.png'} alt={'logo'} height={140} width={140} />}
-        <Box align={'center'}>
+        {!isMobile && <Logo src="/logo.png" alt="logo" height={140} width={140} />}
+        <Box align="center">
           <DogImage
-            src={'/dog-on-phone.svg'}
-            alt={'dog on phone'}
+            src="/dog-on-phone.svg"
+            alt="dog on phone"
             height={isMobile ? 140 : 200}
             width={isMobile ? 140 : 200}
           />
@@ -109,12 +127,12 @@ export const Register = () => {
                 render={({ field }) => (
                   <TextInput
                     {...field}
-                    icon={<input.icon color={colors.lightBlue} size={'21'} />}
+                    icon={<input.icon color={colors.lightBlue} size="21" />}
                     aria-label={input.ariaLabel}
                     type={input.type}
                     placeholder={input.placeholder}
                     onKeyDown={(e) => handleKeyPress(e, index + 1)}
-                    withoutBorder={true}
+                    withoutBorder
                     ref={null}
                     error={
                       formState.errors[input.name]?.message &&
@@ -124,21 +142,22 @@ export const Register = () => {
                 )}
                 name={input.name}
                 control={control}
-                defaultValue={''}
+                defaultValue=""
                 rules={{
                   required: `${input.ariaLabel} is required`,
                   pattern: inputPattern(input.name),
+                  minLength: minLength(input.name),
                 }}
               />
             ))}
 
-            <SubmitButton type={'button'} aria-label={'Submit'} onClick={handleClick}>
+            <SubmitButton type="button" aria-label="Submit" onClick={handleClick}>
               Get started!
             </SubmitButton>
 
-            <Box align={'center'}>
+            <Box align="center">
               <LoginText>
-                Already part of the club? <Link href={'/account/login'}>Sign in</Link>
+                Already part of the club? <Link href="/account/login">Sign in</Link>
               </LoginText>
             </Box>
           </form>

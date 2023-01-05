@@ -1,0 +1,1 @@
+{  "extends": "./tsconfig.json",  /* Includes for linting, to supress not being linted errors */  "include": [    "src/**/*.ts",    "src/**/*.js",    "**/*.js",    "**/*.ts",    "src/**/*"  ],  /* Test files are not excluded, because we still want them to be linted */  "exclude": ["node_modules", "**/node_modules/*", "cdk.out"]}
