@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  ErrorContainer,
   Icon,
   StyledTextInputProps,
   TextInput as Input,
@@ -16,7 +17,14 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
     <TextInputContainer error={!!props.error}>
       <Icon>{props.icon}</Icon>
       <Input {...props} />
-      {props.error && <Text color={'red'}>{props.error}</Text>}
+
+      <ErrorContainer>
+        {props.error && (
+          <Text color={'red'} fontSize={'s'}>
+            {props.error}
+          </Text>
+        )}
+      </ErrorContainer>
     </TextInputContainer>
   )
 }

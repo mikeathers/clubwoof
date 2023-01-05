@@ -11,6 +11,7 @@ import {
   Heading,
   HeadingContainer,
   LoginText,
+  Logo,
   SubHeading,
   SubmitButton,
 } from './register.styles'
@@ -87,6 +88,7 @@ export const Register = () => {
       backgroundColor={'pureWhite'}
     >
       <Container>
+        {!isMobile && <Logo src={'/logo.png'} alt={'logo'} height={140} width={140} />}
         <Box align={'center'}>
           <DogImage
             src={'/dog-on-phone.svg'}
@@ -97,7 +99,7 @@ export const Register = () => {
         </Box>
         <HeadingContainer>
           <Heading>Hello Hooman, it&apos;s nice to meet you!</Heading>
-          <SubHeading>Register today and join the club!</SubHeading>
+          <SubHeading>Register today and join the club</SubHeading>
         </HeadingContainer>
         <FormContainer>
           <form>

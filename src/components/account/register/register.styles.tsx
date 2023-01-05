@@ -22,6 +22,12 @@ export const Container = styled.div`
 export const DogImage = styled(Image)`
   z-index: 1;
 `
+export const Logo = styled(Image)`
+  position: absolute;
+  top: 10px;
+  right: 100px;
+`
+
 export const HeadingContainer = styled.div`
   margin-bottom: ${spacing.space7x};
 `

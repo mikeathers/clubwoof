@@ -64,8 +64,8 @@ export const TextInputContainer = styled.div<TextInputContainerProps>`
   margin-bottom: ${spacing.space3x};
 
   p {
-    padding-left: ${({ error }) => error && '16px'};
-    padding-top: ${({ error }) => error && '8px'};
+    padding-left: ${({ error }) => error && spacing.space2x};
+    padding-top: ${({ error }) => error && spacing.spaceHalfx};
   }
 `
 export const TextInput = styled.input<StyledTextInputProps>`
@@ -77,4 +77,7 @@ export const Icon = styled.div`
   position: absolute;
   left: 12px;
   top: 8px;
+`
+export const ErrorContainer = styled.div`
+  height: 16px;
 `

@@ -1,4 +1,5 @@
 export interface Spacing {
+  spaceHalfx: string
   space1x: string
   space2x: string
   space3x: string

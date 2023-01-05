@@ -11,19 +11,20 @@ import {
 
 export const colors: Colors = {
   darkBlue: '#355070',
-  lightBlue: '#00bbf9',
+  lightBlue: '#00BBF9',
   green: '#06D6A0',
-  yellow: '#fee440',
-  pink: '#f15bb5',
+  yellow: '#FEE440',
+  pink: '#F15BB5',
   purple: '#9B5ED5',
   turquoise: '#00F5D4',
-  pureWhite: '#fff',
+  pureWhite: '#FFF',
   pureBlack: '#000',
   red: '#E42929',
 }
 
 const baseSpacing = 8
 export const spacing: Spacing = {
+  spaceHalfx: `${baseSpacing / 2}px`,
   space1x: `${baseSpacing}px`,
   space2x: `${baseSpacing * 2}px`,
   space3x: `${baseSpacing * 3}px`,
