@@ -7,7 +7,7 @@
     "build": "next build",
     "export": "next export -o backend/out",
     "start": "next start",
-    "lint": "eslint src/ --ext js,jsx,ts,tsx --fix --ignore-pattern backend",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix --ext js,jsx,ts,tsx --max-warnings 0",
     "prepare": "husky install",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "prettier:fix": "prettier -w src/* backend/src/*",

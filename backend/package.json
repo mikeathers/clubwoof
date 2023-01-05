@@ -15,7 +15,7 @@
     "test": "jest",
     "watch": "tsc -w",
     "build": "tsc",
-    "lint": "eslint src/ --ext ts,tsx --fix --ignore-pattern out"
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix --ext js,jsx,ts,tsx --max-warnings 0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.109",

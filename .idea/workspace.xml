@@ -2,49 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/account/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/account/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/certificate/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/headers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/headers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/route53/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/route53/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/s3/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/backend-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message-entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message-entry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/add-user-to-group.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/add-user-to-group.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/post-confirmation-entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/post-confirmation-entry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/static-site-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prettier.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/prettier.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/inputs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/inputs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/text-input/text-input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text-input/text-input.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/text-input/text-input.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text-input/text-input.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/text/text.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text/text.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/text/text.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text/text.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useMediaQueries/useMediaQueries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useMediaQueries/useMediaQueries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/hello.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/themes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/themes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +161,7 @@
       <workItem from="1671634361294" duration="155000" />
       <workItem from="1671839125094" duration="9776000" />
       <workItem from="1672749221876" duration="29860000" />
-      <workItem from="1672835115463" duration="44370000" />
+      <workItem from="1672835115463" duration="45275000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
