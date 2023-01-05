@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button, Text as GrommetText } from 'grommet'
+import { Text as GrommetText } from 'grommet'
 import Image from 'next/image'
 
 import {
@@ -43,7 +43,7 @@ export const SubHeading = styled.h2`
   }
 `
 
-export const SubmitButton = styled(Button)`
+export const SubmitButton = styled.button`
   background: ${colors.lightBlue};
   border: none;
   width: 100%;
@@ -53,9 +53,14 @@ export const SubmitButton = styled(Button)`
   border-radius: 10px;
   font-size: ${fontSizes.m};
   font-weight: ${fontWeights.bold};
+  height: 38px;
 
   &:hover {
     filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.161));
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${colors.pink};
   }
 `
 export const FormContainer = styled.div`

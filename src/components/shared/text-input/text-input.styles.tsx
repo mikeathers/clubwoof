@@ -2,9 +2,14 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { colors, fontSizes, lineHeights, spacing } from '@clubwoof-styles'
 
-export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface StyledTextInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   withoutBorder?: boolean
   icon: JSX.Element
+}
+
+interface TextInputContainerProps {
+  error: boolean
 }
 
 const withBorder = css`
@@ -35,7 +40,6 @@ const withoutBorder = css`
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);
   border-radius: 0;
-  margin-bottom: ${spacing.space3x};
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -52,31 +56,25 @@ const withoutBorder = css`
   }
 `
 
-export const TextInputContainer = styled.div`
+export const TextInputContainer = styled.div<TextInputContainerProps>`
   position: relative;
   width: 100%;
   font-size: ${fontSizes.m};
   line-height: ${lineHeights.body};
+  margin-bottom: ${spacing.space3x};
+
+  p {
+    padding-left: ${({ error }) => error && '16px'};
+    padding-top: ${({ error }) => error && '8px'};
+  }
 `
-export const TextInput = styled.input<TextInputProps>`
+export const TextInput = styled.input<StyledTextInputProps>`
   width: 100%;
   ${(props) => (props.withoutBorder ? withoutBorder : withBorder)}
 `
 
 export const Icon = styled.div`
   position: absolute;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-packjustify: center;
-  -webkit-justify: center;
-  -ms-flex-packjustify: center;
-  justify: center;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  pointer-events: none;
   left: 12px;
+  top: 8px;
 `

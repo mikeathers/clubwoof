@@ -19,6 +19,7 @@ export const colors: Colors = {
   turquoise: '#00F5D4',
   pureWhite: '#fff',
   pureBlack: '#000',
+  red: '#E42929',
 }
 
 const baseSpacing = 8

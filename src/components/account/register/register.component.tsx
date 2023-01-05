@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Box } from 'grommet'
-import React, { FormEvent, useEffect, useState } from 'react'
+import React, { SyntheticEvent, useEffect, useState } from 'react'
 
 import { Layout, TextInput } from '@clubwoof-components'
 import { useMediaQueries } from '@clubwoof-hooks'
@@ -23,7 +23,15 @@ export const Register = () => {
   const { control, handleSubmit, formState } = useForm()
   const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
   const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
-
+  const inputPattern = (inputName: string) => {
+    if (inputName === 'email') {
+      return {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: 'Please enter a valid email address e.g. joe@gmail.com',
+      }
+    }
+    return undefined
+  }
   useEffect(() => {
     const firstNameInput = document.querySelector(
       '[aria-label="First name"]',
@@ -59,9 +67,9 @@ export const Register = () => {
     }
   }
 
-  const onSubmit = (e: FormEvent) => {
+  const handleClick = (e: SyntheticEvent) => {
     e.preventDefault()
-
+    console.log('submitted')
     if (Object.keys(formState.errors).length > 0) return
     else {
       handleSubmit(submitForm)()
@@ -94,31 +102,35 @@ export const Register = () => {
         <FormContainer>
           <form>
             {inputs.map((input, index) => (
-              <div key={index}>
-                <Controller
-                  render={({ field }) => (
-                    <TextInput
-                      {...field}
-                      icon={<input.icon color={colors.lightBlue} size={'21'} />}
-                      aria-label={input.ariaLabel}
-                      type={input.type}
-                      placeholder={input.placeholder}
-                      onKeyDown={(e) => handleKeyPress(e, index + 1)}
-                      withoutBorder={true}
-                    />
-                  )}
-                  name={input.name}
-                  control={control}
-                  defaultValue={''}
-                  rules={{ required: true }}
-                />
-                {formState.errors[input.name]?.type === 'required' && (
-                  <p role="alert">{input.ariaLabel} is required</p>
+              <Controller
+                key={index}
+                render={({ field }) => (
+                  <TextInput
+                    {...field}
+                    icon={<input.icon color={colors.lightBlue} size={'21'} />}
+                    aria-label={input.ariaLabel}
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    onKeyDown={(e) => handleKeyPress(e, index + 1)}
+                    withoutBorder={true}
+                    ref={null}
+                    error={
+                      formState.errors[input.name]?.message &&
+                      `${formState.errors[input.name]?.message}`
+                    }
+                  />
                 )}
-              </div>
+                name={input.name}
+                control={control}
+                defaultValue={''}
+                rules={{
+                  required: `${input.ariaLabel} is required`,
+                  pattern: inputPattern(input.name),
+                }}
+              />
             ))}
 
-            <SubmitButton aria-label={'Submit'} onClick={onSubmit}>
+            <SubmitButton type={'button'} aria-label={'Submit'} onClick={handleClick}>
               Get started!
             </SubmitButton>
 
