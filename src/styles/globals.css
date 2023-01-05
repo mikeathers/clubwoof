@@ -6,3 +6,7 @@ body {
   margin: 0;
   font-family: 'Open Sans';
 }
+
+textarea:focus, input:focus{
+  outline: none;
+}

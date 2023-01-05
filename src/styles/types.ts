@@ -42,9 +42,9 @@ export interface LineHeights {
 export interface Colors {
   darkBlue: string
   lightBlue: string
-  lightGreen: string
-  lightYellow: string
-  lightPink: string
+  green: string
+  yellow: string
+  pink: string
   pureWhite: string
   pureBlack: string
   purple: string

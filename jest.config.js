@@ -14,8 +14,8 @@ const customJestConfig = {
     '^@clubwoof-styles$': '<rootDir>/src/styles',
     '^@clubwoof-hooks$': '<rootDir>/src/hooks',
   },
-  testEnvironment: 'jest-environment-jsdom-sixteen',
   preset: 'ts-jest',
+  testEnvironment: 'jsdom',
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

@@ -10,17 +10,15 @@ import {
 } from './types'
 
 export const colors: Colors = {
-  darkBlue: '#031D25',
-  // lightBlue: '#00A8DE',
+  darkBlue: '#355070',
   lightBlue: '#00bbf9',
-  lightGreen: '#06D6A0',
-  // lightYellow: '#FF1B66',
-  lightYellow: '#fee440',
-  lightPink: '#f15bb5',
-  pureWhite: '#fff',
-  pureBlack: '#000',
+  green: '#06D6A0',
+  yellow: '#fee440',
+  pink: '#f15bb5',
   purple: '#9B5ED5',
   turquoise: '#00F5D4',
+  pureWhite: '#fff',
+  pureBlack: '#000',
 }
 
 const baseSpacing = 8

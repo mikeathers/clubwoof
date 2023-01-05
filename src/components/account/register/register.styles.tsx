@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button, Form, Text as GrommetText, TextInput } from 'grommet'
+import { Button, Text as GrommetText } from 'grommet'
 import Image from 'next/image'
 
 import {
@@ -34,25 +34,12 @@ export const Heading = styled.h1`
   line-height: ${lineHeights.display};
 `
 export const SubHeading = styled.h2`
-  font-size: ${fontSizes.l};
-  font-weight: ${fontWeights.medium};
-`
+  font-size: ${fontSizes.m};
+  font-weight: ${fontWeights.semibold};
+  color: ${colors.darkBlue};
 
-export const RegisterForm = styled(Form)`
-  margin-bottom: ${spacing.space5x};
-`
-
-export const FormInput = styled(TextInput)`
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
-  border-radius: 0;
-  margin-bottom: ${spacing.space3x};
-  display: flex;
-  align-items: center;
-
-  &:focus {
-    box-shadow: none;
-    border-bottom: 1px solid ${colors.lightPink};
+  @media (${mediaQueries.l}) {
+    font-size: ${fontSizes.l};
   }
 `
 
@@ -82,7 +69,7 @@ export const LoginText = styled(GrommetText)`
 
   & > a {
     font-weight: ${fontWeights.bold};
-    color: ${colors.lightPink};
+    color: ${colors.pink};
     text-decoration: none;
   }
 `
