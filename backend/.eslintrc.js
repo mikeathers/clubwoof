@@ -12,7 +12,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.eslint.json',
-    tsconfigRootDir: './backend',
+    tsconfigRootDir: './',
   },
   plugins: ['import', '@typescript-eslint', 'jest', 'prettier'],
   extends: [
