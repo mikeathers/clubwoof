@@ -4,7 +4,7 @@
 echo "Running commit hooks..."
 
 echo "Running lint command"
-#npm run lint
+npm run lint
 
 echo "Running type-check command"
 npm run type-check

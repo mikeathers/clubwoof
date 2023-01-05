@@ -7,7 +7,6 @@ module.exports = {
     '.prettierrc.js',
     '.eslintrc.js',
     'out',
-    '*.d.ts',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

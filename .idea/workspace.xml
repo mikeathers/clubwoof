@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
       <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/Users/michaelatherton/Development/clubwoof/src",
+    "last_opened_file_path": "/Users/michaelatherton/Development/clubwoof/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "/Users/michaelatherton/Development/clubwoof/backend/node_modules/eslint",
@@ -57,8 +59,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/.github/deploy" />
       <recent name="$PROJECT_DIR$/.github" />
     </key>
@@ -160,7 +162,7 @@
       <workItem from="1671634361294" duration="155000" />
       <workItem from="1671839125094" duration="9776000" />
       <workItem from="1672749221876" duration="29860000" />
-      <workItem from="1672835115463" duration="48721000" />
+      <workItem from="1672835115463" duration="49568000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -174,6 +176,47 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/backend/config.js" />
+        <option value="$PROJECT_DIR$/backend/src/backend-stack.js" />
+        <option value="$PROJECT_DIR$/backend/src/app.js" />
+        <option value="$PROJECT_DIR$/backend/src/static-site-stack.js" />
+        <option value="$PROJECT_DIR$/backend/src/app.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/static-site-stack.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.js" />
+        <option value="$PROJECT_DIR$/backend/src/aws/s3/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/aws/s3/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/aws/headers/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/aws/headers/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/aws/helpers/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/aws/helpers/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/aws/route53/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/aws/route53/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/aws/cloudfront/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/aws/cloudfront/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/aws/certificate/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/aws/certificate/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message-entry.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message-entry.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/post-confirmation-entry.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/add-user-to-group.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/index.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/post-confirmation-entry.js" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/index.d.ts" />
+        <option value="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/add-user-to-group.d.ts" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
