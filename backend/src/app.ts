@@ -11,9 +11,13 @@ const app = new App()
 new StaticSiteStack(app, 'clubwoof-website-dev', {
   stackName: 'clubwoof-website-dev',
   env: {
-    account: process.env.AWS_ACCOUNT_ID,
-    region: process.env.AWS_DEFAULT_REGION,
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
   },
+  // env: {
+  //   account: process.env.AWS_ACCOUNT_ID,
+  //   region: process.env.AWS_DEFAULT_REGION,
+  // },
   tags: {env: 'dev'},
   deploymentEnvironment: 'dev',
 })
@@ -30,9 +34,13 @@ new StaticSiteStack(app, 'clubwoof-website-prod', {
 
 new BackendStack(app, 'clubwoof-backend-dev', {
   stackName: 'clubwoof-backend-dev',
+  // env: {
+  //   account: process.env.AWS_ACCOUNT_ID,
+  //   region: process.env.AWS_DEFAULT_REGION,
+  // },
   env: {
-    account: process.env.AWS_ACCOUNT_ID,
-    region: process.env.AWS_DEFAULT_REGION,
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'dev'},
   deploymentEnvironment: 'dev',

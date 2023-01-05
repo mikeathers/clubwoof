@@ -11,6 +11,7 @@ import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {Construct} from 'constructs'
 import {Duration, RemovalPolicy} from 'aws-cdk-lib'
 import CONFIG from '../../config'
+import {DeploymentEnvironment} from '../types'
 
 export class UserPoolConstruct {
   // @ts-ignore

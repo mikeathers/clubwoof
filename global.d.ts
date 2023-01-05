@@ -1,1 +1,0 @@
-type DeploymentEnvironment = 'dev' | 'prod'

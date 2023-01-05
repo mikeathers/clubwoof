@@ -33,7 +33,6 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*",
-    "global.d.ts"
   ],
   "exclude": ["node_modules", "**/node_modules/*", "cdk.out", "out"]
 }

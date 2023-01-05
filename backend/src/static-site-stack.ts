@@ -7,9 +7,10 @@ import {createARecordForDistribution, getHostedZone} from './aws/route53/index'
 import {createCertificate} from './aws/certificate/index'
 import {getSecurityHeader} from './aws/headers'
 import {createDistribution} from './aws/cloudfront/index'
+import {DeploymentEnvironment} from './types'
 
 interface StaticSiteStackProps extends StackProps {
-  deploymentEnvironment: 'prod' | 'dev'
+  deploymentEnvironment: DeploymentEnvironment
 }
 
 export class StaticSiteStack extends Stack {

@@ -6,6 +6,7 @@ import {
   UserPoolClientConstruct,
   UserPoolConstruct,
 } from './cognito'
+import {DeploymentEnvironment} from './types'
 
 interface BackendStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
