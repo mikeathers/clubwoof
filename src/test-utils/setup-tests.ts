@@ -8,7 +8,7 @@ const localStorageMock = {
   removeItem: jest.fn(),
 }
 // eslint-disable-next-line
-window.localStorage.__proto__ = localStorageMock;
+window.localStorage.__proto__ = localStorageMock
 
 window.scrollTo = jest.fn()
 ;(window.IntersectionObserver as jest.Mock) = jest.fn(() => ({

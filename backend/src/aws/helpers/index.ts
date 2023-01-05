@@ -1,8 +1,8 @@
-import { Function, FunctionCode, OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront'
-import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam'
-import { IBucket } from 'aws-cdk-lib/aws-s3'
-import { Construct } from 'constructs'
-import { join } from 'path'
+import {Function, FunctionCode, OriginAccessIdentity} from 'aws-cdk-lib/aws-cloudfront'
+import {CanonicalUserPrincipal, PolicyStatement} from 'aws-cdk-lib/aws-iam'
+import {IBucket} from 'aws-cdk-lib/aws-s3'
+import {Construct} from 'constructs'
+import {join} from 'path'
 import CONFIG from '../../../config'
 
 export const isMasterBranch = (branchName: string): boolean => {
@@ -20,12 +20,12 @@ export interface GetUrlProps {
 }
 
 export const getBranchedSubDomainName = (props: GetSubDomainNameProps): string => {
-  const { subDomainName, branchName } = props
+  const {subDomainName, branchName} = props
   return isMasterBranch(branchName) ? subDomainName : `${subDomainName}-${branchName}`
 }
 
 export const getUrl = (props: GetUrlProps): string => {
-  const { domainName, branchedSubDomainName } = props
+  const {domainName, branchedSubDomainName} = props
   return `${branchedSubDomainName}.${domainName}`
 }
 
@@ -48,7 +48,7 @@ export interface GetStackNameProps {
 }
 
 export const getStackName = (props: GetStackNameProps): string => {
-  const { githubRepository, branchName } = props
+  const {githubRepository, branchName} = props
   const githubRepositoryName = getGithubRepositoryName(githubRepository)
   return `${githubRepositoryName}-${branchName}`
 }
@@ -66,7 +66,9 @@ export const handleAccessIdentity = (scope: Construct, bucket: IBucket) => {
       actions: ['s3:GetObject'],
       resources: [bucket.arnForObjects('*')],
       principals: [
-        new CanonicalUserPrincipal(cloudfrontOriginAccessIdentity.cloudFrontOriginAccessIdentityS3CanonicalUserId),
+        new CanonicalUserPrincipal(
+          cloudfrontOriginAccessIdentity.cloudFrontOriginAccessIdentityS3CanonicalUserId,
+        ),
       ],
     }),
   )
@@ -77,7 +79,9 @@ export const handleAccessIdentity = (scope: Construct, bucket: IBucket) => {
 export const getRewriteFunction = (scope: Construct, env: 'prod' | 'dev') => {
   return new Function(scope, `ViewerResponseFunction-${env}`, {
     functionName: `RedirectURIFunction-${env}`,
-    code: FunctionCode.fromFile({ filePath: join(__dirname, '..', '..', 'functions', 'mapping-function.js') }),
+    code: FunctionCode.fromFile({
+      filePath: join(__dirname, '..', '..', 'functions', 'mapping-function.js'),
+    }),
     comment: 'adds index.html to requests',
   })
 }

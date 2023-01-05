@@ -1,4 +1,4 @@
-import { Construct } from 'constructs'
+import {Construct} from 'constructs'
 import {
   CfnIdentityPool,
   CfnIdentityPoolRoleAttachment,
@@ -6,7 +6,7 @@ import {
   UserPool,
   UserPoolClient,
 } from 'aws-cdk-lib/aws-cognito'
-import { FederatedPrincipal, ManagedPolicy, Role } from 'aws-cdk-lib/aws-iam'
+import {FederatedPrincipal, ManagedPolicy, Role} from 'aws-cdk-lib/aws-iam'
 import CONFIG from '../../config'
 
 export class IdentityPoolConstruct {
@@ -63,7 +63,11 @@ export class IdentityPoolConstruct {
         },
         'sts:AssumeRoleWithWebIdentity',
       ),
-      managedPolicies: [ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSLambdaBasicExecutionRole')],
+      managedPolicies: [
+        ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AWSLambdaBasicExecutionRole',
+        ),
+      ],
     })
   }
 
@@ -82,7 +86,11 @@ export class IdentityPoolConstruct {
         },
         'sts:AssumeRoleWithWebIdentity',
       ),
-      managedPolicies: [ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSLambdaBasicExecutionRole')],
+      managedPolicies: [
+        ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AWSLambdaBasicExecutionRole',
+        ),
+      ],
     })
   }
 
@@ -101,7 +109,11 @@ export class IdentityPoolConstruct {
         },
         'sts:AssumeRoleWithWebIdentity',
       ),
-      managedPolicies: [ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSLambdaBasicExecutionRole')],
+      managedPolicies: [
+        ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AWSLambdaBasicExecutionRole',
+        ),
+      ],
     })
   }
 

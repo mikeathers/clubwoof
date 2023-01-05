@@ -1,4 +1,4 @@
-import { AWSError, CognitoIdentityServiceProvider, Response } from 'aws-sdk'
+import {AWSError, CognitoIdentityServiceProvider, Response} from 'aws-sdk'
 
 export function addUserToGroup({
   userPoolId,

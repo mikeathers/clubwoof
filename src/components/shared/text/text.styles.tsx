@@ -15,9 +15,9 @@ export interface StyledTextProps {
   fontWeight?: keyof FontWeights
 }
 export const Text = styled.p<StyledTextProps>`
-  font-size: ${({ fontSize }) => (fontSize ? fontSizes[fontSize] : fontSizes.m)};
-  color: ${({ color }) => (color ? colors[color] : colors.darkBlue)};
+  font-size: ${({fontSize}) => (fontSize ? fontSizes[fontSize] : fontSizes.m)};
+  color: ${({color}) => (color ? colors[color] : colors.darkBlue)};
   line-height: ${lineHeights.body};
-  font-weight: ${({ fontWeight }) =>
+  font-weight: ${({fontWeight}) =>
     fontWeight ? fontWeights[fontWeight] : fontWeights.medium};
 `

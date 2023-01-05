@@ -1,12 +1,12 @@
-import { Construct } from 'constructs'
-import { Stack, StackProps } from 'aws-cdk-lib'
-import { createBucket, createBucketDeployment } from './aws/s3/index'
+import {Construct} from 'constructs'
+import {Stack, StackProps} from 'aws-cdk-lib'
+import {createBucket, createBucketDeployment} from './aws/s3/index'
 import CONFIG from '../config'
-import { getRewriteFunction, handleAccessIdentity } from './aws/helpers/index'
-import { createARecordForDistribution, getHostedZone } from './aws/route53/index'
-import { createCertificate } from './aws/certificate/index'
-import { getSecurityHeader } from './aws/headers'
-import { createDistribution } from './aws/cloudfront/index'
+import {getRewriteFunction, handleAccessIdentity} from './aws/helpers/index'
+import {createARecordForDistribution, getHostedZone} from './aws/route53/index'
+import {createCertificate} from './aws/certificate/index'
+import {getSecurityHeader} from './aws/headers'
+import {createDistribution} from './aws/cloudfront/index'
 
 interface StaticSiteStackProps extends StackProps {
   deploymentEnvironment: 'prod' | 'dev'
@@ -15,7 +15,7 @@ interface StaticSiteStackProps extends StackProps {
 export class StaticSiteStack extends Stack {
   constructor(scope: Construct, id: string, props: StaticSiteStackProps) {
     super(scope, id, props)
-    const { deploymentEnvironment } = props
+    const {deploymentEnvironment} = props
     const isProduction = deploymentEnvironment === 'prod'
     const domainName = 'clubwoof.co.uk'
     const url = isProduction ? 'clubwoof.co.uk' : 'dev.clubwoof.co.uk'
@@ -35,7 +35,7 @@ export class StaticSiteStack extends Stack {
 
     const cloudfrontOriginAccessIdentity = handleAccessIdentity(this, assetsBucket)
 
-    const zone = getHostedZone({ scope: this, domainName })
+    const zone = getHostedZone({scope: this, domainName})
 
     const certificate = createCertificate({
       scope: this,

@@ -1,6 +1,6 @@
-import { HiUser } from 'react-icons/hi2'
-import { HiAtSymbol } from 'react-icons/hi'
-import { BiLockAlt } from 'react-icons/bi'
+import {HiUser} from 'react-icons/hi2'
+import {HiAtSymbol} from 'react-icons/hi'
+import {BiLockAlt} from 'react-icons/bi'
 
 export const inputs = [
   {

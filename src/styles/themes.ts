@@ -1,4 +1,4 @@
-import { colors } from './variables'
+import {colors} from './variables'
 
 export const defaultTheme = {
   global: {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Text as GrommetText } from 'grommet'
+import {Text as GrommetText} from 'grommet'
 import Image from 'next/image'
 
 import {

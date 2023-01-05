@@ -1,4 +1,4 @@
-import { Callback, Context } from 'aws-lambda'
+import {Callback, Context} from 'aws-lambda'
 import CustomMessage from './custom-message'
 
 if (!process.env.FRONTEND_BASE_URL) {
@@ -28,7 +28,7 @@ type Event = {
 export function main(event: Event, _context: Context, callback: Callback): void {
   const {
     triggerSource,
-    request: { codeParameter, userAttributes, usernameParameter },
+    request: {codeParameter, userAttributes, usernameParameter},
   } = event
 
   const customMessage = new CustomMessage({
@@ -37,7 +37,10 @@ export function main(event: Event, _context: Context, callback: Callback): void 
     usernameParameter,
   })
 
-  if (triggerSource === 'CustomMessage_SignUp' && userAttributes['cognito:user_status'] === 'UNCONFIRMED') {
+  if (
+    triggerSource === 'CustomMessage_SignUp' &&
+    userAttributes['cognito:user_status'] === 'UNCONFIRMED'
+  ) {
     event.response = customMessage.sendCodePostSignUp()
   }
 

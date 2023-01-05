@@ -1,5 +1,5 @@
-import { useMediaQuery } from 'react-responsive'
-import { mediaQueries } from '@clubwoof-styles'
+import {useMediaQuery} from 'react-responsive'
+import {mediaQueries} from '@clubwoof-styles'
 
 interface MediaQueries {
   isPortrait: boolean
@@ -7,9 +7,9 @@ interface MediaQueries {
   isMobile: boolean
 }
 export const useMediaQueries = (): MediaQueries => {
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
-  const isMobile = useMediaQuery({ query: mediaQueries.xxs })
+  const isPortrait = useMediaQuery({query: '(orientation: portrait)'})
+  const isRetina = useMediaQuery({query: '(min-resolution: 2dppx)'})
+  const isMobile = useMediaQuery({query: mediaQueries.xxs})
 
-  return { isPortrait, isRetina, isMobile }
+  return {isPortrait, isRetina, isMobile}
 }

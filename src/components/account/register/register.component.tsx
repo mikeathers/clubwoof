@@ -1,11 +1,11 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react'
+import React, {SyntheticEvent, useEffect, useState} from 'react'
 import Link from 'next/link'
-import { Box } from 'grommet'
+import {Box} from 'grommet'
 
-import { Layout, TextInput } from '@clubwoof-components'
-import { useMediaQueries } from '@clubwoof-hooks'
-import { colors } from '@clubwoof-styles'
-import { Controller, FieldValues, useForm } from 'react-hook-form'
+import {Layout, TextInput} from '@clubwoof-components'
+import {useMediaQueries} from '@clubwoof-hooks'
+import {colors} from '@clubwoof-styles'
+import {Controller, FieldValues, useForm} from 'react-hook-form'
 import {
   Container,
   DogImage,
@@ -17,11 +17,11 @@ import {
   SubHeading,
   SubmitButton,
 } from './register.styles'
-import { inputs } from './inputs'
+import {inputs} from './inputs'
 
 export const Register = () => {
-  const { isMobile } = useMediaQueries()
-  const { control, handleSubmit, formState, reset } = useForm()
+  const {isMobile} = useMediaQueries()
+  const {control, handleSubmit, formState, reset} = useForm()
   const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
   const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
   const inputPattern = (inputName: string) => {
@@ -124,7 +124,7 @@ export const Register = () => {
             {inputs.map((input, index) => (
               <Controller
                 key={index}
-                render={({ field }) => (
+                render={({field}) => (
                   <TextInput
                     {...field}
                     icon={<input.icon color={colors.lightBlue} size="21" />}

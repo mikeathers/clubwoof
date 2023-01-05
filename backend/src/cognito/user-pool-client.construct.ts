@@ -1,5 +1,10 @@
-import { Construct } from 'constructs'
-import { ClientAttributes, UserPool, UserPoolClient, UserPoolClientIdentityProvider } from 'aws-cdk-lib/aws-cognito'
+import {Construct} from 'constructs'
+import {
+  ClientAttributes,
+  UserPool,
+  UserPoolClient,
+  UserPoolClientIdentityProvider,
+} from 'aws-cdk-lib/aws-cognito'
 import CONFIG from '../../config'
 
 export class UserPoolClientConstruct {

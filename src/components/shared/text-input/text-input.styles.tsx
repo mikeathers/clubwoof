@@ -1,6 +1,6 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import { colors, fontSizes, lineHeights, spacing } from '@clubwoof-styles'
+import styled, {css} from 'styled-components'
+import {colors, fontSizes, lineHeights, spacing} from '@clubwoof-styles'
 
 export interface StyledTextInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -64,8 +64,8 @@ export const TextInputContainer = styled.div<TextInputContainerProps>`
   margin-bottom: ${spacing.space3x};
 
   p {
-    padding-left: ${({ error }) => error && spacing.space2x};
-    padding-top: ${({ error }) => error && spacing.spaceHalfx};
+    padding-left: ${({error}) => error && spacing.space2x};
+    padding-top: ${({error}) => error && spacing.spaceHalfx};
   }
 `
 export const TextInput = styled.input<StyledTextInputProps>`

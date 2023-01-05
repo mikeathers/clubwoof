@@ -19,7 +19,7 @@ module.exports = {
     'jest/globals': true,
     jest: true,
   },
-  parserOptions: { ecmaVersion: 8 },
+  parserOptions: {ecmaVersion: 8},
   extends: ['eslint:recommended'],
   overrides: [
     // This configuration will apply only to TypeScript files
@@ -47,6 +47,7 @@ module.exports = {
         'plugin:jsx-a11y/recommended',
         'plugin:jest/recommended',
         'plugin:jest/style',
+        'plugin:@next/next/recommended',
       ],
       rules: {
         'no-use-before-define': 'off',

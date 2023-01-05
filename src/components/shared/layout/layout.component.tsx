@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
-import { defaultTheme } from '@clubwoof-styles'
-import { Grommet } from 'grommet'
+import {ReactNode} from 'react'
+import {defaultTheme} from '@clubwoof-styles'
+import {Grommet} from 'grommet'
 import {
   Bubble,
   BubblePositioning,

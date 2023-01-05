@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register'
-import { App } from 'aws-cdk-lib'
+import {App} from 'aws-cdk-lib'
 
-import { StaticSiteStack } from './static-site-stack'
+import {StaticSiteStack} from './static-site-stack'
 import CONFIG from '../config'
-import { BackendStack } from './backend-stack'
+import {BackendStack} from './backend-stack'
 
 const app = new App()
 
@@ -14,7 +14,7 @@ new StaticSiteStack(app, 'clubwoof-website-dev', {
     account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
   },
-  tags: { env: 'dev' },
+  tags: {env: 'dev'},
   deploymentEnvironment: 'dev',
 })
 
@@ -24,7 +24,7 @@ new StaticSiteStack(app, 'clubwoof-website-prod', {
     account: CONFIG.AWS_ACCOUNT_ID,
     region: CONFIG.AWS_DEFAULT_REGION,
   },
-  tags: { env: 'prod' },
+  tags: {env: 'prod'},
   deploymentEnvironment: 'prod',
 })
 
@@ -34,7 +34,7 @@ new BackendStack(app, 'clubwoof-backend-dev', {
     account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
   },
-  tags: { env: 'dev' },
+  tags: {env: 'dev'},
   deploymentEnvironment: 'dev',
 })
 
@@ -44,6 +44,6 @@ new BackendStack(app, 'clubwoof-backend-prod', {
     account: process.env.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION,
   },
-  tags: { env: 'prod' },
+  tags: {env: 'prod'},
   deploymentEnvironment: 'prod',
 })

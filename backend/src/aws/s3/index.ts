@@ -1,6 +1,12 @@
-import { RemovalPolicy, Stack } from 'aws-cdk-lib'
-import { Bucket, BucketAccessControl, BucketEncryption, IBucket, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
-import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment'
+import {RemovalPolicy, Stack} from 'aws-cdk-lib'
+import {
+  Bucket,
+  BucketAccessControl,
+  BucketEncryption,
+  IBucket,
+  ObjectOwnership,
+} from 'aws-cdk-lib/aws-s3'
+import {BucketDeployment, Source} from 'aws-cdk-lib/aws-s3-deployment'
 
 export interface CreateBucketProps {
   scope: Stack
@@ -16,7 +22,7 @@ export interface CreateBucketDeploymentProps {
 }
 
 export const createBucket = (props: CreateBucketProps): IBucket => {
-  const { scope, bucketName, env } = props
+  const {scope, bucketName, env} = props
 
   return new Bucket(scope, `${bucketName}-${env}`, {
     bucketName: `${bucketName}-${env}`,
@@ -29,8 +35,10 @@ export const createBucket = (props: CreateBucketProps): IBucket => {
   })
 }
 
-export const createBucketDeployment = (props: CreateBucketDeploymentProps): BucketDeployment => {
-  const { scope, bucket, filePath, env } = props
+export const createBucketDeployment = (
+  props: CreateBucketDeploymentProps,
+): BucketDeployment => {
+  const {scope, bucket, filePath, env} = props
 
   return new BucketDeployment(scope, `${env}-bucket-deployment`, {
     destinationBucket: bucket,

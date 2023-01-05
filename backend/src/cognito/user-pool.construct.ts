@@ -1,11 +1,16 @@
-import { join } from 'path'
-import { AccountRecovery, BooleanAttribute, NumberAttribute, UserPool } from 'aws-cdk-lib/aws-cognito'
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
-import { Runtime } from 'aws-cdk-lib/aws-lambda'
+import {join} from 'path'
+import {
+  AccountRecovery,
+  BooleanAttribute,
+  NumberAttribute,
+  UserPool,
+} from 'aws-cdk-lib/aws-cognito'
+import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
+import {Runtime} from 'aws-cdk-lib/aws-lambda'
 
+import {Construct} from 'constructs'
+import {Duration, RemovalPolicy} from 'aws-cdk-lib'
 import CONFIG from '../../config'
-import { Construct } from 'constructs'
-import { Duration, RemovalPolicy } from 'aws-cdk-lib'
 
 export class UserPoolConstruct {
   // @ts-ignore
@@ -34,9 +39,11 @@ export class UserPoolConstruct {
       timeout: Duration.seconds(6),
       handler: 'main',
       entry: join(__dirname, '..', 'cognito-triggers', 'custom-messages', 'index.ts'),
-      bundling: { externalModules: ['aws-sdk'] },
+      bundling: {externalModules: ['aws-sdk']},
       environment: {
-        FRONTEND_BASE_URL: this.isProduction ? CONFIG.FRONTEND_BASE_URL_PROD : CONFIG.FRONTEND_BASE_URL_DEV,
+        FRONTEND_BASE_URL: this.isProduction
+          ? CONFIG.FRONTEND_BASE_URL_PROD
+          : CONFIG.FRONTEND_BASE_URL_DEV,
       },
     })
     this.postConfirmationTrigger = new NodejsFunction(this.scope, 'post-confirmation', {
@@ -45,7 +52,7 @@ export class UserPoolConstruct {
       timeout: Duration.seconds(6),
       handler: 'main',
       entry: join(__dirname, '..', 'cognito-triggers', 'post-confirmation', 'index.ts'),
-      bundling: { externalModules: ['aws-sdk'] },
+      bundling: {externalModules: ['aws-sdk']},
     })
   }
 
@@ -74,8 +81,8 @@ export class UserPoolConstruct {
         },
       },
       customAttributes: {
-        numberOfDogs: new NumberAttribute({ mutable: true }),
-        isAdmin: new BooleanAttribute({ mutable: true }),
+        numberOfDogs: new NumberAttribute({mutable: true}),
+        isAdmin: new BooleanAttribute({mutable: true}),
       },
       passwordPolicy: {
         minLength: 6,

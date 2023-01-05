@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled, {css} from 'styled-components'
 import Image from 'next/image'
 
-import { Colors, colors, mediaQueries, Spacing } from '@clubwoof-styles'
+import {Colors, colors, mediaQueries, Spacing} from '@clubwoof-styles'
 
 export interface ContentProps {
   paddingTop?: keyof Spacing
@@ -28,7 +28,7 @@ export interface BubbleProps {
 export const Container = styled.div<ContainerProps>`
   width: 100%;
   margin: 0 auto;
-  background-color: ${({ backgroundColor }) =>
+  background-color: ${({backgroundColor}) =>
     backgroundColor ? colors[backgroundColor] : colors.pureWhite};
   height: 100%;
 `
@@ -94,7 +94,7 @@ export const Bubble = styled(Image)<BubbleProps>`
   height: 400px !important;
   width: 400px !important;
 
-  ${({ position }) => {
+  ${({position}) => {
     switch (position) {
       case 'top':
         return topBubblePositioning

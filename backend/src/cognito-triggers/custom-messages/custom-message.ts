@@ -24,6 +24,7 @@ class CustomMessage {
     SEND_TEMPORARY_PASSWORD: string
     RESEND_CONFIRMATION_CODE: string
   }
+
   private userAttributes: {
     // eslint-disable-next-line camelcase
     given_name: string
@@ -31,6 +32,7 @@ class CustomMessage {
     family_name: string
     email: string
   }
+
   private readonly codeParameter: string
   private usernameParameter: string
 
@@ -50,7 +52,9 @@ class CustomMessage {
 
   sendCodePostSignUp(): CustomMessageReturnValue {
     return {
-      emailSubject: `Validate your account for ${this.FRONTEND_BASE_URL} | ${new Date().toLocaleString()}`,
+      emailSubject: `Validate your account for ${
+        this.FRONTEND_BASE_URL
+      } | ${new Date().toLocaleString()}`,
       emailMessage: `Hi <b>${this.userAttributes.given_name} ${this.userAttributes.family_name}</b>!<br>Thank you for signing up.
       <br />
       Please click on the link to activate your account: <a href="${this.FRONTEND_LINKS.SEND_CODE_POST_SIGN_UP}">${this.FRONTEND_BASE_URL}</a>.
