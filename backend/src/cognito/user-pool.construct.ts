@@ -26,6 +26,7 @@ export class UserPoolConstruct {
 
   constructor(scope: Construct, deploymentEnvironment: DeploymentEnvironment) {
     this.scope = scope
+    // eslint-disable-next-line
     this.deploymentEnvironment = deploymentEnvironment
     this.isProduction = this.deploymentEnvironment === 'prod'
     this.createLambdas()
