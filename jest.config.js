@@ -53,6 +53,12 @@ const jestConfig = {
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
 
+  // Options that will be passed to the testEnvironment
+  testEnvironmentOptions: {
+    // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
+    url: 'http://localhost',
+  },
+
   // The glob patterns Jest uses to detect test files
   testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
 
@@ -167,12 +173,6 @@ const jestConfig = {
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
-
-  // Options that will be passed to the testEnvironment
-  testEnvironmentOptions: {
-    // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-    url: 'http://localhost',
-  },
 
   // Adds a location field to test results
   // testLocationInResults: false,

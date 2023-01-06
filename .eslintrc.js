@@ -74,6 +74,8 @@ module.exports = {
         'jsx-a11y/anchor-is-valid': 'off',
         'jsx-a11y/interactive-supports-focus': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
+        'no-return-assign': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
         'import/no-extraneous-dependencies': [
           'error',
           {

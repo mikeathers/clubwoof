@@ -1,11 +1,12 @@
 import React, {SyntheticEvent, useEffect, useState} from 'react'
 import Link from 'next/link'
 import {Box} from 'grommet'
+import {yupResolver} from '@hookform/resolvers/yup'
+import {Controller, FieldValues, useForm} from 'react-hook-form'
 
 import {Layout, TextInput} from '@clubwoof-components'
 import {useMediaQueries} from '@clubwoof-hooks'
 import {colors} from '@clubwoof-styles'
-import {Controller, FieldValues, useForm} from 'react-hook-form'
 import {
   Container,
   DogImage,
@@ -17,31 +18,17 @@ import {
   SubHeading,
   SubmitButton,
 } from './register.styles'
-import {inputs} from './inputs'
+import {formSchema, inputs} from './form-helpers'
 
 export function Register() {
   const {isMobile} = useMediaQueries()
-  const {control, handleSubmit, formState, reset} = useForm()
+  const {control, handleSubmit, formState, reset} = useForm({
+    mode: 'onTouched',
+    resolver: yupResolver(formSchema),
+  })
+
   const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
   const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
-  const inputPattern = (inputName: string) => {
-    if (inputName === 'email') {
-      return {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: 'Please enter a valid email address e.g. joe@gmail.com',
-      }
-    }
-    return undefined
-  }
-  const minLength = (inputName: string) => {
-    if (inputName === 'password') {
-      return {
-        value: 6,
-        message: 'Password must be at least 6 characters.',
-      }
-    }
-    return undefined
-  }
 
   useEffect(() => {
     const firstNameInput = document.querySelector(
@@ -54,11 +41,20 @@ export function Register() {
     const passwordInput = document.querySelector(
       '[aria-label="Password"]',
     ) as HTMLInputElement
+    const confirmPasswordInput = document.querySelector(
+      '[aria-label=" Confirm password"]',
+    ) as HTMLInputElement
     const submitButtonElement = document.querySelector(
       '[aria-label="Submit"]',
     ) as HTMLButtonElement
 
-    setInputLabels([firstNameInput, lastNameInput, emailInput, passwordInput])
+    setInputLabels([
+      firstNameInput,
+      lastNameInput,
+      emailInput,
+      passwordInput,
+      confirmPasswordInput,
+    ])
     setSubmitButton(submitButtonElement)
   }, [])
 
@@ -143,11 +139,6 @@ export function Register() {
                 name={input.name}
                 control={control}
                 defaultValue=""
-                rules={{
-                  required: `${input.ariaLabel} is required`,
-                  pattern: inputPattern(input.name),
-                  minLength: minLength(input.name),
-                }}
               />
             ))}
 
