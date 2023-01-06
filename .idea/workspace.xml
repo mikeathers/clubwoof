@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message-entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message-entry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/custom-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/custom-messages/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/add-user-to-group.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/post-confirmation/add-user-to-group.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/post-confirmation/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito-triggers/post-confirmation/post-confirmation-entry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/post-confirmation/post-confirmation-entry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +179,7 @@
       <workItem from="1672749221876" duration="29860000" />
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
-      <workItem from="1672992819873" duration="28660000" />
+      <workItem from="1672992819873" duration="29580000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
