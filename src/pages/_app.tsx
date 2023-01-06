@@ -1,15 +1,17 @@
-import '../styles/globals.css'
+import {Auth} from '@aws-amplify/auth'
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
-import Auth from '@aws-amplify/auth'
-import {dev} from '../constants'
 
+import {dev} from '../constants'
+import '../styles/globals.css'
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 Auth.configure({
   mandatorySignIn: false,
   region: dev.REGION,
-  USER_POOL_ID: dev.USER_POOL_ID,
-  IDENTITY_POOL_ID: dev.IDENTITY_POOL_ID,
-  USER_POOL_WEB_CLIENT_ID: dev.USER_POOL_WEB_CLIENT_ID,
+  userPoolId: dev.USER_POOL_ID,
+  identityPoolId: dev.IDENTITY_POOL_ID,
+  userPoolWebClientId: dev.USER_POOL_WEB_CLIENT_ID,
 })
 
 export default function App({Component, pageProps}: AppProps) {
