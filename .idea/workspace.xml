@@ -2,16 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/scripts/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/deploy.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/account/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/account/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/static-site-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cdk-exports-dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/account/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/dog-on-phone.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/pink-bubbles-2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/pink-bubbles-3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/pink-bubbles.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/purple-bubbles.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/thirteen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/out/yellow-bubble.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +200,7 @@
       <workItem from="1672749221876" duration="29860000" />
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
-      <workItem from="1672992819873" duration="21231000" />
+      <workItem from="1672992819873" duration="24433000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -202,12 +214,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/backend/config.js" />
-        <option value="$PROJECT_DIR$/backend/config.d.ts" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -228,15 +234,28 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx</url>
-          <line>45</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/node_modules/jest-environment-jsdom/build/index.js</url>
           <line>71</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/account/register/register.component.tsx</url>
+          <line>93</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/account/register/register.test.tsx</url>
+          <line>99</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/account/register/register.component.tsx</url>
+          <line>87</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -9,7 +9,7 @@
     "deploy-all-prod": "npx cdk deploy *-prod --outputs-file ../src/cdk-exports-prod.json",
     "deploy-frontend-prod": "npx cdk deploy clubwoof-website-prod --outputs-file ../src/cdk-exports-prod.json",
     "deploy-backend-prod": "npx cdk deploy clubwoof-backend-prod --outputs-file ../src/cdk-exports-prod.json",
-    "deploy-all-dev": "npx cdk deploy *-dev --outputs-file ../src/cdk-exports-dev.json",
+    "deploy-all-dev": "npx cdk deploy *-dev",
     "deploy-frontend-dev": "npx cdk deploy clubwoof-website-dev --outputs-file ../src/cdk-exports-dev.json",
     "deploy-backend-dev": "npx cdk deploy clubwoof-backend-dev --outputs-file ../src/cdk-exports-dev.json",
     "test": "jest",

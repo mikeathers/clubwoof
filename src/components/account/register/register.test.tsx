@@ -76,7 +76,7 @@ describe('Register Page', () => {
     expect(getByText('Get started!')).toHaveFocus()
   })
 
-  it('should call signUp when form data is correct', () => {
+  it('should call signUp when form data is correct', async () => {
     const {getByLabelText} = render(<Register />)
 
     fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
@@ -99,7 +99,7 @@ describe('Register Page', () => {
     const submitButton = getByLabelText('Submit')
     fireEvent.click(submitButton)
 
-    expect(mockAwsAuth.signUp).toHaveBeenCalled()
+    await waitFor(() => expect(mockAwsAuth.signUp).toHaveBeenCalled())
   })
 
   describe('Form Validation', () => {
