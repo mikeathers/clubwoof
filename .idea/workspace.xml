@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/src/components/account/register/form-helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/inputs.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +73,7 @@
       <recent name="$PROJECT_DIR$/src/pages" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.register.test.tsx">
+  <component name="RunManager" selected="Jest.Register Page">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.12.1/bin/node" />
       <node-options value="" />
@@ -165,8 +160,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.register.test.tsx" />
         <item itemvalue="Jest.Register Page" />
+        <item itemvalue="Jest.register.test.tsx" />
         <item itemvalue="Jest.Register Page.should render a page with a title" />
         <item itemvalue="Jest.Register Page.should validate password for: `$password`" />
         <item itemvalue="Jest.Register Page.should show validation errors when form is submitted with no data" />
@@ -187,7 +182,7 @@
       <workItem from="1672749221876" duration="29860000" />
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
-      <workItem from="1672992819873" duration="13987000" />
+      <workItem from="1672992819873" duration="15464000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

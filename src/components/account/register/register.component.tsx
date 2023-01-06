@@ -3,10 +3,12 @@ import Link from 'next/link'
 import {Box} from 'grommet'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {Controller, FieldValues, useForm} from 'react-hook-form'
+import {Auth} from '@aws-amplify/auth'
 
 import {Layout, TextInput} from '@clubwoof-components'
 import {useMediaQueries} from '@clubwoof-hooks'
 import {colors} from '@clubwoof-styles'
+
 import {
   Container,
   DogImage,
@@ -19,6 +21,22 @@ import {
   SubmitButton,
 } from './register.styles'
 import {formSchema, inputs} from './form-helpers'
+
+interface FormDetails {
+  email: string
+  password: string
+  firstName: string
+  lastName: string
+}
+
+const isTypeSafe = (data: FieldValues): data is FieldValues => {
+  return (
+    typeof data.firstName === 'string' &&
+    typeof data.lastname === 'string' &&
+    typeof data.email === 'string' &&
+    typeof data.password === 'string'
+  )
+}
 
 export function Register() {
   const {isMobile} = useMediaQueries()
@@ -81,18 +99,22 @@ export function Register() {
     handleSubmit(submitForm)()
   }
 
-  const submitForm = (data: FieldValues) => {
-    // const result = await Auth.signUp({
-    //   username: data.email.trim().toLowerCase(),
-    //   password: data.password,
-    //   attributes: {
-    //     given_name: data.firstName.trim().toLowerCase(),
-    //     family_name: data.lastName.trim().toLowerCase(),
-    //   },
-    // })
+  const submitForm = async (data: FieldValues) => {
+    if (isTypeSafe(data)) {
+      const typedData = data as FormDetails
+      const result = await Auth.signUp({
+        username: typedData.email.trim().toLowerCase(),
+        password: typedData.password,
+        attributes: {
+          given_name: typedData.firstName.trim().toLowerCase(),
+          family_name: typedData.lastName.trim().toLowerCase(),
+        },
+      })
+      console.log(result)
 
-    localStorage.setItem('TEMP_PASSWORD', data.password)
-    reset()
+      localStorage.setItem('TEMP_PASSWORD', data.password)
+      reset()
+    }
   }
 
   return (
