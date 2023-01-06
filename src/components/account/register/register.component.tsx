@@ -19,7 +19,7 @@ import {
 } from './register.styles'
 import {inputs} from './inputs'
 
-export const Register = () => {
+export function Register() {
   const {isMobile} = useMediaQueries()
   const {control, handleSubmit, formState, reset} = useForm()
   const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])

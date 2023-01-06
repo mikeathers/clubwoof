@@ -5,7 +5,7 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront'
 import {Duration, Stack} from 'aws-cdk-lib'
 
-export const getSecurityHeader = (scope: Stack) => {
+export const getSecurityHeader = (scope: Stack): ResponseHeadersPolicy => {
   return new ResponseHeadersPolicy(scope, 'security-headers-response-header-policy', {
     comment: 'Security headers response header policy',
     securityHeadersBehavior: {

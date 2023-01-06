@@ -1,4 +1,9 @@
-import {Function, FunctionCode, OriginAccessIdentity} from 'aws-cdk-lib/aws-cloudfront'
+import {
+  Function,
+  FunctionCode,
+  IFunction,
+  OriginAccessIdentity,
+} from 'aws-cdk-lib/aws-cloudfront'
 import {CanonicalUserPrincipal, PolicyStatement} from 'aws-cdk-lib/aws-iam'
 import {IBucket} from 'aws-cdk-lib/aws-s3'
 import {Construct} from 'constructs'
@@ -53,7 +58,10 @@ export const getStackName = (props: GetStackNameProps): string => {
   return `${githubRepositoryName}-${branchName}`
 }
 
-export const handleAccessIdentity = (scope: Construct, bucket: IBucket) => {
+export const handleAccessIdentity = (
+  scope: Construct,
+  bucket: IBucket,
+): OriginAccessIdentity => {
   const cloudfrontOriginAccessIdentity = new OriginAccessIdentity(
     scope,
     `${CONFIG.STACK_PREFIX}-cloud-front-origin-access-identity`,
@@ -76,7 +84,7 @@ export const handleAccessIdentity = (scope: Construct, bucket: IBucket) => {
   return cloudfrontOriginAccessIdentity
 }
 
-export const getRewriteFunction = (scope: Construct, env: 'prod' | 'dev') => {
+export const getRewriteFunction = (scope: Construct, env: 'prod' | 'dev'): IFunction => {
   return new Function(scope, `ViewerResponseFunction-${env}`, {
     functionName: `RedirectURIFunction-${env}`,
     code: FunctionCode.fromFile({

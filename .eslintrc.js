@@ -20,7 +20,14 @@ module.exports = {
     jest: true,
   },
   parserOptions: {ecmaVersion: 8},
-  extends: ['eslint:recommended'],
+  extends: [
+    'eslint:recommended',
+    'airbnb-base',
+    'prettier',
+    'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  ],
   overrides: [
     // This configuration will apply only to TypeScript files
     {
@@ -50,6 +57,9 @@ module.exports = {
         'plugin:@next/next/recommended',
       ],
       rules: {
+        'testing-library/no-unnecessary-act': ['error', {isStrict: false}],
+        'testing-library/prefer-screen-queries': 'off',
+        'react/function-component-definition': 'off',
         'no-use-before-define': 'off',
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',

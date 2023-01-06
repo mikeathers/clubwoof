@@ -1,6 +1,5 @@
 import {act, fireEvent, render} from '@testing-library/react'
 import {Register} from './register.component'
-import '@testing-library/jest-dom'
 
 describe('Register Page', () => {
   it('should render a page', () => {

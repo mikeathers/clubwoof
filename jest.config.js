@@ -1,27 +1,86 @@
-// const nextJest = require('next/jest')
-//
-// const createJestConfig = nextJest({
-//   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-//   dir: './',
-// })
-//
-// // Add any custom config to be passed to Jest
-// const customJestConfig = {
-//   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-//   moduleNameMapper: {
-//     // Handle module aliases (this will be automatically configured for you soon)
-//     '^@clubwoof-components$': '<rootDir>/src/components',
-//     '^@clubwoof-styles$': '<rootDir>/src/styles',
-//     '^@clubwoof-hooks$': '<rootDir>/src/hooks',
-//   },
-//   preset: 'ts-jest',
-//   testEnvironment: 'jsdom',
-// }
+const nextJest = require('next/jest')
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-// module.exports = createJestConfig(customJestConfig)
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: './',
+})
 
-module.exports = {
+const jestConfig = {
+  // Automatically clear mock calls and instances between every test
+  clearMocks: true,
+
+  // An array of glob patterns indicating a set of files for which coverage information should be collected
+  collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx,mjs}'],
+
+  // The directory where Jest should output its coverage files
+  coverageDirectory: 'coverage',
+
+  // An array of regexp pattern strings used to skip coverage collection
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+
+  // A set of global variables that need to be available in all test environments
+  globals: {
+    // so tests don't fail on linting errors
+    'ts-jest': {
+      diagnostics: false,
+    },
+  },
+
+  // An array of file extensions your modules use
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+
+  // A map from regular expressions to module names that allow to stub out resources with a single module
+  // Also used for absolute imports - paths from tsconfig.json
+  moduleNameMapper: {
+    '\\.(css|sass|scss)$': '<rootDir>/src/test-utils/__mocks__/style-mock.ts',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/src/test-utils/__mocks__/image-mock.ts',
+    // Handle module aliases (this will be automatically configured for you soon)
+    '^@clubwoof-hooks$': '<rootDir>/src/hooks',
+    '^@clubwoof-components$': '<rootDir>/src/components',
+    '^@clubwoof-styles$': '<rootDir>/src/styles',
+  },
+
+  // The paths to modules that run some code to configure or set up the testing environment before each test
+  setupFiles: ['<rootDir>/src/test-utils/setup-tests.ts'],
+
+  // expect will be defined here - we need to extend it for react-testing-library additional assertions
+  // Run some code to configure or set up the testing framework before each test.
+  // This runs immediately after the test framework has been installed in the environment, whereas
+  // setupFiles runs before the test framework has been installed.
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+
+  // The test environment that will be used for testing
+  testEnvironment: 'jsdom',
+
+  // The glob patterns Jest uses to detect test files
+  testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
+
+  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+  testPathIgnorePatterns: ['<rootDir>/.next/', '\\\\node_modules\\\\'],
+
+  // Deprecated
+  //testURL: 'http://localhost',
+
+  // Swap out timers eg. setTimeout/setInterval with functions that allow you to control the passage of time
+  fakeTimers: {
+    enableGlobally: true,
+  },
+
+  // A preset that is used as a base for Jest's configuration
+  preset: 'ts-jest',
+
+  //A map from regular expressions to paths to transformers
+  transform: {
+    '^.+\\.(ts|tsx)$': 'babel-jest',
+  },
+
+  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+
+  // Indicates whether each individual test should be reported during the run
+  verbose: false,
+
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -34,20 +93,8 @@ module.exports = {
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "C:\\Users\\VenD\\AppData\\Local\\Temp\\jest",
 
-  // Automatically clear mock calls and instances between every test
-  clearMocks: true,
-
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
-
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx,mjs}'],
-
-  // The directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
-
-  // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -69,36 +116,13 @@ module.exports = {
   // A path to a module which exports an async function that is triggered once before all test suites
   // globalSetup: null,
 
-  // A path to a module which exports an async function that is triggered once after all test suites
-  // globalTeardown: null,
-
-  // A set of global variables that need to be available in all test environments
-  globals: {
-    // so tests don't fail on linting errors
-    'ts-jest': {
-      diagnostics: false,
-    },
-  },
-
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
   //   "node_modules"
   // ],
 
-  // An array of file extensions your modules use
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-
-  // A map from regular expressions to module names that allow to stub out resources with a single module
-  // Also used for absolute imports - paths from tsconfig.json
-  moduleNameMapper: {
-    '\\.(css|sass|scss)$': '<rootDir>/src/test-utils/__mocks__/style-mock.ts',
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/src/test-utils/__mocks__/image-mock.ts',
-    // Handle module aliases (this will be automatically configured for you soon)
-    '^@clubwoof-hooks$': '<rootDir>/src/hooks',
-    '^@clubwoof-components$': '<rootDir>/src/components',
-    '^@clubwoof-styles$': '<rootDir>/src/styles',
-  },
+  // A path to a module which exports an async function that is triggered once after all test suites
+  // globalTeardown: null,
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -138,35 +162,20 @@ module.exports = {
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
 
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/src/test-utils/setup-tests.ts'],
-
-  // expect will be defined here - we need to extend it for react-testing-library additional assertions
-  // Run some code to configure or set up the testing framework before each test.
-  // This runs immediately after the test framework has been installed in the environment, whereas
-  // setupFiles runs before the test framework has been installed.
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-
   // The path to a module that runs some code to configure or set up the testing framework before each test
   // setupTestFrameworkScriptFile: '',
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
 
-  // The test environment that will be used for testing
-  testEnvironment: 'jsdom',
-
   // Options that will be passed to the testEnvironment
-  // testEnvironmentOptions: {},
+  testEnvironmentOptions: {
+    // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
+    url: 'http://localhost',
+  },
 
   // Adds a location field to test results
   // testLocationInResults: false,
-
-  // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
-
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: ['<rootDir>/.next/', '\\\\node_modules\\\\'],
 
   // The regexp pattern Jest uses to detect test files
   // testRegex: "",
@@ -177,29 +186,8 @@ module.exports = {
   // This option allows use of a custom test runner
   // testRunner: "jasmine2",
 
-  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-  testURL: 'http://localhost',
-
-  // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-  // If the value is modern, @sinonjs/fake-timers will be used as implementation instead of Jest's own legacy implementation.
-  timers: 'modern',
-
-  // A preset that is used as a base for Jest's configuration
-  // preset: 'ts-jest',
-
-  // A map from regular expressions to paths to transformers
-  transform: {
-    '^.+\\.(ts|tsx)$': 'babel-jest',
-  },
-
-  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
-
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
-
-  // Indicates whether each individual test should be reported during the run
-  verbose: false,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
@@ -207,3 +195,6 @@ module.exports = {
   // Whether to use watchman for file crawling
   // watchman: true,
 }
+
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+module.exports = createJestConfig(jestConfig)

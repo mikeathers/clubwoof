@@ -1,6 +1,6 @@
 import {Register} from '@clubwoof-components'
 
-const RegisterPage = () => {
+function RegisterPage() {
   return <Register />
 }
 
