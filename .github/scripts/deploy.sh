@@ -22,4 +22,5 @@ npx cdk \
   --force \
   --toolkit-stack-name "cdk-toolkit-master" \
   --app "ts-node src/app.ts" \
-  deploy "*-dev --outputs-file ../src/cdk-exports-dev.json"
+  deploy "*-dev --outputs-file" \
+  --outputs "../src/cdk-exports-dev.json"
