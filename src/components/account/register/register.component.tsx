@@ -22,20 +22,11 @@ import {
 } from './register.styles'
 import {formSchema, inputs} from './form-helpers'
 
-interface FormDetails {
-  email: string
-  password: string
-  firstName: string
-  lastName: string
-}
-
-const isTypeSafe = (data: FieldValues): data is FieldValues => {
-  return (
-    typeof data.firstName === 'string' &&
-    typeof data.lastname === 'string' &&
-    typeof data.email === 'string' &&
-    typeof data.password === 'string'
-  )
+interface FormDetails extends FieldValues {
+  email?: string
+  password?: string
+  firstName?: string
+  lastName?: string
 }
 
 export function Register() {
@@ -99,15 +90,14 @@ export function Register() {
     handleSubmit(submitForm)()
   }
 
-  const submitForm = async (data: FieldValues) => {
-    if (isTypeSafe(data)) {
-      const typedData = data as FormDetails
+  const submitForm = async (data: FormDetails) => {
+    if (data.firstName && data.lastName && data.email && data.password) {
       const result = await Auth.signUp({
-        username: typedData.email.trim().toLowerCase(),
-        password: typedData.password,
+        username: data.email.trim().toLowerCase(),
+        password: data.password,
         attributes: {
-          given_name: typedData.firstName.trim().toLowerCase(),
-          family_name: typedData.lastName.trim().toLowerCase(),
+          given_name: data.firstName.trim().toLowerCase(),
+          family_name: data.lastName.trim().toLowerCase(),
         },
       })
       console.log(result)

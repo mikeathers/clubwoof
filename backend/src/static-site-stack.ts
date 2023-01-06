@@ -1,5 +1,5 @@
 import {Construct} from 'constructs'
-import {Stack, StackProps} from 'aws-cdk-lib'
+import {CfnOutput, Stack, StackProps} from 'aws-cdk-lib'
 import {createBucket, createBucketDeployment} from './aws/s3/index'
 import CONFIG from '../config'
 import {getRewriteFunction, handleAccessIdentity} from './aws/helpers/index'
@@ -64,6 +64,10 @@ export class StaticSiteStack extends Stack {
       hostedZone: zone,
       url,
       distribution: cloudfrontDistribution,
+    })
+
+    new CfnOutput(this, 'domainName', {
+      value: domainName,
     })
   }
 }

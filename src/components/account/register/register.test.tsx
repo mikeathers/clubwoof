@@ -1,11 +1,13 @@
 import {fireEvent, render, waitFor} from '@testing-library/react'
 import {useMediaQueries} from '@clubwoof-hooks'
 import {mocked} from 'jest-mock'
-
+import {Auth} from '@aws-amplify/auth'
 import {Register} from './register.component'
 
 const mockUseMediaQueries = mocked(useMediaQueries)
+const mockAwsAuth = mocked(Auth)
 
+jest.mock('@aws-amplify')
 jest.mock('@clubwoof-hooks', () => ({
   __esModule: true,
   ...jest.requireActual('@clubwoof-hooks'),
@@ -46,36 +48,56 @@ describe('Register Page', () => {
 
   it('should change focus to next input when pressing enter', () => {
     const {getByLabelText, getByText} = render(<Register />)
-    const inputOne = getByLabelText('First name')
-    const inputTwo = getByLabelText('Last name')
-    const inputThree = getByLabelText('Email')
-    const inputFour = getByLabelText('Password')
-    const inputFix = getByLabelText('Confirm password')
-    const button = getByText('Get started!')
 
-    inputOne.focus()
-    fireEvent.change(inputOne, {target: {value: 'Joe'}})
-    fireEvent.keyDown(inputOne, {key: 'Enter', code: 'Enter'})
+    getByLabelText('First name').focus()
+    fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
+    fireEvent.keyDown(getByLabelText('First name'), {key: 'Enter', code: 'Enter'})
 
-    expect(inputTwo).toHaveFocus()
+    expect(getByLabelText('Last name')).toHaveFocus()
 
-    fireEvent.change(inputTwo, {target: {value: 'Joe'}})
-    fireEvent.keyDown(inputTwo, {key: 'Enter', code: 'Enter'})
+    fireEvent.change(getByLabelText('Last name'), {target: {value: 'Joe'}})
+    fireEvent.keyDown(getByLabelText('Last name'), {key: 'Enter', code: 'Enter'})
 
-    expect(inputThree).toHaveFocus()
+    expect(getByLabelText('Email')).toHaveFocus()
 
-    fireEvent.change(inputThree, {target: {value: 'Joe@bloggs.com'}})
-    fireEvent.keyDown(inputThree, {key: 'Enter', code: 'Enter'})
+    fireEvent.change(getByLabelText('Email'), {target: {value: 'Joe@bloggs.com'}})
+    fireEvent.keyDown(getByLabelText('Email'), {key: 'Enter', code: 'Enter'})
 
-    expect(inputFour).toHaveFocus()
+    expect(getByLabelText('Password')).toHaveFocus()
 
-    fireEvent.change(inputFour, {target: {value: 'somePassword'}})
-    fireEvent.keyDown(inputFour, {key: 'Enter', code: 'Enter'})
+    fireEvent.change(getByLabelText('Password'), {target: {value: 'somePassword'}})
+    fireEvent.keyDown(getByLabelText('Password'), {key: 'Enter', code: 'Enter'})
 
-    fireEvent.change(inputFix, {target: {value: 'somePassword'}})
-    fireEvent.keyDown(inputFix, {key: 'Enter', code: 'Enter'})
+    fireEvent.change(getByLabelText('Confirm password'), {
+      target: {value: 'somePassword'},
+    })
+    fireEvent.keyDown(getByLabelText('Confirm password'), {key: 'Enter', code: 'Enter'})
 
-    expect(button).toHaveFocus()
+    expect(getByText('Get started!')).toHaveFocus()
+  })
+
+  it('should call signUp when form data is correct', () => {
+    const {getByLabelText} = render(<Register />)
+
+    fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
+    fireEvent.keyDown(getByLabelText('First name'), {key: 'Enter', code: 'Enter'})
+
+    fireEvent.change(getByLabelText('Last name'), {target: {value: 'Joe'}})
+    fireEvent.keyDown(getByLabelText('Last name'), {key: 'Enter', code: 'Enter'})
+
+    fireEvent.change(getByLabelText('Email'), {target: {value: 'Joe@bloggs.com'}})
+    fireEvent.keyDown(getByLabelText('Email'), {key: 'Enter', code: 'Enter'})
+
+    fireEvent.change(getByLabelText('Password'), {target: {value: 'somePassword1!'}})
+    fireEvent.keyDown(getByLabelText('Password'), {key: 'Enter', code: 'Enter'})
+
+    fireEvent.change(getByLabelText('Confirm password'), {
+      target: {value: 'somePassword1!'},
+    })
+    fireEvent.keyDown(getByLabelText('Confirm password'), {key: 'Enter', code: 'Enter'})
+
+    const submitButton = getByLabelText('Submit')
+    fireEvent.click(submitButton)
   })
 
   describe('Form Validation', () => {
