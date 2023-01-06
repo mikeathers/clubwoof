@@ -21,6 +21,10 @@ export class StaticSiteStack extends Stack {
     const domainName = 'clubwoof.co.uk'
     const url = isProduction ? 'clubwoof.co.uk' : 'dev.clubwoof.co.uk'
 
+    new CfnOutput(this, 'domainName', {
+      value: domainName,
+    })
+
     const assetsBucket = createBucket({
       bucketName: `${CONFIG.STACK_PREFIX}-bucket`,
       scope: this,
@@ -64,10 +68,6 @@ export class StaticSiteStack extends Stack {
       hostedZone: zone,
       url,
       distribution: cloudfrontDistribution,
-    })
-
-    new CfnOutput(this, 'domainName', {
-      value: domainName,
     })
   }
 }
