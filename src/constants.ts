@@ -1,5 +1,5 @@
 /* eslint-disable */
-import * as config from 'cdk-exports-dev.json'
+import config from 'cdk-exports-dev.json'
 
 export const dev = {
   REGION: config['clubwoof-backend-dev'].region,
