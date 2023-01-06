@@ -21,8 +21,8 @@ export class StaticSiteStack extends Stack {
     const domainName = 'clubwoof.co.uk'
     const url = isProduction ? 'clubwoof.co.uk' : 'dev.clubwoof.co.uk'
 
-    new CfnOutput(this, 'domainName', {
-      value: domainName,
+    new CfnOutput(this, 'urlBase', {
+      value: url,
     })
 
     const assetsBucket = createBucket({

@@ -6,6 +6,6 @@
     "identityPoolId": "eu-west-2:30859ec0-5114-4ea0-a9f2-1e63ba503e4b"
   },
   "clubwoof-website-dev": {
-    "domainName": "clubwoof.co.uk"
+    "urlBase": "dev.clubwoof.co.uk"
   }
 }

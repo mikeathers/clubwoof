@@ -7,7 +7,7 @@ import {Register} from './register.component'
 const mockUseMediaQueries = mocked(useMediaQueries)
 const mockAwsAuth = mocked(Auth)
 
-jest.mock('@aws-amplify')
+jest.mock('@aws-amplify/auth')
 jest.mock('@clubwoof-hooks', () => ({
   __esModule: true,
   ...jest.requireActual('@clubwoof-hooks'),
