@@ -1,6 +1,7 @@
+// @ts-ignore
 function handler(event) {
-  var request = event.request
-  var uri = request.uri
+  let request = event.request
+  let uri = request.uri
 
   if (uri.endsWith('/')) {
     request.uri += 'index.html'

@@ -7,11 +7,12 @@ import {
 } from 'aws-cdk-lib/aws-cognito'
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {Runtime} from 'aws-cdk-lib/aws-lambda'
-
 import {Construct} from 'constructs'
 import {Duration, RemovalPolicy} from 'aws-cdk-lib'
+
+import {DeploymentEnvironment} from '@clubwoof-backend-types'
+
 import CONFIG from '../../config'
-import {DeploymentEnvironment} from '../types'
 
 export class UserPoolConstruct {
   // @ts-ignore
@@ -27,7 +28,6 @@ export class UserPoolConstruct {
 
   constructor(scope: Construct, deploymentEnvironment: DeploymentEnvironment) {
     this.scope = scope
-    // eslint-disable-next-line
     this.deploymentEnvironment = deploymentEnvironment
     this.isProduction = this.deploymentEnvironment === 'prod'
     this.createLambdas()

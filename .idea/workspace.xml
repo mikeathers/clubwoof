@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/backend/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/global.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/backend-stack.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/static-site-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/functions/mapping-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/mapping-function.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.d.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +67,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src/types" />
       <recent name="$PROJECT_DIR$/backend/src/global-types" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/pages/account" />
       <recent name="$PROJECT_DIR$/src/pages" />
-      <recent name="$PROJECT_DIR$/src/pages/auth/register" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.register.test.tsx">
@@ -168,7 +164,7 @@
       <workItem from="1671634361294" duration="155000" />
       <workItem from="1671839125094" duration="9776000" />
       <workItem from="1672749221876" duration="29860000" />
-      <workItem from="1672835115463" duration="51475000" />
+      <workItem from="1672835115463" duration="52343000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
