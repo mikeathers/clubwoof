@@ -1,10 +1,11 @@
 {
-  "clubwoof-dev": {
-    "userPoolClientId": "1fn4licj1qclu05udbk1d0n3gs",
-    "clubwoofWebAppCloudFrontUrl": "d2dmq2ui49ubwb.cloudfront.net",
-    "clubwoofWebS3Url": "http://clubwoof-webclubwoof.s3-website.eu-west-2.amazonaws.com",
+  "clubwoof-backend-dev": {
+    "userPoolClientId": "1g80pqsrk1dvahsqr63af28jap",
     "region": "eu-west-2",
-    "userPoolId": "eu-west-2_gLSevxOJD",
-    "identityPoolId": "eu-west-2:0a079491-46ba-4f96-90ff-a8db5d146782"
+    "userPoolId": "eu-west-2_zH0L1m26x",
+    "identityPoolId": "eu-west-2:30859ec0-5114-4ea0-a9f2-1e63ba503e4b"
+  },
+  "clubwoof-website-dev": {
+    "domainName": "clubwoof.co.uk"
   }
 }

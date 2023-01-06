@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/scripts/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cdk-exports-dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +76,7 @@
       <recent name="$PROJECT_DIR$/src/pages" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Register Page">
+  <component name="RunManager" selected="Jest.Register Page.should call signUp when form data is correct">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.12.1/bin/node" />
       <node-options value="" />
@@ -94,6 +100,20 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="Register Page.should call signUp when form data is correct" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/account/register/register.test.tsx" />
+      <test-names>
+        <test-name value="Register Page" />
+        <test-name value="should call signUp when form data is correct" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="Register Page.should render a page with a title" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -105,20 +125,6 @@
       <test-names>
         <test-name value="Register Page" />
         <test-name value="should render a page with a title" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Register Page.should show validation errors when form is submitted with no data" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.12.1/bin/node" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/account/register/register.test.tsx" />
-      <test-names>
-        <test-name value="Register Page" />
-        <test-name value="should show validation errors when form is submitted with no data" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -149,19 +155,19 @@
     </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
+      <item itemvalue="Jest.Register Page.should call signUp when form data is correct" />
       <item itemvalue="Jest.Register Page.should render a page with a title" />
       <item itemvalue="Jest.register.test.tsx" />
       <item itemvalue="Jest.Register Page.should validate password for: `$password`" />
-      <item itemvalue="Jest.Register Page.should show validation errors when form is submitted with no data" />
       <item itemvalue="Jest.Register Page" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Register Page.should call signUp when form data is correct" />
         <item itemvalue="Jest.Register Page" />
         <item itemvalue="Jest.register.test.tsx" />
         <item itemvalue="Jest.Register Page.should render a page with a title" />
         <item itemvalue="Jest.Register Page.should validate password for: `$password`" />
-        <item itemvalue="Jest.Register Page.should show validation errors when form is submitted with no data" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +185,7 @@
       <workItem from="1672749221876" duration="29860000" />
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
-      <workItem from="1672992819873" duration="19129000" />
+      <workItem from="1672992819873" duration="20026000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

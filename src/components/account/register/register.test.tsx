@@ -98,6 +98,8 @@ describe('Register Page', () => {
 
     const submitButton = getByLabelText('Submit')
     fireEvent.click(submitButton)
+
+    expect(mockAwsAuth.signUp).toHaveBeenCalled()
   })
 
   describe('Form Validation', () => {

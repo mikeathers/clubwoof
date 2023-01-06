@@ -15,12 +15,4 @@ npm ci
 
 # Deploy the cdk stack
 echo "--- 🚀 Deploying CDK stack..."
-npx cdk \
-  --require-approval never \
-  --verbose \
-  --execute true \
-  --force \
-  --toolkit-stack-name "cdk-toolkit-master" \
-  --app "ts-node src/app.ts" \
-  deploy "*-dev --outputs-file" \
-  --outputs "../src/cdk-exports-dev.json"
+npm run deploy-all-dev

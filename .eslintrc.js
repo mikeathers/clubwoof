@@ -76,6 +76,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'no-return-assign': 'off',
         '@typescript-eslint/no-unsafe-return': 'off',
+        '@typescript-eslint/unbound-method': 'off',
         'import/no-extraneous-dependencies': [
           'error',
           {
