@@ -40,7 +40,7 @@ export class UserPoolConstruct {
       memorySize: 1024,
       timeout: Duration.seconds(6),
       handler: 'main',
-      entry: join(__dirname, '..', 'cognito-triggers', 'custom-messages', 'index.ts'),
+      entry: join(__dirname, '..', 'cognito', 'triggers', 'custom-messages', 'index.ts'),
       bundling: {externalModules: ['aws-sdk']},
       environment: {
         FRONTEND_BASE_URL: this.isProduction
@@ -53,7 +53,14 @@ export class UserPoolConstruct {
       memorySize: 1024,
       timeout: Duration.seconds(6),
       handler: 'main',
-      entry: join(__dirname, '..', 'cognito-triggers', 'post-confirmation', 'index.ts'),
+      entry: join(
+        __dirname,
+        '..',
+        'cognito',
+        'triggers',
+        'post-confirmation',
+        'index.ts',
+      ),
       bundling: {externalModules: ['aws-sdk']},
     })
   }
@@ -74,10 +81,6 @@ export class UserPoolConstruct {
           mutable: true,
         },
         familyName: {
-          required: true,
-          mutable: true,
-        },
-        address: {
           required: true,
           mutable: true,
         },
