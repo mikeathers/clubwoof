@@ -7,8 +7,8 @@ import {
   UserPoolClient,
 } from 'aws-cdk-lib/aws-cognito'
 import {FederatedPrincipal, ManagedPolicy, Role} from 'aws-cdk-lib/aws-iam'
-import CONFIG from '../../config'
 import {DeploymentEnvironment} from '@clubwoof-backend-types'
+import CONFIG from '../../config'
 
 export class IdentityPoolConstruct {
   // @ts-ignore

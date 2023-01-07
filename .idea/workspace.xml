@@ -2,28 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/scripts/deploy-prod.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cdk-exports-prod.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/deploy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/lint_test_build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/.gitkeep" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/backend-stack.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cdk-exports-dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cdk-exports-prod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cdk-exports-prod.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +182,7 @@
       <workItem from="1672749221876" duration="29860000" />
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
-      <workItem from="1672992819873" duration="41465000" />
+      <workItem from="1672992819873" duration="42933000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
