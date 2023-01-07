@@ -17,8 +17,17 @@ export class BackendStack extends Stack {
     super(scope, id, props)
 
     const {userPool} = new UserPoolConstruct(this, props.deploymentEnvironment)
-    const {userPoolClient} = new UserPoolClientConstruct(this, userPool)
-    const {identityPool} = new IdentityPoolConstruct(this, userPool, userPoolClient)
+    const {userPoolClient} = new UserPoolClientConstruct(
+      this,
+      userPool,
+      props.deploymentEnvironment,
+    )
+    const {identityPool} = new IdentityPoolConstruct(
+      this,
+      userPool,
+      userPoolClient,
+      props.deploymentEnvironment,
+    )
 
     // Outputs
     new CfnOutput(this, 'userPoolId', {

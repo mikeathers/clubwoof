@@ -5,6 +5,8 @@ import {
   UserPoolClient,
   UserPoolClientIdentityProvider,
 } from 'aws-cdk-lib/aws-cognito'
+import {DeploymentEnvironment} from '@clubwoof-backend-types'
+
 import CONFIG from '../../config'
 
 export class UserPoolClientConstruct {
@@ -12,10 +14,16 @@ export class UserPoolClientConstruct {
   public userPoolClient: UserPoolClient
   private readonly scope: Construct
   private readonly userPool: UserPool
+  private readonly deploymentEnvironment: DeploymentEnvironment
 
-  constructor(scope: Construct, userPool: UserPool) {
+  constructor(
+    scope: Construct,
+    userPool: UserPool,
+    deploymentEnvironment: DeploymentEnvironment,
+  ) {
     this.scope = scope
     this.userPool = userPool
+    this.deploymentEnvironment = deploymentEnvironment
     this.createUserPoolClient()
   }
 
@@ -52,7 +60,7 @@ export class UserPoolClientConstruct {
       .withCustomAttributes(...['numberOfDogs'])
 
     this.userPoolClient = new UserPoolClient(this.scope, 'clubwoof-user-pool-client', {
-      userPoolClientName: `${CONFIG.STACK_PREFIX}-${CONFIG.DEPLOY_ENVIRONMENT}`,
+      userPoolClientName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
       userPool: this.userPool,
       authFlows: {
         adminUserPassword: true,

@@ -67,7 +67,7 @@ export class UserPoolConstruct {
 
   private createUserPool() {
     this.userPool = new UserPool(this.scope, 'clubwoof-user-pool', {
-      userPoolName: `${CONFIG.STACK_PREFIX}-${CONFIG.DEPLOY_ENVIRONMENT}`,
+      userPoolName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
       selfSignUpEnabled: true,
       signInAliases: {
         email: true,

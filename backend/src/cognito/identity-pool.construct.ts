@@ -8,6 +8,7 @@ import {
 } from 'aws-cdk-lib/aws-cognito'
 import {FederatedPrincipal, ManagedPolicy, Role} from 'aws-cdk-lib/aws-iam'
 import CONFIG from '../../config'
+import {DeploymentEnvironment} from '@clubwoof-backend-types'
 
 export class IdentityPoolConstruct {
   // @ts-ignore
@@ -23,11 +24,19 @@ export class IdentityPoolConstruct {
   private anonymousRole: Role
   // @ts-ignore
   private userRole: Role
+  private deploymentEnvironment: DeploymentEnvironment
 
-  constructor(scope: Construct, userPool: UserPool, userPoolClient: UserPoolClient) {
+  constructor(
+    scope: Construct,
+    userPool: UserPool,
+    userPoolClient: UserPoolClient,
+    deploymentEnvironment: DeploymentEnvironment,
+  ) {
     this.scope = scope
     this.userPool = userPool
     this.userPoolClient = userPoolClient
+    this.deploymentEnvironment = deploymentEnvironment
+
     this.createIdentityPool()
     this.createAdminCognitoGroupRole()
     this.createAnonymousCognitoGroupRole()
@@ -38,7 +47,7 @@ export class IdentityPoolConstruct {
   private createIdentityPool() {
     this.identityPool = new CfnIdentityPool(this.scope, 'clubwoof-identity-pool', {
       allowUnauthenticatedIdentities: true,
-      identityPoolName: `${CONFIG.STACK_PREFIX}-${CONFIG.DEPLOY_ENVIRONMENT}`,
+      identityPoolName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
       cognitoIdentityProviders: [
         {
           clientId: this.userPoolClient.userPoolClientId,

@@ -41,6 +41,7 @@ export function Register() {
 
   useEffect(() => {
     console.log(process.env.NODE_ENV)
+    console.log(process.env.NEXT_PUBLIC_IS_PRODUCTION)
     const firstNameInput = document.querySelector(
       '[aria-label="First name"]',
     ) as HTMLInputElement
