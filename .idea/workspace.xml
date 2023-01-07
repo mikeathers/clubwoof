@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change beforePath="$PROJECT_DIR$/.github/scripts/deploy-prod.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/deploy-prod.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/account/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/account/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/out/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/out/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/outputs/base-url-prod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputs/base-url-prod.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/outputs/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputs/cdk-exports-dev.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/outputs/cdk-exports-prod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputs/cdk-exports-prod.json" afterDir="false" />
     </list>
@@ -187,7 +182,7 @@
       <workItem from="1672749221876" duration="29860000" />
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
-      <workItem from="1672992819873" duration="45579000" />
+      <workItem from="1672992819873" duration="46868000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

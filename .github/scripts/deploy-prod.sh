@@ -22,7 +22,7 @@ npm run deploy-backend-prod
 cd ..
 
 echo "--- 🚀 Run next build...";
-npm run prod-build;
+npm run prod-build
 
 echo "--- 🚀 Run next export..."
 npm run export

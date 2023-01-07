@@ -16,6 +16,9 @@ npm ci
 echo "--- 🚀 Run lint..."
 npm run lint
 
+echo "--- 🚀 Deploy backend stack..."
+npm run deploy-backend-dev
+
 # Ok lets's jump back into our Next directory
 cd ..
 

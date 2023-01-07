@@ -15,4 +15,4 @@ npm ci
 
 # Deploy the cdk stack
 echo "--- 🚀 Deploying CDK stack..."
-npm run deploy-all-dev
+npm run deploy-frontend-dev
