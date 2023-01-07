@@ -1,4 +1,8 @@
-npm ci
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+#npm ci
 
 # Ok lets's jump into our CDK directory
 cd backend
@@ -8,7 +12,11 @@ cd backend
 #npm ci
 
 echo "--- 🚀 Run lint..."
-#npm run lint
+npm run lint
+
+# Deploy the cdk stack
+echo "--- 🚀 Deploying backend CDK stack..."
+npm run deploy-backend-prod
 
 # Ok lets's jump back into our Next directory
 cd ..
@@ -34,5 +42,5 @@ echo "--- 🚀 Installing npm dependencies..."
 #npm ci
 
 # Deploy the cdk stack
-echo "--- 🚀 Deploying CDK stack..."
-npm run deploy-all-prod
+echo "--- 🚀 Deploying frontend CDK stack..."
+npm run deploy-frontend-prod

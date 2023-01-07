@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {Auth} from '@aws-amplify/auth'
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
@@ -5,7 +6,6 @@ import Head from 'next/head'
 import {dev} from '../constants'
 import '../styles/globals.css'
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 Auth.configure({
   mandatorySignIn: false,
   region: dev.REGION,

@@ -1,6 +1,6 @@
 /* eslint-disable */
-import prodConfig from 'cdk-exports-prod.json'
-import devConfig from 'cdk-exports-dev.json'
+import prodConfig from './outputs/cdk-exports-prod.json'
+import devConfig from './outputs/cdk-exports-dev.json'
 
 const prodConstants = {
   REGION: prodConfig['clubwoof-backend-prod'].region,

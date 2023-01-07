@@ -40,8 +40,6 @@ export function Register() {
   const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
 
   useEffect(() => {
-    console.log(process.env.NODE_ENV)
-    console.log(process.env.NEXT_PUBLIC_IS_PRODUCTION)
     const firstNameInput = document.querySelector(
       '[aria-label="First name"]',
     ) as HTMLInputElement

@@ -1,0 +1,11 @@
+{
+  "clubwoof-backend-prod": {
+    "userPoolClientId": "",
+    "region": "",
+    "userPoolId": "",
+    "identityPoolId": ""
+  },
+  "clubwoof-website-prod": {
+    "urlBase": "clubwoof.co.uk"
+  }
+}
