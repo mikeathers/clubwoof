@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "dev-build": "env-cmd -f .env.development next build",
-    "prod-build": "env-cmd -f .env.production next build",
-    "export": "next export -o backend/out",
+    "export:dev": "next export -o backend/frontend-build/dev",
+    "export:prod": "next export -o backend/frontend-build/prod",
+    "build:dev": "env-cmd -f src/env/.env.development next build && npm run export:dev",
+    "build:prod": "env-cmd -f src/env/.env.production next build && npm run export:prod",
     "start": "next start",
     "lint": "eslint . --fix --ext ts,tsx",
     "prepare": "husky install",

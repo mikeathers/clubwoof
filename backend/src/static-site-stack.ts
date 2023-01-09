@@ -34,7 +34,7 @@ export class StaticSiteStack extends Stack {
     createBucketDeployment({
       scope: this,
       bucket: assetsBucket,
-      filePath: './out',
+      filePath: isProduction ? './frontend-build/prod' : './frontend-build/dev',
       env: deploymentEnvironment,
     })
 

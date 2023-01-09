@@ -16,5 +16,10 @@ const devConstants = {
   USER_POOL_WEB_CLIENT_ID: devConfig['clubwoof-backend-dev'].userPoolClientId,
 }
 
+export const dev =
+  process.env.NEXT_PUBLIC_IS_PRODUCTION === 'false' ? devConstants : prodConstants
+
 console.log(process.env.NEXT_PUBLIC_IS_PRODUCTION)
-export const dev = !process.env.NEXT_PUBLIC_IS_PRODUCTION ? devConstants : prodConstants
+console.log('isProdFalse: ', process.env.NEXT_PUBLIC_IS_PRODUCTION === 'false')
+
+console.log({devConstants, prodConstants})

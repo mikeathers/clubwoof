@@ -9,9 +9,6 @@ npm run lint
 echo "Running type-check command"
 npm run type-check
 
-echo "Running prettier command"
-npm run prettier:fix
-
 echo "Changing dir to backend"
 cd backend
 
