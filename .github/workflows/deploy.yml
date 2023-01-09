@@ -48,7 +48,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build.zip
-          path: backend/frontend-build/zip/dev/build.zip
+          path: backend/frontend-build/zip/dev
 
   deploy-frontend:
     name: Deploy Frontend
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build.zip
-          path: backend/frontend-builds/zip/dev
+          path: backend/frontend-build/zip/dev
       - run: .github/scripts/setBranch.sh
       - run: .github/scripts/deploy-frontend.sh dev
         env:
