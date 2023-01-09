@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock" />
+    <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change beforePath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -8,6 +8,9 @@ frontendBuildProdDir="frontend-build/prod"
 frontendZipProdDir="frontend-build/zip/prod"
 frontendZipDevDir="frontend-build/zip/dev"
 
+echo "--- 🚀 Installing npm dependencies..."
+npm ci
+
 echo "--- 🚀 Changing directory to backend..."
 if [ "$env" == 'dev' ]
   then cd backend
