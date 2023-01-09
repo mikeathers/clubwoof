@@ -6,7 +6,7 @@ echo "--- 🚀 Deploying to Production..."
 cd .github/scripts
 
 #echo "--- 🚀 Linting and testing..."
-#sh lint-and-test.sh "prod"
+sh lint-and-test.sh "prod"
 
 bash deploy-backend.sh "prod"
 wait
