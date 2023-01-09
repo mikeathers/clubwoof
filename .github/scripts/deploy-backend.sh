@@ -4,6 +4,9 @@ set -euo pipefail
 
 env=$1
 
+echo "--- 🚀 Installing npm dependencies..."
+npm ci
+
 echo "--- 🚀 Changing directory to backend..."
 if [ "$env" == 'dev' ]
   then
@@ -11,9 +14,12 @@ if [ "$env" == 'dev' ]
 fi
 
 if [ "$env" == 'prod' ]
-  then cd ../../backend
-
+  then
+    cd ../../backend
 fi
+
+echo "--- 🚀 Installing npm dependencies..."
+npm ci
 
 echo "--- 🚀 Deploying backend CDK stack..."
 if [ "$env" == 'prod' ]
