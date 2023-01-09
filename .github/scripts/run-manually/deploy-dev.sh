@@ -7,6 +7,7 @@ cd .github/scripts
 
 #echo "--- 🚀 Linting and testing..."
 sh lint-and-test.sh "dev"
+wait
 
 bash deploy-backend.sh "dev"
 wait
