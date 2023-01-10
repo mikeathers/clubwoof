@@ -1,13 +1,14 @@
-import {fireEvent, render, waitFor} from '@testing-library/react'
-import {useMediaQueries} from '@clubwoof-hooks'
 import {mocked} from 'jest-mock'
+import '@testing-library/jest-dom'
+import {fireEvent, render, waitFor} from '@testing-library/react'
 import {Auth} from '@aws-amplify/auth'
+
+import {useMediaQueries} from '@clubwoof-hooks'
+
 import {Register} from './register.component'
 
 const mockUseMediaQueries = mocked(useMediaQueries)
-const mockAwsAuth = mocked(Auth)
 
-jest.mock('@aws-amplify/auth')
 jest.mock('@clubwoof-hooks', () => ({
   __esModule: true,
   ...jest.requireActual('@clubwoof-hooks'),
@@ -21,6 +22,8 @@ describe('Register Page', () => {
       isRetina: false,
       isPortrait: false,
     })
+
+    jest.spyOn(Auth, 'signUp')
   })
 
   it('should render a page with a title', () => {
@@ -80,26 +83,17 @@ describe('Register Page', () => {
     const {getByLabelText} = render(<Register />)
 
     fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
-    fireEvent.keyDown(getByLabelText('First name'), {key: 'Enter', code: 'Enter'})
-
     fireEvent.change(getByLabelText('Last name'), {target: {value: 'Joe'}})
-    fireEvent.keyDown(getByLabelText('Last name'), {key: 'Enter', code: 'Enter'})
-
-    fireEvent.change(getByLabelText('Email'), {target: {value: 'Joe@bloggs.com'}})
-    fireEvent.keyDown(getByLabelText('Email'), {key: 'Enter', code: 'Enter'})
-
-    fireEvent.change(getByLabelText('Password'), {target: {value: 'somePassword1!'}})
-    fireEvent.keyDown(getByLabelText('Password'), {key: 'Enter', code: 'Enter'})
-
+    fireEvent.change(getByLabelText('Email'), {target: {value: 'joe@bloggs.com'}})
+    fireEvent.change(getByLabelText('Password'), {target: {value: 'Password1!'}})
     fireEvent.change(getByLabelText('Confirm password'), {
-      target: {value: 'somePassword1!'},
+      target: {value: 'Password1!'},
     })
-    fireEvent.keyDown(getByLabelText('Confirm password'), {key: 'Enter', code: 'Enter'})
-
     const submitButton = getByLabelText('Submit')
+
     fireEvent.click(submitButton)
 
-    await waitFor(() => expect(mockAwsAuth.signUp).toHaveBeenCalled())
+    await waitFor(() => expect(Auth.signUp).toHaveBeenCalled())
   })
 
   describe('Form Validation', () => {

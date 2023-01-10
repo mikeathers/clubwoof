@@ -1,7 +1,6 @@
 import React, {SyntheticEvent, useEffect, useState} from 'react'
 import Link from 'next/link'
 import {Box} from 'grommet'
-import {yupResolver} from '@hookform/resolvers/yup'
 import {Controller, FieldValues, useForm} from 'react-hook-form'
 import {Auth} from '@aws-amplify/auth'
 
@@ -21,6 +20,7 @@ import {
   SubmitButton,
 } from './register.styles'
 import {formSchema, inputs} from './form-helpers'
+import {yupResolver} from '@hookform/resolvers/yup'
 
 interface FormDetails extends FieldValues {
   email?: string
@@ -29,7 +29,7 @@ interface FormDetails extends FieldValues {
   lastName?: string
 }
 
-export function Register() {
+export const Register: React.FC = () => {
   const {isMobile} = useMediaQueries()
   const {control, handleSubmit, formState, reset} = useForm({
     mode: 'onTouched',
@@ -83,14 +83,16 @@ export function Register() {
     }
   }
 
-  const handleClick = (e: SyntheticEvent) => {
+  const handleClick = async (e: SyntheticEvent) => {
     e.preventDefault()
+    console.log({formState})
     if (Object.keys(formState.errors).length > 0) return
 
-    handleSubmit(submitForm)()
+    await handleSubmit(submitForm)()
   }
 
   const submitForm = async (data: FormDetails) => {
+    console.log('BLAHHH::::::', formState.errors)
     if (data.firstName && data.lastName && data.email && data.password) {
       const result = await Auth.signUp({
         username: data.email.trim().toLowerCase(),

@@ -29,6 +29,15 @@
       ],
       "@clubwoof-hooks": [
         "./hooks"
+      ],
+      "@clubwoof-constants": [
+        "./constants.ts"
+      ],
+      "@clubwoof-test-utils": [
+        "./test-utils"
+      ],
+      "@clubwoof-context": [
+        "./context"
       ]
     }
   },
