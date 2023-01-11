@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Text as GrommetText} from 'grommet'
+
 import Image from 'next/image'
 
 import {
@@ -36,8 +36,10 @@ export const Heading = styled.h1`
   font-family: ${fonts.headingFont};
   font-size: ${fontSizes.xxxl};
   font-weight: ${fontWeights.medium};
+  line-height: ${lineHeights.heading};
   color: ${colors.lightBlue};
-  line-height: ${lineHeights.display};
+  position: relative;
+  display: inline-block;
 `
 export const SubHeading = styled.h2`
   font-size: ${fontSizes.m};
@@ -69,12 +71,22 @@ export const SubmitButton = styled.button`
     outline: 2px solid ${colors.pink};
   }
 `
-export const FormContainer = styled.div`
+export const Form = styled.form`
   width: 80%;
   margin: 0 auto;
+
+  div:nth-child(5) {
+    margin-bottom: 0;
+  }
 `
 
-export const LoginText = styled(GrommetText)`
+export const ErrorMessage = styled.p`
+  color: ${colors.red};
+  font-size: ${fontSizes.s};
+  margin-top: ${spacing.space4x};
+`
+
+export const LinkText = styled.p`
   font-size: ${fontSizes.s};
   margin-top: ${spacing.space2x};
 

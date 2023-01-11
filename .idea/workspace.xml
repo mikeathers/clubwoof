@@ -2,28 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/src/context/auth/auth-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/auth/auth.context.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/auth/auth.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/auth/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/cognito-user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test-utils/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test-utils/render-hook.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/global.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/form-helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/form-helpers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text-input/text-input.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text-input/text-input.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text/text.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text/text.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/variables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/global.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +197,7 @@
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
       <workItem from="1672992819873" duration="46868000" />
+      <workItem from="1673421798261" duration="13017000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -239,45 +231,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/account/register/register.component.tsx</url>
-          <line>86</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/account/register/register.component.tsx</url>
-          <line>88</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/account/register/register.component.tsx</url>
-          <line>95</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/account/register/register.component.tsx</url>
-          <line>94</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/context/auth/auth.context.tsx</url>
           <line>68</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/context/auth/auth.context.tsx</url>
           <line>58</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/context/auth/auth.context.tsx</url>
           <line>43</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>

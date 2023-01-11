@@ -63,6 +63,7 @@ export const fontWeights: FontWeights = {
 export const lineHeights: LineHeights = {
   display: 1.35,
   body: 1.55,
+  heading: '50px',
 }
 const breakpoints: Breakpoints = {
   xxxs: {

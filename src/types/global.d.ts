@@ -9,6 +9,12 @@ declare global {
     address?: string
     isAdmin?: boolean
   }
+
+  interface CognitoError {
+    name: string
+    code: string
+    message: string
+  }
 }
 
 export {}

@@ -92,7 +92,7 @@ const rightBubblePositioning = css`
 export const Bubble = styled(Image)<BubbleProps>`
   position: absolute;
   height: 400px !important;
-  width: 400px !important;
+  width: 100% !important;
 
   ${({position}) => {
     switch (position) {

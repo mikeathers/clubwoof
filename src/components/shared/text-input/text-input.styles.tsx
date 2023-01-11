@@ -79,5 +79,5 @@ export const Icon = styled.div`
   top: 8px;
 `
 export const ErrorContainer = styled.div`
-  height: 16px;
+  height: 24px;
 `

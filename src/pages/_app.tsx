@@ -3,6 +3,8 @@ import {Auth} from '@aws-amplify/auth'
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
 
+import {AuthProvider} from '@clubwoof-context'
+
 import {dev} from '../constants'
 import '../styles/globals.css'
 
@@ -21,7 +23,9 @@ export default function App({Component, pageProps}: AppProps) {
       <Head>
         <title>clubwoof | your dog, our playground </title>
       </Head>
-      <Component {...pageProps} />
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </>
   )
 }

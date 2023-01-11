@@ -35,7 +35,6 @@ export const formSchema = object({
     .required('Confirm password is required.')
     .min(6, PASSWORD_TOO_SHORT)
     .max(12, PASSWORD_TOO_LONG)
-    .test('isValidPassword', PASSWORD_INVALID, (value) => passwordValidation(value))
     .oneOf([ref('password')], 'Passwords do not match.'),
 })
 

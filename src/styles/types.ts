@@ -38,6 +38,7 @@ export interface FontSizes {
 export interface LineHeights {
   display: number
   body: number
+  heading: string
 }
 
 export interface Colors {
