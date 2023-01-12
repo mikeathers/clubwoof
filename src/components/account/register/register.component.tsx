@@ -106,6 +106,7 @@ export const Register: React.FC = () => {
     await handleSubmit(registerUser)()
   }
 
+  // eslint-disable-next-line
   const isCognitoError = (obj: any): obj is CognitoError => {
     return 'code' in obj && 'message' in obj && 'name' in obj
   }

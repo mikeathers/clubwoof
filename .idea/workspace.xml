@@ -2,19 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/bulldozer.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.storybook/manager.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.storybook/preview-head.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.storybook/preview.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo-small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Button.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Header.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Introduction.stories.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Page.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/code-brackets.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/colors.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/comments.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/direction.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/flow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/plugin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/repo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/assets/stackalt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/form-helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/form-helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/text-input/text-input.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text-input/text-input.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/text/text.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/text/text.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/variables.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/global.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +95,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/outputs" />
       <recent name="$PROJECT_DIR$/backend/src/cognito" />
       <recent name="$PROJECT_DIR$/backend/src/types" />
       <recent name="$PROJECT_DIR$/backend/src/global-types" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.AuthContext">
@@ -197,7 +214,7 @@
       <workItem from="1672835115463" duration="54075000" />
       <workItem from="1672990995666" duration="1796000" />
       <workItem from="1672992819873" duration="46868000" />
-      <workItem from="1673421798261" duration="13017000" />
+      <workItem from="1673421798261" duration="17796000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
