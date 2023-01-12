@@ -1,0 +1,1 @@
+#version: 1##merge:#  trigger:#    labels: ['ready to merge']#  method: squash##update:#  trigger:#    labels: ['ready to merge']
