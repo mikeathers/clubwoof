@@ -7,11 +7,20 @@ runningManually="$2"
 
 echo "--- 🚀 Running lint and test script..."
 
-echo "--- 🚀 Installing npm dependencies..."
-npm ci
+
+
+if [ "$env" == 'dev' ]
+  then
+    echo "--- 🚀 Installing npm dependencies..."
+    npm ci
+fi
+
+
 
 echo "--- 🚀 Run lint..."
 npm run lint
+
+
 
 echo "--- 🚀 Changing directory to backend..."
 if [ "$env" == 'dev' ] && [ "$runningManually" = false ]
@@ -26,8 +35,15 @@ if [ "$env" == 'prod' ]
   then cd ../../backend
 fi
 
-echo "--- 🚀 Installing npm dependencies..."
-npm ci
+
+
+if [ "$env" == 'dev' ]
+  then
+    echo "--- 🚀 Installing npm dependencies..."
+    npm ci
+fi
+
+
 
 echo "--- 🚀 Run lint..."
 npm run lint

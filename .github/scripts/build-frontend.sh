@@ -13,6 +13,8 @@ storybookBuildDir="storybook-build"
 echo "--- 🚀 Installing npm dependencies..."
 npm ci
 
+
+
 echo "--- 🚀 Changing directory to backend..."
 if [ "$env" == 'dev' ] && [ "$runningManually" = false ]
   then
@@ -27,8 +29,10 @@ if [ "$env" == 'prod' ]
   then cd ../../backend
 fi
 
+
+
 echo "--- 🚀 Removing old next builds (if possible)..."
-#Look for old build folders, remove, create new
+#Look for old build folders -> remove -> create new
 #Or create new
 
 if [ "$env" == 'dev' ]
@@ -59,41 +63,64 @@ if [ "$env" == 'prod' ]
     mkdir "$frontendZipProdDir"
 fi
 
-echo "--- 🚀 Removing old storybook builds for dev (if possible)..."
+
+
 if [ "$env" == 'dev' ]
   then
     if [ -d "$storybookBuildDir" ]
       then
+        echo "--- 🚀 Removing old storybook builds for dev (if possible)..."
         rm -r "$storybookBuildDir"
     fi
     mkdir "$storybookBuildDir"
 fi
 
+
+
 echo "--- 🚀 Changing directory to frontend..."
 cd ..
+
+
 
 echo "--- 🚀 Running next build & export...";
 if [ "$env" == 'dev' ]
   then npm run build:dev
 fi
 
+
+
 if [ "$env" == 'prod' ]
   then npm run build:prod
 fi
 
-echo "--- 🚀 Running storybook build and export...";
+
+
 if [ "$env" == 'dev' ]
-  then npm run storybook:build
+  then
+    echo "--- 🚀 Running storybook build and export...";
+    npm run storybook:build
 fi
 
-#echo "--- 🚀 Changing directory to backend..."
-#cd backend
 
-#echo "--- 🚀 Zipping build..."
-#if [ "$env" == 'dev' ]
-#  then zip -r "$frontendZipDevDir/build.zip" "$frontendBuildDevDir"
-#fi
-#
-#if [ "$env" == 'prod' ]
-#  then zip -r "$frontendZipProdDir/build.zip" "$frontendBuildProdDir"
-#fi
+
+echo "--- 🚀 Changing directory to backend..."
+cd backend
+
+
+
+echo "--- 🚀 Zipping website build..."
+if [ "$env" == 'dev' ]
+  then zip -r "$frontendZipDevDir/website.build.zip" "$frontendBuildDevDir"
+fi
+
+if [ "$env" == 'prod' ]
+  then zip -r "$frontendZipProdDir/website.build.zip" "$frontendBuildProdDir"
+fi
+
+
+
+if [ "$env" == 'dev' ]
+  then
+    echo "--- 🚀 Zipping storybook build..."
+    zip -r "$frontendZipDevDir/storybook.build.zip" "$storybookBuildDir"
+fi

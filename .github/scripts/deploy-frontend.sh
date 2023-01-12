@@ -21,17 +21,33 @@ if [ "$env" == 'prod' ]
   then cd ../../backend
 fi
 
-#echo "--- 🚀 Unzipping the build..."
-#if [ "$env" == 'dev' ]
-#  then unzip -o -q "$frontendZipDevDir/build.zip"
-#fi
-#
-#if [ "$env" == 'prod' ]
-#  then unzip -o -q "$frontendZipProdDir/build.zip"
-#fi
 
-echo "--- 🚀 Installing npm dependencies..."
-npm ci
+
+echo "--- 🚀 Unzipping website build..."
+if [ "$env" == 'dev' ]
+  then unzip -o -q "$frontendZipDevDir/website.build.zip"
+fi
+
+if [ "$env" == 'prod' ]
+  then unzip -o -q "$frontendZipProdDir/website.build.zip"
+fi
+
+
+
+echo "--- 🚀 Unzipping story build..."
+if [ "$env" == 'dev' ]
+  then unzip -o -q "$frontendZipDevDir/storybook.build.zip"
+fi
+
+
+
+if [ "$env" == 'dev' ]
+  then
+    echo "--- 🚀 Installing npm dependencies..."
+    npm ci
+fi
+
+
 
 echo "--- 🚀 Deploying CDK stack..."
 

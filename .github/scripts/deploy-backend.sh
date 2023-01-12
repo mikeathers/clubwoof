@@ -8,6 +8,8 @@ runningManually="$2"
 echo "--- 🚀 Installing npm dependencies..."
 npm ci
 
+
+
 echo "--- 🚀 Changing directory to backend..."
 if [ "$env" == 'dev' ] && [ "$runningManually" = false ]
   then
@@ -23,8 +25,15 @@ if [ "$env" == 'prod' ]
     cd ../../backend
 fi
 
-echo "--- 🚀 Installing npm dependencies..."
-npm ci
+
+
+if [ "$env" == 'dev' ]
+  then
+    echo "--- 🚀 Installing npm dependencies..."
+    npm ci
+fi
+
+
 
 echo "--- 🚀 Deploying backend CDK stack..."
 if [ "$env" == 'prod' ]

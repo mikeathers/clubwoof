@@ -71,7 +71,7 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
         ...distributionProps,
         defaultBehaviour: {
           ...distributionProps.defaultBehavior,
-          functionAssociation: functionAssociates,
+          functionAssociations: functionAssociates,
         },
       }
     : distributionProps
