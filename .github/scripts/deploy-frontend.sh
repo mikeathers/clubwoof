@@ -13,7 +13,7 @@ if [ "$env" == 'dev' ] && [ "$runningManually" = false ]
     cd backend
 fi
 
-if [ "$env" == 'dev' ] && [ "$runningManually" ]
+if [ "$env" == 'dev' ] && [ "$runningManually" = true ]
   then cd ../../backend
 fi
 

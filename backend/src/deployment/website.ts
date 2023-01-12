@@ -21,7 +21,7 @@ interface WebsiteDeploymentProps {
   responseHeadersPolicy: ResponseHeadersPolicy
 }
 
-export const websiteDeployment = (props: WebsiteDeploymentProps) => {
+export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
   const {scope, deploymentEnvironment, hostedZone, responseHeadersPolicy} = props
   const isProduction = deploymentEnvironment === 'prod'
   const url = isProduction ? CONFIG.DOMAIN_NAME : CONFIG.DEV_URL

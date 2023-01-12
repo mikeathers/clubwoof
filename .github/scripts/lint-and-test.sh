@@ -18,7 +18,7 @@ if [ "$env" == 'dev' ] && [ "$runningManually" = false ]
   then cd backend
 fi
 
-if [ "$env" == 'dev' ] && [ "$runningManually" ]
+if [ "$env" == 'dev' ] && [ "$runningManually" = true ]
   then cd ../../backend
 fi
 
@@ -31,4 +31,3 @@ npm ci
 
 echo "--- 🚀 Run lint..."
 npm run lint
-

@@ -18,7 +18,7 @@ interface StorybookDeploymentProps {
   responseHeadersPolicy: ResponseHeadersPolicy
 }
 
-export const storybookDeployment = (props: StorybookDeploymentProps) => {
+export const storybookDeployment = (props: StorybookDeploymentProps): void => {
   const {scope, hostedZone, responseHeadersPolicy} = props
   const deploymentEnvironment = 'dev'
   const url = CONFIG.STORYBOOK_URL
