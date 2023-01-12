@@ -16,12 +16,15 @@ import {
   Heading,
   HeadingContainer,
   LinkText,
+  LocaleSelect,
   Logo,
   SubHeading,
   SubmitButton,
 } from './register.styles'
 import {formSchema, inputs} from './form-helpers'
 import {yupResolver} from '@hookform/resolvers/yup'
+import {TFunction} from 'i18next'
+import {useRouter} from 'next/router'
 
 interface FormDetails extends FieldValues {
   email?: string
@@ -39,8 +42,14 @@ const RegisterComplete: React.FC = () => (
   </div>
 )
 
-export const Register: React.FC = () => {
+interface RegisterProps {
+  i18n?: TFunction<'register'[], undefined, 'register'[]>
+}
+
+export const Register: React.FC<RegisterProps> = (props) => {
+  const {i18n} = props
   const {isMobile} = useMediaQueries()
+  const router = useRouter()
   const {control, handleSubmit, formState, reset} = useForm({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema),
@@ -50,6 +59,7 @@ export const Register: React.FC = () => {
   const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
   const [registrationComplete, setRegistrationComplete] = useState<boolean>(false)
   const [error, setError] = useState<string>('')
+  const [locale, setLocale] = useState<string>('en')
 
   useEffect(() => {
     addInteractiveFieldsToState()
@@ -151,6 +161,14 @@ export const Register: React.FC = () => {
     return (errorMessage as string).includes('contain') ? '' : `${errorMessage}`
   }
 
+  const onToggleLanguageClick = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(event.target.value)
+    const newLocale = event.target.value
+    const {pathname, asPath, query} = router
+    setLocale(newLocale)
+    await router.push({pathname, query}, asPath, {locale: newLocale})
+  }
+
   return (
     <Layout
       bubbleOnePositioning="top"
@@ -159,6 +177,11 @@ export const Register: React.FC = () => {
     >
       <Container>
         {!isMobile && <Logo src="/logo.png" alt="logo" height={140} width={140} />}
+
+        <LocaleSelect defaultValue={locale} onChange={(e) => onToggleLanguageClick(e)}>
+          <option value={'en'}>🇬🇧 English</option>
+          <option value={'pl'}>🇵🇱 Polski</option>
+        </LocaleSelect>
         <Box align="center">
           <DogImage
             src="/dog-on-phone.svg"
@@ -170,7 +193,7 @@ export const Register: React.FC = () => {
         {!registrationComplete ? (
           <>
             <HeadingContainer>
-              <Heading>Hello Hooman, it&apos;s nice to meet you!</Heading>
+              <Heading>{i18n && i18n('heading')}</Heading>
               <SubHeading>Register today and join the club</SubHeading>
             </HeadingContainer>
             <Form>

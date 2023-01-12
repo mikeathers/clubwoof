@@ -22,6 +22,13 @@ export const Container = styled.div`
 export const DogImage = styled(Image)`
   z-index: 1;
 `
+
+export const LocaleSelect = styled.select`
+  position: absolute;
+  right: 100px;
+  top: 150px;
+`
+
 export const Logo = styled(Image)`
   position: absolute;
   top: 10px;

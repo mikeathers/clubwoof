@@ -12,6 +12,3 @@ export default {
 const Template: ComponentStory<typeof Register> = (args) => <Register {...args} />
 
 export const DefaultView = Template.bind({})
-DefaultView.args = {
-  submitted: false,
-}
