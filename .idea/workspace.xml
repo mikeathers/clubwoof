@@ -2,62 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/deploy-backend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/deploy-backend.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/deploy-frontend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/deploy-frontend.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/lint-and-test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/lint-and-test.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/run-manually/deploy-dev.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/run-manually/deploy-dev.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/certificate/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/certificate/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/route53/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/route53/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/s3/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/s3/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/backend-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/identity-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool-client.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/deployment/storybook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/deployment/storybook.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/deployment/website.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/deployment/website.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/static-site-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/static-site-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/320.cc09800d702de621d923.manager.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/320.cc09800d702de621d923.manager.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/51.3eb2a70e8dbf851d2073.manager.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/51.3eb2a70e8dbf851d2073.manager.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/51.7d1ac828.iframe.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/51.7d1ac828.iframe.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/743.8c597468.iframe.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/743.8c597468.iframe.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/807.71e39049.iframe.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/807.71e39049.iframe.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/807.ac1ad3e1af19190c7b03.manager.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/807.ac1ad3e1af19190c7b03.manager.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/897.436c7a43.iframe.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/897.436c7a43.iframe.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/897.9d56d1e8f7710bf7774f.manager.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/897.9d56d1e8f7710bf7774f.manager.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/dog-on-phone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/dog-on-phone.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/iframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/iframe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/logo-small.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/logo-small.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/main.89fddba7.iframe.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/next.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/next.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/pink-bubbles-2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/pink-bubbles-2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/pink-bubbles-3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/pink-bubbles-3.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/pink-bubbles.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/pink-bubbles.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/purple-bubbles.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/purple-bubbles.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/code-brackets.2e1112d7.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/code-brackets.2e1112d7.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/colors.a4bd0486.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/colors.a4bd0486.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/comments.a3859089.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/comments.a3859089.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/direction.b770f9af.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/direction.b770f9af.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/flow.edad2ac1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/flow.edad2ac1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/plugin.d494b228.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/plugin.d494b228.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/repo.6d496322.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/repo.6d496322.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/static/media/stackalt.dba9fbb3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/static/media/stackalt.dba9fbb3.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/thirteen.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/thirteen.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/vercel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/vercel.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/stroybook-build/yellow-bubble.svg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/yellow-bubble.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/outputs/base-url-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputs/base-url-dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/outputs/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/outputs/cdk-exports-dev.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +188,7 @@
       <workItem from="1672992819873" duration="46868000" />
       <workItem from="1673421798261" duration="24080000" />
       <workItem from="1673518586915" duration="878000" />
-      <workItem from="1673519477042" duration="7104000" />
+      <workItem from="1673519477042" duration="7689000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
