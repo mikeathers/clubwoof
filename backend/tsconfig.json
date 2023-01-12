@@ -33,26 +33,6 @@
     "incremental": true,
     "baseUrl": "./src",
     "rootDir": "./",
-    "paths": {
-      "@clubwoof-backend-types": [
-        "./types"
-        ],
-      "@clubwoof-backend-deployment": [
-        "./deployment"
-      ],
-      "@clubwoof-backend-aws": [
-        "./aws"
-      ],
-      "@clubwoof-backend-cognito": [
-        "./cognito"
-      ],
-      "@clubwoof-backend-functions": [
-        "./functions"
-      ],
-      "@clubwoof-backend-config": [
-        "./config.ts"
-      ]
-    },
   },
   "include": [
     "src/**/*.ts",

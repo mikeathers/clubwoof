@@ -19,14 +19,15 @@ export interface CreateARecordForDistributionProps {
   hostedZone: IHostedZone
   url: string
   distribution: IDistribution
+  name: string
 }
 
 export const createARecordForDistribution = (
   props: CreateARecordForDistributionProps,
 ): ARecord => {
-  const {scope, hostedZone, url, distribution} = props
+  const {scope, hostedZone, url, distribution, name} = props
 
-  return new ARecord(scope, 'ARecord', {
+  return new ARecord(scope, name, {
     recordName: url,
     target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
     zone: hostedZone,

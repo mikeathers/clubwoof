@@ -1,5 +1,6 @@
 {
   "clubwoof-website-dev": {
-    "urlBase": ""
+    "urlBase": "dev.clubwoof.co.uk",
+    "storybookUrl": "storybook.clubwoof.co.uk"
   }
 }

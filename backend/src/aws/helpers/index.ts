@@ -9,7 +9,7 @@ import {
   OriginAccessIdentity,
 } from 'aws-cdk-lib/aws-cloudfront'
 
-import CONFIG from '@clubwoof-backend-config'
+import {DeploymentEnvironment} from '../../types'
 
 export const isMasterBranch = (branchName: string): boolean => {
   return branchName === 'main'
@@ -23,6 +23,11 @@ export interface GetSubDomainNameProps {
 export interface GetUrlProps {
   domainName: string
   branchedSubDomainName: string
+}
+
+interface GetReWriteFunctionProps {
+  scope: Construct
+  deploymentEnvironment: DeploymentEnvironment
 }
 
 export const getBranchedSubDomainName = (props: GetSubDomainNameProps): string => {
@@ -59,15 +64,16 @@ export const getStackName = (props: GetStackNameProps): string => {
   return `${githubRepositoryName}-${branchName}`
 }
 
+interface HandleAccessIdentityProps {
+  scope: Construct
+  bucket: IBucket
+  name: string
+}
 export const handleAccessIdentity = (
-  scope: Construct,
-  bucket: IBucket,
+  props: HandleAccessIdentityProps,
 ): OriginAccessIdentity => {
-  const cloudfrontOriginAccessIdentity = new OriginAccessIdentity(
-    scope,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    `${CONFIG.STACK_PREFIX}-cloud-front-origin-access-identity`,
-  )
+  const {scope, bucket, name} = props
+  const cloudfrontOriginAccessIdentity = new OriginAccessIdentity(scope, name)
 
   bucket.grantRead(cloudfrontOriginAccessIdentity)
 
@@ -86,9 +92,10 @@ export const handleAccessIdentity = (
   return cloudfrontOriginAccessIdentity
 }
 
-export const getRewriteFunction = (scope: Construct, env: 'prod' | 'dev'): IFunction => {
-  return new Function(scope, `ViewerResponseFunction-${env}`, {
-    functionName: `RedirectURIFunction-${env}`,
+export const getRewriteFunction = (props: GetReWriteFunctionProps): IFunction => {
+  const {scope, deploymentEnvironment} = props
+  return new Function(scope, `ViewerResponseFunction-${deploymentEnvironment}`, {
+    functionName: `RedirectURIFunction-${deploymentEnvironment}`,
     code: FunctionCode.fromFile({
       filePath: join(__dirname, '..', '..', 'functions', 'mapping-function.js'),
     }),

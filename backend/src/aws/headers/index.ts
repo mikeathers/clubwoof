@@ -29,7 +29,7 @@ export const getSecurityHeader = (scope: Stack): ResponseHeadersPolicy => {
       },
       frameOptions: {
         override: true,
-        frameOption: HeadersFrameOption.DENY,
+        frameOption: HeadersFrameOption.SAMEORIGIN,
       },
     },
   })

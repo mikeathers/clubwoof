@@ -10,8 +10,8 @@ import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {Construct} from 'constructs'
 import {Duration, RemovalPolicy} from 'aws-cdk-lib'
 
-import {DeploymentEnvironment} from '@clubwoof-backend-types'
-import CONFIG from '@clubwoof-backend-config'
+import {DeploymentEnvironment} from '../types'
+import CONFIG from '../config'
 
 export class UserPoolConstruct {
   // @ts-ignore

@@ -11,8 +11,8 @@ import {
 import {IBucket} from 'aws-cdk-lib/aws-s3'
 import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
 import {S3Origin} from 'aws-cdk-lib/aws-cloudfront-origins'
-import CONFIG from '@clubwoof-backend-config'
-import {DeploymentEnvironment} from '@clubwoof-backend-types'
+
+import {DeploymentEnvironment} from '../../types'
 
 export interface CreateDistributionProps {
   scope: Stack
@@ -20,9 +20,10 @@ export interface CreateDistributionProps {
   url: string
   certificate: ICertificate
   accessIdentity: OriginAccessIdentity
-  responseHeaderPolicy: ResponseHeadersPolicy
+  responseHeadersPolicy: ResponseHeadersPolicy
   functionAssociation?: IFunction
-  env: DeploymentEnvironment
+  deploymentEnvironment: DeploymentEnvironment
+  distributionName: string
 }
 
 export const createDistribution = (props: CreateDistributionProps): IDistribution => {
@@ -32,9 +33,10 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
     url,
     certificate,
     accessIdentity,
-    responseHeaderPolicy,
+    responseHeadersPolicy,
     functionAssociation,
-    env,
+    deploymentEnvironment,
+    distributionName,
   } = props
 
   const distributionProps = {
@@ -46,7 +48,7 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
         originAccessIdentity: accessIdentity,
       }),
       viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-      responseHeadersPolicy: responseHeaderPolicy,
+      responseHeadersPolicy,
     },
     errorResponses: [
       {
@@ -74,9 +76,6 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
       }
     : distributionProps
 
-  return new Distribution(
-    scope,
-    `${CONFIG.STACK_PREFIX}-cloudfront-distribution-${env}`,
-    parsedProps,
-  )
+  const name = `${distributionName}-${deploymentEnvironment}`
+  return new Distribution(scope, name, parsedProps)
 }

@@ -6,8 +6,8 @@ import {
   UserPoolClientIdentityProvider,
 } from 'aws-cdk-lib/aws-cognito'
 
-import {DeploymentEnvironment} from '@clubwoof-backend-types'
-import CONFIG from '@clubwoof-backend-config'
+import {DeploymentEnvironment} from '../types'
+import CONFIG from '../config'
 
 export class UserPoolClientConstruct {
   // @ts-ignore

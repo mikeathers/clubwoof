@@ -3,14 +3,19 @@
 set -euo pipefail
 
 env=$1
+runningManually="$2"
 
 echo "--- 🚀 Installing npm dependencies..."
 npm ci
 
 echo "--- 🚀 Changing directory to backend..."
-if [ "$env" == 'dev' ]
+if [ "$env" == 'dev' ] && [ ! "$runningManually" ]
   then
     cd backend
+fi
+
+if [ "$env" == 'dev' ] && [ "$runningManually" ]
+  then cd ../../backend
 fi
 
 if [ "$env" == 'prod' ]

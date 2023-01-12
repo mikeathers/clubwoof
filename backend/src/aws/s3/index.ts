@@ -7,26 +7,27 @@ import {
   ObjectOwnership,
 } from 'aws-cdk-lib/aws-s3'
 import {BucketDeployment, Source} from 'aws-cdk-lib/aws-s3-deployment'
-import {DeploymentEnvironment} from '@clubwoof-backend-types'
+import {DeploymentEnvironment} from '../../types'
 
 export interface CreateBucketProps {
   scope: Stack
   bucketName: string
-  env: DeploymentEnvironment
+  deploymentEnvironment: DeploymentEnvironment
 }
 
 export interface CreateBucketDeploymentProps {
   scope: Stack
   bucket: IBucket
   filePath: string
-  env: DeploymentEnvironment
+  deploymentEnvironment: DeploymentEnvironment
+  deploymentName: string
 }
 
 export const createBucket = (props: CreateBucketProps): IBucket => {
-  const {scope, bucketName, env} = props
+  const {scope, bucketName, deploymentEnvironment} = props
 
-  return new Bucket(scope, `${bucketName}-${env}`, {
-    bucketName: `${bucketName}-${env}`,
+  return new Bucket(scope, `${bucketName}-${deploymentEnvironment}`, {
+    bucketName: `${bucketName}-${deploymentEnvironment}`,
     publicReadAccess: false,
     autoDeleteObjects: true,
     removalPolicy: RemovalPolicy.DESTROY,
@@ -39,9 +40,9 @@ export const createBucket = (props: CreateBucketProps): IBucket => {
 export const createBucketDeployment = (
   props: CreateBucketDeploymentProps,
 ): BucketDeployment => {
-  const {scope, bucket, filePath, env} = props
+  const {scope, bucket, filePath, deploymentEnvironment, deploymentName} = props
 
-  return new BucketDeployment(scope, `${env}-bucket-deployment`, {
+  return new BucketDeployment(scope, `${deploymentName}-${deploymentEnvironment}`, {
     destinationBucket: bucket,
     sources: [Source.asset(filePath)],
   })

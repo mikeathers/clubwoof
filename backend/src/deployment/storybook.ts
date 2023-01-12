@@ -1,4 +1,6 @@
 import {CfnOutput, Stack} from 'aws-cdk-lib'
+import {IHostedZone} from 'aws-cdk-lib/aws-route53'
+import {ResponseHeadersPolicy} from 'aws-cdk-lib/aws-cloudfront'
 
 import {
   createARecordForDistribution,
@@ -6,59 +8,68 @@ import {
   createBucketDeployment,
   createCertificate,
   createDistribution,
-  getHostedZone,
-  getSecurityHeader,
   handleAccessIdentity,
-} from '@clubwoof-backend-aws'
-import CONFIG from '@clubwoof-backend-config'
+} from '../aws'
+import CONFIG from '../config'
 
-export const storybookDeployment = (scope: Stack) => {
-  const domainName = CONFIG.DOMAIN_NAME
+interface StorybookDeploymentProps {
+  scope: Stack
+  hostedZone: IHostedZone
+  responseHeadersPolicy: ResponseHeadersPolicy
+}
+
+export const storybookDeployment = (props: StorybookDeploymentProps) => {
+  const {scope, hostedZone, responseHeadersPolicy} = props
+  const deploymentEnvironment = 'dev'
   const url = CONFIG.STORYBOOK_URL
 
   new CfnOutput(scope, 'storybookUrl', {
     value: url,
   })
 
-  const assetsBucket = createBucket({
-    bucketName: `${CONFIG.STACK_PREFIX}-bucket`,
+  const bucket = createBucket({
+    bucketName: `${CONFIG.STACK_PREFIX}-storybook-bucket`,
     scope,
-    env: 'dev',
+    deploymentEnvironment,
   })
 
   createBucketDeployment({
     scope,
-    bucket: assetsBucket,
+    bucket,
     filePath: './storybook-build',
-    env: 'dev',
+    deploymentEnvironment,
+    deploymentName: `${CONFIG.STACK_PREFIX}-storybook-bucket-deployment`,
   })
 
-  const cloudfrontOriginAccessIdentity = handleAccessIdentity(scope, assetsBucket)
-
-  const zone = getHostedZone({scope, domainName})
+  const accessIdentity = handleAccessIdentity({
+    scope,
+    bucket,
+    name: `${CONFIG.STACK_PREFIX}-storybook-cloud-front-origin-access-identity`,
+  })
 
   const certificate = createCertificate({
     scope,
     url,
-    hostedZone: zone,
+    hostedZone,
+    name: 'StorybookCertificate',
   })
 
-  const responseHeaderPolicy = getSecurityHeader(scope)
-
-  const cloudfrontDistribution = createDistribution({
+  const distribution = createDistribution({
     scope,
-    bucket: assetsBucket,
+    bucket,
     url,
     certificate,
-    accessIdentity: cloudfrontOriginAccessIdentity,
-    responseHeaderPolicy,
-    env: 'dev',
+    accessIdentity,
+    responseHeadersPolicy,
+    deploymentEnvironment,
+    distributionName: `${CONFIG.STACK_PREFIX}-storybook-cloudfront-distribution`,
   })
 
   createARecordForDistribution({
     scope,
-    hostedZone: zone,
+    hostedZone,
     url,
-    distribution: cloudfrontDistribution,
+    distribution,
+    name: 'StorybookARecord',
   })
 }

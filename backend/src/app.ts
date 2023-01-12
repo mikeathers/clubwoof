@@ -2,10 +2,9 @@
 import 'source-map-support/register'
 import {App} from 'aws-cdk-lib'
 
-import CONFIG from '@clubwoof-backend-config'
-
 import {StaticSiteStack} from './static-site-stack'
 import {BackendStack} from './backend-stack'
+import CONFIG from './config'
 
 const app = new App()
 
@@ -35,14 +34,14 @@ new StaticSiteStack(app, 'clubwoof-website-prod', {
 
 new BackendStack(app, 'clubwoof-backend-dev', {
   stackName: 'clubwoof-backend-dev',
-  env: {
-    account: process.env.AWS_ACCOUNT_ID,
-    region: process.env.AWS_DEFAULT_REGION,
-  },
   // env: {
-  //   account: CONFIG.AWS_ACCOUNT_ID,
-  //   region: CONFIG.AWS_DEFAULT_REGION,
+  //   account: process.env.AWS_ACCOUNT_ID,
+  //   region: process.env.AWS_DEFAULT_REGION,
   // },
+  env: {
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
+  },
   tags: {env: 'dev'},
   deploymentEnvironment: 'dev',
 })

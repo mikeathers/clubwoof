@@ -5,14 +5,13 @@ set -euo pipefail
 echo "--- 🚀 Deploying to Development..."
 cd .github/scripts
 
-#echo "--- 🚀 Linting and testing..."
-sh lint-and-test.sh "dev"
+#sh lint-and-test.sh "dev" true
+#wait
+
+bash deploy-backend.sh "dev" true
 wait
 
-bash deploy-backend.sh "dev"
+bash build-frontend.sh "dev" true
 wait
 
-bash build-frontend.sh "dev"
-wait
-
-bash deploy-frontend.sh "dev"
+bash deploy-frontend.sh "dev" true

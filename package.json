@@ -15,8 +15,8 @@
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "prettier:fix": "prettier -w src/* backend/src/*",
     "test": "jest --watch",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s ./public -o backend/stroybook-build"
+    "storybook:start": "start-storybook -p 6006 -s ./public",
+    "storybook:build": "build-storybook -s ./public -o backend/storybook-build"
   },
   "dependencies": {
     "@aws-amplify/auth": "^3.4.29",

@@ -1,73 +1,84 @@
 import {CfnOutput, Stack} from 'aws-cdk-lib'
+import {IHostedZone} from 'aws-cdk-lib/aws-route53'
+import {ResponseHeadersPolicy} from 'aws-cdk-lib/aws-cloudfront'
 
-import CONFIG from '@clubwoof-backend-config'
-import {DeploymentEnvironment} from '@clubwoof-backend-types'
+import CONFIG from '../config'
+import {DeploymentEnvironment} from '../types'
 import {
   createARecordForDistribution,
   createBucket,
   createBucketDeployment,
   createCertificate,
   createDistribution,
-  getHostedZone,
   getRewriteFunction,
-  getSecurityHeader,
   handleAccessIdentity,
-} from '@clubwoof-backend-aws'
+} from '../aws'
 
-export const websiteDeployment = (
-  scope: Stack,
-  deploymentEnvironment: DeploymentEnvironment,
-) => {
+interface WebsiteDeploymentProps {
+  scope: Stack
+  deploymentEnvironment: DeploymentEnvironment
+  hostedZone: IHostedZone
+  responseHeadersPolicy: ResponseHeadersPolicy
+}
+
+export const websiteDeployment = (props: WebsiteDeploymentProps) => {
+  const {scope, deploymentEnvironment, hostedZone, responseHeadersPolicy} = props
   const isProduction = deploymentEnvironment === 'prod'
-  const domainName = CONFIG.DOMAIN_NAME
-  const url = isProduction ? domainName : CONFIG.DEV_URL
+  const url = isProduction ? CONFIG.DOMAIN_NAME : CONFIG.DEV_URL
 
   new CfnOutput(scope, 'urlBase', {
     value: url,
   })
 
-  const assetsBucket = createBucket({
-    bucketName: `${CONFIG.STACK_PREFIX}-bucket`,
+  const bucket = createBucket({
+    bucketName: `${CONFIG.STACK_PREFIX}-website-bucket`,
     scope,
-    env: deploymentEnvironment,
+    deploymentEnvironment,
   })
 
   createBucketDeployment({
     scope,
-    bucket: assetsBucket,
+    bucket,
     filePath: isProduction ? './frontend-build/prod' : './frontend-build/dev',
-    env: deploymentEnvironment,
+    deploymentEnvironment,
+    deploymentName: `${CONFIG.STACK_PREFIX}-website-bucket-deployment`,
   })
 
-  const cloudfrontOriginAccessIdentity = handleAccessIdentity(scope, assetsBucket)
-
-  const zone = getHostedZone({scope, domainName})
+  const accessIdentity = handleAccessIdentity({
+    scope,
+    bucket,
+    name: `${CONFIG.STACK_PREFIX}-website-cloud-front-origin-access-identity`,
+  })
 
   const certificate = createCertificate({
     scope,
     url,
-    hostedZone: zone,
+    hostedZone,
+    name: 'WebsiteCertificate',
   })
 
-  const responseHeaderPolicy = getSecurityHeader(scope)
-
-  const rewriteFunction = getRewriteFunction(scope, deploymentEnvironment)
-
-  const cloudfrontDistribution = createDistribution({
+  const rewriteFunction = getRewriteFunction({
     scope,
-    bucket: assetsBucket,
+    deploymentEnvironment,
+  })
+
+  const distribution = createDistribution({
+    scope,
+    bucket,
     url,
     certificate,
-    accessIdentity: cloudfrontOriginAccessIdentity,
-    responseHeaderPolicy,
+    accessIdentity,
+    responseHeadersPolicy,
     functionAssociation: rewriteFunction,
-    env: deploymentEnvironment,
+    deploymentEnvironment,
+    distributionName: `${CONFIG.STACK_PREFIX}-website-cloudfront-distribution`,
   })
 
   createARecordForDistribution({
     scope,
-    hostedZone: zone,
+    hostedZone,
     url,
-    distribution: cloudfrontDistribution,
+    distribution,
+    name: 'WebsiteARecord',
   })
 }
