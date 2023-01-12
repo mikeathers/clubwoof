@@ -11,12 +11,32 @@ clubwoof/backend/frontend-build/zip/dev
 clubwoof/backend/frontend-build/zip/dev
 ```
 
+
 We have GitHub actions integrated for our dev environment so when push changes onto master a new 
 <br>
 build will trigger and deploy our stacks.
 
-However, we first need deploy the stacks to AWS, so they have been created/initialised.<br>
+However, if this the first deployment then we first need deploy the stacks to AWS, so they have been created/initialised.<br>
 
+First make sure we are using configuration values from our local config file for all our deployments in app.ts.<br>
+The reason we do this is that the build will try and request credentials from github when we deploy locally<br>
+which we don't want.
+
+```bash
+new StaticSiteStack(app, 'clubwoof-website-dev', {
+  stackName: 'clubwoof-website-dev',
+  // env: {
+  //   account: process.env.AWS_ACCOUNT_ID,
+  //   region: process.env.AWS_DEFAULT_REGION,
+  // },
+  env: {
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
+  },
+  tags: {env: 'dev'},
+  deploymentEnvironment: 'dev',
+})
+```
 Run the following scripts:
 ```bash
 clubwoof/.github/scripts/run-manually/deploy-dev.sh

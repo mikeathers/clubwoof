@@ -11,8 +11,7 @@ import {Construct} from 'constructs'
 import {Duration, RemovalPolicy} from 'aws-cdk-lib'
 
 import {DeploymentEnvironment} from '@clubwoof-backend-types'
-
-import CONFIG from '../../config'
+import CONFIG from '@clubwoof-backend-config'
 
 export class UserPoolConstruct {
   // @ts-ignore

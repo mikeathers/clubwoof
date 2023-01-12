@@ -33,13 +33,13 @@ module.exports = {
   },
   settings: {
     'import/core-modules': ['aws-sdk'],
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       typescript: {},
       node: {
-        paths: ['src'],
         moduleDirectory: ['node_modules', 'src/'],
         extensions: ['.ts', '.tsx', '.json'],
       },

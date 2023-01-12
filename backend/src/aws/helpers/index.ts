@@ -1,14 +1,15 @@
+import {join} from 'path'
+import {CanonicalUserPrincipal, PolicyStatement} from 'aws-cdk-lib/aws-iam'
+import {IBucket} from 'aws-cdk-lib/aws-s3'
+import {Construct} from 'constructs'
 import {
   Function,
   FunctionCode,
   IFunction,
   OriginAccessIdentity,
 } from 'aws-cdk-lib/aws-cloudfront'
-import {CanonicalUserPrincipal, PolicyStatement} from 'aws-cdk-lib/aws-iam'
-import {IBucket} from 'aws-cdk-lib/aws-s3'
-import {Construct} from 'constructs'
-import {join} from 'path'
-import CONFIG from '../../../config'
+
+import CONFIG from '@clubwoof-backend-config'
 
 export const isMasterBranch = (branchName: string): boolean => {
   return branchName === 'main'
@@ -64,6 +65,7 @@ export const handleAccessIdentity = (
 ): OriginAccessIdentity => {
   const cloudfrontOriginAccessIdentity = new OriginAccessIdentity(
     scope,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     `${CONFIG.STACK_PREFIX}-cloud-front-origin-access-identity`,
   )
 

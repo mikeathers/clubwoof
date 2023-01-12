@@ -16,7 +16,7 @@
     "prettier:fix": "prettier -w src/* backend/src/*",
     "test": "jest --watch",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s ./public"
+    "build-storybook": "build-storybook -s ./public -o backend/stroybook-build"
   },
   "dependencies": {
     "@aws-amplify/auth": "^3.4.29",
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@jest/globals": "^29.3.1",
+    "@mdx-js/react": "^2.2.1",
     "@next/bundle-analyzer": "^10.0.8",
     "@next/eslint-plugin-next": "^13.1.1",
     "@storybook/addon-actions": "^6.5.15",

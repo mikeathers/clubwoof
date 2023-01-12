@@ -7,8 +7,9 @@ import {
   UserPoolClient,
 } from 'aws-cdk-lib/aws-cognito'
 import {FederatedPrincipal, ManagedPolicy, Role} from 'aws-cdk-lib/aws-iam'
+
 import {DeploymentEnvironment} from '@clubwoof-backend-types'
-import CONFIG from '../../config'
+import CONFIG from '@clubwoof-backend-config'
 
 export class IdentityPoolConstruct {
   // @ts-ignore
@@ -24,7 +25,7 @@ export class IdentityPoolConstruct {
   private anonymousRole: Role
   // @ts-ignore
   private userRole: Role
-  private deploymentEnvironment: DeploymentEnvironment
+  private readonly deploymentEnvironment: DeploymentEnvironment
 
   constructor(
     scope: Construct,

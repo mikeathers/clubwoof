@@ -1,12 +1,12 @@
 import {Construct} from 'constructs'
 import {CfnOutput, Stack, StackProps} from 'aws-cdk-lib'
-import {DeploymentEnvironment} from '@clubwoof-backend-types'
 
+import {DeploymentEnvironment} from '@clubwoof-backend-types'
 import {
   IdentityPoolConstruct,
   UserPoolClientConstruct,
   UserPoolConstruct,
-} from './cognito'
+} from '@clubwoof-backend-cognito'
 
 interface BackendStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment

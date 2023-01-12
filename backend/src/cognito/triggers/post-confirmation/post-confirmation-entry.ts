@@ -1,4 +1,5 @@
 import {Callback, Context, PostConfirmationTriggerEvent} from 'aws-lambda'
+
 import {addUserToGroup} from './add-user-to-group'
 
 export async function main(

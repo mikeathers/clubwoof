@@ -7,18 +7,19 @@ import {
   ObjectOwnership,
 } from 'aws-cdk-lib/aws-s3'
 import {BucketDeployment, Source} from 'aws-cdk-lib/aws-s3-deployment'
+import {DeploymentEnvironment} from '@clubwoof-backend-types'
 
 export interface CreateBucketProps {
   scope: Stack
   bucketName: string
-  env: 'prod' | 'dev'
+  env: DeploymentEnvironment
 }
 
 export interface CreateBucketDeploymentProps {
   scope: Stack
   bucket: IBucket
   filePath: string
-  env: 'prod' | 'dev'
+  env: DeploymentEnvironment
 }
 
 export const createBucket = (props: CreateBucketProps): IBucket => {

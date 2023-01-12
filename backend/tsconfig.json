@@ -3,12 +3,9 @@
     "target": "ES2020",
     "module": "commonjs",
     "lib": ["es2018", "ESNext.AsyncIterable"],
-    "allowJs": true,
     "checkJs": true,
     "removeComments": true,
-    "resolveJsonModule": true,
     "declaration": true,
-    "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
@@ -18,22 +15,45 @@
     "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "typeRoots": ["./node_modules/@types"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": "./",
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": "./src",
+    "rootDir": "./",
     "paths": {
       "@clubwoof-backend-types": [
-        "./src/types"
-        ]
-      }
+        "./types"
+        ],
+      "@clubwoof-backend-deployment": [
+        "./deployment"
+      ],
+      "@clubwoof-backend-aws": [
+        "./aws"
+      ],
+      "@clubwoof-backend-cognito": [
+        "./cognito"
+      ],
+      "@clubwoof-backend-functions": [
+        "./functions"
+      ],
+      "@clubwoof-backend-config": [
+        "./config.ts"
+      ]
     },
+  },
   "include": [
     "src/**/*.ts",
     "src/**/*.js",

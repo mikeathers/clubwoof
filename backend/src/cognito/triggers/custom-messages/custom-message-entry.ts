@@ -1,4 +1,5 @@
 import {Callback, Context} from 'aws-lambda'
+
 import CustomMessage from './custom-message'
 
 if (!process.env.FRONTEND_BASE_URL) {
