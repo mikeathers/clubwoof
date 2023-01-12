@@ -14,7 +14,7 @@ echo "--- 🚀 Installing npm dependencies..."
 npm ci
 
 echo "--- 🚀 Changing directory to backend..."
-if [ "$env" == 'dev' ] && [ ! "$runningManually" ]
+if [ "$env" == 'dev' ] && [ "$runningManually" = false ]
   then
     cd backend
 fi

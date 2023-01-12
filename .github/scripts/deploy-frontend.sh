@@ -8,7 +8,7 @@ frontendZipProdDir="frontend-build/zip/prod"
 frontendZipDevDir="frontend-build/zip/dev"
 
 echo "--- 🚀 Changing directory to backend..."
-if [ "$env" == 'dev' ] && [ ! "$runningManually" ]
+if [ "$env" == 'dev' ] && [ "$runningManually" = false ]
   then
     cd backend
 fi
