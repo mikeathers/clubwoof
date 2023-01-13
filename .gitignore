@@ -12,9 +12,9 @@
 /.next/
 /out/
 
-/backend/frontend-build/dev
-/backend/frontend-build/prod
-/backend/storybook-build
+/backend/frontend-build/dev/*
+/backend/frontend-build/prod/*
+/backend/storybook-build/*
 
 # production
 /build

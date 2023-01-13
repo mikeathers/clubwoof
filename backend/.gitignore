@@ -10,6 +10,6 @@ _next
 cdk.out
 
 
-/frontend-build/dev
-/frontend-build/prod
-/storybook-build
+/frontend-build/dev/*
+/frontend-build/prod/*
+/storybook-build/*

@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/env/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/env/.env.development" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/320.cc09800d702de621d923.manager.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/51.3eb2a70e8dbf851d2073.manager.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/51.7d1ac828.iframe.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/743.8c597468.iframe.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/807.71e39049.iframe.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/807.ac1ad3e1af19190c7b03.manager.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/897.436c7a43.iframe.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/897.9d56d1e8f7710bf7774f.manager.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/iframe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/main.6cbcbd5c.iframe.bundle.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/code-brackets.2e1112d7.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/colors.a4bd0486.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/comments.a3859089.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/direction.b770f9af.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/flow.edad2ac1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/plugin.d494b228.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/repo.6d496322.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/static/media/stackalt.dba9fbb3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/.env.development" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/.env.production" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +193,7 @@
       <workItem from="1673604456782" duration="920000" />
       <workItem from="1673605385496" duration="8630000" />
       <workItem from="1673618326116" duration="3632000" />
-      <workItem from="1673622561579" duration="3066000" />
+      <workItem from="1673622561579" duration="3198000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
