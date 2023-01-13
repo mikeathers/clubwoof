@@ -6,8 +6,8 @@ jobs:
     name: Lint and Test Website
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
       - run: .github/scripts/lint-and-test.sh dev false
@@ -20,8 +20,8 @@ jobs:
       AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_DEFAULT_REGION: eu-west-2
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
       - run: .github/scripts/deploy-backend.sh dev false
@@ -37,18 +37,22 @@ jobs:
       AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_DEFAULT_REGION: eu-west-2
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
       - run: .github/scripts/build-frontend.sh dev false
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: build.zip
-#          path: backend/frontend-build/zip/dev
+      - uses: actions/upload-artifact@v2
+        with:
+          name: website.build.zip
+          path: backend/frontend-build/zip/dev
+      - uses: actions/upload-artifact@v3
+        with:
+          name: storybook.build.zip
+          path: backend/frontend-build/zip/dev
 
   deploy-frontend:
     name: Deploy Frontend
@@ -60,14 +64,18 @@ jobs:
       AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_DEFAULT_REGION: eu-west-2
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
-#      - uses: actions/download-artifact@v2
-#        with:
-#          name: build.zip
-#          path: backend/frontend-build/zip/dev
+      - uses: actions/download-artifact@v3
+        with:
+          name: website.build.zip
+          path: backend/frontend-build/zip/dev
+      - uses: actions/download-artifact@v3
+        with:
+          name: storybook.build.zip
+          path: backend/frontend-build/zip/dev
       - run: .github/scripts/setBranch.sh
       - run: .github/scripts/deploy-frontend.sh dev false
         env:

@@ -2,34 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/i18n/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n/translations.en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n/translations.pl.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/shared/language-selection/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-i18next.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/locales/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/locales/en/register.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/locales/pl/common.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/locales/pl/register.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/render-hook.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/global.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/account/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/dog-on-phone.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/logo-small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/pink-bubbles-2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/pink-bubbles-3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/pink-bubbles.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/purple-bubbles.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/thirteen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/yellow-bubble.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/zip/dev/storybook.build.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/zip/dev/website.build.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +207,7 @@
       <workItem from="1673421798261" duration="24080000" />
       <workItem from="1673518586915" duration="878000" />
       <workItem from="1673519477042" duration="18731000" />
-      <workItem from="1673599094206" duration="3092000" />
+      <workItem from="1673599094206" duration="4446000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

@@ -10,6 +10,9 @@ frontendZipProdDir="frontend-build/zip/prod"
 frontendZipDevDir="frontend-build/zip/dev"
 storybookBuildDir="storybook-build"
 
+
+
+
 echo "--- 🚀 Installing npm dependencies..."
 npm ci
 
@@ -40,10 +43,12 @@ if [ "$env" == 'dev' ]
     if [ -d "$frontendBuildDevDir" ]
       then
         rm -r "$frontendBuildDevDir"
+        echo "Removed ${frontendBuildDevDir}"
     fi
     if [ -d "$frontendZipDevDir" ]
           then
             rm -r "$frontendZipDevDir"
+            echo "Removed ${frontendZipDevDir}"
         fi
     mkdir "$frontendBuildDevDir"
     mkdir "$frontendZipDevDir"
@@ -54,10 +59,12 @@ if [ "$env" == 'prod' ]
     if [ -d "$frontendBuildProdDir" ]
       then
         rm -r "$frontendBuildProdDir"
+        echo "Removed ${frontendBuildProdDir}"
     fi
     if [ -d "$frontendZipProdDir" ]
       then
         rm -r "$frontendZipProdDir"
+         echo "Removed ${frontendZipProdDir}"
     fi
     mkdir "$frontendBuildProdDir"
     mkdir "$frontendZipProdDir"
