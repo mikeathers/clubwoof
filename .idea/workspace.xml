@@ -2,8 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change afterPath="$PROJECT_DIR$/src/components/account/register/useRegister.hook.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/box/box.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/box/box.styles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/box/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/footer/footer.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/footer/footer.styles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/footer/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +209,7 @@
       <workItem from="1673519477042" duration="18731000" />
       <workItem from="1673599094206" duration="4813000" />
       <workItem from="1673604456782" duration="920000" />
-      <workItem from="1673605385496" duration="915000" />
+      <workItem from="1673605385496" duration="7557000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

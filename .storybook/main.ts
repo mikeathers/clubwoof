@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    'storybook-addon-next-router',
   ],
   framework: '@storybook/react',
   core: {
@@ -20,6 +21,7 @@ module.exports = {
       '@clubwoof-context': path.resolve(__dirname, '../src/context'),
       '@clubwoof-constants': path.resolve(__dirname, '../src/constants'),
       '@clubwoof-test-utils': path.resolve(__dirname, '../src/test-utils'),
+      '@clubwoof-i18n': path.resolve(__dirname, '../i18n/locales'),
     }
 
     return config

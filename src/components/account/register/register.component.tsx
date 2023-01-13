@@ -1,11 +1,9 @@
-import React, {SyntheticEvent, useEffect, useState} from 'react'
+import React from 'react'
 import Link from 'next/link'
 import {Box} from 'grommet'
-import {Controller, FieldValues, useForm} from 'react-hook-form'
-import {Auth} from '@aws-amplify/auth'
+import {Controller} from 'react-hook-form'
 
 import {Layout, Text, TextInput} from '@clubwoof-components'
-import {useMediaQueries} from '@clubwoof-hooks'
 import {colors} from '@clubwoof-styles'
 
 import {
@@ -19,15 +17,9 @@ import {
   SubHeading,
   SubmitButton,
 } from './register.styles'
-import {formSchema, inputs} from './form-helpers'
-import {yupResolver} from '@hookform/resolvers/yup'
-
-interface FormDetails extends FieldValues {
-  email?: string
-  password?: string
-  firstName?: string
-  lastName?: string
-}
+import {inputs} from './form-helpers'
+import {useRegisterHook} from './useRegister.hook'
+import Image from 'next/image'
 
 const RegisterComplete: React.FC = () => (
   <div>
@@ -44,117 +36,15 @@ interface RegisterProps {
 
 export const Register: React.FC<RegisterProps> = (props) => {
   const {i18n} = props
-  const {isMobile} = useMediaQueries()
-
-  const {control, handleSubmit, formState, reset} = useForm({
-    mode: 'onSubmit',
-    resolver: yupResolver(formSchema),
-  })
-
-  const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
-  const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
-  const [registrationComplete, setRegistrationComplete] = useState<boolean>(false)
-  const [error, setError] = useState<string>('')
-
-  useEffect(() => {
-    addInteractiveFieldsToState()
-  }, [])
-
-  const addInteractiveFieldsToState = () => {
-    const firstNameInput = document.querySelector(
-      '[aria-label="First name"]',
-    ) as HTMLInputElement
-    const lastNameInput = document.querySelector(
-      '[aria-label="Last name"]',
-    ) as HTMLInputElement
-    const emailInput = document.querySelector('[aria-label="Email"]') as HTMLInputElement
-    const passwordInput = document.querySelector(
-      '[aria-label="Password"]',
-    ) as HTMLInputElement
-    const confirmPasswordInput = document.querySelector(
-      '[aria-label=" Confirm password"]',
-    ) as HTMLInputElement
-    const submitButtonElement = document.querySelector(
-      '[aria-label="Submit"]',
-    ) as HTMLButtonElement
-
-    setInputLabels([
-      firstNameInput,
-      lastNameInput,
-      emailInput,
-      passwordInput,
-      confirmPasswordInput,
-    ])
-    setSubmitButton(submitButtonElement)
-  }
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
-    if (e.key === 'Enter') {
-      if (index < inputs.length) {
-        const input = inputLabels[index]
-        if (input) {
-          input.focus()
-        }
-      }
-      if (index === inputs.length) {
-        if (submitButton) {
-          submitButton.focus()
-        }
-      }
-    }
-  }
-
-  const handleClick = async (e: SyntheticEvent) => {
-    e.preventDefault()
-    if (Object.keys(formState.errors).length > 0) return
-
-    await handleSubmit(registerUser)()
-  }
-
-  // eslint-disable-next-line
-  const isCognitoError = (obj: any): obj is CognitoError => {
-    return 'code' in obj && 'message' in obj && 'name' in obj
-  }
-
-  const registerUser = async (data: FormDetails) => {
-    setError('')
-    if (data.firstName && data.lastName && data.email && data.password) {
-      try {
-        const result = await Auth.signUp({
-          username: data.email.trim().toLowerCase(),
-          password: data.password,
-          attributes: {
-            given_name: data.firstName.trim().toLowerCase(),
-            family_name: data.lastName.trim().toLowerCase(),
-          },
-        })
-        console.log(result)
-
-        localStorage.setItem('TEMP_PASSWORD', data.password)
-        setRegistrationComplete(true)
-        reset()
-      } catch (e) {
-        if (isCognitoError(e)) {
-          console.log(e)
-          setError(e.message)
-        } else setError('Something has gone very wrong, please try again later.')
-      }
-    }
-  }
-  const getPasswordFormatValidationMessage = () => {
-    const {errors} = formState
-    if (Object.keys(errors).length === 0) return ''
-    const errorMessage = `${errors['password']?.message}`
-    if (!errorMessage) return ''
-    if (errorMessage && errorMessage.includes('contain')) return errorMessage
-    return ''
-  }
-
-  const getInputErrorMessage = (inputName: string) => {
-    const errorMessage = formState.errors[inputName]?.message
-    if (!errorMessage) return ''
-    return (errorMessage as string).includes('contain') ? '' : `${errorMessage}`
-  }
+  const {
+    registrationComplete,
+    error,
+    control,
+    handleSubmitForm,
+    getInputErrorMessage,
+    getPasswordFormatValidationMessage,
+    handleKeyPress,
+  } = useRegisterHook()
 
   return (
     <Layout
@@ -163,14 +53,10 @@ export const Register: React.FC<RegisterProps> = (props) => {
       backgroundColor="pureWhite"
     >
       <Container>
-        {/*{!isMobile && <Logo src="/logo.png" alt="logo" height={140} width={140} />}*/}
         <Box align="center">
-          <DogImage
-            src="/dog-on-phone.svg"
-            alt="dog on phone"
-            height={isMobile ? 140 : 200}
-            width={isMobile ? 180 : 200}
-          />
+          <DogImage>
+            <Image src="/dog-on-phone.svg" alt="dog on phone" fill />
+          </DogImage>
         </Box>
         {!registrationComplete ? (
           <>
@@ -205,12 +91,11 @@ export const Register: React.FC<RegisterProps> = (props) => {
               })}
 
               <ErrorMessage>
-                {getPasswordFormatValidationMessage() &&
-                  getPasswordFormatValidationMessage()}
+                {getPasswordFormatValidationMessage()}
                 {error}
               </ErrorMessage>
 
-              <SubmitButton type="button" aria-label="Submit" onClick={handleClick}>
+              <SubmitButton type="button" aria-label="Submit" onClick={handleSubmitForm}>
                 Get started!
               </SubmitButton>
 

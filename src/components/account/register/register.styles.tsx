@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import Image from 'next/image'
-
 import {
   colors,
   fonts,
@@ -15,28 +13,36 @@ import {
 export const Container = styled.div`
   height: 100%;
   padding: ${spacing.space5x} ${spacing.space3x};
+
   @media (${mediaQueries.s}) {
     padding: 0;
   }
 `
-export const DogImage = styled(Image)`
+export const DogImage = styled.div`
+  width: 160px;
+  height: 160px;
+  position: relative;
   z-index: 1;
-`
+  margin-bottom: ${spacing.space2x};
+  margin-top: ${spacing.space3x};
 
-export const LocaleSelect = styled.select`
-  position: absolute;
-  right: 100px;
-  top: 150px;
-`
+  @media (${mediaQueries.s}) {
+    width: 180px;
+    height: 180px;
+    margin-top: ${spacing.space6x};
+  }
+  @media (${mediaQueries.xl}) {
+    margin-top: 0;
+  }
 
-export const Logo = styled(Image)`
-  position: absolute;
-  bottom: 0px;
-  left: 10px;
+  image {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const HeadingContainer = styled.div`
-  margin-bottom: ${spacing.space7x};
+  margin: ${spacing.space1x} 0 ${spacing.space6x} 0;
 `
 
 export const Heading = styled.h1`
@@ -47,11 +53,13 @@ export const Heading = styled.h1`
   color: ${colors.lightBlue};
   position: relative;
   display: inline-block;
+  margin: ${spacing.space2x};
 `
 export const SubHeading = styled.h2`
   font-size: ${fontSizes.m};
   font-weight: ${fontWeights.semibold};
   color: ${colors.darkBlue};
+  margin: ${spacing.space2x};
 
   @media (${mediaQueries.l}) {
     font-size: ${fontSizes.l};

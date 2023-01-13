@@ -46,7 +46,7 @@ export const Content = styled.div<ContentProps>`
   }
 
   @media (${mediaQueries.l}) {
-    width: 30%;
+    width: 40%;
   }
 `
 

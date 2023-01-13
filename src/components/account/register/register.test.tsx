@@ -1,21 +1,11 @@
-import {mocked} from 'jest-mock'
 import '@testing-library/jest-dom'
 import {fireEvent, render, waitFor} from '@testing-library/react'
 import {Auth} from '@aws-amplify/auth'
 
-import {useMediaQueries} from '@clubwoof-hooks'
-
 import {Register} from './register.component'
 import {registerPageI18nMock} from '@clubwoof-test-utils'
 
-const mockUseMediaQueries = mocked(useMediaQueries)
-
 jest.mock('next/router', () => require('next-router-mock'))
-jest.mock('@clubwoof-hooks', () => ({
-  __esModule: true,
-  ...jest.requireActual('@clubwoof-hooks'),
-  useMediaQueries: jest.fn(),
-}))
 
 const defaultProps = {
   i18n: registerPageI18nMock,
@@ -25,36 +15,12 @@ const renderComponent = (props = defaultProps) => render(<Register {...props} />
 
 describe('Register Page', () => {
   beforeEach(() => {
-    mockUseMediaQueries.mockReturnValue({
-      isMobile: false,
-      isRetina: false,
-      isPortrait: false,
-    })
-
     jest.spyOn(Auth, 'signUp')
   })
 
   it('should render a page with a title', () => {
     const {getByText} = renderComponent()
     expect(getByText("Hello Hooman, it's nice to meet you!")).toBeInTheDocument()
-  })
-
-  // it('should render a logo on desktop', () => {
-  //   const {getByAltText} = renderComponent()
-  //
-  //   expect(getByAltText('logo')).toBeInTheDocument()
-  // })
-
-  it('should not render a logo on mobile', () => {
-    mockUseMediaQueries.mockReturnValue({
-      isMobile: true,
-      isRetina: false,
-      isPortrait: false,
-    })
-
-    const {queryByAltText} = renderComponent()
-
-    expect(queryByAltText('logo')).not.toBeInTheDocument()
   })
 
   it('should change focus to next input when pressing enter', () => {

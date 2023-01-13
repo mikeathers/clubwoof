@@ -10,6 +10,7 @@ import {
   ContentProps,
 } from './layout.styles'
 import {LanguageSelection} from '../language-selection'
+import {Footer} from '../footer'
 
 interface LayoutProps extends ContentProps, ContainerProps {
   children: ReactNode | ReactNode[]
@@ -45,6 +46,7 @@ export const Layout: React.FC<LayoutProps> = ({
         height={100}
         position={bubbleTwoPositioning}
       />
+      <Footer />
     </Grommet>
   )
 }
