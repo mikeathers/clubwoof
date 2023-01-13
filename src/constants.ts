@@ -1,6 +1,6 @@
 /* eslint-disable */
-import prodConfig from './outputs/cdk-exports-prod.json'
-import devConfig from './outputs/cdk-exports-dev.json'
+import prodConfig from '../outputs/cdk-exports-prod.json'
+import devConfig from '../outputs/cdk-exports-dev.json'
 
 const prodConstants = {
   REGION: prodConfig['clubwoof-backend-prod'].region,
@@ -19,7 +19,6 @@ const devConstants = {
 export const dev =
   process.env.NEXT_PUBLIC_IS_PRODUCTION === 'false' ? devConstants : prodConstants
 
+export const TEMP_PWD_LOCALSTORAGE_KEY = 'AUTO_SIGN_IN'
 console.log(process.env.NEXT_PUBLIC_IS_PRODUCTION)
-console.log('isProdFalse: ', process.env.NEXT_PUBLIC_IS_PRODUCTION === 'false')
-
-console.log({devConstants, prodConstants})
+console.log(dev)

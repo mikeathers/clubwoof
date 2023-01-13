@@ -1,9 +1,10 @@
-import {SyntheticEvent, useEffect, useState} from 'react'
-import {FieldValues, useForm} from 'react-hook-form'
+import {KeyboardEvent, SyntheticEvent, useEffect, useState} from 'react'
+import {Control, FieldValues, useForm} from 'react-hook-form'
 import {Auth} from '@aws-amplify/auth'
 import {yupResolver} from '@hookform/resolvers/yup'
 
 import {formSchema, inputs} from './form-helpers'
+import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
 
 interface FormDetails extends FieldValues {
   email?: string
@@ -11,8 +12,16 @@ interface FormDetails extends FieldValues {
   firstName?: string
   lastName?: string
 }
-
-export const useRegisterHook = () => {
+interface useRegisterProps {
+  error: string
+  control: Control<FormDetails>
+  registrationComplete: boolean
+  handleSubmitForm: (e: SyntheticEvent) => Promise<void>
+  getInputErrorMessage: (inputName: string) => string
+  getPasswordFormatValidationMessage: () => string
+  handleKeyPress: (e: KeyboardEvent<HTMLElement>, index: number) => void
+}
+export const useRegisterHook = (): useRegisterProps => {
   const {control, handleSubmit, formState, reset} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema),
@@ -80,7 +89,7 @@ export const useRegisterHook = () => {
         })
         console.log(result)
 
-        localStorage.setItem('TEMP_PASSWORD', data.password)
+        localStorage.setItem(TEMP_PWD_LOCALSTORAGE_KEY, data.password)
         setRegistrationComplete(true)
         reset()
       } catch (e) {

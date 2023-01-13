@@ -12,6 +12,7 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
+  // @ts-ignore
   webpackFinal: async (config, {configType}) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -22,8 +23,10 @@ module.exports = {
       '@clubwoof-constants': path.resolve(__dirname, '../src/constants'),
       '@clubwoof-test-utils': path.resolve(__dirname, '../src/test-utils'),
       '@clubwoof-i18n': path.resolve(__dirname, '../i18n/locales'),
+      '@clubwoof-utils': path.resolve(__dirname, '../src/utils'),
     }
 
     return config
   },
 }
+export {}

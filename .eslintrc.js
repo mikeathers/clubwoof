@@ -57,6 +57,7 @@ module.exports = {
         'prefer-template': 1,
         '@typescript-eslint/unbound-method': 0,
         'react/prop-types': 0,
+        '@typescript-eslint/no-floating-promises': 'off',
       },
     },
     {

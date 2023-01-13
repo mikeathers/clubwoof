@@ -41,6 +41,9 @@
       ],
       "@clubwoof-i18n": [
         "../i18n/locales"
+      ],
+      "@clubwoof-utils": [
+        "./utils"
       ]
     }
   },

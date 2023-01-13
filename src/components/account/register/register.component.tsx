@@ -2,10 +2,13 @@ import React from 'react'
 import Link from 'next/link'
 import {Box} from 'grommet'
 import {Controller} from 'react-hook-form'
+import Image from 'next/image'
 
 import {Layout, Text, TextInput} from '@clubwoof-components'
 import {colors} from '@clubwoof-styles'
 
+import {inputs} from './form-helpers'
+import {useRegisterHook} from './useRegister.hook'
 import {
   Container,
   DogImage,
@@ -17,9 +20,6 @@ import {
   SubHeading,
   SubmitButton,
 } from './register.styles'
-import {inputs} from './form-helpers'
-import {useRegisterHook} from './useRegister.hook'
-import Image from 'next/image'
 
 const RegisterComplete: React.FC = () => (
   <div>

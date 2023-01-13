@@ -12,6 +12,7 @@ import {Duration, RemovalPolicy} from 'aws-cdk-lib'
 
 import {DeploymentEnvironment} from '../types'
 import CONFIG from '../config'
+import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
 
 export class UserPoolConstruct {
   // @ts-ignore
@@ -31,6 +32,7 @@ export class UserPoolConstruct {
     this.isProduction = this.deploymentEnvironment === 'prod'
     this.createLambdas()
     this.createUserPool()
+    this.createPolicyAndAssignToRole()
   }
 
   private createLambdas() {
@@ -64,6 +66,19 @@ export class UserPoolConstruct {
     })
   }
 
+  private createPolicyAndAssignToRole() {
+    const adminAddUserToGroupPolicyStatement = new PolicyStatement({
+      actions: ['cognito-idp:AdminAddUserToGroup'],
+      resources: [this.userPool.userPoolArn],
+    })
+
+    this.postConfirmationTrigger.role?.attachInlinePolicy(
+      new Policy(this.scope, 'post-confirm-trigger-policy', {
+        statements: [adminAddUserToGroupPolicyStatement],
+      }),
+    )
+  }
+
   private createUserPool() {
     this.userPool = new UserPool(this.scope, 'clubwoof-user-pool', {
       userPoolName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
@@ -80,6 +95,10 @@ export class UserPoolConstruct {
           mutable: true,
         },
         familyName: {
+          required: true,
+          mutable: true,
+        },
+        email: {
           required: true,
           mutable: true,
         },
