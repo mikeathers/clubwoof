@@ -73,7 +73,14 @@ if [ "$env" == 'dev' ]
             echo "Removed ${frontendZipDevDir}"
         fi
     mkdir "$frontendBuildDevDir"
+    if [ -d "$frontendBuildDevDir" ]
+      then echo "created $frontendBuildDevDir"
+    fi
+
     mkdir "$frontendZipDevDir"
+    if [ -d "$frontendZipDevDir" ]
+      then echo "created $frontendZipDevDir"
+    fi
 fi
 
 if [ "$env" == 'prod' ]
@@ -89,7 +96,14 @@ if [ "$env" == 'prod' ]
          echo "Removed ${frontendZipProdDir}"
     fi
     mkdir "$frontendBuildProdDir"
+    if [ -d "$frontendBuildProdDir" ]
+      then echo "created $frontendBuildProdDir"
+    fi
+
     mkdir "$frontendZipProdDir"
+    if [ -d "$frontendZipProdDir" ]
+      then echo "created $frontendZipProdDir"
+    fi
 fi
 
 
