@@ -99,6 +99,7 @@ if [ "$env" == 'dev' ]
       then
         echo "--- 🚀 Removing old storybook builds for dev (if possible)..."
         rm -r "$storybookBuildDir"
+        echo "Removed ${storybookBuildDir}"
     fi
     mkdir "$storybookBuildDir"
 fi

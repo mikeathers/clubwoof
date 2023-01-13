@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/.github/scripts/lint-test-clean.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/frontend-build/dev/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/frontend-build/zip/dev/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/lint-and-test.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/run-manually/deploy-dev.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/run-manually/deploy-dev.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/run-manually/deploy-prod.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/run-manually/deploy-prod.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/i18n/locales/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/scripts/lint-test-clean.sh" beforeDir="false" afterPath="$PROJECT_DIR$/.github/scripts/lint-test-clean.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/locales/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/locales/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/translations.en.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/locales/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/translations.pl.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/locales/pl.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,11 +72,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/i18n/locales" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend/src" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/outputs" />
-      <recent name="$PROJECT_DIR$/backend/src/cognito" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.Register Page">
@@ -199,7 +194,7 @@
       <workItem from="1673518586915" duration="878000" />
       <workItem from="1673519477042" duration="18731000" />
       <workItem from="1673599094206" duration="4813000" />
-      <workItem from="1673604456782" duration="326000" />
+      <workItem from="1673604456782" duration="920000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

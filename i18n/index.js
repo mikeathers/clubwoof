@@ -1,5 +1,5 @@
-var en = require('./translations.en.json')
-var pl = require('./translations.pl.json')
+var en = require('./locales/en.json')
+var pl = require('./locales/pl.json')
 
 const i18n = {
   translations: {
@@ -11,4 +11,3 @@ const i18n = {
 }
 
 module.exports = i18n
-export {en, pl}
