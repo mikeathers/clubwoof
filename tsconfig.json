@@ -39,6 +39,9 @@
       "@clubwoof-context": [
         "./context"
       ],
+      "@clubwoof-i18n": [
+        "../i18n"
+      ]
     }
   },
   "include": [

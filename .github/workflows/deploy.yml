@@ -3,14 +3,14 @@ on: [ push ]
 
 jobs:
   lint-and-test:
-    name: Lint and Test Website
+    name: Lint, Test, Cleanup Builds
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: .github/scripts/lint-and-test.sh dev false
+      - run: .github/scripts/lint-test-clean.sh dev false
 
   deploy-backend:
     name: Deploy Backend Stack

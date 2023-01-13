@@ -11,3 +11,4 @@ const i18n = {
 }
 
 module.exports = i18n
+export {en, pl}

@@ -5,9 +5,8 @@ set -euo pipefail
 echo "--- 🚀 Deploying to Production..."
 cd .github/scripts
 
-##echo "--- 🚀 Linting and testing..."
-#sh lint-and-test.sh "prod" true
-#wait
+sh lint-test-clean.sh "prod" true
+wait
 
 bash deploy-backend.sh "prod" true
 wait
