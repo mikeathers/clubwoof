@@ -14,7 +14,7 @@ interface FormDetails extends FieldValues {
   firstName?: string
   lastName?: string
 }
-interface useRegisterProps {
+interface UseRegisterReturnValue {
   error: string
   control: Control<FormDetails>
   registrationComplete: boolean
@@ -23,7 +23,7 @@ interface useRegisterProps {
   getPasswordFormatValidationMessage: () => string
   handleKeyPress: (e: KeyboardEvent<HTMLElement>, index: number) => void
 }
-export const useRegisterHook = (): useRegisterProps => {
+export const useRegisterHook = (): UseRegisterReturnValue => {
   const {control, handleSubmit, formState, reset} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema),

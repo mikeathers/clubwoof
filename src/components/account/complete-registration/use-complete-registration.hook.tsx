@@ -1,18 +1,23 @@
 import {useRouter} from 'next/router'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {Auth} from '@aws-amplify/auth'
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
 import {useAuth} from '@clubwoof-context'
 import {isCognitoError, logUserIn} from '@clubwoof-utils'
 
-export const useCompleteRegistrationHook = (): void => {
+interface UseCompleteRegistrationReturnValue {
+  loginSuccessful: boolean
+}
+
+export const useCompleteRegistrationHook = (): UseCompleteRegistrationReturnValue => {
   const router = useRouter()
   const {addUserToState} = useAuth()
+  const [loginSuccessful, setLoginSuccessful] = useState<boolean>(false)
 
   useEffect(() => {
     const hasQueryParams = router.query.email && router.query.code
     if (router.isReady && !hasQueryParams) {
-      router.push('/')
+      router.push('/resend-confirmation-email')
     }
 
     const completeRegistration = async () => {
@@ -25,10 +30,8 @@ export const useCompleteRegistrationHook = (): void => {
     }
 
     const confirmRegistrationAndLogUserIn = async () => {
-      console.log('hey')
       try {
         await Auth.confirmSignUp(String(router.query.email), String(router.query.code))
-
         await handleLogin()
       } catch (e) {
         if (isCognitoError(e)) {
@@ -41,19 +44,24 @@ export const useCompleteRegistrationHook = (): void => {
 
     const handleLogin = async () => {
       const password = localStorage.getItem(TEMP_PWD_LOCALSTORAGE_KEY)
-      console.log({password})
       if (password) {
-        await logUserIn({
+        const user = await logUserIn({
           email: String(router.query.email),
           password,
           addUserToState,
           router,
+          goToDashboard: false,
         })
+        if (user) {
+          setLoginSuccessful(true)
+        }
       } else {
-        router.push('/')
+        router.push('/login')
       }
     }
 
     completeRegistration()
   }, [router, addUserToState])
+
+  return {loginSuccessful}
 }

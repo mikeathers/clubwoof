@@ -7,6 +7,7 @@ interface LoginProps {
   password: string
   router: NextRouter
   addUserToState: () => Promise<void>
+  goToDashboard?: boolean
 }
 
 interface UserAttributes {
@@ -23,7 +24,7 @@ interface User extends CognitoUser {
   }
 }
 export const logUserIn = async (props: LoginProps): Promise<User> => {
-  const {email, password, router, addUserToState} = props
+  const {email, password, router, addUserToState, goToDashboard} = props
   localStorage.removeItem(TEMP_PWD_LOCALSTORAGE_KEY)
 
   const user = (await Auth.signIn(email, password)) as User
@@ -45,7 +46,9 @@ export const logUserIn = async (props: LoginProps): Promise<User> => {
 
   addUserToState()
 
-  router.push('/')
+  if (goToDashboard) {
+    router.push('/welcome')
+  }
 
   return user
 }
