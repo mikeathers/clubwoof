@@ -98,10 +98,6 @@ export class UserPoolConstruct {
           required: true,
           mutable: true,
         },
-        email: {
-          required: true,
-          mutable: true,
-        },
       },
       customAttributes: {
         numberOfDogs: new NumberAttribute({mutable: true}),
