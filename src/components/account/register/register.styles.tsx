@@ -31,8 +31,8 @@ export const LocaleSelect = styled.select`
 
 export const Logo = styled(Image)`
   position: absolute;
-  top: 10px;
-  right: 100px;
+  bottom: 0px;
+  left: 10px;
 `
 
 export const HeadingContainer = styled.div`

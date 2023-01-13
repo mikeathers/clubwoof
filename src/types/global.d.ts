@@ -1,5 +1,5 @@
 declare global {
-  interface User {
+  type User = {
     email: string
     familyName: string
     givenName: string
@@ -10,10 +10,16 @@ declare global {
     isAdmin?: boolean
   }
 
-  interface CognitoError {
+  type CognitoError = {
     name: string
     code: string
     message: string
+  }
+
+  /**** Internationalisation *****/
+
+  type i18nRegisterPage = {
+    heading: string
   }
 }
 

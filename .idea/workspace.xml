@@ -2,20 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/next-i18next.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/locales/en/common.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/locales/en/register.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/locales/pl/common.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/locales/pl/register.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/i18n/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/i18n/translations.en.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/i18n/translations.pl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/language-selection/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-i18next.config.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/locales/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/locales/en/register.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/locales/pl/common.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/locales/pl/register.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/account/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/register/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/render-hook.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/global.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,14 +93,14 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/src" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/backend/src" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/outputs" />
       <recent name="$PROJECT_DIR$/backend/src/cognito" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.AuthContext">
+  <component name="RunManager" selected="Jest.Register Page">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.12.1/bin/node" />
       <node-options value="" />
@@ -151,35 +165,34 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="AuthContext.should update user in state when addUserToState is called" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Register Page" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/context/auth/auth.test.tsx" />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/components/account/register/register.test.tsx" />
       <test-names>
-        <test-name value="AuthContext" />
-        <test-name value="should update user in state when addUserToState is called" />
+        <test-name value="Register Page" />
       </test-names>
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
+      <item itemvalue="Jest.Register Page" />
       <item itemvalue="Jest.AuthContext" />
       <item itemvalue="Jest.AuthContext.should call LOGIN_SUCCESS when successful login occurs" />
       <item itemvalue="Jest.AuthContext.should call dispatch with LOGIN_FAILURE when error occurs" />
       <item itemvalue="Jest.AuthContext.should update error in state in error is thrown" />
-      <item itemvalue="Jest.AuthContext.should update user in state when addUserToState is called" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Register Page" />
         <item itemvalue="Jest.AuthContext" />
         <item itemvalue="Jest.AuthContext.should call dispatch with LOGIN_FAILURE when error occurs" />
         <item itemvalue="Jest.AuthContext.should call LOGIN_SUCCESS when successful login occurs" />
         <item itemvalue="Jest.AuthContext.should update error in state in error is thrown" />
-        <item itemvalue="Jest.AuthContext.should update user in state when addUserToState is called" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +213,8 @@
       <workItem from="1672992819873" duration="46868000" />
       <workItem from="1673421798261" duration="24080000" />
       <workItem from="1673518586915" duration="878000" />
-      <workItem from="1673519477042" duration="16642000" />
+      <workItem from="1673519477042" duration="18731000" />
+      <workItem from="1673599094206" duration="3092000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

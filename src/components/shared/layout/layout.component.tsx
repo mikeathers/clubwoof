@@ -9,6 +9,7 @@ import {
   Content,
   ContentProps,
 } from './layout.styles'
+import {LanguageSelection} from '../language-selection'
 
 interface LayoutProps extends ContentProps, ContainerProps {
   children: ReactNode | ReactNode[]
@@ -25,6 +26,7 @@ export const Layout: React.FC<LayoutProps> = ({
 }) => {
   return (
     <Grommet theme={defaultTheme}>
+      <LanguageSelection />
       <Container backgroundColor={backgroundColor}>
         <Bubble
           src="/pink-bubbles.svg"

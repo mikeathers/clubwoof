@@ -93,6 +93,7 @@ export const Bubble = styled(Image)<BubbleProps>`
   position: absolute;
   height: 400px !important;
   width: 100% !important;
+  z-index: 1;
 
   ${({position}) => {
     switch (position) {

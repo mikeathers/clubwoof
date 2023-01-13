@@ -25,37 +25,37 @@ Auth.configure({
   userPoolWebClientId: dev.USER_POOL_WEB_CLIENT_ID,
 })
 
-// window.scrollTo = jest.fn()
-// ;(window.IntersectionObserver as jest.Mock) = jest.fn(() => ({
-//   observe: jest.fn(),
-// }))
-//
-// global.IntersectionObserver = class IntersectionObserver {
-//   constructor() {
-//     this.root = null
-//     this.rootMargin = ''
-//     this.thresholds = []
-//   }
-//
-//   readonly root: Element | null
-//
-//   readonly rootMargin: string
-//
-//   readonly thresholds: ReadonlyArray<number>
-//
-//   disconnect() {
-//     return null
-//   }
-//
-//   observe() {
-//     return null
-//   }
-//
-//   takeRecords(): IntersectionObserverEntry[] {
-//     return []
-//   }
-//
-//   unobserve() {
-//     return null
-//   }
-// }
+window.scrollTo = jest.fn()
+;(window.IntersectionObserver as jest.Mock) = jest.fn(() => ({
+  observe: jest.fn(),
+}))
+
+global.IntersectionObserver = class IntersectionObserver {
+  constructor() {
+    this.root = null
+    this.rootMargin = ''
+    this.thresholds = []
+  }
+
+  readonly root: Element | null
+
+  readonly rootMargin: string
+
+  readonly thresholds: ReadonlyArray<number>
+
+  disconnect() {
+    return null
+  }
+
+  observe() {
+    return null
+  }
+
+  takeRecords(): IntersectionObserverEntry[] {
+    return []
+  }
+
+  unobserve() {
+    return null
+  }
+}

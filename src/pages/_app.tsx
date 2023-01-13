@@ -2,7 +2,6 @@
 import {Auth} from '@aws-amplify/auth'
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
-import {appWithTranslation} from 'next-i18next'
 
 import {AuthProvider} from '@clubwoof-context'
 
@@ -31,4 +30,4 @@ function App({Component, pageProps}: AppProps) {
   )
 }
 
-export default appWithTranslation(App)
+export default App
