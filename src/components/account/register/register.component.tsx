@@ -8,7 +8,7 @@ import {Layout, Text, TextInput} from '@clubwoof-components'
 import {colors} from '@clubwoof-styles'
 
 import {inputs} from './form-helpers'
-import {useRegisterHook} from './useRegister.hook'
+import {useRegisterHook} from './use-register.hook'
 import {
   Container,
   DogImage,

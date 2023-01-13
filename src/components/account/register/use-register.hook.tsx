@@ -3,8 +3,10 @@ import {Control, FieldValues, useForm} from 'react-hook-form'
 import {Auth} from '@aws-amplify/auth'
 import {yupResolver} from '@hookform/resolvers/yup'
 
-import {formSchema, inputs} from './form-helpers'
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
+import {isCognitoError} from '@clubwoof-utils'
+
+import {formSchema, inputs} from './form-helpers'
 
 interface FormDetails extends FieldValues {
   email?: string
@@ -68,11 +70,6 @@ export const useRegisterHook = (): useRegisterProps => {
     if (Object.keys(formState.errors).length > 0) return
 
     await handleSubmit(registerUser)()
-  }
-
-  // eslint-disable-next-line
-  const isCognitoError = (obj: any): obj is CognitoError => {
-    return 'code' in obj && 'message' in obj && 'name' in obj
   }
 
   const registerUser = async (data: FormDetails) => {

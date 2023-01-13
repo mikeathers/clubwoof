@@ -3,7 +3,7 @@ import {useEffect} from 'react'
 import {Auth} from '@aws-amplify/auth'
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
 import {useAuth} from '@clubwoof-context'
-import {logUserIn} from '@clubwoof-utils'
+import {isCognitoError, logUserIn} from '@clubwoof-utils'
 
 export const useCompleteRegistrationHook = (): void => {
   const router = useRouter()
@@ -25,14 +25,25 @@ export const useCompleteRegistrationHook = (): void => {
     }
 
     const confirmRegistrationAndLogUserIn = async () => {
-      await Auth.confirmSignUp(String(router.query.email), String(router.query.code))
-      handleLogin()
+      console.log('hey')
+      try {
+        await Auth.confirmSignUp(String(router.query.email), String(router.query.code))
+
+        await handleLogin()
+      } catch (e) {
+        if (isCognitoError(e)) {
+          if (e.message.includes('Current status is CONFIRMED')) {
+            await handleLogin()
+          }
+        }
+      }
     }
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
       const password = localStorage.getItem(TEMP_PWD_LOCALSTORAGE_KEY)
+      console.log({password})
       if (password) {
-        logUserIn({
+        await logUserIn({
           email: String(router.query.email),
           password,
           addUserToState,
