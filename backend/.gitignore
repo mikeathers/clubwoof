@@ -8,3 +8,8 @@ _next
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+
+/frontend-build/dev
+/frontend-build/prod
+/storybook-build
