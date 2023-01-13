@@ -1,6 +1,7 @@
 import {Stack} from 'aws-cdk-lib'
 import {
   Distribution,
+  DistributionProps,
   FunctionEventType,
   IDistribution,
   IFunction,
@@ -59,23 +60,23 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
     ],
   }
 
-  const functionAssociates = [
-    {
-      function: functionAssociation,
-      eventType: FunctionEventType.VIEWER_REQUEST,
-    },
-  ]
+  const getDistributionProps = (): DistributionProps => {
+    if (!functionAssociation) return distributionProps
 
-  const parsedProps = functionAssociation
-    ? {
-        ...distributionProps,
-        defaultBehaviour: {
-          ...distributionProps.defaultBehavior,
-          functionAssociations: functionAssociates,
-        },
-      }
-    : distributionProps
+    return {
+      ...distributionProps,
+      defaultBehavior: {
+        ...distributionProps.defaultBehavior,
+        functionAssociations: [
+          {
+            function: functionAssociation,
+            eventType: FunctionEventType.VIEWER_REQUEST,
+          },
+        ],
+      },
+    }
+  }
 
   const name = `${distributionName}-${deploymentEnvironment}`
-  return new Distribution(scope, name, parsedProps)
+  return new Distribution(scope, name, getDistributionProps())
 }
