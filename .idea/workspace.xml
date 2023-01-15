@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/use-complete-registration.hook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/use-complete-registration.hook.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/use-register.hook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/use-register.hook.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/log-user-in/log-user-in.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/log-user-in/log-user-in.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +192,7 @@
       <workItem from="1673604456782" duration="920000" />
       <workItem from="1673605385496" duration="8630000" />
       <workItem from="1673618326116" duration="3632000" />
-      <workItem from="1673622561579" duration="6444000" />
+      <workItem from="1673622561579" duration="6648000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
