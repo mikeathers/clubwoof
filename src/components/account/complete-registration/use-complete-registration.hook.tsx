@@ -30,10 +30,12 @@ export const useCompleteRegistrationHook = (): UseCompleteRegistrationReturnValu
     }
 
     const confirmRegistrationAndLogUserIn = async () => {
+      console.log('here')
       try {
         await Auth.confirmSignUp(String(router.query.email), String(router.query.code))
         await handleLogin()
       } catch (e) {
+        console.log({e})
         if (isCognitoError(e)) {
           if (e.message.includes('Current status is CONFIRMED')) {
             await handleLogin()
@@ -43,7 +45,9 @@ export const useCompleteRegistrationHook = (): UseCompleteRegistrationReturnValu
     }
 
     const handleLogin = async () => {
+      console.log('here 2')
       const password = localStorage.getItem(TEMP_PWD_LOCALSTORAGE_KEY)
+      console.log({password})
       if (password) {
         const user = await logUserIn({
           email: String(router.query.email),
@@ -52,6 +56,7 @@ export const useCompleteRegistrationHook = (): UseCompleteRegistrationReturnValu
           router,
           goToDashboard: false,
         })
+        console.log(user)
         if (user) {
           setLoginSuccessful(true)
         }

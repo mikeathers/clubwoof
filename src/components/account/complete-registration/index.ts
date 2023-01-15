@@ -1,1 +1,1 @@
-export * from './complete-registration.component'
+export * from './complete-registration.container'

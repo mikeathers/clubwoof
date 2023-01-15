@@ -12,6 +12,6 @@ export const LanguageSelectionContainer = styled.div`
   font-size: ${fontSizes.s};
 
   @media (${mediaQueries.s}) {
-    color: ${colors.darkBlue};
+    color: ${colors.pureWhite};
   }
 `

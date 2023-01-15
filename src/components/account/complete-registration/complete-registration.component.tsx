@@ -1,13 +1,26 @@
-import {useCompleteRegistrationHook} from './use-complete-registration.hook'
-import {Layout} from '../../shared'
+import Image from 'next/image'
+import {Box, Layout, Text} from '@clubwoof-components'
+import {DogImage} from './complete-registration.styles'
 
-export const CompleteRegistration: React.FC = () => {
-  const {loginSuccessful} = useCompleteRegistrationHook()
+interface CompleteRegistrationComponentProps {
+  loginSuccessful: boolean
+}
+export const CompleteRegistrationComponent: React.FC<
+  CompleteRegistrationComponentProps
+> = (props) => {
+  const {loginSuccessful} = props
 
   if (loginSuccessful) {
     return (
-      <Layout>
-        <p>You&apos;ve logged in</p>
+      <Layout backgroundColor={'pink'}>
+        <DogImage>
+          <Image src={'/dog-on-skateboard.png'} alt={'dog on skateboard'} fill />
+        </DogImage>
+        <Box>
+          <Text element={'h1'} color={'pureWhite'}>
+            Thanks for registering!
+          </Text>
+        </Box>
       </Layout>
     )
   }

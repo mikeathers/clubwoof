@@ -4,7 +4,6 @@ import {spacing} from '@clubwoof-styles'
 export const Container = styled.div`
   width: 100vw;
   background-color: rgba(0, 187, 249, 0.1);
-  margin-top: ${spacing.space10x};
   padding: ${spacing.space4x} 0;
 `
 

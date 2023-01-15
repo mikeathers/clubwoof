@@ -13,7 +13,7 @@ import {
 export const Container = styled.div`
   height: 100%;
   padding: ${spacing.space5x} ${spacing.space3x};
-
+  margin-bottom: ${spacing.space10x};
   @media (${mediaQueries.s}) {
     padding: 0;
   }

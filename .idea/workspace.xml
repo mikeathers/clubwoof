@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change afterPath="$PROJECT_DIR$/public/dog-on-skateboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-register.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.container.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/use-complete-registration.hook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/use-complete-registration.hook.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/footer/footer.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/footer/footer.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/account/complete-registration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/complete-registration/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/log-user-in/log-user-in.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/log-user-in/log-user-in.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +83,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/env" />
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/env" />
-      <recent name="$PROJECT_DIR$/i18n/locales" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/storybook" />
+      <recent name="$PROJECT_DIR$/src/env" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.Register Page">
