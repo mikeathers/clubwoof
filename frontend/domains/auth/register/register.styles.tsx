@@ -98,7 +98,7 @@ export const Form = styled.form`
 export const ErrorMessage = styled.p`
   color: ${colors.red};
   font-size: ${fontSizes.s};
-  margin-top: ${spacing.space4x};
+  margin: ${spacing.space1x} 0;
 `
 
 export const LinkText = styled.p`

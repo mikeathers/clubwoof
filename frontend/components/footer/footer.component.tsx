@@ -4,6 +4,7 @@ import {Text} from '../text'
 import {Box} from '../box'
 
 export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear()
   return (
     <Container>
       <Box>
@@ -17,7 +18,7 @@ export const Footer: React.FC = () => {
 
       <Box>
         <Text element={'p'} fontSize={'s'}>
-          Copyright © 2022 All rights reserved
+          {`Copyright © ${currentYear} All rights reserved`}
         </Text>
       </Box>
     </Container>

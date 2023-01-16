@@ -29,21 +29,23 @@ export interface RegisterComponentProps {
   registerUser: (data: FormDetails) => Promise<void>
 }
 
-const RegisterComplete: React.FC = () => (
+interface RegisterCompleteProps {
+  i18n: i18nRegisterPage
+}
+const RegisterComplete: React.FC<RegisterCompleteProps> = ({i18n}) => (
   <div>
     <Text element={'h1'} paddingBottom={'space2x'}>
-      You&apos;ve successfully registered to the club!
+      {i18n.registrationSuccessfulText}
     </Text>
-    <Text element={'h2'}>Go ahead and check your email to confirm your account.</Text>
+    <Text element={'h2'}>{i18n.checkYourEmailText}</Text>
   </div>
 )
 
 export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
   const {i18n, registrationComplete, error, registerUser} = props
-
   const {control, handleSubmit, formState} = useForm<FormDetails>({
     mode: 'onSubmit',
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(formSchema(i18n)),
   })
 
   const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
@@ -117,7 +119,6 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
       }
     }
   }
-
   return (
     <Layout
       bubbleOnePositioning="top"
@@ -134,10 +135,10 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
           <>
             <HeadingContainer>
               <Heading>{i18n.heading}</Heading>
-              <SubHeading>Register today and join the club</SubHeading>
+              <SubHeading>{i18n.subHeading}</SubHeading>
             </HeadingContainer>
             <Form>
-              {inputs.map((input, index) => {
+              {inputs(i18n).map((input, index) => {
                 const errorMessage = getInputErrorMessage(input.name)
                 return (
                   <Controller
@@ -170,21 +171,21 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
               </ErrorMessage>
 
               <SubmitButton type="button" aria-label="Submit" onClick={handleSubmitForm}>
-                Get started!
+                {i18n.submitButtonText}
               </SubmitButton>
 
               <Box align="center">
                 <LinkText>
-                  Already part of the club? <Link href="/auth/login">Sign in</Link>
+                  {i18n.signInQuestion} <Link href="/auth/login">{i18n.signInText}</Link>
                 </LinkText>
                 <LinkText>
-                  All done? <Link href="/">Go home</Link>
+                  {i18n.goHomeQuestion} <Link href="/">{i18n.goHomeText}</Link>
                 </LinkText>
               </Box>
             </Form>
           </>
         ) : (
-          <RegisterComplete />
+          <RegisterComplete i18n={i18n} />
         )}
       </Container>
     </Layout>

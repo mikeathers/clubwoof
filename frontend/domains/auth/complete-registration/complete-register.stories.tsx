@@ -6,7 +6,7 @@ import {
 } from './complete-registration.component'
 
 export default {
-  title: 'components/account/complete-registration',
+  title: 'components/auth/complete-registration',
   component: CompleteRegistrationComponent,
   decorators: [
     (Story: React.FC) => (

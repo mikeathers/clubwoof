@@ -57,11 +57,12 @@ module.exports = {
         'prefer-template': 1,
         '@typescript-eslint/unbound-method': 0,
         'react/prop-types': 0,
-        '@typescript-eslint/no-floating-promises': 'off',
+        '@typescript-eslint/no-floating-promises': 0,
+        '@typescript-eslint/explicit-module-boundary-types': 0,
       },
     },
     {
-      files: ['**/*.{test,tests,stories}.{ts,tsx}', './test-utils'],
+      files: ['./test-utils/**/*.{tsx,ts}', '**/*.{test,tests,stories}.{ts,tsx}'],
       rules: {
         '@typescript-eslint/no-unsafe-return': 0,
         'react/display-name': 0,

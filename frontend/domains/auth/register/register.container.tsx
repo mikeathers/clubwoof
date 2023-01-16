@@ -1,9 +1,11 @@
-import {RegisterComponent} from './register.component'
-import {Auth} from '@aws-amplify/auth'
-import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
-import {isCognitoError} from '@clubwoof-utils'
 import {useState} from 'react'
+import {Auth} from '@aws-amplify/auth'
 import {FieldValues} from 'react-hook-form'
+
+import {isCognitoError} from '@clubwoof-utils'
+import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
+
+import {RegisterComponent} from './register.component'
 
 export interface FormDetails extends FieldValues {
   email?: string
@@ -42,7 +44,7 @@ export const Register: React.FC<RegisterProps> = (props) => {
         if (isCognitoError(e)) {
           console.log(e)
           setError(e.message)
-        } else setError('Something has gone very wrong, please try again later.')
+        } else setError(i18n.terribleError)
       }
     }
   }
