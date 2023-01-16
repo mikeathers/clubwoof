@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/public/mockServiceWorker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/account/register/register.container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/axios/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.storybook/preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-register.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/use-register.hook.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +189,7 @@
       <workItem from="1673605385496" duration="8630000" />
       <workItem from="1673618326116" duration="3632000" />
       <workItem from="1673622561579" duration="6648000" />
-      <workItem from="1673858146968" duration="18636000" />
+      <workItem from="1673858146968" duration="19235000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
