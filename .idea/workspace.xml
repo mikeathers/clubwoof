@@ -2,24 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/public/dog-on-skateboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-register.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.storybook.old/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.storybook.old/preview.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.storybook/preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/use-complete-registration.hook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/use-complete-registration.hook.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/footer/footer.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/footer/footer.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/complete-registration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/complete-registration/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/log-user-in/log-user-in.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/log-user-in/log-user-in.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Button.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Header.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Introduction.stories.mdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Page.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/code-brackets.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/colors.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/comments.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/direction.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/flow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/plugin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/repo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/stackalt.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/button.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/page.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,11 +91,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/.storybook" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/storybook" />
-      <recent name="$PROJECT_DIR$/src/env" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.Register Page">
@@ -209,6 +217,7 @@
       <workItem from="1673605385496" duration="8630000" />
       <workItem from="1673618326116" duration="3632000" />
       <workItem from="1673622561579" duration="6648000" />
+      <workItem from="1673858146968" duration="4765000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -222,6 +231,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/.storybook/preview.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

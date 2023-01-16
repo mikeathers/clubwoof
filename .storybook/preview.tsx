@@ -1,16 +1,15 @@
-import '../src/styles/globals.css'
-import * as NextImage from 'next/image'
-import {RouterContext} from 'next/dist/shared/lib/router-context'
 import {Auth} from '@aws-amplify/auth'
-import {dev} from '@clubwoof-constants'
+import {dev} from '../src/constants'
+// import {RouterContext} from "next/dist/shared/lib/router-context";
+// import * as NextImage from "next/image";
 
-const OriginalNextImage = NextImage.default
-
-Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  // @ts-ignore
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
-})
+// const OriginalNextImage = NextImage.default
+//
+// Object.defineProperty(NextImage, 'default', {
+//   configurable: true,
+//   // @ts-ignore
+//   value: (props) => <OriginalNextImage {...props} unoptimized />,
+// })
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
@@ -20,10 +19,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  nextRouter: {
-    Provider: RouterContext.Provider,
-  },
   layout: 'fullscreen',
+  // nextRouter: {
+  //   Provider: RouterContext.Provider,
+  // },
 }
 
 Auth.configure({

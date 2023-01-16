@@ -15,8 +15,10 @@
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "prettier:fix": "prettier -w src/* backend/src/*",
     "test": "jest --watch",
-    "storybook:start": "start-storybook -p 6006 -s ./public",
-    "storybook:build": "build-storybook -s ./public -o backend/storybook-build"
+    "storybook:start": "storybook dev -p 6006 -s ./public",
+    "storybook:build": "storybook build -s ./public -o backend/storybook-build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@aws-amplify/auth": "^3.4.29",
@@ -29,7 +31,7 @@
     "next-export-i18n": "^2.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.41.3",
+    "react-hook-form": "^7.42.1",
     "react-icons": "^4.7.1",
     "react-responsive": "^9.0.2",
     "styled-components": "^5.3.6",
@@ -37,18 +39,18 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@aws-sdk/util-utf8-browser": "^3.188.0",
     "@babel/core": "^7.20.12",
-    "@jest/globals": "^29.3.1",
     "@next/bundle-analyzer": "^10.0.8",
     "@next/eslint-plugin-next": "^13.1.1",
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-interactions": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
-    "@storybook/builder-webpack5": "^6.5.15",
-    "@storybook/manager-webpack5": "^6.5.15",
-    "@storybook/react": "^6.5.15",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-actions": "^7.0.0-beta.28",
+    "@storybook/addon-essentials": "^7.0.0-beta.28",
+    "@storybook/addon-interactions": "^7.0.0-beta.28",
+    "@storybook/addon-links": "^7.0.0-beta.28",
+    "@storybook/addons": "^6.5.15",
+    "@storybook/nextjs": "^7.0.0-beta.28",
+    "@storybook/react": "^7.0.0-beta.28",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "@testing-library/dom": "^8.19.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -78,10 +80,12 @@
     "jest-mock": "^29.3.1",
     "next-router-mock": "^0.9.1-beta.0",
     "prettier": "^2.3.2",
-    "storybook-addon-mock": "^3.2.0",
-    "storybook-addon-next-router": "^4.0.2",
+    "storybook": "^7.0.0-beta.28",
     "ts-jest": "^28.0.8",
     "typescript": "^4.9.4",
     "typescript-eslint": "^0.0.1-alpha.0"
-  }
+  },
+  "workspaces": [
+    "packages/a"
+  ]
 }
