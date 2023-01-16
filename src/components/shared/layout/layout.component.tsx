@@ -11,8 +11,9 @@ import {
 } from './layout.styles'
 import {LanguageSelection} from '../language-selection'
 import {Footer} from '../footer'
+import {LanguageSelectionProps} from '../language-selection/language-selection.styles'
 
-interface LayoutProps extends ContentProps, ContainerProps {
+interface LayoutProps extends ContentProps, ContainerProps, LanguageSelectionProps {
   children: ReactNode | ReactNode[]
   bubbleOnePositioning?: BubblePositioning
   bubbleTwoPositioning?: BubblePositioning
@@ -24,10 +25,11 @@ export const Layout: React.FC<LayoutProps> = ({
   backgroundColor,
   bubbleOnePositioning,
   bubbleTwoPositioning,
+  textColour,
 }) => {
   return (
     <Grommet theme={defaultTheme}>
-      <LanguageSelection />
+      <LanguageSelection textColour={textColour} />
       <Container backgroundColor={backgroundColor}>
         {bubbleOnePositioning && (
           <Bubble

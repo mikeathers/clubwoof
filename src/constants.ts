@@ -22,3 +22,5 @@ export const dev =
 export const TEMP_PWD_LOCALSTORAGE_KEY = 'AUTO_SIGN_IN'
 console.log(process.env.NEXT_PUBLIC_IS_PRODUCTION)
 console.log(dev)
+
+export const AWS_COGNITO_ENDPOINT = 'https://cognito-idp.eu-west-2.amazonaws.com/'

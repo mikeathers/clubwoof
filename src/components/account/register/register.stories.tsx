@@ -1,18 +1,58 @@
-import {Register} from '@clubwoof-components'
-import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {RegisterComponent, RegisterComponentProps} from './register.component'
+import {StoryFn} from '@storybook/react'
+import {noop} from '@babel/types'
 import {registerPageI18nMock} from '@clubwoof-test-utils'
+import {useEffect} from 'react'
 
 export default {
   title: 'components/account/register',
-  component: Register,
-  argTypes: {
-    backgroundColor: {control: 'color'},
-  },
-} as ComponentMeta<typeof Register>
+  component: RegisterComponent,
+}
 
-const Template: ComponentStory<typeof Register> = (args) => <Register {...args} />
+export const RegisterToBegin: StoryFn<RegisterComponentProps> = () => {
+  const props: RegisterComponentProps = {
+    i18n: registerPageI18nMock,
+    registerUser: () => new Promise(noop),
+    registrationComplete: false,
+    error: '',
+  }
+  return <RegisterComponent {...props} />
+}
 
-export const DefaultView = Template.bind({})
-DefaultView.args = {
-  i18n: registerPageI18nMock,
+export const RegistrationComplete: StoryFn<RegisterComponentProps> = () => {
+  const props: RegisterComponentProps = {
+    i18n: registerPageI18nMock,
+    registerUser: () => new Promise(noop),
+    registrationComplete: true,
+    error: '',
+  }
+  return <RegisterComponent {...props} />
+}
+
+export const WithError: StoryFn<RegisterComponentProps> = () => {
+  const props: RegisterComponentProps = {
+    i18n: registerPageI18nMock,
+    registerUser: () => new Promise(noop),
+    registrationComplete: false,
+    error: 'Something terrible has happened. Please try again later.',
+  }
+  return <RegisterComponent {...props} />
+}
+
+export const WithValidationError: StoryFn<RegisterComponentProps> = () => {
+  const props: RegisterComponentProps = {
+    i18n: registerPageI18nMock,
+    registerUser: () => new Promise(noop),
+    registrationComplete: false,
+    error: '',
+  }
+
+  useEffect(() => {
+    const submitButton = document.querySelector(
+      '[aria-label="Submit"]',
+    ) as HTMLButtonElement
+    submitButton.click()
+  }, [])
+
+  return <RegisterComponent {...props} />
 }

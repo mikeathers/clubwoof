@@ -43,6 +43,7 @@ const jestConfig = {
     '^@clubwoof-test-utils$': '<rootDir>/src/test-utils',
     '^@clubwoof-i18n$': '<rootDir>/i18n/locales',
     '^@clubwoof-utils$': '<rootDir>/src/utils',
+    '^@clubwoof-context$': '<rootDir>/src/context',
   },
 
   // The paths to modules that run some code to configure or set up the testing environment before each test

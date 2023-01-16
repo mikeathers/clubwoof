@@ -61,7 +61,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.{test,tests}.{ts,tsx}', './test-utils'],
+      files: ['**/*.{test,tests,stories}.{ts,tsx}', './test-utils'],
       rules: {
         '@typescript-eslint/no-unsafe-return': 0,
         'react/display-name': 0,

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import {fireEvent, render, waitFor} from '@testing-library/react'
 import {Auth} from '@aws-amplify/auth'
 
-import {Register} from './register.component'
+import {Register} from './register.container'
 import {registerPageI18nMock} from '@clubwoof-test-utils'
 
 jest.mock('next/router', () => require('next-router-mock'))
@@ -15,7 +15,12 @@ const renderComponent = (props = defaultProps) => render(<Register {...props} />
 
 describe('Register Page', () => {
   beforeEach(() => {
-    jest.spyOn(Auth, 'signUp')
+    jest.spyOn(Auth, 'signUp').mockResolvedValue({
+      user: expect.anything(),
+      userConfirmed: false,
+      userSub: '0000',
+      codeDeliveryDetails: expect.anything(),
+    })
   })
 
   it('should render a page with a title', () => {
@@ -68,6 +73,27 @@ describe('Register Page', () => {
     fireEvent.click(submitButton)
 
     await waitFor(() => expect(Auth.signUp).toHaveBeenCalled())
+  })
+
+  it('should show registration complete when sign up successful ', async () => {
+    const {getByLabelText, getByText} = renderComponent()
+
+    fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
+    fireEvent.change(getByLabelText('Last name'), {target: {value: 'Joe'}})
+    fireEvent.change(getByLabelText('Email'), {target: {value: 'joe@bloggs.com'}})
+    fireEvent.change(getByLabelText('Password'), {target: {value: 'Password1!'}})
+    fireEvent.change(getByLabelText('Confirm password'), {
+      target: {value: 'Password1!'},
+    })
+    const submitButton = getByLabelText('Submit')
+
+    fireEvent.click(submitButton)
+
+    await waitFor(() =>
+      expect(
+        getByText("You've successfully registered to the club!"),
+      ).toBeInTheDocument(),
+    )
   })
 
   describe('Form Validation', () => {

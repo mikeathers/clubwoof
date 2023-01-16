@@ -2,7 +2,7 @@ import Image from 'next/image'
 import {Box, Layout, Text} from '@clubwoof-components'
 import {DogImage} from './complete-registration.styles'
 
-interface CompleteRegistrationComponentProps {
+export interface CompleteRegistrationComponentProps {
   loginSuccessful: boolean
 }
 export const CompleteRegistrationComponent: React.FC<
@@ -12,7 +12,7 @@ export const CompleteRegistrationComponent: React.FC<
 
   if (loginSuccessful) {
     return (
-      <Layout backgroundColor={'pink'}>
+      <Layout backgroundColor={'pink'} textColour={'pureWhite'}>
         <DogImage>
           <Image src={'/dog-on-skateboard.png'} alt={'dog on skateboard'} fill />
         </DogImage>

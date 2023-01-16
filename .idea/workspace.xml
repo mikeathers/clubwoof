@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/mockServiceWorker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account/register/register.container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/axios/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-register.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/use-register.hook.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +73,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/michaelatherton/Development/clubwoof/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.general",
-    "ts.external.directory.path": "/Users/michaelatherton/Development/clubwoof/backend/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,7 +93,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Register Page">
+  <component name="RunManager" selected="Jest.Register Page.Form Validation">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.12.1/bin/node" />
       <node-options value="" />
@@ -100,48 +116,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="AuthContext.should call LOGIN_SUCCESS when successful login occurs" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/context/auth/auth.test.tsx" />
-      <test-names>
-        <test-name value="AuthContext" />
-        <test-name value="should call LOGIN_SUCCESS when successful login occurs" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="AuthContext.should call dispatch with LOGIN_FAILURE when error occurs" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/context/auth/auth.test.tsx" />
-      <test-names>
-        <test-name value="AuthContext" />
-        <test-name value="should call dispatch with LOGIN_FAILURE when error occurs" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="AuthContext.should update error in state in error is thrown" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/context/auth/auth.test.tsx" />
-      <test-names>
-        <test-name value="AuthContext" />
-        <test-name value="should update error in state in error is thrown" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="Register Page" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -155,21 +129,59 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="Register Page.Form Validation" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/components/account/register/register.test.tsx" />
+      <test-names>
+        <test-name value="Register Page" />
+        <test-name value="Form Validation" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Register Page.should show registration complete when sign up successful " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/account/register/register.test.tsx" />
+      <test-names>
+        <test-name value="Register Page" />
+        <test-name value="should show registration complete when sign up successful " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="register.test.tsx" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/src/components/account/register/register.test.tsx" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
+      <item itemvalue="Jest.Register Page.Form Validation" />
+      <item itemvalue="Jest.Register Page.should show registration complete when sign up successful " />
+      <item itemvalue="Jest.register.test.tsx" />
       <item itemvalue="Jest.Register Page" />
       <item itemvalue="Jest.AuthContext" />
-      <item itemvalue="Jest.AuthContext.should call LOGIN_SUCCESS when successful login occurs" />
-      <item itemvalue="Jest.AuthContext.should call dispatch with LOGIN_FAILURE when error occurs" />
-      <item itemvalue="Jest.AuthContext.should update error in state in error is thrown" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Register Page.Form Validation" />
         <item itemvalue="Jest.Register Page" />
+        <item itemvalue="Jest.Register Page.should show registration complete when sign up successful " />
+        <item itemvalue="Jest.register.test.tsx" />
         <item itemvalue="Jest.AuthContext" />
-        <item itemvalue="Jest.AuthContext.should call dispatch with LOGIN_FAILURE when error occurs" />
-        <item itemvalue="Jest.AuthContext.should call LOGIN_SUCCESS when successful login occurs" />
-        <item itemvalue="Jest.AuthContext.should update error in state in error is thrown" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +208,7 @@
       <workItem from="1673605385496" duration="8630000" />
       <workItem from="1673618326116" duration="3632000" />
       <workItem from="1673622561579" duration="6648000" />
-      <workItem from="1673858146968" duration="7087000" />
+      <workItem from="1673858146968" duration="18636000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

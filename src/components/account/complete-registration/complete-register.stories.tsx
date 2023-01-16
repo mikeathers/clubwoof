@@ -1,6 +1,9 @@
-import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {StoryFn} from '@storybook/react'
 import {AuthProvider} from '@clubwoof-context'
-import {CompleteRegistrationComponent} from './complete-registration.component'
+import {
+  CompleteRegistrationComponent,
+  CompleteRegistrationComponentProps,
+} from './complete-registration.component'
 
 export default {
   title: 'components/account/complete-registration',
@@ -12,13 +15,14 @@ export default {
       </AuthProvider>
     ),
   ],
-} as ComponentMeta<typeof CompleteRegistrationComponent>
+}
 
-const Template: ComponentStory<typeof CompleteRegistrationComponent> = (args) => (
+export const LoginSuccessful: StoryFn<CompleteRegistrationComponentProps> = (args) => (
   <CompleteRegistrationComponent {...args} />
 )
+LoginSuccessful.args = {loginSuccessful: true}
 
-export const DefaultView = Template.bind({})
-DefaultView.args = {
-  loginSuccessful: true,
-}
+export const LoginUnsuccessful: StoryFn<CompleteRegistrationComponentProps> = (args) => (
+  <CompleteRegistrationComponent {...args} />
+)
+LoginUnsuccessful.args = {loginSuccessful: false}

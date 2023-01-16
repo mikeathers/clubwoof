@@ -1,14 +1,14 @@
-import React from 'react'
+import React, {SyntheticEvent, useEffect, useState} from 'react'
+import {yupResolver} from '@hookform/resolvers/yup/dist/yup'
 import Link from 'next/link'
 import {Box} from 'grommet'
-import {Controller} from 'react-hook-form'
+import {Controller, useForm} from 'react-hook-form'
 import Image from 'next/image'
 
-import {Layout, Text, TextInput} from '@clubwoof-components'
+import {FormDetails, Layout, Text, TextInput} from '@clubwoof-components'
 import {colors} from '@clubwoof-styles'
 
-import {inputs} from './form-helpers'
-import {useRegisterHook} from './use-register.hook'
+import {formSchema, inputs} from './form-helpers'
 import {
   Container,
   DogImage,
@@ -21,30 +21,101 @@ import {
   SubmitButton,
 } from './register.styles'
 
+export interface RegisterComponentProps {
+  i18n: i18nRegisterPage
+  error: string
+  registrationComplete: boolean
+  registerUser: (data: FormDetails) => Promise<void>
+}
+
 const RegisterComplete: React.FC = () => (
   <div>
     <Text element={'h1'} paddingBottom={'space2x'}>
-      You have successfully register to the club!
+      You&apos;ve successfully registered to the club!
     </Text>
     <Text element={'h2'}>Go ahead and check your email to confirm your account.</Text>
   </div>
 )
 
-interface RegisterProps {
-  i18n: i18nRegisterPage
-}
+export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
+  const {i18n, registrationComplete, error, registerUser} = props
 
-export const Register: React.FC<RegisterProps> = (props) => {
-  const {i18n} = props
-  const {
-    registrationComplete,
-    error,
-    control,
-    handleSubmitForm,
-    getInputErrorMessage,
-    getPasswordFormatValidationMessage,
-    handleKeyPress,
-  } = useRegisterHook()
+  const {control, handleSubmit, formState} = useForm<FormDetails>({
+    mode: 'onSubmit',
+    resolver: yupResolver(formSchema),
+  })
+
+  const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
+  const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
+
+  useEffect(() => {
+    addInteractiveFieldsToState()
+  }, [])
+
+  const addInteractiveFieldsToState = () => {
+    const firstNameInput = document.querySelector(
+      '[aria-label="First name"]',
+    ) as HTMLInputElement
+    const lastNameInput = document.querySelector(
+      '[aria-label="Last name"]',
+    ) as HTMLInputElement
+    const emailInput = document.querySelector('[aria-label="Email"]') as HTMLInputElement
+    const passwordInput = document.querySelector(
+      '[aria-label="Password"]',
+    ) as HTMLInputElement
+    const confirmPasswordInput = document.querySelector(
+      '[aria-label=" Confirm password"]',
+    ) as HTMLInputElement
+    const submitButtonElement = document.querySelector(
+      '[aria-label="Submit"]',
+    ) as HTMLButtonElement
+
+    setInputLabels([
+      firstNameInput,
+      lastNameInput,
+      emailInput,
+      passwordInput,
+      confirmPasswordInput,
+    ])
+    setSubmitButton(submitButtonElement)
+  }
+
+  const handleSubmitForm = async (e: SyntheticEvent) => {
+    e.preventDefault()
+    if (Object.keys(formState.errors).length > 0) return
+
+    await handleSubmit(registerUser)()
+  }
+  const getInputErrorMessage = (inputName: string) => {
+    const errorMessage = formState.errors[inputName]?.message
+    if (!errorMessage) return ''
+    return (errorMessage as string).includes('contain') ? '' : `${errorMessage}`
+  }
+
+  const getPasswordFormatValidationMessage = () => {
+    const {errors} = formState
+    if (Object.keys(errors).length === 0) return ''
+    const errorMessage = `${errors['password']?.message}`
+    if (!errorMessage) return ''
+    if (errorMessage && errorMessage.includes('contain')) return errorMessage
+    return ''
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
+    if (e.key === 'Enter') {
+      if (index < inputs.length) {
+        const input = inputLabels[index]
+        if (input) {
+          input.focus()
+        }
+      }
+      if (index === inputs.length) {
+        if (submitButton) {
+          submitButton.focus()
+        }
+      }
+    }
+  }
 
   return (
     <Layout

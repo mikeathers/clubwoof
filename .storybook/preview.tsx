@@ -1,15 +1,6 @@
 import {Auth} from '@aws-amplify/auth'
 import {dev} from '../src/constants'
-// import {RouterContext} from "next/dist/shared/lib/router-context";
-// import * as NextImage from "next/image";
-
-// const OriginalNextImage = NextImage.default
-//
-// Object.defineProperty(NextImage, 'default', {
-//   configurable: true,
-//   // @ts-ignore
-//   value: (props) => <OriginalNextImage {...props} unoptimized />,
-// })
+import '../src/styles/globals.css'
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
@@ -20,9 +11,9 @@ export const parameters = {
     },
   },
   layout: 'fullscreen',
-  // nextRouter: {
-  //   Provider: RouterContext.Provider,
-  // },
+  docs: {
+    page: null,
+  },
 }
 
 Auth.configure({
