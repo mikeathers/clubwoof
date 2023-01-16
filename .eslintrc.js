@@ -74,7 +74,7 @@ module.exports = {
       },
     },
     {
-      files: ['./src/pages/**/*.{tsx,ts}'],
+      files: ['./pages/**/*.{tsx,ts}'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 0,
       },
@@ -106,7 +106,7 @@ module.exports = {
       typescript: {},
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        moduleDirectory: ['node_modules', 'src/'],
+        moduleDirectory: ['node_modules', 'frontend/'],
       },
     },
   },

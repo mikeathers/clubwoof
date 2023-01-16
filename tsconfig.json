@@ -18,11 +18,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
+    "baseUrl": "./frontend",
     "rootDir": "./",
     "paths": {
       "@clubwoof-components": [
         "./components"
+      ],
+      "@clubwoof-domains": [
+        "./domains"
       ],
       "@clubwoof-styles": [
         "./styles"

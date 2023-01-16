@@ -10,7 +10,7 @@ const jestConfig = {
   clearMocks: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx,mjs}'],
+  collectCoverageFrom: ['frontend/**/*.{ts,tsx,js,jsx,mjs}'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
@@ -32,22 +32,22 @@ const jestConfig = {
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // Also used for absolute imports - paths from tsconfig.json
   moduleNameMapper: {
-    '\\.(css|sass|scss)$': '<rootDir>/src/test-utils/__mocks__/style-mock.ts',
+    '\\.(css|sass|scss)$': '<rootDir>/frontend/test-utils/__mocks__/style-mock.ts',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/src/test-utils/__mocks__/image-mock.ts',
+      '<rootDir>/frontend/test-utils/__mocks__/image-mock.ts',
     // Handle module aliases (this will be automatically configured for you soon)
-    '^@clubwoof-hooks$': '<rootDir>/src/hooks',
-    '^@clubwoof-components$': '<rootDir>/src/components',
-    '^@clubwoof-styles$': '<rootDir>/src/styles',
-    '^@clubwoof-constants$': '<rootDir>/src/constants.ts',
-    '^@clubwoof-test-utils$': '<rootDir>/src/test-utils',
+    '^@clubwoof-hooks$': '<rootDir>/frontend/hooks',
+    '^@clubwoof-components$': '<rootDir>/frontend/components',
+    '^@clubwoof-styles$': '<rootDir>/frontend/styles',
+    '^@clubwoof-constants$': '<rootDir>/frontend/constants.ts',
+    '^@clubwoof-test-utils$': '<rootDir>/frontend/test-utils',
     '^@clubwoof-i18n$': '<rootDir>/i18n/locales',
-    '^@clubwoof-utils$': '<rootDir>/src/utils',
-    '^@clubwoof-context$': '<rootDir>/src/context',
+    '^@clubwoof-utils$': '<rootDir>/frontend/utils',
+    '^@clubwoof-context$': '<rootDir>/frontend/context',
   },
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/src/test-utils/setup-tests.ts'],
+  setupFiles: ['<rootDir>/frontend/test-utils/setup-tests.ts'],
 
   // expect will be defined here - we need to extend it for react-testing-library additional assertions
   // Run some code to configure or set up the testing framework before each test.

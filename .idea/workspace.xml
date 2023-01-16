@@ -2,8 +2,113 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/cache/webpack/client-development/0.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/cache/webpack/client-development/index.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/cache/webpack/server-development/0.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/cache/webpack/server-development/index.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/server/middleware-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/server/pages-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.next/trace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/domains/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-register.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/complete-registration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/complete-registration/use-complete-registration.hook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/use-complete-registration.hook.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/form-helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/form-helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/box/box.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/box/box.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/box/box.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/box/box.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/box/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/box/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/footer/footer.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer/footer.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/footer/footer.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer/footer.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/footer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/language-selection/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/language-selection/language-selection.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/language-selection/language-selection.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/language-selection/language-selection.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout/layout.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout/layout.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text-input/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-input/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text-input/text-input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-input/text-input.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text-input/text-input.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-input/text-input.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text/text.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text/text.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/text/text.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text/text.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/auth/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/context/auth/auth-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/auth/auth.context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/context/auth/auth.context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/auth/auth.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/context/auth/auth.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/context/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/context/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/global.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useMediaQueries/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useMediaQueries/useMediaQueries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hooks/useMediaQueries/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/about.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/account/complete-registration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/complete-registration/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/account/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/register/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/hello.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Button.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/Button.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Header.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/Header.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Introduction.stories.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/Introduction.stories.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Page.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/Page.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/Page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/code-brackets.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/code-brackets.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/colors.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/colors.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/comments.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/comments.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/direction.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/direction.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/flow.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/flow.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/plugin.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/plugin.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/repo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/repo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/stackalt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/assets/stackalt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/stories/page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/themes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/themes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/variables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/axios/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/axios/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/cognito-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/cognito-user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/image-mock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/image-mock.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/locales/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/locales/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/__mocks__/style-mock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/style-mock.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-utils/setup-tests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/setup-tests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/is-cognito-error/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/utils/is-cognito-error/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/log-user-in/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/utils/log-user-in/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/log-user-in/log-user-in.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/utils/log-user-in/log-user-in.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.eslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.eslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,27 +142,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/michaelatherton/Development/clubwoof/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs.jest.jest_package": "/Users/michaelatherton/Development/clubwoof/node_modules/jest",
-    "nodejs_interpreter_path": "/Users/michaelatherton/.nvm/versions/node/v18.12.1/bin/node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/michaelatherton/Development/clubwoof/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.general",
-    "ts.external.directory.path": "/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/michaelatherton/Development/clubwoof/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/jest&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/Users/michaelatherton/.nvm/versions/node/v18.12.1/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -67,11 +172,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/.storybook" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/frontend/components" />
+      <recent name="$PROJECT_DIR$/.storybook" />
       <recent name="$PROJECT_DIR$/storybook" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.Register Page.Form Validation">
@@ -189,7 +294,8 @@
       <workItem from="1673605385496" duration="8630000" />
       <workItem from="1673618326116" duration="3632000" />
       <workItem from="1673622561579" duration="6648000" />
-      <workItem from="1673858146968" duration="19235000" />
+      <workItem from="1673858146968" duration="19781000" />
+      <workItem from="1673897295405" duration="907000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -228,17 +334,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/context/auth/auth.context.tsx</url>
+          <url>file://$PROJECT_DIR$/frontend/context/auth/auth.context.tsx</url>
           <line>68</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/context/auth/auth.context.tsx</url>
+          <url>file://$PROJECT_DIR$/frontend/context/auth/auth.context.tsx</url>
           <line>58</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/context/auth/auth.context.tsx</url>
+          <url>file://$PROJECT_DIR$/frontend/context/auth/auth.context.tsx</url>
           <line>43</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>

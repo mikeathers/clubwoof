@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {Register} from '@clubwoof-components'
+import {Register} from '@clubwoof-domains'
 import {useTranslation} from 'next-export-i18n'
 
 function RegisterPage() {

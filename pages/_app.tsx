@@ -5,8 +5,8 @@ import Head from 'next/head'
 
 import {AuthProvider} from '@clubwoof-context'
 
-import {dev} from '../constants'
-import '../styles/globals.css'
+import {dev} from '../frontend/constants'
+import '../frontend/styles/globals.css'
 
 Auth.configure({
   mandatorySignIn: false,

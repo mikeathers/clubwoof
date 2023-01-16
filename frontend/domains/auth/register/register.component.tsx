@@ -5,7 +5,7 @@ import {Box} from 'grommet'
 import {Controller, useForm} from 'react-hook-form'
 import Image from 'next/image'
 
-import {FormDetails, Layout, Text, TextInput} from '@clubwoof-components'
+import {Layout, Text, TextInput} from '@clubwoof-components'
 import {colors} from '@clubwoof-styles'
 
 import {formSchema, inputs} from './form-helpers'
@@ -20,6 +20,7 @@ import {
   SubHeading,
   SubmitButton,
 } from './register.styles'
+import {FormDetails} from './register.container'
 
 export interface RegisterComponentProps {
   i18n: i18nRegisterPage
@@ -148,7 +149,9 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
                         aria-label={input.ariaLabel}
                         type={input.type}
                         placeholder={input.placeholder}
-                        onKeyDown={(e) => handleKeyPress(e, index + 1)}
+                        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                          handleKeyPress(e, index + 1)
+                        }
                         withoutBorder
                         ref={null}
                         error={errorMessage && errorMessage}
@@ -172,7 +175,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
 
               <Box align="center">
                 <LinkText>
-                  Already part of the club? <Link href="/account/login">Sign in</Link>
+                  Already part of the club? <Link href="/auth/login">Sign in</Link>
                 </LinkText>
                 <LinkText>
                   All done? <Link href="/">Go home</Link>

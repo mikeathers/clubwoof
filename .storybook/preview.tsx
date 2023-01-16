@@ -1,6 +1,6 @@
 import {Auth} from '@aws-amplify/auth'
-import {dev} from '../src/constants'
-import '../src/styles/globals.css'
+import {dev} from '@clubwoof-constants'
+import '../frontend/styles/globals.css'
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
