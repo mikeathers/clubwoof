@@ -9,44 +9,30 @@ export default {
   component: RegisterComponent,
 }
 
+const defaultProps: RegisterComponentProps = {
+  i18n: registerPageI18nMock,
+  registerUser: () => new Promise(noop),
+  registrationComplete: false,
+  error: '',
+}
+
 export const RegisterToBegin: StoryFn<RegisterComponentProps> = () => {
-  const props: RegisterComponentProps = {
-    i18n: registerPageI18nMock,
-    registerUser: () => new Promise(noop),
-    registrationComplete: false,
-    error: '',
-  }
-  return <RegisterComponent {...props} />
+  return <RegisterComponent {...defaultProps} />
 }
 
 export const RegistrationComplete: StoryFn<RegisterComponentProps> = () => {
-  const props: RegisterComponentProps = {
-    i18n: registerPageI18nMock,
-    registerUser: () => new Promise(noop),
-    registrationComplete: true,
-    error: '',
-  }
-  return <RegisterComponent {...props} />
+  return <RegisterComponent {...defaultProps} registrationComplete={true} />
 }
 
 export const WithError: StoryFn<RegisterComponentProps> = () => {
   const props: RegisterComponentProps = {
-    i18n: registerPageI18nMock,
-    registerUser: () => new Promise(noop),
-    registrationComplete: false,
+    ...defaultProps,
     error: 'Something terrible has happened. Please try again later.',
   }
   return <RegisterComponent {...props} />
 }
 
 export const WithValidationError: StoryFn<RegisterComponentProps> = () => {
-  const props: RegisterComponentProps = {
-    i18n: registerPageI18nMock,
-    registerUser: () => new Promise(noop),
-    registrationComplete: false,
-    error: '',
-  }
-
   useEffect(() => {
     const submitButton = document.querySelector(
       '[aria-label="Submit"]',
@@ -54,5 +40,5 @@ export const WithValidationError: StoryFn<RegisterComponentProps> = () => {
     submitButton.click()
   }, [])
 
-  return <RegisterComponent {...props} />
+  return <RegisterComponent {...defaultProps} />
 }

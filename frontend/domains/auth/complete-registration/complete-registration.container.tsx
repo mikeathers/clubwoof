@@ -6,7 +6,12 @@ import {Auth} from '@aws-amplify/auth'
 import {isCognitoError, logUserIn} from '@clubwoof-utils'
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
 
-export const CompleteRegistration: React.FC = () => {
+interface CompleteRegistrationProps {
+  i18n: i18nCompleteRegistrationPage
+}
+
+export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props) => {
+  const {i18n} = props
   const router = useRouter()
   const {addUserToState} = useAuth()
   const [loginSuccessful, setLoginSuccessful] = useState<boolean>(false)
@@ -65,5 +70,5 @@ export const CompleteRegistration: React.FC = () => {
     completeRegistration()
   }, [router, addUserToState])
 
-  return <CompleteRegistrationComponent loginSuccessful={loginSuccessful} />
+  return <CompleteRegistrationComponent i18n={i18n} loginSuccessful={loginSuccessful} />
 }

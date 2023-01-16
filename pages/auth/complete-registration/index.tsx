@@ -6,7 +6,7 @@ import {CompleteRegistration} from '@clubwoof-domains'
 function CompleteRegistrationPage() {
   const {t} = useTranslation()
 
-  return <CompleteRegistration />
+  return <CompleteRegistration i18n={t('pages.auth.completeRegistration')} />
 }
 
 export default CompleteRegistrationPage

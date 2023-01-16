@@ -26,6 +26,7 @@ export const Layout: React.FC<LayoutProps> = ({
   bubbleOnePositioning,
   bubbleTwoPositioning,
   textColour,
+  width,
 }) => {
   return (
     <Grommet theme={defaultTheme}>
@@ -40,7 +41,9 @@ export const Layout: React.FC<LayoutProps> = ({
             position={bubbleOnePositioning}
           />
         )}
-        <Content paddingTop={paddingTop}>{children}</Content>
+        <Content paddingTop={paddingTop} width={width}>
+          {children}
+        </Content>
       </Container>
 
       {bubbleTwoPositioning && (

@@ -35,7 +35,7 @@ export const Text = styled.p<StyledTextProps>`
   }};
   line-height: ${({element}) => {
     if (element === 'h1') return lineHeights.heading
-    return lineHeights.display
+    return lineHeights.body
   }};
   font-weight: ${({fontWeight}) =>
     fontWeight ? fontWeights[fontWeight] : fontWeights.medium};

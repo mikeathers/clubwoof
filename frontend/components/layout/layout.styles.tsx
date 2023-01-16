@@ -5,6 +5,7 @@ import {Colors, colors, mediaQueries, Spacing} from '@clubwoof-styles'
 
 export interface ContentProps {
   paddingTop?: keyof Spacing
+  width?: 's' | 'm' | 'l' | 'fullScreen'
 }
 
 export interface ContainerProps {
@@ -35,7 +36,13 @@ export const Container = styled.div<ContainerProps>`
 
 export const Content = styled.div<ContentProps>`
   min-height: 100vh;
-  width: 100%;
+  width: ${({width}) => {
+    if (width === 'l') return '100%'
+    if (width === 'm') return '80%'
+    if (width === 's') return '40%'
+    return '100%'
+  }};
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,11 +50,21 @@ export const Content = styled.div<ContentProps>`
   margin: 0 auto;
 
   @media (${mediaQueries.s}) {
-    width: 80%;
+    width: ${({width}) => {
+      if (width === 'l') return '100%'
+      if (width === 'm') return '80%'
+      if (width === 's') return '40%'
+      return '80%'
+    }};
   }
 
   @media (${mediaQueries.l}) {
-    width: 40%;
+    width: ${({width}) => {
+      if (width === 'l') return '100%'
+      if (width === 'm') return '80%'
+      if (width === 's') return '40%'
+      return '80%'
+    }};
   }
 `
 

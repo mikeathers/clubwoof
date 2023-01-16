@@ -49,6 +49,11 @@ declare global {
       confirmPassword: string
     }
   }
+
+  type i18nCompleteRegistrationPage = {
+    thanksForRegisteringText: string
+    fillInYourDetailsText: string
+  }
 }
 
 export {}

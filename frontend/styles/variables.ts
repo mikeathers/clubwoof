@@ -46,9 +46,9 @@ export const fontSizes: FontSizes = {
   s: '14px',
   m: '16px',
   l: '18px',
-  xl: '28px',
+  xl: '24px',
   xxl: '32px',
-  xxxl: '52px',
+  xxxl: '62px',
   xxxxl: '62px',
 }
 
@@ -61,9 +61,8 @@ export const fontWeights: FontWeights = {
 }
 
 export const lineHeights: LineHeights = {
-  display: 1.35,
-  body: 1.55,
-  heading: '50px',
+  body: '28px',
+  heading: '56px',
 }
 const breakpoints: Breakpoints = {
   xxxs: {

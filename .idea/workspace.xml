@@ -2,23 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.storybook/preview-head.html" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview-head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/footer/footer.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer/footer.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/box/box.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/box/box.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/layout/layout.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout/layout.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/layout/layout.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout/layout.styles.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-register.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/use-complete-registration.hook.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/form-helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/form-helpers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.container.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.styles.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/global.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/variables.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/test-utils/__mocks__/locales/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/locales/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/locales/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/complete-registration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/complete-registration/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/register/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +206,7 @@
       <workItem from="1673622561579" duration="6648000" />
       <workItem from="1673858146968" duration="19781000" />
       <workItem from="1673897295405" duration="6141000" />
-      <workItem from="1673903459570" duration="208000" />
+      <workItem from="1673903459570" duration="2597000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

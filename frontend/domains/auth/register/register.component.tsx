@@ -37,7 +37,7 @@ const RegisterComplete: React.FC<RegisterCompleteProps> = ({i18n}) => (
     <Text element={'h1'} paddingBottom={'space2x'}>
       {i18n.registrationSuccessfulText}
     </Text>
-    <Text element={'h2'}>{i18n.checkYourEmailText}</Text>
+    <Text element={'h3'}>{i18n.checkYourEmailText}</Text>
   </div>
 )
 
