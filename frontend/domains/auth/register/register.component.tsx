@@ -1,5 +1,5 @@
 import React, {SyntheticEvent, useEffect, useState} from 'react'
-import {yupResolver} from '@hookform/resolvers/yup/dist/yup'
+import {yupResolver} from '@hookform/resolvers/yup'
 import Link from 'next/link'
 import {Box} from 'grommet'
 import {Controller, useForm} from 'react-hook-form'
