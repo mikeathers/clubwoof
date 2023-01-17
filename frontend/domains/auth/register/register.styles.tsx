@@ -18,6 +18,7 @@ export const Container = styled.div`
     padding: 0;
   }
 `
+
 export const DogImage = styled.div`
   width: 160px;
   height: 160px;
@@ -77,6 +78,7 @@ export const SubmitButton = styled.button`
   font-size: ${fontSizes.m};
   font-weight: ${fontWeights.bold};
   height: 38px;
+  cursor: pointer;
 
   &:hover {
     filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.161));

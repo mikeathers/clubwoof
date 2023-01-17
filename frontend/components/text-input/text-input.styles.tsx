@@ -4,12 +4,16 @@ import {colors, fontSizes, lineHeights, spacing} from '@clubwoof-styles'
 
 export interface StyledTextInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  withoutBorder?: boolean
-  icon: JSX.Element
+  withBorder?: boolean
+  icon?: JSX.Element
 }
 
 interface TextInputContainerProps {
   error: boolean
+}
+
+interface ErrorContainerProps {
+  icon?: JSX.Element
 }
 
 const withBorder = css`
@@ -48,7 +52,6 @@ const withoutBorder = css`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: ${spacing.space1x} 0 ${spacing.space1x} ${spacing.space5x};
 
   &:focus {
     box-shadow: none;
@@ -62,15 +65,21 @@ export const TextInputContainer = styled.div<TextInputContainerProps>`
   font-size: ${fontSizes.m};
   line-height: ${lineHeights.body};
   margin-bottom: ${spacing.space3x};
-
-  p {
-    padding-left: ${({error}) => error && spacing.space2x};
-    padding-top: ${({error}) => error && spacing.spaceHalfx};
-  }
 `
 export const TextInput = styled.input<StyledTextInputProps>`
   width: 100%;
-  ${(props) => (props.withoutBorder ? withoutBorder : withBorder)}
+  ${(props) => (props.withBorder ? withBorder : withoutBorder)}
+  padding: ${({icon, withBorder}) => {
+    if (!icon && !withBorder) {
+      return `${spacing.space1x} 0 ${spacing.space1x} ${spacing.space1x}`
+    }
+    if (!icon && withBorder) {
+      return `${spacing.space1x} 0 ${spacing.space1x} ${spacing.space1x}`
+    }
+    if (icon) {
+      return `${spacing.space1x} 0 ${spacing.space1x} ${spacing.space5x}`
+    }
+  }}
 `
 
 export const Icon = styled.div`
@@ -78,6 +87,24 @@ export const Icon = styled.div`
   left: 12px;
   top: 8px;
 `
-export const ErrorContainer = styled.div`
+export const ErrorContainer = styled.div<ErrorContainerProps>`
   height: 24px;
+
+  p {
+    ${({icon}) => {
+      if (icon) {
+        return errorStylesWithIcon
+      }
+      return errorStylesWithoutIcon
+    }}
+  }
+`
+const errorStylesWithIcon = css`
+  padding-left: ${spacing.space2x};
+  padding-top: ${spacing.spaceHalfx};
+`
+
+const errorStylesWithoutIcon = css`
+  padding-left: ${spacing.space1x};
+  padding-top: ${spacing.spaceHalfx};
 `

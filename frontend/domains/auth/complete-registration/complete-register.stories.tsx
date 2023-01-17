@@ -7,7 +7,7 @@ import {
 import {completeRegistrationPageI18nMock} from '@clubwoof-test-utils'
 
 export default {
-  title: 'components/auth/complete-registration',
+  title: 'Domains/Auth/CompleteRegistration',
   component: CompleteRegistrationComponent,
   decorators: [
     (Story: React.FC) => (

@@ -1,11 +1,10 @@
 import styled, {css} from 'styled-components'
-import Image from 'next/image'
 
 import {Colors, colors, mediaQueries, Spacing} from '@clubwoof-styles'
 
 export interface ContentProps {
   paddingTop?: keyof Spacing
-  width?: 's' | 'm' | 'l' | 'fullScreen'
+  width?: 's' | 'm' | 'l'
 }
 
 export interface ContainerProps {
@@ -97,7 +96,7 @@ const rightBubblePositioning = css`
 
   @media (${mediaQueries.m}) {
     display: block;
-    right: -400px;
+    right: -500px;
     bottom: 0;
   }
 
@@ -107,11 +106,16 @@ const rightBubblePositioning = css`
   }
 `
 
-export const Bubble = styled(Image)<BubbleProps>`
+export const Bubble = styled.div<BubbleProps>`
   position: absolute;
-  height: 400px !important;
-  width: 100% !important;
-  z-index: 1;
+  height: 400px;
+  width: 100%;
+  z-index: 0;
+
+  image {
+    width: 100%;
+    height: 100%;
+  }
 
   ${({position}) => {
     switch (position) {
@@ -124,22 +128,22 @@ export const Bubble = styled(Image)<BubbleProps>`
   }}
 
   @media (${mediaQueries.s}) {
-    height: 500px !important;
-    width: 500px !important;
+    height: 500px;
+    width: 500px;
   }
 
   @media (${mediaQueries.m}) {
-    height: 600px !important;
-    width: 600px !important;
+    height: 600px;
+    width: 600px;
   }
 
   @media (${mediaQueries.l}) {
-    height: 650px !important;
-    width: 650px !important;
+    height: 650px;
+    width: 650px;
   }
 
   @media (${mediaQueries.xl}) {
-    height: 700px !important;
-    width: 700px !important;
+    height: 700px;
+    width: 700px;
   }
 `

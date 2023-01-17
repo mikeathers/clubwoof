@@ -5,7 +5,7 @@ import {registerPageI18nMock} from '@clubwoof-test-utils'
 import {useEffect} from 'react'
 
 export default {
-  title: 'components/auth/register',
+  title: 'Domains/Auth/Register',
   component: RegisterComponent,
 }
 

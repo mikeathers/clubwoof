@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {spacing, Spacing} from '@clubwoof-styles'
 
 export interface StyledBoxProps {
@@ -13,18 +13,58 @@ export interface StyledBoxProps {
 export const StyledBox = styled.div<StyledBoxProps>`
   width: ${({padding}) => (!padding ? '100%' : null)};
   display: flex;
-  justify-content: ${(props) => {
-    if (props.centerContent) return 'center'
-    if (props.topAlign) return 'flex-start'
-    if (props.bottomAlign) return 'flex-end'
-    return 'center'
-  }};
-  align-items: ${(props) => {
-    if (props.centerContent) return 'center'
-    if (props.topAlign) return 'flex-start'
-    if (props.bottomAlign) return 'flex-end'
-    return 'center'
-  }};
+
+  ${({centerContent, leftAlign, rightAlign, direction}) => {
+    if (direction === 'column') {
+      if (centerContent) return columnCenterAlign
+      if (leftAlign) return columnLeftAlign
+      if (rightAlign) return columnRightAlign
+    }
+    if (direction === 'row' || !direction) {
+      if (centerContent) return rowCenterAlign
+      if (leftAlign) return rowLeftAlign
+      if (rightAlign) return rowRightAlign
+    }
+    if (!direction && !centerContent && !rightAlign && !leftAlign) {
+      return rowCenterAlign
+    }
+  }}
   flex-direction: ${(props) => props.direction || 'row'};
   padding: ${({padding}) => padding && spacing[padding]};
+`
+
+const rowLeftAlign = css`
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+`
+
+const columnLeftAlign = css`
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+`
+
+const rowRightAlign = css`
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+`
+
+const columnRightAlign = css`
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+`
+
+const rowCenterAlign = css`
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`
+
+const columnCenterAlign = css`
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `

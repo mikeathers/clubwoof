@@ -12,8 +12,12 @@ import {
 import {LanguageSelection} from '../language-selection'
 import {Footer} from '../footer'
 import {LanguageSelectionProps} from '../language-selection/language-selection.styles'
+import Image from 'next/image'
 
-interface LayoutProps extends ContentProps, ContainerProps, LanguageSelectionProps {
+export interface LayoutProps
+  extends ContentProps,
+    ContainerProps,
+    LanguageSelectionProps {
   children: ReactNode | ReactNode[]
   bubbleOnePositioning?: BubblePositioning
   bubbleTwoPositioning?: BubblePositioning
@@ -33,13 +37,9 @@ export const Layout: React.FC<LayoutProps> = ({
       <LanguageSelection textColour={textColour} />
       <Container backgroundColor={backgroundColor}>
         {bubbleOnePositioning && (
-          <Bubble
-            src="/pink-bubbles.svg"
-            alt="bubbles"
-            width={100}
-            height={100}
-            position={bubbleOnePositioning}
-          />
+          <Bubble position={bubbleOnePositioning}>
+            <Image src="/pink-bubbles.svg" alt="bubbles" fill />
+          </Bubble>
         )}
         <Content paddingTop={paddingTop} width={width}>
           {children}
@@ -47,13 +47,9 @@ export const Layout: React.FC<LayoutProps> = ({
       </Container>
 
       {bubbleTwoPositioning && (
-        <Bubble
-          src="/pink-bubbles.svg"
-          alt="bubbles"
-          width={100}
-          height={100}
-          position={bubbleTwoPositioning}
-        />
+        <Bubble position={bubbleTwoPositioning}>
+          <Image src="/pink-bubbles.svg" alt="bubbles" fill />
+        </Bubble>
       )}
       <Footer />
     </Grommet>
