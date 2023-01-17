@@ -53,6 +53,7 @@ declare global {
   type i18nCompleteRegistrationPage = {
     thanksForRegisteringText: string
     fillInYourDetailsText: string
+    weWillBeInTouchText: string
   }
 }
 

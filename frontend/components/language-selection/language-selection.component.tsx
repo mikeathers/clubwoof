@@ -6,9 +6,11 @@ import {
   LanguageSelectionProps,
 } from './language-selection.styles'
 
-export const LanguageSelection: React.FC<LanguageSelectionProps> = ({textColour}) => {
+export const LanguageSelection: React.FC<LanguageSelectionProps> = ({
+  languageSelectionTextColour,
+}) => {
   return (
-    <LanguageSelectionContainer textColour={textColour}>
+    <LanguageSelectionContainer languageSelectionTextColour={languageSelectionTextColour}>
       <LanguageSwitcher lang="en">🇬🇧 English</LanguageSwitcher>
       {' | '}
       <LanguageSwitcher lang="pl">🇵🇱 Polski</LanguageSwitcher>

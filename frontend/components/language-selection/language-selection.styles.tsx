@@ -9,7 +9,7 @@ import {
 } from '@clubwoof-styles'
 
 export interface LanguageSelectionProps {
-  textColour?: keyof Colors
+  languageSelectionTextColour?: keyof Colors
 }
 
 export const LanguageSelectionContainer = styled.div<LanguageSelectionProps>`
@@ -18,17 +18,17 @@ export const LanguageSelectionContainer = styled.div<LanguageSelectionProps>`
   right: ${spacing.space2x};
   cursor: pointer;
   z-index: 2;
-  color: ${({textColour}) => {
-    if (!textColour) return colors.pureWhite
-    return colors[textColour]
+  color: ${({languageSelectionTextColour}) => {
+    if (!languageSelectionTextColour) return colors.pureWhite
+    return colors[languageSelectionTextColour]
   }};
   font-weight: ${fontWeights.bold};
   font-size: ${fontSizes.s};
 
   @media (${mediaQueries.s}) {
-    color: ${({textColour}) => {
-      if (!textColour) return colors.darkBlue
-      return colors[textColour]
+    color: ${({languageSelectionTextColour}) => {
+      if (!languageSelectionTextColour) return colors.darkBlue
+      return colors[languageSelectionTextColour]
     }};
   }
 `

@@ -29,12 +29,12 @@ export const Layout: React.FC<LayoutProps> = ({
   backgroundColor,
   bubbleOnePositioning,
   bubbleTwoPositioning,
-  textColour,
+  languageSelectionTextColour,
   width,
 }) => {
   return (
     <Grommet theme={defaultTheme}>
-      <LanguageSelection textColour={textColour} />
+      <LanguageSelection languageSelectionTextColour={languageSelectionTextColour} />
       <Container backgroundColor={backgroundColor}>
         {bubbleOnePositioning && (
           <Bubble position={bubbleOnePositioning}>

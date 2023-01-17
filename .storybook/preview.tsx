@@ -11,8 +11,8 @@ export const parameters = {
     },
   },
   layout: 'fullscreen',
-  docs: {
-    page: null,
+  options: {
+    showPanel: false,
   },
 }
 

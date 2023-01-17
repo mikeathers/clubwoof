@@ -34,7 +34,7 @@ export const WithBothBubbles: StoryFn<LayoutProps> = () => (
 )
 
 export const WithBackgroundColour: StoryFn<LayoutProps> = () => (
-  <Layout backgroundColor={'pink'} width={'m'}>
+  <Layout backgroundColor={'pink'} width={'m'} languageSelectionTextColour={'pureWhite'}>
     <Text element={'h1'} color={'pureWhite'}>
       Layout Component
     </Text>
@@ -60,7 +60,7 @@ export const MediumWidth: StoryFn<LayoutProps> = () => (
 )
 
 export const LargeWidth: StoryFn<LayoutProps> = () => (
-  <Layout backgroundColor={'pink'} width={'l'} textColour={'pureWhite'}>
+  <Layout backgroundColor={'pink'} width={'l'} languageSelectionTextColour={'pureWhite'}>
     <Text element={'h1'} paddingBottom={'space3x'} color={'pureWhite'}>
       Layout Component
     </Text>

@@ -18,7 +18,7 @@ export const WhiteText: StoryFn = () => {
   `
   return (
     <Container>
-      <LanguageSelection textColour={'pureWhite'} />
+      <LanguageSelection languageSelectionTextColour={'pureWhite'} />
     </Container>
   )
 }

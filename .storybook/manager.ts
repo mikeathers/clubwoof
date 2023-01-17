@@ -4,7 +4,7 @@ import {create} from '@storybook/theming'
 addons.setConfig({
   isFullscreen: false,
   showNav: true,
-  showPanel: true,
+  showPanel: false,
   panelPosition: 'bottom',
   enableShortcuts: true,
   showToolbar: true,
