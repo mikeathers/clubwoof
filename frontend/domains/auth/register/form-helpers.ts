@@ -1,20 +1,9 @@
 import {object, ref, string} from 'yup'
 import {HiUser} from 'react-icons/hi2'
 import {HiAtSymbol} from 'react-icons/hi'
-import {BiLockAlt} from 'react-icons/bi'
+import {BiLockAlt, BiLockOpenAlt} from 'react-icons/bi'
+import {passwordValidation} from '@clubwoof-utils'
 
-const passwordValidation = (value: string | undefined) => {
-  if (!value) return false
-  const hasUpperCase = /[A-Z]/.test(value)
-  const hasLowerCase = /[a-z]/.test(value)
-  const hasNumber = /[0-9]/.test(value)
-  const hasSymbol = /[!@#$%&*]/.test(value)
-  let validConditions = 0
-  const numberOfMustBeValidConditions = 4
-  const conditions = [hasLowerCase, hasUpperCase, hasNumber, hasSymbol]
-  conditions.forEach((condition) => (condition ? (validConditions += 1) : null))
-  return validConditions >= numberOfMustBeValidConditions
-}
 export const formSchema = (i18n: i18nRegisterPage) =>
   object({
     firstName: string().required(i18n.validation.firstName),
@@ -58,7 +47,7 @@ export const inputs = (i18n: i18nRegisterPage) => {
       placeholder: i18n.inputs.email,
     },
     {
-      icon: BiLockAlt,
+      icon: BiLockOpenAlt,
       ariaLabel: i18n.inputs.password,
       name: 'password',
       type: 'password',

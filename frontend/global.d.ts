@@ -55,6 +55,20 @@ declare global {
     fillInYourDetailsText: string
     weWillBeInTouchText: string
   }
+
+  type i18nLoginPage = {
+    heading: string
+    subHeading: string
+    inputs: {
+      email: string
+      password: string
+    }
+    validation: {
+      email: string
+      emailFormat: string
+      password: string
+    }
+  }
 }
 
 export {}

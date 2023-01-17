@@ -1,11 +1,12 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
-import {colors, fontSizes, lineHeights, spacing} from '@clubwoof-styles'
+import {Colors, colors, fontSizes, lineHeights, spacing} from '@clubwoof-styles'
 
 export interface StyledTextInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   withBorder?: boolean
   icon?: JSX.Element
+  color?: keyof Colors
 }
 
 interface TextInputContainerProps {
@@ -14,6 +15,10 @@ interface TextInputContainerProps {
 
 interface ErrorContainerProps {
   icon?: JSX.Element
+}
+
+interface IconProps {
+  color?: keyof Colors
 }
 
 const withBorder = css`
@@ -68,6 +73,7 @@ export const TextInputContainer = styled.div<TextInputContainerProps>`
 `
 export const TextInput = styled.input<StyledTextInputProps>`
   width: 100%;
+  background-color: transparent;
   ${(props) => (props.withBorder ? withBorder : withoutBorder)}
   padding: ${({icon, withBorder}) => {
     if (!icon && !withBorder) {
@@ -79,13 +85,20 @@ export const TextInput = styled.input<StyledTextInputProps>`
     if (icon) {
       return `${spacing.space1x} 0 ${spacing.space1x} ${spacing.space5x}`
     }
-  }}
+  }};
+
+  color: ${({color}) => (color ? colors[color] : colors.darkBlue)};
+
+  &::placeholder {
+    color: ${({color}) => (color ? colors[color] : colors.darkBlue)};
+  }
 `
 
-export const Icon = styled.div`
+export const Icon = styled.div<IconProps>`
   position: absolute;
   left: 12px;
   top: 8px;
+  color: ${({color}) => (color ? colors[color] : colors.darkBlue)};
 `
 export const ErrorContainer = styled.div<ErrorContainerProps>`
   height: 24px;

@@ -17,7 +17,7 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
   const {error, icon} = props
   return (
     <TextInputContainer error={!!error}>
-      {icon && <Icon>{icon}</Icon>}
+      {icon && <Icon color={props.color}>{icon}</Icon>}
       <Input {...props} />
 
       <ErrorContainer icon={icon}>

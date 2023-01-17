@@ -7,3 +7,7 @@ export const registerPageI18nMock: i18nRegisterPage = {
 export const completeRegistrationPageI18nMock: i18nCompleteRegistrationPage = {
   ...JSON.parse(JSON.stringify(en.pages.auth.completeRegistrationPage)),
 }
+
+export const loginPageI18nMock: i18nLoginPage = {
+  ...JSON.parse(JSON.stringify(en.pages.auth.loginPage)),
+}
