@@ -9,6 +9,8 @@ export interface StyledBoxProps {
   bottomAlign?: boolean
   direction?: 'row' | 'column'
   padding?: keyof Spacing
+  marginTop?: keyof Spacing
+  marginBottom?: keyof Spacing
 }
 export const StyledBox = styled.div<StyledBoxProps>`
   width: ${({padding}) => (!padding ? '100%' : null)};
@@ -31,6 +33,8 @@ export const StyledBox = styled.div<StyledBoxProps>`
   }}
   flex-direction: ${(props) => props.direction || 'row'};
   padding: ${({padding}) => padding && spacing[padding]};
+  margin-top: ${({marginTop}) => (marginTop ? spacing[marginTop] : 0)};
+  margin-bottom: ${({marginBottom}) => (marginBottom ? spacing[marginBottom] : 0)};
 `
 
 const rowLeftAlign = css`

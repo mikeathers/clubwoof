@@ -7,22 +7,19 @@ import {
   FontSizes,
   fontWeights,
   FontWeights,
-  Spacing,
   spacing,
+  Spacing,
 } from '@clubwoof-styles'
-import React from 'react'
 import {UrlObject} from 'url'
 
-export interface StyledTextButtonProps extends ContainerProps {
+export interface StyledTextButtonProps {
   colour?: keyof Colors
   href: string | UrlObject
   fontWeight?: keyof FontWeights
   fontSize?: keyof FontSizes
   underline?: boolean
-}
-
-interface ContainerProps {
-  padding?: keyof Spacing
+  marginTop?: keyof Spacing
+  marginBottom?: keyof Spacing
 }
 
 export const StyledTextButton = styled(Link)<StyledTextButtonProps>`
@@ -31,14 +28,11 @@ export const StyledTextButton = styled(Link)<StyledTextButtonProps>`
     fontWeight ? fontWeights[fontWeight] : fontWeights.bold};
   text-decoration: none;
   font-size: ${({fontSize}) => (fontSize ? fontSizes[fontSize] : fontSizes.m)};
-  padding: 1px 3px;
   border-bottom: ${({underline, colour}) => {
     if (colour && underline) return `2px solid ${colors[colour]}`
     if (!colour && underline) return `2px solid ${colors.darkBlue}`
     if (!colour && !underline) return ''
   }};
-`
-
-export const Container = styled.div<ContainerProps>`
-  padding: ${({padding}) => (padding ? spacing[padding] : 0)};
+  margin-top: ${({marginTop}) => (marginTop ? spacing[marginTop] : 0)};
+  margin-bottom: ${({marginBottom}) => (marginBottom ? spacing[marginBottom] : 0)};
 `

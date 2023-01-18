@@ -2,23 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/login/form-helpers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/login/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.styles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/utils/validation/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/auth/login/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/dog-in-box.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/hooks/use-form-helpers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/hooks/use-safe-async/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/box/box.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/box/box.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/layout/layout.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout/layout.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/text-button/text-button.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-button/text-button.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/text-button/text-button.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-button/text-button.styles.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/text-input/text-input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-input/text-input.component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/text-input/text-input.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-input/text-input.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/form-helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/form-helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/global.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test-utils/__mocks__/locales/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/locales/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/text/text.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text/text.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/text/text.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text/text.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.styles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/hooks/useMediaQueries/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hooks/use-media-queries/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/themes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/themes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/locales/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +213,7 @@
       <workItem from="1673622561579" duration="6648000" />
       <workItem from="1673858146968" duration="19781000" />
       <workItem from="1673897295405" duration="6141000" />
-      <workItem from="1673903459570" duration="23396000" />
+      <workItem from="1673903459570" duration="40554000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

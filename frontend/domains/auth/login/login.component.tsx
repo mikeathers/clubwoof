@@ -1,111 +1,115 @@
-import {Layout, Text, TextInput} from '@clubwoof-components'
+import {Box, Layout, Text, TextButton} from '@clubwoof-components'
 import Image from 'next/image'
 import {Controller, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 
 import {FormDetails} from '../register'
 import {formSchema, inputs} from './form-helpers'
-import {DogImage, Form} from './login.styles'
-import {colors} from '@clubwoof-styles'
-import React, {useEffect, useState} from 'react'
+import {Content, DogImage, Form, FormInput, SubmitButton} from './login.styles'
+import React, {SyntheticEvent} from 'react'
+import {useFormHelpers} from '@clubwoof-hooks'
 
 interface LoginProps {
   i18n: i18nLoginPage
+  loginUser: (data: FormDetails) => void
+  error: string | undefined
+  isLoading: boolean
+  resetState: () => void
 }
-export const Login: React.FC<LoginProps> = (props) => {
-  const {i18n} = props
+export const LoginComponent: React.FC<LoginProps> = (props) => {
+  const {i18n, loginUser, error, resetState} = props
   const formInputs = inputs(i18n)
-  const {control, handleSubmit, formState} = useForm<FormDetails>({
+  const {control, handleSubmit, formState, reset} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema(i18n)),
   })
-  const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
-  const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
 
-  useEffect(() => {
-    addInteractiveFieldsToState()
-  }, [])
+  const {jumpToNextInputOnEnter, getInputErrorMessage, formHasErrors} = useFormHelpers({
+    formInputs,
+    formState,
+  })
 
-  const addInteractiveFieldsToState = () => {
-    const emailInput = document.querySelector('[aria-label="Email"]') as HTMLInputElement
+  const handleSubmitForm = async (e: SyntheticEvent) => {
+    e.preventDefault()
 
-    const passwordInput = document.querySelector(
-      '[aria-label="Password"]',
-    ) as HTMLInputElement
+    if (formHasErrors) return
 
-    const submitButtonElement = document.querySelector(
-      '[aria-label="Submit"]',
-    ) as HTMLButtonElement
-
-    setInputLabels([emailInput, passwordInput])
-    setSubmitButton(submitButtonElement)
+    await handleSubmit(loginUser)()
   }
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
-    if (e.key === 'Enter') {
-      if (index < formInputs.length) {
-        const input = inputLabels[index]
-        console.log({input, inputLabels, index})
-        if (input) {
-          input.focus()
-        }
-      }
-      if (index === formInputs.length) {
-        if (submitButton) {
-          submitButton.focus()
-        }
-      }
+
+  const handleClearError = () => {
+    if (error !== undefined) {
+      resetState()
+      reset()
     }
   }
 
-  const getInputErrorMessage = (inputName: string) => {
-    const errorMessage = formState.errors[inputName]?.message
-    if (!errorMessage) return ''
-    return (errorMessage as string).includes('contain') ? '' : `${errorMessage}`
-  }
-
   return (
-    <Layout
-      width={'m'}
-      backgroundColor={'pink'}
-      languageSelectionTextColour={'pureWhite'}
-    >
-      <DogImage>
-        <Image src={'/dog-in-box.png'} alt={'dog in a box'} fill />
-      </DogImage>
-      <Text color={'pureWhite'} element={'h1'} paddingBottom={'space2x'}>
-        {i18n.heading}
-      </Text>
-      <Text element={'h3'} color={'pureWhite'}>
-        {i18n.subHeading}
-      </Text>
-      <Form>
-        {formInputs.map((input, index) => {
-          const errorMessage = getInputErrorMessage(input.name)
-          return (
-            <Controller
-              key={index}
-              render={({field}) => (
-                <TextInput
-                  {...field}
-                  icon={<input.icon color={colors.lightBlue} size="21" />}
-                  aria-label={input.ariaLabel}
-                  type={input.type}
-                  placeholder={input.placeholder}
-                  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
-                    handleKeyPress(e, index + 1)
-                  }
-                  ref={null}
-                  error={errorMessage && errorMessage}
-                  color={'pureWhite'}
-                />
-              )}
-              name={input.name}
-              control={control}
-              defaultValue=""
-            />
-          )
-        })}
-      </Form>
+    <Layout backgroundColor={'pink'} languageSelectionTextColour={'pureWhite'}>
+      <Content>
+        <DogImage>
+          <Image src={'/dog-in-box.png'} alt={'dog in a box'} fill />
+        </DogImage>
+        <Text color={'pureWhite'} element={'h1'} marginBottom={'space2x'}>
+          {i18n.heading}
+        </Text>
+        <Text element={'h3'} color={'pureWhite'}>
+          {i18n.subHeading}
+        </Text>
+        <Form>
+          {formInputs.map((input, index) => {
+            const errorMessage = getInputErrorMessage(input.name)
+            return (
+              <Controller
+                key={index}
+                render={({field}) => (
+                  <FormInput
+                    {...field}
+                    icon={<input.icon size="21" />}
+                    aria-label={input.ariaLabel}
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                      jumpToNextInputOnEnter(e, index + 1)
+                      handleClearError()
+                    }}
+                    ref={null}
+                    error={errorMessage && errorMessage}
+                    errorColor={'yellow'}
+                    color={'pureWhite'}
+                  />
+                )}
+                name={input.name}
+                control={control}
+                defaultValue=""
+              />
+            )
+          })}
+
+          <Text color={'pureWhite'} marginBottom={'space1x'}>
+            {error && error}
+          </Text>
+
+          <SubmitButton type={'button'} onClick={handleSubmitForm}>
+            Let&apos;s go!
+          </SubmitButton>
+
+          <Box direction={'column'} marginTop={'space2x'} centerContent>
+            <Text color={'pureWhite'} marginBottom={'space1x'}>
+              Forgot your password?{' '}
+              <TextButton colour={'yellow'} href={'/auth/forgot-password'}>
+                Click here
+              </TextButton>
+            </Text>
+            <Text color={'pureWhite'}>
+              New to clubwoof?{' '}
+              <TextButton colour={'yellow'} href={'/auth/register'}>
+                Get started
+              </TextButton>
+            </Text>
+          </Box>
+        </Form>
+      </Content>
     </Layout>
   )
 }

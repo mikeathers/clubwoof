@@ -17,9 +17,10 @@ export interface StyledTextProps {
   color?: keyof Colors
   fontWeight?: keyof FontWeights
   element?: 'h1' | 'h2' | 'h3' | 'p'
-  paddingBottom?: keyof Spacing
+  marginBottom?: keyof Spacing
 }
 export const Text = styled.p<StyledTextProps>`
+  display: flex;
   font-size: ${({fontSize, element}) => {
     if (fontSize) return fontSizes[fontSize]
     if (element === 'p') return fontSizes.m
@@ -43,7 +44,11 @@ export const Text = styled.p<StyledTextProps>`
     if (element === 'h1') return fonts.headingFont
     return fonts.bodyFont
   }};
-  padding-bottom: ${({paddingBottom}) => {
-    if (paddingBottom) return spacing[paddingBottom]
+  margin-bottom: ${({marginBottom}) => {
+    if (marginBottom) return spacing[marginBottom]
   }};
+
+  a {
+    margin-left: ${spacing.spaceHalfx};
+  }
 `

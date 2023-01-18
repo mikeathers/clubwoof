@@ -1,10 +1,9 @@
-import React, {SyntheticEvent, useEffect, useState} from 'react'
+import React, {SyntheticEvent} from 'react'
 import {yupResolver} from '@hookform/resolvers/yup'
-import Link from 'next/link'
 import {Controller, useForm} from 'react-hook-form'
 import Image from 'next/image'
 
-import {Box, Layout, Text, TextInput} from '@clubwoof-components'
+import {Box, Layout, Text, TextButton, TextInput} from '@clubwoof-components'
 import {colors} from '@clubwoof-styles'
 
 import {formSchema, inputs} from './form-helpers'
@@ -15,11 +14,11 @@ import {
   Form,
   Heading,
   HeadingContainer,
-  LinkText,
   SubHeading,
   SubmitButton,
 } from './register.styles'
 import {FormDetails} from './register.container'
+import {useFormHelpers} from '@clubwoof-hooks'
 
 export interface RegisterComponentProps {
   i18n: i18nRegisterPage
@@ -33,7 +32,7 @@ interface RegisterCompleteProps {
 }
 const RegisterComplete: React.FC<RegisterCompleteProps> = ({i18n}) => (
   <div>
-    <Text element={'h1'} paddingBottom={'space2x'}>
+    <Text element={'h1'} marginBottom={'space2x'}>
       {i18n.registrationSuccessfulText}
     </Text>
     <Text element={'h3'}>{i18n.checkYourEmailText}</Text>
@@ -46,85 +45,24 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
     mode: 'onSubmit',
     resolver: yupResolver(formSchema(i18n)),
   })
-
-  const [inputLabels, setInputLabels] = useState<(HTMLInputElement | null)[]>([])
-  const [submitButton, setSubmitButton] = useState<HTMLButtonElement>()
   const formInputs = inputs(i18n)
 
-  useEffect(() => {
-    addInteractiveFieldsToState()
-  }, [])
-
-  const addInteractiveFieldsToState = () => {
-    const firstNameInput = document.querySelector(
-      '[aria-label="First name"]',
-    ) as HTMLInputElement
-
-    const lastNameInput = document.querySelector(
-      '[aria-label="Last name"]',
-    ) as HTMLInputElement
-
-    const emailInput = document.querySelector('[aria-label="Email"]') as HTMLInputElement
-
-    const passwordInput = document.querySelector(
-      '[aria-label="Password"]',
-    ) as HTMLInputElement
-
-    const confirmPasswordInput = document.querySelector(
-      '[aria-label="Confirm password"]',
-    ) as HTMLInputElement
-
-    const submitButtonElement = document.querySelector(
-      '[aria-label="Submit"]',
-    ) as HTMLButtonElement
-
-    setInputLabels([
-      firstNameInput,
-      lastNameInput,
-      emailInput,
-      passwordInput,
-      confirmPasswordInput,
-    ])
-    setSubmitButton(submitButtonElement)
-  }
+  const {
+    jumpToNextInputOnEnter,
+    getInputErrorMessage,
+    getPasswordFormatValidationMessage,
+    formHasErrors,
+  } = useFormHelpers({
+    formInputs,
+    formState,
+  })
 
   const handleSubmitForm = async (e: SyntheticEvent) => {
     e.preventDefault()
 
-    if (Object.keys(formState.errors).length > 0) return
+    if (formHasErrors) return
 
     await handleSubmit(registerUser)()
-  }
-  const getInputErrorMessage = (inputName: string) => {
-    const errorMessage = formState.errors[inputName]?.message
-    if (!errorMessage) return ''
-    return (errorMessage as string).includes('contain') ? '' : `${errorMessage}`
-  }
-
-  const getPasswordFormatValidationMessage = () => {
-    const {errors} = formState
-    if (Object.keys(errors).length === 0) return ''
-    const errorMessage = `${errors['password']?.message}`
-    if (!errorMessage) return ''
-    if (errorMessage && errorMessage.includes('contain')) return errorMessage
-    return ''
-  }
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
-    if (e.key === 'Enter') {
-      if (index < formInputs.length) {
-        const input = inputLabels[index]
-        console.log({input, inputLabels, index})
-        if (input) {
-          input.focus()
-        }
-      }
-      if (index === formInputs.length) {
-        if (submitButton) {
-          submitButton.focus()
-        }
-      }
-    }
   }
 
   return (
@@ -159,7 +97,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
                         type={input.type}
                         placeholder={input.placeholder}
                         onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
-                          handleKeyPress(e, index + 1)
+                          jumpToNextInputOnEnter(e, index + 1)
                         }
                         ref={null}
                         error={errorMessage && errorMessage}
@@ -181,13 +119,19 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
                 {i18n.submitButtonText}
               </SubmitButton>
 
-              <Box centerContent direction={'column'}>
-                <LinkText>
-                  {i18n.signInQuestion} <Link href="/auth/login">{i18n.signInText}</Link>
-                </LinkText>
-                <LinkText>
-                  {i18n.goHomeQuestion} <Link href="/">{i18n.goHomeText}</Link>
-                </LinkText>
+              <Box centerContent direction={'column'} marginTop={'space2x'}>
+                <Text fontSize={'s'} marginBottom={'space1x'}>
+                  {i18n.signInQuestion}
+                  <TextButton fontSize={'s'} colour={'pink'} href={'/auth/login'}>
+                    {i18n.signInText}
+                  </TextButton>
+                </Text>
+                <Text fontSize={'s'}>
+                  {i18n.goHomeQuestion}
+                  <TextButton fontSize={'s'} colour={'pink'} href={'/auth/login'}>
+                    {i18n.goHomeText}
+                  </TextButton>
+                </Text>
               </Box>
             </Form>
           </>

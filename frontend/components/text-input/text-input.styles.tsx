@@ -22,12 +22,6 @@ interface IconProps {
 }
 
 const withBorder = css`
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
-  -webkit-appearance: none;
-  background: transparent;
-  color: inherit;
   width: 100%;
   font-weight: 600;
   margin: 0;
@@ -42,12 +36,10 @@ const withBorder = css`
   }
 `
 
-const withoutBorder = css`
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
+const withoutBorder = css<StyledTextInputProps>`
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  border-bottom: ${({color}) =>
+    color ? `1px solid ${colors[color]}` : '1px solid rgba(0, 0, 0, 0.13)'};
   border-radius: 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -74,6 +66,11 @@ export const TextInputContainer = styled.div<TextInputContainerProps>`
 export const TextInput = styled.input<StyledTextInputProps>`
   width: 100%;
   background-color: transparent;
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  -webkit-appearance: none;
+
   ${(props) => (props.withBorder ? withBorder : withoutBorder)}
   padding: ${({icon, withBorder}) => {
     if (!icon && !withBorder) {
@@ -91,6 +88,7 @@ export const TextInput = styled.input<StyledTextInputProps>`
 
   &::placeholder {
     color: ${({color}) => (color ? colors[color] : colors.darkBlue)};
+    opacity: 0.9;
   }
 `
 

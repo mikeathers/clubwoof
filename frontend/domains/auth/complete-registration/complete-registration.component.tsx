@@ -19,7 +19,7 @@ export const CompleteRegistrationComponent: React.FC<
             <Image src={'/dog-on-skateboard.png'} alt={'dog on skateboard'} fill />
           </DogImage>
           <Box direction={'column'} centerContent padding={'space2x'}>
-            <Text element={'h1'} color={'pureWhite'} paddingBottom={'space2x'}>
+            <Text element={'h1'} color={'pureWhite'} marginBottom={'space2x'}>
               {i18n.thanksForRegisteringText}
             </Text>
             <Text element={'h3'} color={'pureWhite'}>
@@ -29,7 +29,7 @@ export const CompleteRegistrationComponent: React.FC<
               {i18n.fillInYourDetailsText}
             </Text>
             <TextButton
-              padding={'space2x'}
+              marginTop={'space1x'}
               href={'/account/details'}
               colour={'pureWhite'}
               underline
