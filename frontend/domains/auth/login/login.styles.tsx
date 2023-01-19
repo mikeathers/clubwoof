@@ -12,21 +12,21 @@ export const Content = styled.div`
   width: 80%;
 
   @media (${mediaQueries.l}) {
-    width: 40%;
+    width: 30%;
   }
 `
 
 export const DogImage = styled.div`
-  width: 120px;
-  height: 160px;
+  width: 100px;
+  height: 140px;
   position: relative;
   z-index: 1;
   margin-bottom: ${spacing.space5x};
   margin-top: ${spacing.space5x};
 
   @media (${mediaQueries.s}) {
-    width: 150px;
-    height: 180px;
+    width: 120px;
+    height: 160px;
     margin-top: ${spacing.space6x};
   }
   @media (${mediaQueries.xl}) {
@@ -41,7 +41,7 @@ export const DogImage = styled.div`
 
 export const Form = styled.form`
   margin-top: ${spacing.space6x};
-  width: 180%;
+  width: 100%;
 
   @media (${mediaQueries.s}) {
     width: 400px;

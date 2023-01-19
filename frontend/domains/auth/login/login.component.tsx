@@ -56,7 +56,12 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
         <DogImage>
           <Image src={'/dog-in-box.png'} alt={'dog in a box'} fill />
         </DogImage>
-        <Text color={'pureWhite'} element={'h1'} marginBottom={'space2x'}>
+        <Text
+          color={'pureWhite'}
+          element={'h1'}
+          fontSize={'xxxxl'}
+          marginBottom={'space2x'}
+        >
           {i18n.heading}
         </Text>
         <Text element={'h3'} color={'pureWhite'}>

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {
   colors,
   Colors,
@@ -19,7 +19,8 @@ export interface StyledTextProps {
   element?: 'h1' | 'h2' | 'h3' | 'p'
   marginBottom?: keyof Spacing
 }
-export const Text = styled.p<StyledTextProps>`
+
+const textStyles = css<StyledTextProps>`
   display: flex;
   min-height: 28px;
   font-size: ${({fontSize, element}) => {
@@ -29,6 +30,7 @@ export const Text = styled.p<StyledTextProps>`
     if (element === 'h2') return fontSizes.xl
     if (element === 'h3') return fontSizes.l
   }};
+
   color: ${({color, element}) => {
     if (color) {
       return colors[color]
@@ -52,4 +54,17 @@ export const Text = styled.p<StyledTextProps>`
   a {
     margin-left: ${spacing.spaceHalfx};
   }
+`
+export const StyledP = styled.p<StyledTextProps>`
+  ${textStyles}
+`
+
+export const StyledH1 = styled.h1<StyledTextProps>`
+  ${textStyles}
+`
+export const StyledH2 = styled.h2<StyledTextProps>`
+  ${textStyles}
+`
+export const StyledH3 = styled.h3<StyledTextProps>`
+  ${textStyles}
 `

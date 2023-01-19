@@ -49,7 +49,7 @@ export const fontSizes: FontSizes = {
   xl: '24px',
   xxl: '32px',
   xxxl: '62px',
-  xxxxl: '62px',
+  xxxxl: '72px',
 }
 
 export const fontWeights: FontWeights = {
