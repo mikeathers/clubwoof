@@ -1,8 +1,9 @@
 /* eslint-disable class-methods-use-this */
 // jest.mock('@aws-amplify/auth');
-
 import {Auth} from '@aws-amplify/auth'
 import {dev} from '@clubwoof-constants'
+
+jest.mock('next/router', () => require('next-router-mock'))
 
 export const localStorageMock = {
   getItem: jest.fn(),

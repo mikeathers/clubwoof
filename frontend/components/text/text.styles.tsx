@@ -21,6 +21,7 @@ export interface StyledTextProps {
 }
 export const Text = styled.p<StyledTextProps>`
   display: flex;
+  min-height: 28px;
   font-size: ${({fontSize, element}) => {
     if (fontSize) return fontSizes[fontSize]
     if (element === 'p') return fontSizes.m

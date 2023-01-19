@@ -1,16 +1,16 @@
 import React from 'react'
 
 type Status = 'idle' | 'pending' | 'rejected' | 'resolved'
-type InitialState = {
+type InitialState<T> = {
   status?: Status
   error?: Error | null
-  data?: Record<string, string> | null
+  data?: Record<string, string> | null | T
 }
 
-type ActionTypes =
+type ActionTypes<T> =
   | {status: 'idle'; data: null; error: null}
   | {status: 'pending'}
-  | {status: 'resolved'; data: Record<string, string>}
+  | {status: 'resolved'; data: Record<string, string> | T}
   | {status: 'rejected'; error: Error}
 
 interface UseSafeAsyncReturnValue<T> {
@@ -21,12 +21,12 @@ interface UseSafeAsyncReturnValue<T> {
   setError: (newError: Error) => void
   error: Error | null | undefined
   status: Status | undefined
-  data: Record<string, string> | null | undefined
+  data: Record<string, string> | null | undefined | T
   run: (promise: Promise<T>) => Promise<Error | T>
   resetAsyncState: () => void
 }
 
-const useSafeDispatch = (dispatch: React.Dispatch<ActionTypes>) => {
+const useSafeDispatch = <T>(dispatch: React.Dispatch<ActionTypes<T>>) => {
   const mounted = React.useRef(false)
   React.useLayoutEffect(() => {
     mounted.current = true
@@ -35,7 +35,7 @@ const useSafeDispatch = (dispatch: React.Dispatch<ActionTypes>) => {
     }
   }, [])
   return React.useCallback(
-    (action: ActionTypes) => {
+    (action: ActionTypes<T>) => {
       console.log(action)
       if (mounted.current) return dispatch(action)
       else return undefined
@@ -44,21 +44,21 @@ const useSafeDispatch = (dispatch: React.Dispatch<ActionTypes>) => {
   )
 }
 
-const defaultInitialState: InitialState = {
-  status: 'idle',
-  data: null,
-  error: null,
-}
-
 export const useSafeAsync = <T>(
-  initialState?: InitialState,
+  initialState?: InitialState<T>,
 ): UseSafeAsyncReturnValue<T> => {
+  const defaultInitialState: InitialState<T> = {
+    status: 'idle',
+    data: null,
+    error: null,
+  }
+
   const initialStateRef = React.useRef({
     ...defaultInitialState,
     ...initialState,
   })
 
-  const reducer = (state: InitialState, action: ActionTypes): InitialState => {
+  const reducer = (state: InitialState<T>, action: ActionTypes<T>): InitialState<T> => {
     return {
       ...state,
       ...action,
@@ -82,6 +82,10 @@ export const useSafeAsync = <T>(
     [safeSetState],
   )
 
+  const errorHasMessage = (obj: any): obj is Error => {
+    return typeof obj === 'object' && 'message' in obj
+  }
+
   const run = React.useCallback(
     async (promise: Promise<T>) => {
       console.log(promise)
@@ -93,8 +97,6 @@ export const useSafeAsync = <T>(
       safeSetState({status: 'pending'})
       return promise
         .then((promiseData) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           safeSetState({status: 'resolved', data: promiseData})
           return promiseData
         })
@@ -104,8 +106,7 @@ export const useSafeAsync = <T>(
             return promiseError
           }
 
-          if (typeof promiseError === 'object' && 'message' in promiseError) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          if (errorHasMessage(promiseError)) {
             const e = new Error(promiseError.message)
             safeSetState({
               status: 'rejected',
@@ -125,7 +126,6 @@ export const useSafeAsync = <T>(
   )
 
   return {
-    // using the same names that react-query uses for convenience
     isIdle: status === 'idle',
     isLoading: status === 'pending',
     isError: status === 'rejected',

@@ -6,8 +6,9 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import {FormDetails} from '../register'
 import {formSchema, inputs} from './form-helpers'
 import {Content, DogImage, Form, FormInput, SubmitButton} from './login.styles'
-import React, {SyntheticEvent} from 'react'
+import React, {SyntheticEvent, useEffect} from 'react'
 import {useFormHelpers} from '@clubwoof-hooks'
+import {useSafeAsync} from '../../../hooks/use-safe-async'
 
 interface LoginProps {
   i18n: i18nLoginPage
@@ -18,11 +19,17 @@ interface LoginProps {
 }
 export const LoginComponent: React.FC<LoginProps> = (props) => {
   const {i18n, loginUser, error, resetState} = props
-  const formInputs = inputs(i18n)
   const {control, handleSubmit, formState, reset} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema(i18n)),
   })
+  const {isSuccess} = useSafeAsync()
+
+  const formInputs = inputs(i18n)
+
+  useEffect(() => {
+    if (isSuccess) reset()
+  }, [isSuccess])
 
   const {jumpToNextInputOnEnter, getInputErrorMessage, formHasErrors} = useFormHelpers({
     formInputs,
@@ -40,7 +47,6 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
   const handleClearError = () => {
     if (error !== undefined) {
       resetState()
-      reset()
     }
   }
 
@@ -86,11 +92,11 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
             )
           })}
 
-          <Text color={'pureWhite'} marginBottom={'space1x'}>
+          <Text color={'pureWhite'} fontWeight={'bold'} marginBottom={'space1x'}>
             {error && error}
           </Text>
 
-          <SubmitButton type={'button'} onClick={handleSubmitForm}>
+          <SubmitButton type={'button'} aria-label={'Submit'} onClick={handleSubmitForm}>
             Let&apos;s go!
           </SubmitButton>
 

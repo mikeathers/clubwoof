@@ -17,7 +17,6 @@ export const Login: React.FC<LoginProps> = (props) => {
   const {addUserToState} = useAuth()
 
   const loginUser = (data: FormDetails) => {
-    console.log('here')
     if (data.email && data.password) {
       run(
         logUserIn({
@@ -25,7 +24,7 @@ export const Login: React.FC<LoginProps> = (props) => {
           password: data.password,
           router,
           addUserToState,
-          goToDashboard: true,
+          goToDashboard: false,
         }),
       )
     }

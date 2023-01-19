@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom'
 import {fireEvent, render, waitFor} from '@testing-library/react'
 import {Auth} from '@aws-amplify/auth'
 
@@ -13,6 +12,41 @@ const defaultProps = {
 
 const renderComponent = (props = defaultProps) => render(<Register {...props} />)
 
+const getInputs = (
+  getByLabelText: (arg: string) => Element | Node | Document | Window,
+): {
+  firstNameInput: Element | Node | Document | Window
+  lastNameInput: Element | Node | Document | Window
+  emailInput: Element | Node | Document | Window
+  passwordInput: Element | Node | Document | Window
+  confirmPasswordInput: Element | Node | Document | Window
+} => {
+  const firstNameInput = getByLabelText(registerPageI18nMock.inputs.firstName)
+  const lastNameInput = getByLabelText(registerPageI18nMock.inputs.lastName)
+  const emailInput = getByLabelText(registerPageI18nMock.inputs.email)
+  const passwordInput = getByLabelText(registerPageI18nMock.inputs.password)
+  const confirmPasswordInput = getByLabelText(registerPageI18nMock.inputs.confirmPassword)
+
+  return {firstNameInput, lastNameInput, emailInput, passwordInput, confirmPasswordInput}
+}
+
+const fillInFormAndSubmit = (
+  getByLabelText: (arg: string) => Element | Node | Document | Window,
+) => {
+  const {firstNameInput, lastNameInput, emailInput, passwordInput, confirmPasswordInput} =
+    getInputs(getByLabelText)
+  fireEvent.change(firstNameInput, {target: {value: 'Joe'}})
+  fireEvent.change(lastNameInput, {target: {value: 'Bloggs'}})
+  fireEvent.change(emailInput, {target: {value: 'joe@bloggs.com'}})
+  fireEvent.change(passwordInput, {target: {value: 'Password1!'}})
+  fireEvent.change(confirmPasswordInput, {
+    target: {value: 'Password1!'},
+  })
+  const submitButton = getByLabelText('Submit')
+
+  fireEvent.click(submitButton)
+}
+
 describe('Register Page', () => {
   beforeEach(() => {
     jest.spyOn(Auth, 'signUp').mockResolvedValue({
@@ -25,35 +59,43 @@ describe('Register Page', () => {
 
   it('should render a page with a title', () => {
     const {getByText} = renderComponent()
-    expect(getByText("Hello Hooman, it's nice to meet you!")).toBeInTheDocument()
+    expect(getByText(registerPageI18nMock.heading)).toBeInTheDocument()
   })
 
   it('should change focus to next input when pressing enter', () => {
     const {getByLabelText, getByText} = renderComponent()
 
+    const {
+      firstNameInput,
+      lastNameInput,
+      emailInput,
+      passwordInput,
+      confirmPasswordInput,
+    } = getInputs(getByLabelText)
+
     getByLabelText('First name').focus()
-    fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
-    fireEvent.keyDown(getByLabelText('First name'), {key: 'Enter', code: 'Enter'})
+    fireEvent.change(firstNameInput, {target: {value: 'Joe'}})
+    fireEvent.keyDown(firstNameInput, {key: 'Enter', code: 'Enter'})
 
-    expect(getByLabelText('Last name')).toHaveFocus()
+    expect(lastNameInput).toHaveFocus()
 
-    fireEvent.change(getByLabelText('Last name'), {target: {value: 'Joe'}})
-    fireEvent.keyDown(getByLabelText('Last name'), {key: 'Enter', code: 'Enter'})
+    fireEvent.change(lastNameInput, {target: {value: 'Bloggs'}})
+    fireEvent.keyDown(lastNameInput, {key: 'Enter', code: 'Enter'})
 
-    expect(getByLabelText('Email')).toHaveFocus()
+    expect(emailInput).toHaveFocus()
 
-    fireEvent.change(getByLabelText('Email'), {target: {value: 'Joe@bloggs.com'}})
-    fireEvent.keyDown(getByLabelText('Email'), {key: 'Enter', code: 'Enter'})
+    fireEvent.change(emailInput, {target: {value: 'Joe@bloggs.com'}})
+    fireEvent.keyDown(emailInput, {key: 'Enter', code: 'Enter'})
 
-    expect(getByLabelText('Password')).toHaveFocus()
+    expect(passwordInput).toHaveFocus()
 
-    fireEvent.change(getByLabelText('Password'), {target: {value: 'somePassword'}})
-    fireEvent.keyDown(getByLabelText('Password'), {key: 'Enter', code: 'Enter'})
+    fireEvent.change(passwordInput, {target: {value: 'somePassword'}})
+    fireEvent.keyDown(passwordInput, {key: 'Enter', code: 'Enter'})
 
-    fireEvent.change(getByLabelText('Confirm password'), {
+    fireEvent.change(confirmPasswordInput, {
       target: {value: 'somePassword'},
     })
-    fireEvent.keyDown(getByLabelText('Confirm password'), {key: 'Enter', code: 'Enter'})
+    fireEvent.keyDown(confirmPasswordInput, {key: 'Enter', code: 'Enter'})
 
     expect(getByText('Get started!')).toHaveFocus()
   })
@@ -61,16 +103,7 @@ describe('Register Page', () => {
   it('should call signUp when form data is correct', async () => {
     const {getByLabelText} = renderComponent()
 
-    fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
-    fireEvent.change(getByLabelText('Last name'), {target: {value: 'Joe'}})
-    fireEvent.change(getByLabelText('Email'), {target: {value: 'joe@bloggs.com'}})
-    fireEvent.change(getByLabelText('Password'), {target: {value: 'Password1!'}})
-    fireEvent.change(getByLabelText('Confirm password'), {
-      target: {value: 'Password1!'},
-    })
-    const submitButton = getByLabelText('Submit')
-
-    fireEvent.click(submitButton)
+    fillInFormAndSubmit(getByLabelText)
 
     await waitFor(() => expect(Auth.signUp).toHaveBeenCalled())
   })
@@ -78,21 +111,24 @@ describe('Register Page', () => {
   it('should show registration complete when sign up successful ', async () => {
     const {getByLabelText, getByText} = renderComponent()
 
-    fireEvent.change(getByLabelText('First name'), {target: {value: 'Joe'}})
-    fireEvent.change(getByLabelText('Last name'), {target: {value: 'Joe'}})
-    fireEvent.change(getByLabelText('Email'), {target: {value: 'joe@bloggs.com'}})
-    fireEvent.change(getByLabelText('Password'), {target: {value: 'Password1!'}})
-    fireEvent.change(getByLabelText('Confirm password'), {
-      target: {value: 'Password1!'},
-    })
-    const submitButton = getByLabelText('Submit')
-
-    fireEvent.click(submitButton)
+    fillInFormAndSubmit(getByLabelText)
 
     await waitFor(() =>
       expect(
-        getByText("You've successfully registered to the club!"),
+        getByText(registerPageI18nMock.registrationSuccessfulText),
       ).toBeInTheDocument(),
+    )
+  })
+
+  it('should show an error message when sign up is unsuccessful ', async () => {
+    jest.spyOn(Auth, 'signUp').mockRejectedValue(new Error())
+
+    const {getByLabelText, getByText} = renderComponent()
+
+    fillInFormAndSubmit(getByLabelText)
+
+    await waitFor(() =>
+      expect(getByText(registerPageI18nMock.terribleError)).toBeInTheDocument(),
     )
   })
 
@@ -104,42 +140,44 @@ describe('Register Page', () => {
       fireEvent.click(submitButton)
 
       await waitFor(() => {
-        expect(getByText('First name is required.')).toBeInTheDocument()
+        expect(getByText(registerPageI18nMock.validation.firstName)).toBeInTheDocument()
       })
       await waitFor(() => {
-        expect(getByText('Last name is required.')).toBeInTheDocument()
+        expect(getByText(registerPageI18nMock.validation.lastName)).toBeInTheDocument()
       })
       await waitFor(() => {
-        expect(getByText('Email is required.')).toBeInTheDocument()
+        expect(getByText(registerPageI18nMock.validation.email)).toBeInTheDocument()
       })
       await waitFor(() => {
-        expect(getByText('Password is required.')).toBeInTheDocument()
+        expect(getByText(registerPageI18nMock.validation.password)).toBeInTheDocument()
       })
       await waitFor(() => {
-        expect(getByText('Confirm password is required.')).toBeInTheDocument()
+        expect(
+          getByText(registerPageI18nMock.validation.confirmPassword),
+        ).toBeInTheDocument()
       })
     })
 
     it('should correct email validation if email field is not in correct format', async () => {
       const {getByLabelText, getByText} = renderComponent()
+      const {emailInput} = getInputs(getByLabelText)
 
-      fireEvent.change(getByLabelText('Email'), {target: {value: 'Johnsmith.com'}})
+      fireEvent.change(emailInput, {target: {value: 'Johnsmith.com'}})
 
       const submitButton = getByLabelText('Submit')
       fireEvent.click(submitButton)
 
       await waitFor(() => {
-        expect(
-          getByText('Please enter a valid email address e.g. joe@gmail.com.'),
-        ).toBeInTheDocument()
+        expect(getByText(registerPageI18nMock.validation.emailFormat)).toBeInTheDocument()
       })
     })
 
     it('should validate that password and confirm password match', async () => {
       const {getByLabelText, getByText} = renderComponent()
+      const {passwordInput, confirmPasswordInput} = getInputs(getByLabelText)
 
-      fireEvent.change(getByLabelText('Password'), {target: {value: 'Password1$'}})
-      fireEvent.change(getByLabelText('Confirm password'), {
+      fireEvent.change(passwordInput, {target: {value: 'Password1$'}})
+      fireEvent.change(confirmPasswordInput, {
         target: {value: 'Password1$%'},
       })
 
@@ -147,25 +185,27 @@ describe('Register Page', () => {
       fireEvent.click(submitButton)
 
       await waitFor(() => {
-        expect(getByText('Passwords do not match.')).toBeInTheDocument()
+        expect(
+          getByText(registerPageI18nMock.validation.passwordsDoNotMatch),
+        ).toBeInTheDocument()
       })
     })
 
     it.each`
       password                | validationMessage
-      ${'pass'}               | ${'Password length should be at least 4 characters.'}
-      ${'passwordpassword12'} | ${'Password cannot exceed more than 12 characters.'}
-      ${'password'}           | ${'Password must contain at least one lowercase and uppercase character, a number and a special character.'}
-      ${'password123'}        | ${'Password must contain at least one lowercase and uppercase character, a number and a special character.'}
-      ${'Password123'}        | ${'Password must contain at least one lowercase and uppercase character, a number and a special character.'}
-      ${'password123!'}       | ${'Password must contain at least one lowercase and uppercase character, a number and a special character.'}
+      ${'pass'}               | ${registerPageI18nMock.validation.passwordTooShort}
+      ${'passwordpassword12'} | ${registerPageI18nMock.validation.passwordTooLong}
+      ${'password'}           | ${registerPageI18nMock.validation.passwordFormat}
+      ${'password123'}        | ${registerPageI18nMock.validation.passwordFormat}
+      ${'Password123'}        | ${registerPageI18nMock.validation.passwordFormat}
+      ${'password123!'}       | ${registerPageI18nMock.validation.passwordFormat}
     `(
       'should validate password for: `$password`',
       async ({password, validationMessage}) => {
         const {getByLabelText, getByText} = renderComponent()
+        const {passwordInput} = getInputs(getByLabelText)
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        fireEvent.change(getByLabelText('Password'), {target: {value: password}})
+        fireEvent.change(passwordInput, {target: {value: password}})
 
         const submitButton = getByLabelText('Submit')
         fireEvent.click(submitButton)

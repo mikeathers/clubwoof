@@ -50,9 +50,11 @@ export const useFormHelpers = (props: UseFormHelpersProps): UseFormHelpersReturn
 
   useEffect(() => {
     addInteractiveFieldsToState()
-  }, [addInteractiveFieldsToState])
+  }, [])
 
   const jumpToNextInputOnEnter = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
+    console.log({index, submitButton})
+    console.log(formInputs.length)
     if (e.key === 'Enter') {
       if (index < formInputs.length) {
         const input = inputLabels[index]
