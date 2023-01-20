@@ -2,38 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/frontend/components/loading-spinner/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/loading-spinner/loading-spinner.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/loading-spinner/loading-spinner.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/loading-spinner/loading-spinner.styles.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/button/button.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/button/button.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/button/button.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/button/button.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/button/button.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/button/button.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/text/text.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text/text.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-register.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/global.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/hooks/use-form-helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hooks/use-form-helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/variables.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test-utils/__mocks__/axios/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test-utils/__mocks__/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test-utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test-utils/setup-tests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/setup-tests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/locales/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +198,7 @@
       <workItem from="1673858146968" duration="19781000" />
       <workItem from="1673897295405" duration="6141000" />
       <workItem from="1673903459570" duration="40858000" />
-      <workItem from="1674113606680" duration="26236000" />
+      <workItem from="1674113606680" duration="26654000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

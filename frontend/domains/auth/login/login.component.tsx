@@ -61,7 +61,7 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
           color={'pureWhite'}
           element={'h1'}
           fontSize={'xxxxl'}
-          marginBottom={'space2x'}
+          marginBottom={'space3x'}
         >
           {i18n.heading}
         </Text>

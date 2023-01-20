@@ -64,7 +64,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
       backgroundColor="pureWhite"
     >
       <Container>
-        <Box centerContent>
+        <Box>
           <DogImage>
             <Image src="/dog-on-phone.svg" alt="dog on phone" fill />
           </DogImage>
@@ -72,7 +72,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
         {!registrationComplete ? (
           <>
             <HeadingContainer>
-              <Text element={'h1'} marginBottom={'space2x'}>
+              <Text element={'h1'} marginBottom={'space3x'}>
                 {i18n.heading}
               </Text>
               <Text element={'h3'}>{i18n.subHeading}</Text>
