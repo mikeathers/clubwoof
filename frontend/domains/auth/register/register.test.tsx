@@ -114,9 +114,7 @@ describe('Register Page', () => {
     fillInFormAndSubmit(getByLabelText)
 
     await waitFor(() =>
-      expect(
-        getByText(registerPageI18nMock.registrationSuccessfulText),
-      ).toBeInTheDocument(),
+      expect(getByText(registerPageI18nMock.registrationSuccessful)).toBeInTheDocument(),
     )
   })
 

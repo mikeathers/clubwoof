@@ -21,6 +21,10 @@ export default {
 const defaultProps: CompleteRegistrationComponentProps = {
   i18n: completeRegistrationPageI18nMock,
   loginSuccessful: true,
+  isIdle: false,
+  isLoading: false,
+  isError: false,
+  error: null,
 }
 
 export const LoginSuccessful: StoryFn<CompleteRegistrationComponentProps> = () => {

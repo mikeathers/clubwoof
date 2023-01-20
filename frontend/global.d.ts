@@ -21,14 +21,14 @@ declare global {
   type i18nRegisterPage = {
     heading: string
     subHeading: string
-    submitButtonText: string
-    signInQuestion: string
-    signInText: string
-    goHomeQuestion: string
-    goHomeText: string
+    submitButton: string
+    signIn: string
+    signInAction: string
+    goHome: string
+    goHomeAction: string
     terribleError: string
-    registrationSuccessfulText: string
-    checkYourEmailText: string
+    registrationSuccessful: string
+    checkYourEmail: string
     validation: {
       firstName: string
       lastName: string
@@ -51,14 +51,19 @@ declare global {
   }
 
   type i18nCompleteRegistrationPage = {
-    thanksForRegisteringText: string
-    fillInYourDetailsText: string
-    weWillBeInTouchText: string
+    thanksForRegistering: string
+    fillInYourDetails: string
+    weWillBeInTouch: string
   }
 
   type i18nLoginPage = {
     heading: string
     subHeading: string
+    submitButton: string
+    forgotYourPassword: string
+    forgotYourPasswordAction: string
+    signUp: string
+    signUpAction: string
     inputs: {
       email: string
       password: string

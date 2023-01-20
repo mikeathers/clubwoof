@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react'
 import {Auth} from '@aws-amplify/auth'
 import {isCognitoError, logUserIn} from '@clubwoof-utils'
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
+import {useSafeAsync} from '../../../hooks/use-safe-async'
 
 interface CompleteRegistrationProps {
   i18n: i18nCompleteRegistrationPage
@@ -15,11 +16,13 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
   const router = useRouter()
   const {addUserToState} = useAuth()
   const [loginSuccessful, setLoginSuccessful] = useState<boolean>(false)
+  const hasQueryParams = router.query.email && router.query.code
+  const {run, isError, error, isLoading, isIdle} = useSafeAsync()
 
   useEffect(() => {
-    const hasQueryParams = router.query.email && router.query.code
     if (router.isReady && !hasQueryParams) {
-      router.push('/resend-confirmation-email')
+      router.push('/auth/resend-confirmation-email')
+      return
     }
 
     const completeRegistration = async () => {
@@ -27,29 +30,25 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
         typeof router.query.email === 'string' &&
         typeof router.query.code === 'string'
       ) {
-        await confirmRegistrationAndLogUserIn()
+        await run(confirmRegistrationAndLogUserIn())
       }
     }
 
     const confirmRegistrationAndLogUserIn = async () => {
-      console.log('here')
       try {
         await Auth.confirmSignUp(String(router.query.email), String(router.query.code))
         await handleLogin()
       } catch (e) {
-        console.log({e})
         if (isCognitoError(e)) {
           if (e.message.includes('Current status is CONFIRMED')) {
-            await handleLogin()
+            router.push('/auth/login')
           }
         }
       }
     }
 
     const handleLogin = async () => {
-      console.log('here 2')
       const password = localStorage.getItem(TEMP_PWD_LOCALSTORAGE_KEY)
-      console.log({password})
       if (password) {
         const user = await logUserIn({
           email: String(router.query.email),
@@ -58,17 +57,25 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
           router,
           goToDashboard: false,
         })
-        console.log(user)
         if (user) {
           setLoginSuccessful(true)
         }
       } else {
-        router.push('/login')
+        router.push('/auth/login')
       }
     }
 
     completeRegistration()
-  }, [router, addUserToState])
+  }, [])
 
-  return <CompleteRegistrationComponent i18n={i18n} loginSuccessful={loginSuccessful} />
+  return (
+    <CompleteRegistrationComponent
+      i18n={i18n}
+      loginSuccessful={loginSuccessful}
+      isError={isError}
+      error={error}
+      isLoading={isLoading}
+      isIdle={isIdle}
+    />
+  )
 }

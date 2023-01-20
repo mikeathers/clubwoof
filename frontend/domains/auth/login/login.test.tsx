@@ -4,6 +4,8 @@ import {AuthProvider} from '@clubwoof-context'
 import {Login} from '@clubwoof-domains'
 import {Auth} from '@aws-amplify/auth'
 
+jest.mock('next/router', () => require('next-router-mock'))
+
 const defaultProps = {
   i18n: loginPageI18nMock,
 }

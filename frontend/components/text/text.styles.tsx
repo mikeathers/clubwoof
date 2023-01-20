@@ -16,7 +16,7 @@ export interface StyledTextProps {
   fontSize?: keyof FontSizes
   color?: keyof Colors
   fontWeight?: keyof FontWeights
-  element?: 'h1' | 'h2' | 'h3' | 'p'
+  element?: keyof JSX.IntrinsicElements
   marginBottom?: keyof Spacing
 }
 

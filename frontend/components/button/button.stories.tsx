@@ -39,3 +39,9 @@ export const SecondaryPink: StoryFn<StyledButtonProps> = () => (
     Click me!
   </Button>
 )
+
+export const IsLoading: StoryFn<StyledButtonProps> = () => (
+  <Button primary isLoading>
+    Click me!
+  </Button>
+)

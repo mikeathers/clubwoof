@@ -3,28 +3,20 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import {Controller, useForm} from 'react-hook-form'
 import Image from 'next/image'
 
-import {Box, Layout, Text, TextButton, TextInput} from '@clubwoof-components'
+import {Box, Button, Layout, Text, TextButton, TextInput} from '@clubwoof-components'
 import {colors} from '@clubwoof-styles'
+import {useFormHelpers} from '@clubwoof-hooks'
 
 import {formSchema, inputs} from './form-helpers'
-import {
-  Container,
-  DogImage,
-  ErrorMessage,
-  Form,
-  Heading,
-  HeadingContainer,
-  SubHeading,
-  SubmitButton,
-} from './register.styles'
 import {FormDetails} from './register.container'
-import {useFormHelpers} from '@clubwoof-hooks'
+import {Container, DogImage, Form, HeadingContainer} from './register.styles'
 
 export interface RegisterComponentProps {
   i18n: i18nRegisterPage
-  error: string
+  error: Error | null | undefined
   registrationComplete: boolean
-  registerUser: (data: FormDetails) => Promise<void>
+  onSubmit: (data: FormDetails) => Promise<void>
+  isLoading: boolean
 }
 
 interface RegisterCompleteProps {
@@ -33,14 +25,14 @@ interface RegisterCompleteProps {
 const RegisterComplete: React.FC<RegisterCompleteProps> = ({i18n}) => (
   <div>
     <Text element={'h1'} marginBottom={'space2x'}>
-      {i18n.registrationSuccessfulText}
+      {i18n.registrationSuccessful}
     </Text>
-    <Text element={'h3'}>{i18n.checkYourEmailText}</Text>
+    <Text element={'h3'}>{i18n.checkYourEmail}</Text>
   </div>
 )
 
 export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
-  const {i18n, registrationComplete, error, registerUser} = props
+  const {i18n, registrationComplete, error, onSubmit, isLoading} = props
   const {control, handleSubmit, formState} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema(i18n)),
@@ -62,7 +54,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
 
     if (formHasErrors) return
 
-    await handleSubmit(registerUser)()
+    await handleSubmit(onSubmit)()
   }
 
   return (
@@ -80,8 +72,10 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
         {!registrationComplete ? (
           <>
             <HeadingContainer>
-              <Heading>{i18n.heading}</Heading>
-              <SubHeading>{i18n.subHeading}</SubHeading>
+              <Text element={'h1'} marginBottom={'space2x'}>
+                {i18n.heading}
+              </Text>
+              <Text element={'h3'}>{i18n.subHeading}</Text>
             </HeadingContainer>
             <Form>
               {formInputs.map((input, index) => {
@@ -110,26 +104,32 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
                 )
               })}
 
-              <ErrorMessage>
+              <Text>
                 {getPasswordFormatValidationMessage()}
-                {error}
-              </ErrorMessage>
+                {error?.message}
+              </Text>
 
-              <SubmitButton type="button" aria-label="Submit" onClick={handleSubmitForm}>
-                {i18n.submitButtonText}
-              </SubmitButton>
+              <Button
+                disabled={isLoading}
+                isLoading={isLoading}
+                type="button"
+                aria-label="Submit"
+                onClick={handleSubmitForm}
+              >
+                {i18n.submitButton}
+              </Button>
 
               <Box centerContent direction={'column'} marginTop={'space2x'}>
-                <Text fontSize={'s'} marginBottom={'space1x'}>
-                  {i18n.signInQuestion}
-                  <TextButton fontSize={'s'} colour={'pink'} href={'/auth/login'}>
-                    {i18n.signInText}
+                <Text marginBottom={'space1x'}>
+                  {i18n.signIn}
+                  <TextButton colour={'pink'} href={'/auth/login'}>
+                    {i18n.signInAction}
                   </TextButton>
                 </Text>
-                <Text fontSize={'s'}>
-                  {i18n.goHomeQuestion}
-                  <TextButton fontSize={'s'} colour={'pink'} href={'/auth/login'}>
-                    {i18n.goHomeText}
+                <Text>
+                  {i18n.goHome}
+                  <TextButton colour={'pink'} href={'/auth/login'}>
+                    {i18n.goHomeAction}
                   </TextButton>
                 </Text>
               </Box>

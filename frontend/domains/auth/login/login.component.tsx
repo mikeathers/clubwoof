@@ -1,14 +1,15 @@
-import {Box, Layout, Text, TextButton} from '@clubwoof-components'
+import React, {SyntheticEvent, useEffect} from 'react'
 import Image from 'next/image'
 import {Controller, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 
+import {Box, Layout, Text, TextButton} from '@clubwoof-components'
+import {useFormHelpers} from '@clubwoof-hooks'
+
 import {FormDetails} from '../register'
 import {formSchema, inputs} from './form-helpers'
-import {Content, DogImage, Form, FormInput, SubmitButton} from './login.styles'
-import React, {SyntheticEvent, useEffect} from 'react'
-import {useFormHelpers} from '@clubwoof-hooks'
 import {useSafeAsync} from '../../../hooks/use-safe-async'
+import {Content, DogImage, Form, FormInput, SubmitButton} from './login.styles'
 
 interface LoginProps {
   i18n: i18nLoginPage
@@ -18,7 +19,7 @@ interface LoginProps {
   resetState: () => void
 }
 export const LoginComponent: React.FC<LoginProps> = (props) => {
-  const {i18n, loginUser, error, resetState} = props
+  const {i18n, loginUser, error, resetState, isLoading} = props
   const {control, handleSubmit, formState, reset} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema(i18n)),
@@ -101,21 +102,27 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
             {error && error}
           </Text>
 
-          <SubmitButton type={'button'} aria-label={'Submit'} onClick={handleSubmitForm}>
-            Let&apos;s go!
+          <SubmitButton
+            disabled={isLoading}
+            isLoading={isLoading}
+            type={'button'}
+            aria-label={'Submit'}
+            onClick={handleSubmitForm}
+          >
+            {i18n.submitButton}
           </SubmitButton>
 
           <Box direction={'column'} marginTop={'space2x'} centerContent>
             <Text color={'pureWhite'} marginBottom={'space1x'}>
-              Forgot your password?{' '}
+              {i18n.forgotYourPassword}{' '}
               <TextButton colour={'yellow'} href={'/auth/forgot-password'}>
-                Click here
+                {i18n.forgotYourPasswordAction}
               </TextButton>
             </Text>
             <Text color={'pureWhite'}>
-              New to clubwoof?{' '}
+              {i18n.signUp}{' '}
               <TextButton colour={'yellow'} href={'/auth/register'}>
-                Get started
+                {i18n.signUpAction}
               </TextButton>
             </Text>
           </Box>

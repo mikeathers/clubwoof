@@ -1,8 +1,10 @@
-import {RegisterComponent, RegisterComponentProps} from './register.component'
-import {StoryFn} from '@storybook/react'
-import {noop} from '@babel/types'
-import {registerPageI18nMock} from '@clubwoof-test-utils'
 import {useEffect} from 'react'
+import {noop} from 'lodash-es'
+import {StoryFn} from '@storybook/react'
+
+import {registerPageI18nMock} from '@clubwoof-test-utils'
+
+import {RegisterComponent, RegisterComponentProps} from './register.component'
 
 export default {
   title: 'Domains/Auth/Register',
@@ -11,9 +13,10 @@ export default {
 
 const defaultProps: RegisterComponentProps = {
   i18n: registerPageI18nMock,
-  registerUser: () => new Promise(noop),
   registrationComplete: false,
-  error: '',
+  error: null,
+  onSubmit: () => new Promise(noop),
+  isLoading: false,
 }
 
 export const RegisterToBegin: StoryFn<RegisterComponentProps> = () => {
@@ -27,7 +30,15 @@ export const RegistrationComplete: StoryFn<RegisterComponentProps> = () => {
 export const WithError: StoryFn<RegisterComponentProps> = () => {
   const props: RegisterComponentProps = {
     ...defaultProps,
-    error: 'Something terrible has happened. Please try again later.',
+    error: new Error('Something terrible has happened. Please try again later.'),
+  }
+  return <RegisterComponent {...props} />
+}
+
+export const IsLoading: StoryFn<RegisterComponentProps> = () => {
+  const props: RegisterComponentProps = {
+    ...defaultProps,
+    isLoading: true,
   }
   return <RegisterComponent {...props} />
 }

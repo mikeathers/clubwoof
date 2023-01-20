@@ -51,6 +51,7 @@ export interface Colors {
   purple: string
   turquoise: string
   red: string
+  grey: string
 }
 
 export interface MediaQueries {

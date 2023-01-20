@@ -20,6 +20,7 @@ export const colors: Colors = {
   pureWhite: '#FFF',
   pureBlack: '#000',
   red: '#E42929',
+  grey: '#E8E8E8',
 }
 
 const baseSpacing = 8

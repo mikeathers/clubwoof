@@ -1,18 +1,39 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable */
 // jest.mock('@aws-amplify/auth');
+// import {jest} from '@jest/globals'
+
 import {Auth} from '@aws-amplify/auth'
 import {dev} from '@clubwoof-constants'
 
-jest.mock('next/router', () => require('next-router-mock'))
+// jest.mock('next/router', () => require('next-router-mock'))
 
-export const localStorageMock = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  clear: jest.fn(),
-  removeItem: jest.fn(),
-}
+// global.jest = jest
+
+export const localStorageMock: {
+  getItem: (key: string) => string
+  setItem: (key: string, value: string) => void
+  clear: () => void
+  removeItem: (key: string) => void
+} = (function () {
+  let store: Record<string, string> = {}
+  return {
+    getItem: function (key: string) {
+      return store[key]
+    },
+    setItem: function (key: string, value: string) {
+      store[key] = value.toString()
+    },
+    clear: function () {
+      store = {}
+    },
+    removeItem: function (key: string) {
+      delete store[key]
+    },
+  }
+})()
 // eslint-disable-next-line
 window.localStorage.__proto__ = localStorageMock
+Object.defineProperty(window, 'localStorage', {value: localStorageMock})
 
 Auth.configure({
   mandatorySignIn: false,
@@ -26,10 +47,10 @@ Auth.configure({
   userPoolWebClientId: dev.USER_POOL_WEB_CLIENT_ID,
 })
 
-window.scrollTo = jest.fn()
-;(window.IntersectionObserver as jest.Mock) = jest.fn(() => ({
-  observe: jest.fn(),
-}))
+// window.scrollTo = jest.fn()
+// ;(window.IntersectionObserver as jest.Mock) = jest.fn(() => ({
+//   observe: jest.fn(),
+// }))
 
 global.IntersectionObserver = class IntersectionObserver {
   constructor() {

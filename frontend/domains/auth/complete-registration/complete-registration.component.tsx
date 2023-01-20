@@ -5,6 +5,10 @@ import {DogImage} from './complete-registration.styles'
 export interface CompleteRegistrationComponentProps {
   loginSuccessful: boolean
   i18n: i18nCompleteRegistrationPage
+  isIdle: boolean
+  isLoading: boolean
+  isError: boolean
+  error: Error | null | undefined
 }
 export const CompleteRegistrationComponent: React.FC<
   CompleteRegistrationComponentProps
@@ -20,13 +24,13 @@ export const CompleteRegistrationComponent: React.FC<
           </DogImage>
           <Box direction={'column'} centerContent padding={'space2x'}>
             <Text element={'h1'} color={'pureWhite'} marginBottom={'space2x'}>
-              {i18n.thanksForRegisteringText}
+              {i18n.thanksForRegistering}
             </Text>
             <Text element={'h3'} color={'pureWhite'}>
-              {i18n.weWillBeInTouchText}
+              {i18n.weWillBeInTouch}
             </Text>
             <Text element={'h3'} color={'pureWhite'}>
-              {i18n.fillInYourDetailsText}
+              {i18n.fillInYourDetails}
             </Text>
             <TextButton
               marginTop={'space1x'}
