@@ -26,45 +26,14 @@ export interface BubbleProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  width: 100%;
-  margin: 0 auto;
   background-color: ${({backgroundColor}) =>
     backgroundColor ? colors[backgroundColor] : colors.pureWhite};
-  height: 100%;
-`
-
-export const Content = styled.div<ContentProps>`
   min-height: 100vh;
-  width: ${({width}) => {
-    if (width === 'l') return '100%'
-    if (width === 'm') return '80%'
-    if (width === 's') return '40%'
-    return '100%'
-  }};
-
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
-
-  @media (${mediaQueries.s}) {
-    width: ${({width}) => {
-      if (width === 'l') return '100%'
-      if (width === 'm') return '80%'
-      if (width === 's') return '40%'
-      return '80%'
-    }};
-  }
-
-  @media (${mediaQueries.l}) {
-    width: ${({width}) => {
-      if (width === 'l') return '100%'
-      if (width === 'm') return '80%'
-      if (width === 's') return '40%'
-      return '80%'
-    }};
-  }
 `
 
 const topBubblePositioning = css`

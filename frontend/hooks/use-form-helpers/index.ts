@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {IconType} from 'react-icons'
 import {FormState} from 'react-hook-form'
-import {FormDetails} from '@clubwoof-domains'
 
 interface UseFormHelpersReturnValue {
   jumpToNextInputOnEnter: (e: React.KeyboardEvent<HTMLElement>, index: number) => void

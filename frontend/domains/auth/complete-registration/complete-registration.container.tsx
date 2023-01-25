@@ -1,11 +1,13 @@
-import {CompleteRegistrationComponent} from './complete-registration.component'
 import {useRouter} from 'next/router'
-import {useAuth} from '@clubwoof-context'
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import {Auth} from '@aws-amplify/auth'
+
+import {useAuth} from '@clubwoof-context'
 import {isCognitoError, logUserIn} from '@clubwoof-utils'
-import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
-import {useSafeAsync} from '../../../hooks/use-safe-async'
+import {ROUTE_PATHS, TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
+import {useSafeAsync} from '@clubwoof-hooks'
+
+import {CompleteRegistrationComponent} from './complete-registration.component'
 
 interface CompleteRegistrationProps {
   i18n: i18nCompleteRegistrationPage
@@ -15,13 +17,12 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
   const {i18n} = props
   const router = useRouter()
   const {addUserToState} = useAuth()
-  const [loginSuccessful, setLoginSuccessful] = useState<boolean>(false)
   const hasQueryParams = router.query.email && router.query.code
   const {run, isError, error, isLoading, isIdle} = useSafeAsync()
 
   useEffect(() => {
     if (router.isReady && !hasQueryParams) {
-      router.push('/auth/resend-confirmation-email')
+      router.push(ROUTE_PATHS.RESEND_REGISTRATION_LINK)
       return
     }
 
@@ -41,7 +42,7 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
       } catch (e) {
         if (isCognitoError(e)) {
           if (e.message.includes('Current status is CONFIRMED')) {
-            router.push('/auth/login')
+            router.push(ROUTE_PATHS.LOGIN)
           }
         }
       }
@@ -57,11 +58,11 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
           router,
           goToDashboard: false,
         })
-        if (user) {
-          setLoginSuccessful(true)
+        if (!user) {
+          router.push(ROUTE_PATHS.LOGIN)
         }
       } else {
-        router.push('/auth/login')
+        router.push(ROUTE_PATHS.LOGIN)
       }
     }
 
@@ -71,7 +72,6 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
   return (
     <CompleteRegistrationComponent
       i18n={i18n}
-      loginSuccessful={loginSuccessful}
       isError={isError}
       error={error}
       isLoading={isLoading}

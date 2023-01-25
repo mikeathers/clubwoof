@@ -49,8 +49,10 @@ new BackendStack(app, 'clubwoof-backend-dev', {
 new BackendStack(app, 'clubwoof-backend-prod', {
   stackName: 'clubwoof-backend-prod',
   env: {
-    account: process.env.AWS_ACCOUNT_ID,
-    region: process.env.AWS_DEFAULT_REGION,
+    // account: process.env.AWS_ACCOUNT_ID,
+    // region: process.env.AWS_DEFAULT_REGION,
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'prod'},
   deploymentEnvironment: 'prod',

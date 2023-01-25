@@ -19,7 +19,7 @@ const defaultProps: RegisterComponentProps = {
   isLoading: false,
 }
 
-export const RegisterToBegin: StoryFn<RegisterComponentProps> = () => {
+export const Base: StoryFn<RegisterComponentProps> = () => {
   return <RegisterComponent {...defaultProps} />
 }
 

@@ -1,3 +1,5 @@
+import {FieldValues} from 'react-hook-form'
+
 declare global {
   type User = {
     email: string
@@ -14,6 +16,13 @@ declare global {
     name: string
     code: string
     message: string
+  }
+
+  interface FormDetails extends FieldValues {
+    email?: string
+    password?: string
+    firstName?: string
+    lastName?: string
   }
 
   /**** Internationalisation *****/
@@ -72,6 +81,19 @@ declare global {
       email: string
       emailFormat: string
       password: string
+    }
+  }
+
+  type i18nResendRegistrationLink = {
+    heading: string
+    subHeading: string
+    submitButton: string
+    inputs: {
+      email: string
+    }
+    validation: {
+      email: string
+      emailFormat: string
     }
   }
 }

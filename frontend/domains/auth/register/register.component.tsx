@@ -8,8 +8,7 @@ import {colors} from '@clubwoof-styles'
 import {useFormHelpers} from '@clubwoof-hooks'
 
 import {formSchema, inputs} from './form-helpers'
-import {FormDetails} from './register.container'
-import {Container, DogImage, Form, HeadingContainer} from './register.styles'
+import {Content, DogImage, Form, HeadingContainer} from './register.styles'
 
 export interface RegisterComponentProps {
   i18n: i18nRegisterPage
@@ -63,7 +62,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
       bubbleTwoPositioning="right"
       backgroundColor="pureWhite"
     >
-      <Container>
+      <Content>
         <Box>
           <DogImage>
             <Image src="/dog-on-phone.svg" alt="dog on phone" fill />
@@ -138,7 +137,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
         ) : (
           <RegisterComplete i18n={i18n} />
         )}
-      </Container>
+      </Content>
     </Layout>
   )
 }

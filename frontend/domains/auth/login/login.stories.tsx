@@ -14,6 +14,6 @@ export const Base: StoryFn = () => (
     error={''}
     loginUser={() => noop}
     isLoading={false}
-    resetState={noop}
+    clearErrors={noop}
   />
 )

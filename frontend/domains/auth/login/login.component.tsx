@@ -4,11 +4,9 @@ import {Controller, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 
 import {Box, Layout, Text, TextButton} from '@clubwoof-components'
-import {useFormHelpers} from '@clubwoof-hooks'
+import {useFormHelpers, useSafeAsync} from '@clubwoof-hooks'
 
-import {FormDetails} from '../register'
 import {formSchema, inputs} from './form-helpers'
-import {useSafeAsync} from '../../../hooks/use-safe-async'
 import {Content, DogImage, Form, FormInput, SubmitButton} from './login.styles'
 
 interface LoginProps {
@@ -16,10 +14,10 @@ interface LoginProps {
   loginUser: (data: FormDetails) => void
   error: string | undefined
   isLoading: boolean
-  resetState: () => void
+  clearErrors: () => void
 }
 export const LoginComponent: React.FC<LoginProps> = (props) => {
-  const {i18n, loginUser, error, resetState, isLoading} = props
+  const {i18n, loginUser, error, clearErrors, isLoading} = props
   const {control, handleSubmit, formState, reset} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema(i18n)),
@@ -43,12 +41,6 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
     if (formHasErrors) return
 
     await handleSubmit(loginUser)()
-  }
-
-  const handleClearError = () => {
-    if (error !== undefined) {
-      resetState()
-    }
   }
 
   return (
@@ -83,7 +75,7 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
                     placeholder={input.placeholder}
                     onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                       jumpToNextInputOnEnter(e, index + 1)
-                      handleClearError()
+                      clearErrors()
                     }}
                     ref={null}
                     error={errorMessage && errorMessage}

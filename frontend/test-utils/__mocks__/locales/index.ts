@@ -11,3 +11,7 @@ export const completeRegistrationPageI18nMock: i18nCompleteRegistrationPage = {
 export const loginPageI18nMock: i18nLoginPage = {
   ...JSON.parse(JSON.stringify(en.pages.auth.loginPage)),
 }
+
+export const resendRegistrationLinkPageI18nMock: i18nResendRegistrationLink = {
+  ...JSON.parse(JSON.stringify(en.pages.auth.resendRegistrationLinkPage)),
+}

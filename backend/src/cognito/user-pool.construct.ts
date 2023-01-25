@@ -13,6 +13,7 @@ import {Duration, RemovalPolicy} from 'aws-cdk-lib'
 import {DeploymentEnvironment} from '../types'
 import CONFIG from '../config'
 import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
+import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
 
 export class UserPoolConstruct {
   // @ts-ignore
@@ -22,14 +23,21 @@ export class UserPoolConstruct {
   private customMessagesTrigger: NodejsFunction
   // @ts-ignore
   private postConfirmationTrigger: NodejsFunction
+  // @ts-ignore
+  private certificate: ICertificate
 
   private readonly deploymentEnvironment: DeploymentEnvironment
   private readonly isProduction: boolean
 
-  constructor(scope: Construct, deploymentEnvironment: DeploymentEnvironment) {
+  constructor(
+    scope: Construct,
+    deploymentEnvironment: DeploymentEnvironment,
+    certificate: ICertificate,
+  ) {
     this.scope = scope
     this.deploymentEnvironment = deploymentEnvironment
     this.isProduction = this.deploymentEnvironment === 'prod'
+    this.certificate = certificate
     this.createLambdas()
     this.createUserPool()
     this.createPolicyAndAssignToRole()
@@ -77,6 +85,15 @@ export class UserPoolConstruct {
         statements: [adminAddUserToGroupPolicyStatement],
       }),
     )
+  }
+
+  private addDomain() {
+    this.userPool.addDomain('Clubwoof', {
+      customDomain: {
+        domainName: 'mail.clubwoof.co.uk',
+        certificate: this.certificate,
+      },
+    })
   }
 
   private createUserPool() {

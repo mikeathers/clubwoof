@@ -7,6 +7,8 @@ import {
   UserPoolClientConstruct,
   UserPoolConstruct,
 } from './cognito'
+import {createCertificate, getHostedZone} from './aws'
+import CONFIG from './config'
 
 interface BackendStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
@@ -16,7 +18,20 @@ export class BackendStack extends Stack {
   constructor(scope: Construct, id: string, props: BackendStackProps) {
     super(scope, id, props)
 
-    const {userPool} = new UserPoolConstruct(this, props.deploymentEnvironment)
+    const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
+
+    const certificate = createCertificate({
+      scope: this,
+      url: 'clubwoof.co.uk',
+      hostedZone,
+      name: 'WebsiteCertificate',
+    })
+
+    const {userPool} = new UserPoolConstruct(
+      this,
+      props.deploymentEnvironment,
+      certificate,
+    )
     const {userPoolClient} = new UserPoolClientConstruct(
       this,
       userPool,

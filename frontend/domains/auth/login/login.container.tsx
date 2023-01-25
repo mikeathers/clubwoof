@@ -1,9 +1,10 @@
-import {LoginComponent} from './login.component'
-import {useSafeAsync} from '../../../hooks/use-safe-async'
-import {logUserIn} from '@clubwoof-utils'
 import {useRouter} from 'next/router'
+
 import {useAuth} from '@clubwoof-context'
-import {FormDetails} from '../register'
+import {logUserIn} from '@clubwoof-utils'
+import {useSafeAsync} from '@clubwoof-hooks'
+
+import {LoginComponent} from './login.component'
 
 interface LoginProps {
   i18n: i18nLoginPage
@@ -15,6 +16,12 @@ export const Login: React.FC<LoginProps> = (props) => {
   const {run, error, isLoading, resetAsyncState} = useSafeAsync()
   const router = useRouter()
   const {addUserToState} = useAuth()
+
+  const handleClearError = () => {
+    if (error !== undefined) {
+      resetAsyncState()
+    }
+  }
 
   const loginUser = (data: FormDetails) => {
     if (data.email && data.password) {
@@ -36,7 +43,7 @@ export const Login: React.FC<LoginProps> = (props) => {
       loginUser={loginUser}
       error={error?.message}
       isLoading={isLoading}
-      resetState={resetAsyncState}
+      clearErrors={handleClearError}
     />
   )
 }

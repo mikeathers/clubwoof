@@ -12,6 +12,10 @@ const nextConfig = {
     config.plugins.push(new webpack.EnvironmentPlugin(process.env))
     return config
   },
+  compiler: {
+    // Enables the styled-components SWC transform
+    styledComponents: true,
+  },
 }
 
 module.exports = nextConfig

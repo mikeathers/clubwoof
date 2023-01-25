@@ -83,6 +83,7 @@ export const useSafeAsync = <T>(
   )
 
   //ts-ignore
+  //@typescript-eslint/no-explicit-any
   const errorHasMessage = (obj: any): obj is Error => {
     return typeof obj === 'object' && 'message' in obj
   }

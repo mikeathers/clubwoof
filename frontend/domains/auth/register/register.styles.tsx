@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import {colors, fontSizes, fontWeights, mediaQueries, spacing} from '@clubwoof-styles'
 
-export const Container = styled.div`
+export const Content = styled.div`
   height: 100%;
   width: 80%;
   margin-bottom: ${spacing.space10x};

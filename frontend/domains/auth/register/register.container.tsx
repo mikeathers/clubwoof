@@ -1,17 +1,10 @@
 import {useState} from 'react'
 import {Auth} from '@aws-amplify/auth'
-import {FieldValues} from 'react-hook-form'
+
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
+import {useSafeAsync} from '@clubwoof-hooks'
 
 import {RegisterComponent} from './register.component'
-import {useSafeAsync} from '../../../hooks/use-safe-async'
-
-export interface FormDetails extends FieldValues {
-  email?: string
-  password?: string
-  firstName?: string
-  lastName?: string
-}
 
 interface RegisterProps {
   i18n: i18nRegisterPage

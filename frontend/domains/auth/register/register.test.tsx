@@ -4,8 +4,6 @@ import {Auth} from '@aws-amplify/auth'
 import {Register} from './register.container'
 import {registerPageI18nMock} from '@clubwoof-test-utils'
 
-jest.mock('next/router', () => require('next-router-mock'))
-
 const defaultProps = {
   i18n: registerPageI18nMock,
 }

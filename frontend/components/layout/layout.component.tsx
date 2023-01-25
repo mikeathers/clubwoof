@@ -6,7 +6,6 @@ import {
   BubblePositioning,
   Container,
   ContainerProps,
-  Content,
   ContentProps,
 } from './layout.styles'
 import {LanguageSelection} from '../language-selection'
@@ -25,12 +24,10 @@ export interface LayoutProps
 
 export const Layout: React.FC<LayoutProps> = ({
   children,
-  paddingTop,
   backgroundColor,
   bubbleOnePositioning,
   bubbleTwoPositioning,
   languageSelectionTextColour,
-  width,
 }) => {
   return (
     <Grommet theme={defaultTheme}>
@@ -41,9 +38,7 @@ export const Layout: React.FC<LayoutProps> = ({
             <Image src="/pink-bubbles.svg" alt="bubbles" fill />
           </Bubble>
         )}
-        <Content paddingTop={paddingTop} width={width}>
-          {children}
-        </Content>
+        {children}
       </Container>
 
       {bubbleTwoPositioning && (
