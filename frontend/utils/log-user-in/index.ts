@@ -26,17 +26,8 @@ interface User extends CognitoUser {
 export const logUserIn = async (props: LoginProps): Promise<User> => {
   const {email, password, router, addUserToState, goToDashboard} = props
   localStorage.removeItem(TEMP_PWD_LOCALSTORAGE_KEY)
-  console.log('here 3')
-  console.log({email, password})
   const user = (await Auth.signIn(email, password)) as User
-  console.log(user)
-  await Auth.currentUserInfo()
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((err) => {
-      console.error(err)
-    })
+
   if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
     const {requiredAttributes} = user.challengeParam
     const userAttributes: UserAttributes = {}

@@ -5,6 +5,7 @@ import {
   FC,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useReducer,
 } from 'react'
@@ -41,7 +42,7 @@ const useAuth = (): AuthContextValue => {
   const {state, dispatch} = context
 
   const getCurrentUser = useCallback(async () => {
-    const cognitoUser = (await Auth.currentAuthenticatedUser()) as CognitoUser & {
+    const cognitoUser = (await Auth.currentUserInfo()) as CognitoUser & {
       attributes: CognitoUserAttributes
     }
 
@@ -88,8 +89,34 @@ const useAuth = (): AuthContextValue => {
   }
 }
 
+const localStorageIsDefined = typeof window !== 'undefined'
+
+const getInitialState = (): AuthState => {
+  if (localStorageIsDefined) {
+    const state = localStorage.getItem('authState')
+    if (state && JSON.parse(state) !== null) {
+      return state ? (JSON.parse(state) as AuthState) : initialState
+    }
+  }
+  return initialState
+}
+
+const setStateInLocalStorage = (state: AuthState) => {
+  if (localStorageIsDefined) {
+    localStorage.setItem('authState', JSON.stringify(state))
+  }
+}
+
 const AuthProvider: FC<AuthProviderProps> = ({children}) => {
-  const [state, dispatch] = useReducer(authReducer, initialState)
+  const [state, dispatch] = useReducer(authReducer, getInitialState())
+
+  useEffect(() => {
+    setStateInLocalStorage(state)
+
+    return () => {
+      setStateInLocalStorage(state)
+    }
+  }, [state])
 
   const value = useMemo(
     () => ({
@@ -98,6 +125,10 @@ const AuthProvider: FC<AuthProviderProps> = ({children}) => {
     }),
     [state],
   ) as AuthContextValue
+
+  useEffect(() => {
+    console.log(value)
+  }, [value])
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

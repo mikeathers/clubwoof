@@ -82,13 +82,13 @@ export const useSafeAsync = <T>(
     [safeSetState],
   )
 
+  //ts-ignore
   const errorHasMessage = (obj: any): obj is Error => {
     return typeof obj === 'object' && 'message' in obj
   }
 
   const run = React.useCallback(
     async (promise: Promise<T>) => {
-      console.log(promise)
       if (!promise.then) {
         throw new Error(
           "The argument passed to useAsync().run must be a promise. Maybe a function that's passed isn't returning anything?",

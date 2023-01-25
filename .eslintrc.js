@@ -59,6 +59,7 @@ module.exports = {
         'react/prop-types': 0,
         '@typescript-eslint/no-floating-promises': 0,
         '@typescript-eslint/explicit-module-boundary-types': 0,
+        'react-hooks/exhaustive-deps': 0,
       },
     },
     {

@@ -13,4 +13,4 @@ export default {
   ],
 }
 
-export const base: StoryFn = () => <LoadingSpinner />
+export const Base: StoryFn = () => <LoadingSpinner />
