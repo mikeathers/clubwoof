@@ -43,6 +43,14 @@ export function main(event: Event, _context: Context, callback: Callback): void 
     userAttributes['cognito:user_status'] === 'UNCONFIRMED'
   ) {
     event.response = customMessage.sendCodePostSignUp()
+  } else if (triggerSource === 'CustomMessage_ForgotPassword') {
+    event.response = customMessage.sendCodeForgotPassword()
+  } else if (triggerSource === 'CustomMessage_UpdateUserAttribute') {
+    event.response = customMessage.sendCodeVerifyNewEmail()
+  } else if (triggerSource === 'CustomMessage_AdminCreateUser') {
+    event.response = customMessage.sendTemporaryPassword()
+  } else if (triggerSource === 'CustomMessage_ResendCode') {
+    event.response = customMessage.resendConfirmationCode()
   }
 
   // Return to Amazon Cognito

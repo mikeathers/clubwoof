@@ -33,6 +33,7 @@ export const Register: React.FC<RegisterProps> = (props) => {
 
       localStorage.setItem(TEMP_PWD_LOCALSTORAGE_KEY, data.password)
       setRegistrationComplete(true)
+      window.scrollTo(0, 0)
     }
   }
 

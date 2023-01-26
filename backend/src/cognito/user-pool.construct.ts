@@ -2,13 +2,14 @@ import {join} from 'path'
 import {
   AccountRecovery,
   BooleanAttribute,
+  CfnUserPool,
   NumberAttribute,
   UserPool,
 } from 'aws-cdk-lib/aws-cognito'
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {Construct} from 'constructs'
-import {Duration, RemovalPolicy} from 'aws-cdk-lib'
+import {Duration, RemovalPolicy, Stack} from 'aws-cdk-lib'
 
 import {DeploymentEnvironment} from '../types'
 import CONFIG from '../config'
@@ -41,6 +42,7 @@ export class UserPoolConstruct {
     this.createLambdas()
     this.createUserPool()
     this.createPolicyAndAssignToRole()
+    this.addSES()
   }
 
   private createLambdas() {
@@ -87,13 +89,15 @@ export class UserPoolConstruct {
     )
   }
 
-  private addDomain() {
-    this.userPool.addDomain('Clubwoof', {
-      customDomain: {
-        domainName: 'mail.clubwoof.co.uk',
-        certificate: this.certificate,
-      },
-    })
+  private addSES() {
+    const cfnUserPool = this.userPool.node.defaultChild as CfnUserPool
+    cfnUserPool.emailConfiguration = {
+      emailSendingAccount: 'DEVELOPER',
+      from: 'Clubwoof 🐶 <no-reply@clubwoof.co.uk>',
+      sourceArn: `arn:aws:ses:eu-west-2:${
+        Stack.of(this.scope).account
+      }:identity/clubwoof.co.uk`,
+    }
   }
 
   private createUserPool() {

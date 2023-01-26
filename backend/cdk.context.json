@@ -6,5 +6,9 @@
   "hosted-zone:account=222743583620:domainName=clubwoof.co.uk:region=us-east-1": {
     "Id": "/hostedzone/Z0375137EGNLG1ELIYGB",
     "Name": "clubwoof.co.uk."
+  },
+  "hosted-zone:account=222743583620:domainName=clubwoof.co.uk:region=eu-west-1": {
+    "Id": "/hostedzone/Z0375137EGNLG1ELIYGB",
+    "Name": "clubwoof.co.uk."
   }
 }
