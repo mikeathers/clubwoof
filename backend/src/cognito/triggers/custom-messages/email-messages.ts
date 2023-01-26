@@ -9,18 +9,19 @@ export const completeSignup = (props: CustomMessage, firstName: string) => {
         style='display: flex, justifyContent: center, flex-direction: column,
           padding: 16px'       
       >
-        <img          
-          alt="logo"
-          src='https://clubwoof.co.uk/logo.png'
-          height="140px"
-          width="140px"
-        />
-
         <h1>Hi ${_.startCase(_.camelCase(firstName))} 👋</h1>
         <p>Thanks for signing up!</p>
         <p>Click on the link to activate your account and get started.</p>
         <a href="${props.FRONTEND_LINKS.SEND_CODE_POST_SIGN_UP}">Activate my account!</a>
       </div>
+      <br />
+      <br />
+       <img          
+        alt="logo"
+        src='https://clubwoof.co.uk/logo.png'
+        height="160"
+        width="160"
+      />
     </div>`,
   }
 }

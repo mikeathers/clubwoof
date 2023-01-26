@@ -93,7 +93,7 @@ export class UserPoolConstruct {
     const cfnUserPool = this.userPool.node.defaultChild as CfnUserPool
     cfnUserPool.emailConfiguration = {
       emailSendingAccount: 'DEVELOPER',
-      from: 'Clubwoof 🐶 <no-reply@clubwoof.co.uk>',
+      from: 'Clubwoof <noreply@clubwoof.co.uk>',
       sourceArn: `arn:aws:ses:eu-west-2:${
         Stack.of(this.scope).account
       }:identity/clubwoof.co.uk`,
