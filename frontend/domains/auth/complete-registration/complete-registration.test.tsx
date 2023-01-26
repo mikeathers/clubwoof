@@ -12,7 +12,6 @@ const mockLogUserIn = mocked(logUserIn)
 const mockIsCognitoError = mocked(isCognitoError)
 
 jest.mock('@clubwoof-utils')
-jest.mock('next/router', () => require('next-router-mock'))
 
 const renderComponent = () =>
   render(
@@ -70,7 +69,7 @@ describe('Complete Registration', () => {
     mockRouter.isReady = true
     renderComponent()
     await waitFor(() =>
-      expect(mockRouter.pathname).toEqual('/auth/resend-confirmation-email'),
+      expect(mockRouter.pathname).toEqual('/auth/resend-registration-link'),
     )
   })
 })

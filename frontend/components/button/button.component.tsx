@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     <StyledButton {...props}>
       {isLoading ? (
         <StyledLoadingContainer>
-          Loading <LoadingSpinner color={loadingSpinnerColor} />
+          Loading <LoadingSpinner size={24} color={loadingSpinnerColor} />
         </StyledLoadingContainer>
       ) : (
         children

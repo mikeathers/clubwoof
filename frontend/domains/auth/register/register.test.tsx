@@ -117,7 +117,9 @@ describe('Register Page', () => {
   })
 
   it('should show an error message when sign up is unsuccessful ', async () => {
-    jest.spyOn(Auth, 'signUp').mockRejectedValue(new Error())
+    jest
+      .spyOn(Auth, 'signUp')
+      .mockRejectedValue(new Error(registerPageI18nMock.terribleError))
 
     const {getByLabelText, getByText} = renderComponent()
 

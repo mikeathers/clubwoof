@@ -43,6 +43,7 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = (props) => {
         viewBox="0 0 32 32"
         aria-hidden="true"
         color={color}
+        data-testid={'loading-spinner'}
       >
         <StyledCircle cx="16" cy="16" r="11" stroke={circleBackground} />
         <StyledPath

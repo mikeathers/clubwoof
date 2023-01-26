@@ -1,4 +1,4 @@
-import {completeSignup} from './email-messages'
+import {completeSignup, resendRegistrationLink} from './email-messages'
 
 type CustomMessageReturnValue = {
   emailSubject: string
@@ -93,13 +93,7 @@ class CustomMessage {
 
   resendConfirmationCode(): CustomMessageReturnValue {
     return {
-      emailSubject: `Your sign-up confirmation link for ${
-        this.FRONTEND_BASE_URL
-      } | ${new Date().toLocaleString()}`,
-      emailMessage: `Hi <b>${this.userAttributes.given_name} ${this.userAttributes.family_name}</b>!<br>Thank you for signing up.
-      
-      <br />
-      Please click on the link to activate your account: <a href="${this.FRONTEND_LINKS.RESEND_CONFIRMATION_CODE}">${this.FRONTEND_BASE_URL}</a>.`,
+      ...resendRegistrationLink(this, this.userAttributes.given_name),
     }
   }
 }

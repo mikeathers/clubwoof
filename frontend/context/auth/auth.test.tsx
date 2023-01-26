@@ -32,7 +32,7 @@ const renderUseAuth = (withoutProvider = false) =>
 
 describe('AuthContext', () => {
   beforeEach(() => {
-    jest.spyOn(Auth, 'currentAuthenticatedUser').mockResolvedValue(cognitoUserMock)
+    jest.spyOn(Auth, 'currentUserInfo').mockResolvedValue(cognitoUserMock)
   })
 
   it('should throw an error is hook not wrapped in the correct provider', () => {
@@ -57,7 +57,7 @@ describe('AuthContext', () => {
   it('should call Auth currentAuthenticatedUser function when calling addUserToState', async () => {
     const {result} = renderUseAuth()
     await result.current.addUserToState()
-    expect(Auth.currentAuthenticatedUser).toBeCalled()
+    expect(Auth.currentUserInfo).toBeCalled()
   })
 
   it('should call LOGIN_SUCCESS when successful login occurs', async () => {
@@ -83,7 +83,7 @@ describe('AuthContext', () => {
   })
 
   it('should call dispatch with LOGIN_FAILURE when error occurs', async () => {
-    jest.spyOn(Auth, 'currentAuthenticatedUser').mockResolvedValue(null)
+    jest.spyOn(Auth, 'currentUserInfo').mockResolvedValue(null)
     const {result} = renderUseAuth()
     await result.current.addUserToState()
     await waitFor(() =>

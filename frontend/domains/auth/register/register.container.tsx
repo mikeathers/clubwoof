@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import {Auth} from '@aws-amplify/auth'
 
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
@@ -12,8 +11,7 @@ interface RegisterProps {
 
 export const Register: React.FC<RegisterProps> = (props) => {
   const {i18n} = props
-  const {run, error, isLoading} = useSafeAsync()
-  const [registrationComplete, setRegistrationComplete] = useState<boolean>(false)
+  const {run, error, isLoading, isSuccess} = useSafeAsync()
 
   const onSubmit = async (data: FormDetails) => {
     await run(registerUser(data))
@@ -32,7 +30,6 @@ export const Register: React.FC<RegisterProps> = (props) => {
       console.log(result)
 
       localStorage.setItem(TEMP_PWD_LOCALSTORAGE_KEY, data.password)
-      setRegistrationComplete(true)
       window.scrollTo(0, 0)
     }
   }
@@ -40,7 +37,7 @@ export const Register: React.FC<RegisterProps> = (props) => {
   return (
     <RegisterComponent
       error={error}
-      registrationComplete={registrationComplete}
+      registrationComplete={isSuccess}
       i18n={i18n}
       onSubmit={onSubmit}
       isLoading={isLoading}

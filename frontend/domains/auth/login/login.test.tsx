@@ -15,17 +15,6 @@ const renderComponent = (props = defaultProps) =>
     </AuthProvider>,
   )
 
-const fillInFormAndSubmit = (
-  getByLabelText: (arg: string) => Element | Node | Document | Window,
-) => {
-  fireEvent.change(getByLabelText('Email'), {target: {value: 'joe@bloggs.com'}})
-  fireEvent.change(getByLabelText('Password'), {target: {value: 'Password1!'}})
-
-  const submitButton = getByLabelText('Submit')
-
-  fireEvent.click(submitButton)
-}
-
 const getInputs = (
   getByLabelText: (arg: string) => Element | Node | Document | Window,
 ): {
@@ -36,6 +25,19 @@ const getInputs = (
   const passwordInput = getByLabelText(loginPageI18nMock.inputs.password)
 
   return {emailInput, passwordInput}
+}
+
+const fillInFormAndSubmit = (
+  getByLabelText: (arg: string) => Element | Node | Document | Window,
+) => {
+  const {emailInput, passwordInput} = getInputs(getByLabelText)
+
+  fireEvent.change(emailInput, {target: {value: 'joe@bloggs.com'}})
+  fireEvent.change(passwordInput, {target: {value: 'Password1!'}})
+
+  const submitButton = getByLabelText('Submit')
+
+  fireEvent.click(submitButton)
 }
 
 describe('Login', () => {

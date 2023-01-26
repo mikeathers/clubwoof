@@ -37,8 +37,10 @@ const useSafeDispatch = <T>(dispatch: React.Dispatch<ActionTypes<T>>) => {
   return React.useCallback(
     (action: ActionTypes<T>) => {
       console.log(action)
-      if (mounted.current) return dispatch(action)
-      else return undefined
+      if (mounted.current) {
+        console.log('ehy')
+        return dispatch(action)
+      } else return undefined
     },
     [dispatch],
   )

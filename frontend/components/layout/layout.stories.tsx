@@ -40,32 +40,3 @@ export const WithBackgroundColour: StoryFn<LayoutProps> = () => (
     </Text>
   </Layout>
 )
-
-export const SmallWidth: StoryFn<LayoutProps> = () => (
-  <Layout bubbleOnePositioning={'top'} bubbleTwoPositioning={'right'} width={'s'}>
-    <Text element={'h1'} marginBottom={'space3x'}>
-      Layout Component
-    </Text>
-    <Text element={'p'}>{dummyText}</Text>
-  </Layout>
-)
-
-export const MediumWidth: StoryFn<LayoutProps> = () => (
-  <Layout bubbleOnePositioning={'top'} bubbleTwoPositioning={'right'} width={'m'}>
-    <Text element={'h1'} marginBottom={'space3x'}>
-      Layout Component
-    </Text>
-    <Text element={'p'}>{dummyText}</Text>
-  </Layout>
-)
-
-export const LargeWidth: StoryFn<LayoutProps> = () => (
-  <Layout backgroundColor={'pink'} width={'l'} languageSelectionTextColour={'pureWhite'}>
-    <Text element={'h1'} marginBottom={'space3x'} color={'pureWhite'}>
-      Layout Component
-    </Text>
-    <Text element={'p'} color={'pureWhite'}>
-      {dummyText}
-    </Text>
-  </Layout>
-)

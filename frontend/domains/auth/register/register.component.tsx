@@ -103,7 +103,7 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
                 )
               })}
 
-              <Text>
+              <Text color={'red'} element={'p'}>
                 {getPasswordFormatValidationMessage()}
                 {error?.message}
               </Text>

@@ -74,6 +74,7 @@ module.exports = {
         'jsx-a11y/anchor-is-valid': 0,
         '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/explicit-module-boundary-types': 0,
+        '@typescript-eslint/no-empty-function': 0,
       },
     },
     {

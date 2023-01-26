@@ -26,7 +26,7 @@ console.log(dev)
 export const AWS_COGNITO_ENDPOINT = 'https://cognito-idp.eu-west-2.amazonaws.com/'
 
 export enum ROUTE_PATHS {
-  LOGIN = '/auth/local',
+  LOGIN = '/auth/login',
   REGISTER = '/auth/register',
   RESEND_REGISTRATION_LINK = '/auth/resend-registration-link',
 }
