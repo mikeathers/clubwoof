@@ -2,60 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/frontend/components/content/content.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/content/content.styles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/content/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/form/form.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/form/form.styles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/form/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/complete-forgot-password.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/complete-forgot-password.container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/complete-forgot-password.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/complete-forgot-password.styles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/complete-forgot-password.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/form-helpers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/forgot-password.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/forgot-password.container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/forgot-password.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/forgot-password.styles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/forgot-password.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/form-helpers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/utils/type-guarding/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/auth/complete-forgot-password/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/auth/forgot-password/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/custom-message.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/email-messages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/triggers/custom-messages/email-messages.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/layout/layout.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout/layout.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/text-input/text-input.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text-input/text-input.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/text/text.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/text/text.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/form-helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/form-helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/global.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/hooks/use-form-helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hooks/use-form-helpers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/hooks/use-safe-async/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hooks/use-safe-async/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/variables.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test-utils/__mocks__/locales/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/locales/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/utils/is-cognito-error/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/locales/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/complete-registration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/complete-registration/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +76,7 @@
       <recent name="$PROJECT_DIR$/storybook" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Complete forgot password.should call logUserIn when form submitted">
+  <component name="RunManager" selected="Jest.Complete forgot password">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.12.1/bin/node" />
       <node-options value="" />
@@ -210,8 +160,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.Complete forgot password.should call logUserIn when form submitted" />
         <item itemvalue="Jest.Complete forgot password" />
+        <item itemvalue="Jest.Complete forgot password.should call logUserIn when form submitted" />
         <item itemvalue="Jest.Resend Registration Link" />
         <item itemvalue="Jest.Complete forgot password.should call Auth service when form submitted" />
         <item itemvalue="Jest.complete-forgot-password.test.tsx" />
@@ -249,7 +199,7 @@
       <workItem from="1674737951269" duration="1259000" />
       <workItem from="1674747001048" duration="4278000" />
       <workItem from="1674815367269" duration="5028000" />
-      <workItem from="1674821039471" duration="13095000" />
+      <workItem from="1674821039471" duration="14641000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -289,7 +239,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx</url>
-          <line>39</line>
+          <line>40</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

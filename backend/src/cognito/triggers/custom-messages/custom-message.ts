@@ -45,8 +45,8 @@ class CustomMessage {
 
     this.FRONTEND_LINKS = {
       SEND_CODE_POST_SIGN_UP: `${this.FRONTEND_BASE_URL}/auth/complete-registration?code=${this.codeParameter}&email=${this.userAttributes.email}`,
-      SEND_CODE_FORGOT_PASSWORD: `${this.FRONTEND_BASE_URL}/auth/complete-password-reset?code=${this.codeParameter}&email=${this.userAttributes.email}`,
-      SEND_CODE_VERIFY_NEW_EMAIL: `${this.FRONTEND_BASE_URL}/auth/complete-password-reset?code=${this.codeParameter}&email=${this.userAttributes.email}`,
+      SEND_CODE_FORGOT_PASSWORD: `${this.FRONTEND_BASE_URL}/auth/complete-forgot-password?code=${this.codeParameter}&email=${this.userAttributes.email}`,
+      SEND_CODE_VERIFY_NEW_EMAIL: `${this.FRONTEND_BASE_URL}/auth/complete-forgot-password?code=${this.codeParameter}&email=${this.userAttributes.email}`,
       SEND_TEMPORARY_PASSWORD: `${this.FRONTEND_BASE_URL}/auth/login`,
       RESEND_CONFIRMATION_CODE: `${this.FRONTEND_BASE_URL}/auth/complete-registration?code=${this.codeParameter}&email=${this.userAttributes.email}`,
     }

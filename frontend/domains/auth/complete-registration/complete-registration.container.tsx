@@ -25,12 +25,13 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
       router.push(ROUTE_PATHS.RESEND_REGISTRATION_LINK)
       return
     }
-
+    console.log(router.query)
     const completeRegistration = async () => {
       if (
         typeof router.query.email === 'string' &&
         typeof router.query.code === 'string'
       ) {
+        console.log('here')
         await run(confirmRegistrationAndLogUserIn())
       }
     }
