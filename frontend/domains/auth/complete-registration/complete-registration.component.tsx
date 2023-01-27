@@ -24,10 +24,10 @@ export const CompleteRegistrationComponent: React.FC<
           <Text element={'h1'} color={'pureWhite'} marginBottom={'space2x'}>
             {i18n.thanksForRegistering}
           </Text>
-          <Text element={'h3'} color={'pureWhite'}>
+          <Text element={'h2'} color={'pureWhite'}>
             {i18n.weWillBeInTouch}
           </Text>
-          <Text element={'h3'} color={'pureWhite'}>
+          <Text element={'h2'} color={'pureWhite'}>
             {i18n.fillInYourDetails}
           </Text>
           <TextButton

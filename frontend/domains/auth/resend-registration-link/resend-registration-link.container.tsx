@@ -3,12 +3,12 @@ import {useSafeAsync} from '@clubwoof-hooks'
 import {Auth} from '@aws-amplify/auth'
 
 interface ResendRegistrationLinkProps {
-  i18n: i18nResendRegistrationLink
+  i18n: i18nResendRegistrationLinkPage
 }
 
 export const ResendRegistrationLink: React.FC<ResendRegistrationLinkProps> = (props) => {
   const {i18n} = props
-  const {error, resetAsyncState, run, isSuccess} = useSafeAsync()
+  const {error, resetAsyncState, run, isSuccess, isLoading} = useSafeAsync()
 
   const handleClearError = () => {
     if (error !== undefined) {
@@ -29,6 +29,7 @@ export const ResendRegistrationLink: React.FC<ResendRegistrationLinkProps> = (pr
       resendRegistrationLink={resendRegistrationLink}
       error={error?.message}
       linkSentSuccessfully={isSuccess}
+      isLoading={isLoading}
     />
   )
 }

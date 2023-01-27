@@ -7,6 +7,7 @@ import {
   FontSizes,
   fontWeights,
   FontWeights,
+  LineHeights,
   lineHeights,
   spacing,
   Spacing,
@@ -18,6 +19,7 @@ export interface StyledTextProps {
   fontWeight?: keyof FontWeights
   element?: keyof JSX.IntrinsicElements
   marginBottom?: keyof Spacing
+  lineHeight?: keyof LineHeights
 }
 
 const textStyles = css<StyledTextProps>`
@@ -26,9 +28,9 @@ const textStyles = css<StyledTextProps>`
   font-size: ${({fontSize, element}) => {
     if (fontSize) return fontSizes[fontSize]
     if (element === 'p') return fontSizes.m
-    if (element === 'h1') return fontSizes.xxxl
-    if (element === 'h2') return fontSizes.xl
-    if (element === 'h3') return fontSizes.l
+    if (element === 'h1') return fontSizes.xxxxl
+    if (element === 'h2') return fontSizes.l
+    if (element === 'h3') return fontSizes.m
   }};
 
   color: ${({color, element}) => {
@@ -37,8 +39,9 @@ const textStyles = css<StyledTextProps>`
     }
     if (element === 'h1') return colors.lightBlue
   }};
-  line-height: ${({element}) => {
+  line-height: ${({lineHeight, element}) => {
     if (element === 'h1') return lineHeights.heading
+    if (lineHeight) return lineHeights[lineHeight]
     return lineHeights.body
   }};
   font-weight: ${({fontWeight}) =>

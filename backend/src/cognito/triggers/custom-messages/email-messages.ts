@@ -1,8 +1,11 @@
-import CustomMessage from './custom-message'
+import CustomMessage, {CustomMessageReturnValue} from './custom-message'
 import _ from 'lodash'
 import {colors} from '@clubwoof-styles'
 
-export const completeSignup = (props: CustomMessage, firstName: string) => {
+export const completeSignup = (
+  props: CustomMessage,
+  firstName: string,
+): CustomMessageReturnValue => {
   return {
     emailSubject: `Confirm your clubwoof account! 🐶`,
     emailMessage: `
@@ -33,7 +36,10 @@ export const completeSignup = (props: CustomMessage, firstName: string) => {
   }
 }
 
-export const resendRegistrationLink = (props: CustomMessage, firstName: string) => {
+export const resendRegistrationLink = (
+  props: CustomMessage,
+  firstName: string,
+): CustomMessageReturnValue => {
   return {
     emailSubject: `Your new link! 🐶`,
     emailMessage: `

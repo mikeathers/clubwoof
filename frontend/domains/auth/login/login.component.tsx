@@ -3,11 +3,11 @@ import Image from 'next/image'
 import {Controller, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 
-import {Box, Layout, Text, TextButton} from '@clubwoof-components'
+import {Box, Form, Layout, Text, TextButton} from '@clubwoof-components'
 import {useFormHelpers, useSafeAsync} from '@clubwoof-hooks'
 
 import {formSchema, inputs} from './form-helpers'
-import {Content, DogImage, Form, FormInput, SubmitButton} from './login.styles'
+import {Content, DogImage, FormInput, SubmitButton} from './login.styles'
 
 interface LoginProps {
   i18n: i18nLoginPage
@@ -49,15 +49,10 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
         <DogImage>
           <Image src={'/dog-in-box.png'} alt={'dog in a box'} fill />
         </DogImage>
-        <Text
-          color={'pureWhite'}
-          element={'h1'}
-          fontSize={'xxxxl'}
-          marginBottom={'space3x'}
-        >
+        <Text element={'h1'} color={'pureWhite'} marginBottom={'space3x'}>
           {i18n.heading}
         </Text>
-        <Text element={'h3'} color={'pureWhite'}>
+        <Text element={'h2'} color={'pureWhite'} marginBottom={'space6x'}>
           {i18n.subHeading}
         </Text>
         <Form>

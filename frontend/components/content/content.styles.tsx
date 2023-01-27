@@ -1,14 +1,14 @@
 import styled from 'styled-components'
-import {mediaQueries} from '@clubwoof-styles'
+import {mediaQueries, spacing} from '@clubwoof-styles'
 
-export const Content = styled.div`
+export const StyledContent = styled.div`
   width: 80%;
+  margin: ${spacing.space10x} 0;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 200px 0 100px 0;
+  align-items: flex-start;
 
   @media (${mediaQueries.l}) {
     width: 40%;
@@ -16,5 +16,6 @@ export const Content = styled.div`
 
   @media (${mediaQueries.xl}) {
     width: 30%;
+    margin-top: 0;
   }
 `

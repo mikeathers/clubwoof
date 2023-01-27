@@ -84,16 +84,51 @@ declare global {
     }
   }
 
-  type i18nResendRegistrationLink = {
+  type i18nResendRegistrationLinkPage = {
     heading: string
     subHeading: string
     submitButton: string
+    successMessage: string
     inputs: {
       email: string
     }
     validation: {
       email: string
       emailFormat: string
+    }
+  }
+
+  type i18nForgotPasswordPage = {
+    heading: string
+    subHeading: string
+    submitButton: string
+    successMessage: string
+    login: string
+    loginAction: string
+    inputs: {
+      email: string
+    }
+    validation: {
+      email: string
+      emailFormat: string
+    }
+  }
+
+  type i18nCompleteForgotPasswordPage = {
+    heading: string
+    subHeading: string
+    submitButton: string
+    inputs: {
+      password: string
+      confirmPassword: string
+    }
+    validation: {
+      password: string
+      confirmPassword: string
+      passwordsDoNotMatch: string
+      passwordFormat: string
+      passwordTooShort: string
+      passwordTooLong: string
     }
   }
 }

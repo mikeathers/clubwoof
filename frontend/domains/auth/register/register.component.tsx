@@ -3,12 +3,21 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import {Controller, useForm} from 'react-hook-form'
 import Image from 'next/image'
 
-import {Box, Button, Layout, Text, TextButton, TextInput} from '@clubwoof-components'
+import {
+  Box,
+  Button,
+  Content,
+  Form,
+  Layout,
+  Text,
+  TextButton,
+  TextInput,
+} from '@clubwoof-components'
 import {colors} from '@clubwoof-styles'
 import {useFormHelpers} from '@clubwoof-hooks'
 
 import {formSchema, inputs} from './form-helpers'
-import {Content, DogImage, Form, HeadingContainer} from './register.styles'
+import {DogImage} from './register.styles'
 
 export interface RegisterComponentProps {
   i18n: i18nRegisterPage
@@ -23,10 +32,10 @@ interface RegisterCompleteProps {
 }
 const RegisterComplete: React.FC<RegisterCompleteProps> = ({i18n}) => (
   <div>
-    <Text element={'h1'} marginBottom={'space2x'}>
+    <Text element={'h1'} marginBottom={'space3x'}>
       {i18n.registrationSuccessful}
     </Text>
-    <Text element={'h3'}>{i18n.checkYourEmail}</Text>
+    <Text element={'h2'}>{i18n.checkYourEmail}</Text>
   </div>
 )
 
@@ -70,12 +79,12 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
         </Box>
         {!registrationComplete ? (
           <>
-            <HeadingContainer>
-              <Text element={'h1'} marginBottom={'space3x'}>
-                {i18n.heading}
-              </Text>
-              <Text element={'h3'}>{i18n.subHeading}</Text>
-            </HeadingContainer>
+            <Text element={'h1'} marginBottom={'space3x'}>
+              {i18n.heading}
+            </Text>
+            <Text element={'h2'} marginBottom={'space6x'}>
+              {i18n.subHeading}
+            </Text>
             <Form>
               {formInputs.map((input, index) => {
                 const errorMessage = getInputErrorMessage(input.name)

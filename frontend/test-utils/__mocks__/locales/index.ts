@@ -12,6 +12,14 @@ export const loginPageI18nMock: i18nLoginPage = {
   ...JSON.parse(JSON.stringify(en.pages.auth.loginPage)),
 }
 
-export const resendRegistrationLinkPageI18nMock: i18nResendRegistrationLink = {
+export const resendRegistrationLinkPageI18nMock: i18nResendRegistrationLinkPage = {
   ...JSON.parse(JSON.stringify(en.pages.auth.resendRegistrationLinkPage)),
+}
+
+export const forgotPasswordPageI18nMock: i18nForgotPasswordPage = {
+  ...JSON.parse(JSON.stringify(en.pages.auth.forgotPasswordPage)),
+}
+
+export const completeForgotPasswordPageI18nMock: i18nCompleteForgotPasswordPage = {
+  ...JSON.parse(JSON.stringify(en.pages.auth.completeForgotPasswordPage)),
 }

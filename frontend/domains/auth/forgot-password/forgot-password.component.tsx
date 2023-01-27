@@ -1,30 +1,39 @@
 import React, {SyntheticEvent} from 'react'
-import {yupResolver} from '@hookform/resolvers/yup'
 import {Controller, useForm} from 'react-hook-form'
+import {yupResolver} from '@hookform/resolvers/yup'
 
-import {Button, Form, Layout, Text, TextInput} from '@clubwoof-components'
+import {
+  Box,
+  Button,
+  Form,
+  Layout,
+  Text,
+  TextButton,
+  TextInput,
+} from '@clubwoof-components'
 import {useFormHelpers} from '@clubwoof-hooks'
+import {ROUTE_PATHS} from '@clubwoof-constants'
 
-import {formSchema, inputs} from './form-helpers'
-import {Content} from './resend-registration-link.styles'
+import {formSchema, inputs} from '../resend-registration-link/form-helpers'
+import {Content} from './forgot-password.styles'
 
-export interface ResendRegistrationLinkProps {
-  i18n: i18nResendRegistrationLinkPage
+export interface ForgotPasswordComponentProps {
+  i18n: i18nForgotPasswordPage
   clearErrors: () => void
-  resendRegistrationLink: (data: FormDetails) => void
+  sendForgotPasswordLink: (data: FormDetails) => void
   error: string | undefined
   linkSentSuccessfully: boolean
   isLoading: boolean
 }
 
-export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkProps> = (
+export const ForgotPasswordComponent: React.FC<ForgotPasswordComponentProps> = (
   props,
 ) => {
   const {
     i18n,
-    clearErrors,
-    resendRegistrationLink,
     error,
+    clearErrors,
+    sendForgotPasswordLink,
     linkSentSuccessfully,
     isLoading,
   } = props
@@ -48,7 +57,7 @@ export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkPro
 
     clearErrors()
 
-    await handleSubmit(resendRegistrationLink)()
+    await handleSubmit(sendForgotPasswordLink)()
   }
 
   return (
@@ -88,7 +97,6 @@ export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkPro
               />
             )
           })}
-
           <Text color={error ? 'red' : 'pink'} marginBottom={'space1x'}>
             {error && !linkSentSuccessfully && error}
             {linkSentSuccessfully && i18n.successMessage}
@@ -97,6 +105,15 @@ export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkPro
           <Button aria-label={'Submit'} onClick={handleSubmitForm} isLoading={isLoading}>
             {i18n.submitButton}
           </Button>
+
+          <Box direction={'column'} marginTop={'space2x'} centerContent>
+            <Text marginBottom={'space1x'}>
+              {i18n.login}{' '}
+              <TextButton colour={'pink'} href={ROUTE_PATHS.LOGIN}>
+                {i18n.loginAction}
+              </TextButton>
+            </Text>
+          </Box>
         </Form>
       </Content>
     </Layout>

@@ -39,15 +39,6 @@ export const DogImage = styled.div`
   }
 `
 
-export const Form = styled.form`
-  margin-top: ${spacing.space6x};
-  width: 100%;
-
-  @media (${mediaQueries.s}) {
-    width: 400px;
-  }
-`
-
 export const FormInput = styled(TextInput)`
   &:focus {
     box-shadow: none;

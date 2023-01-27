@@ -70,7 +70,7 @@ export const useFormHelpers = (props: UseFormHelpersProps): UseFormHelpersReturn
   const getInputErrorMessage = (inputName: string) => {
     const errorMessage = formState.errors[inputName]?.message
     if (!errorMessage) return ''
-    return (errorMessage as string).includes('contain') ? '' : `${errorMessage}`
+    return `${errorMessage}`
   }
 
   const getPasswordFormatValidationMessage = () => {
@@ -83,7 +83,7 @@ export const useFormHelpers = (props: UseFormHelpersProps): UseFormHelpersReturn
   }
 
   const formHasErrors = Object.keys(formState.errors).length > 0
-
+  console.log({formState})
   return {
     jumpToNextInputOnEnter,
     getInputErrorMessage,

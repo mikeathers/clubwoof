@@ -1,6 +1,6 @@
 import {completeSignup, resendRegistrationLink} from './email-messages'
 
-type CustomMessageReturnValue = {
+export type CustomMessageReturnValue = {
   emailSubject: string
   emailMessage: string
 }

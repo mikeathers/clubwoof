@@ -36,6 +36,7 @@ export interface FontSizes {
 }
 
 export interface LineHeights {
+  messaging: string
   body: string
   heading: string
 }

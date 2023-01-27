@@ -63,6 +63,12 @@ module.exports = {
       },
     },
     {
+      files: ['./frontend/utils/type-guarding/*'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 0,
+      },
+    },
+    {
       files: ['**/*.{test,tests,stories}.{ts,tsx}'],
       rules: {
         '@typescript-eslint/no-unsafe-return': 0,

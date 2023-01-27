@@ -62,8 +62,9 @@ export const fontWeights: FontWeights = {
 }
 
 export const lineHeights: LineHeights = {
+  messaging: '20px',
   body: '28px',
-  heading: '56px',
+  heading: '62px',
 }
 const breakpoints: Breakpoints = {
   xxxs: {

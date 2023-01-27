@@ -1,39 +1,30 @@
 import React, {SyntheticEvent} from 'react'
-import {yupResolver} from '@hookform/resolvers/yup'
 import {Controller, useForm} from 'react-hook-form'
+import {yupResolver} from '@hookform/resolvers/yup'
 
 import {Button, Form, Layout, Text, TextInput} from '@clubwoof-components'
 import {useFormHelpers} from '@clubwoof-hooks'
+import {colors} from '@clubwoof-styles'
 
+import {Content} from './complete-forgot-password.styles'
 import {formSchema, inputs} from './form-helpers'
-import {Content} from './resend-registration-link.styles'
 
-export interface ResendRegistrationLinkProps {
-  i18n: i18nResendRegistrationLinkPage
-  clearErrors: () => void
-  resendRegistrationLink: (data: FormDetails) => void
+export interface CompleteForgotPasswordComponentProps {
+  i18n: i18nCompleteForgotPasswordPage
   error: string | undefined
-  linkSentSuccessfully: boolean
   isLoading: boolean
+  clearErrors: () => void
+  updatePassword: (data: FormDetails) => void
 }
+export const CompleteForgotPasswordComponent: React.FC<
+  CompleteForgotPasswordComponentProps
+> = (props) => {
+  const {i18n, error, isLoading, clearErrors, updatePassword} = props
 
-export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkProps> = (
-  props,
-) => {
-  const {
-    i18n,
-    clearErrors,
-    resendRegistrationLink,
-    error,
-    linkSentSuccessfully,
-    isLoading,
-  } = props
-
-  const {control, formState, handleSubmit} = useForm({
+  const {control, handleSubmit, formState} = useForm<FormDetails>({
     mode: 'onSubmit',
     resolver: yupResolver(formSchema(i18n)),
   })
-
   const formInputs = inputs(i18n)
 
   const {jumpToNextInputOnEnter, getInputErrorMessage, formHasErrors} = useFormHelpers({
@@ -44,11 +35,12 @@ export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkPro
   const handleSubmitForm = async (e: SyntheticEvent) => {
     e.preventDefault()
 
+    console.log({formHasErrors})
     if (formHasErrors) return
 
     clearErrors()
 
-    await handleSubmit(resendRegistrationLink)()
+    await handleSubmit(updatePassword)()
   }
 
   return (
@@ -60,7 +52,6 @@ export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkPro
         <Text element={'h2'} marginBottom={'space6x'}>
           {i18n.subHeading}
         </Text>
-
         <Form>
           {formInputs.map((input, index) => {
             const errorMessage = getInputErrorMessage(input.name)
@@ -70,14 +61,13 @@ export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkPro
                 render={({field}) => (
                   <TextInput
                     {...field}
-                    icon={<input.icon size="21" />}
+                    icon={<input.icon color={colors.lightBlue} size="21" />}
                     aria-label={input.ariaLabel}
                     type={input.type}
                     placeholder={input.placeholder}
-                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
                       jumpToNextInputOnEnter(e, index + 1)
-                      clearErrors()
-                    }}
+                    }
                     ref={null}
                     error={errorMessage && errorMessage}
                   />
@@ -89,12 +79,17 @@ export const ResendRegistrationLinkComponent: React.FC<ResendRegistrationLinkPro
             )
           })}
 
-          <Text color={error ? 'red' : 'pink'} marginBottom={'space1x'}>
-            {error && !linkSentSuccessfully && error}
-            {linkSentSuccessfully && i18n.successMessage}
+          <Text color={'red'} element={'p'}>
+            {error && error}
           </Text>
 
-          <Button aria-label={'Submit'} onClick={handleSubmitForm} isLoading={isLoading}>
+          <Button
+            disabled={isLoading}
+            isLoading={isLoading}
+            type="button"
+            aria-label="Submit"
+            onClick={handleSubmitForm}
+          >
             {i18n.submitButton}
           </Button>
         </Form>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {errorHasMessage} from '@clubwoof-utils'
 
 type Status = 'idle' | 'pending' | 'rejected' | 'resolved'
 type InitialState<T> = {
@@ -28,7 +29,7 @@ interface UseSafeAsyncReturnValue<T> {
 
 const useSafeDispatch = <T>(dispatch: React.Dispatch<ActionTypes<T>>) => {
   const mounted = React.useRef(false)
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     mounted.current = true
     return () => {
       mounted.current = false
@@ -38,7 +39,6 @@ const useSafeDispatch = <T>(dispatch: React.Dispatch<ActionTypes<T>>) => {
     (action: ActionTypes<T>) => {
       console.log(action)
       if (mounted.current) {
-        console.log('ehy')
         return dispatch(action)
       } else return undefined
     },
@@ -83,12 +83,6 @@ export const useSafeAsync = <T>(
     () => safeSetState({status: 'idle', data: null, error: null}),
     [safeSetState],
   )
-
-  //ts-ignore
-  //@typescript-eslint/no-explicit-any
-  const errorHasMessage = (obj: any): obj is Error => {
-    return typeof obj === 'object' && 'message' in obj
-  }
 
   const run = React.useCallback(
     async (promise: Promise<T>) => {

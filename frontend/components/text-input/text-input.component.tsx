@@ -24,7 +24,7 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
 
       <ErrorContainer icon={icon}>
         {error && (
-          <Text color={errorColor || 'red'} fontSize="s">
+          <Text color={errorColor || 'red'} fontSize="s" lineHeight={'messaging'}>
             {error}
           </Text>
         )}
