@@ -17,15 +17,14 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
   const {i18n} = props
   const router = useRouter()
   const {addUserToState} = useAuth()
-  const hasQueryParams = router.query.email && router.query.code
   const {run, isError, error, isLoading, isIdle} = useSafeAsync()
 
   useEffect(() => {
+    const hasQueryParams = router.query.email && router.query.code
     if (router.isReady && !hasQueryParams) {
       router.push(ROUTE_PATHS.RESEND_REGISTRATION_LINK)
       return
     }
-    console.log(router.query)
     const completeRegistration = async () => {
       if (
         typeof router.query.email === 'string' &&
@@ -68,7 +67,7 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
     }
 
     completeRegistration()
-  }, [])
+  }, [run, addUserToState, router.isReady])
 
   return (
     <CompleteRegistrationComponent

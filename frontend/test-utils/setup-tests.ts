@@ -5,7 +5,7 @@
 import {Auth} from '@aws-amplify/auth'
 import {dev} from '@clubwoof-constants'
 
-// jest.mock('next/router', () => require('next-router-mock'))
+jest.mock('next/router', () => require('next-router-mock'))
 
 // global.jest = jest
 
