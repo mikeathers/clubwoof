@@ -4,8 +4,9 @@ import type {AppProps} from 'next/app'
 import Head from 'next/head'
 
 import {AuthProvider} from '@clubwoof-context'
+import {ErrorBoundary} from '@clubwoof-components'
+import {dev} from '@clubwoof-constants'
 
-import {dev} from '../frontend/constants'
 import '../frontend/styles/globals.css'
 
 Auth.configure({
@@ -17,16 +18,15 @@ Auth.configure({
 })
 
 function App({Component, pageProps}: AppProps) {
-  console.log({dev})
   return (
-    <>
+    <ErrorBoundary>
       <Head>
         <title>clubwoof | your dog, our playground </title>
       </Head>
       <AuthProvider>
         <Component {...pageProps} />
       </AuthProvider>
-    </>
+    </ErrorBoundary>
   )
 }
 

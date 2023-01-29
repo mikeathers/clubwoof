@@ -8,10 +8,10 @@ import {
   ContainerProps,
   ContentProps,
 } from './layout.styles'
-import {LanguageSelection} from '../language-selection'
 import {Footer} from '../footer'
 import {LanguageSelectionProps} from '../language-selection/language-selection.styles'
 import Image from 'next/image'
+import {LanguageSelection} from '../language-selection'
 
 export interface LayoutProps
   extends ContentProps,
@@ -20,6 +20,7 @@ export interface LayoutProps
   children: ReactNode | ReactNode[]
   bubbleOnePositioning?: BubblePositioning
   bubbleTwoPositioning?: BubblePositioning
+  showLanguageSelection?: boolean
 }
 
 export const Layout: React.FC<LayoutProps> = ({
@@ -28,10 +29,13 @@ export const Layout: React.FC<LayoutProps> = ({
   bubbleOnePositioning,
   bubbleTwoPositioning,
   languageSelectionTextColour,
+  showLanguageSelection = true,
 }) => {
   return (
     <Grommet theme={defaultTheme}>
-      <LanguageSelection languageSelectionTextColour={languageSelectionTextColour} />
+      {showLanguageSelection && (
+        <LanguageSelection languageSelectionTextColour={languageSelectionTextColour} />
+      )}
       <Container backgroundColor={backgroundColor}>
         {bubbleOnePositioning && (
           <Bubble position={bubbleOnePositioning}>

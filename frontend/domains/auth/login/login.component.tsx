@@ -102,13 +102,13 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
           <Box direction={'column'} marginTop={'space2x'} centerContent>
             <Text color={'pureWhite'} marginBottom={'space1x'}>
               {i18n.forgotYourPassword}{' '}
-              <TextButton colour={'yellow'} href={'/auth/forgot-password'}>
+              <TextButton color={'yellow'} href={'/auth/forgot-password'}>
                 {i18n.forgotYourPasswordAction}
               </TextButton>
             </Text>
             <Text color={'pureWhite'}>
               {i18n.signUp}{' '}
-              <TextButton colour={'yellow'} href={'/auth/register'}>
+              <TextButton color={'yellow'} href={'/auth/register'}>
                 {i18n.signUpAction}
               </TextButton>
             </Text>

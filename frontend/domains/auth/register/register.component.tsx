@@ -130,13 +130,13 @@ export const RegisterComponent: React.FC<RegisterComponentProps> = (props) => {
               <Box centerContent direction={'column'} marginTop={'space2x'}>
                 <Text marginBottom={'space1x'}>
                   {i18n.signIn}
-                  <TextButton colour={'pink'} href={'/auth/login'}>
+                  <TextButton color={'pink'} href={'/auth/login'}>
                     {i18n.signInAction}
                   </TextButton>
                 </Text>
                 <Text>
                   {i18n.goHome}
-                  <TextButton colour={'pink'} href={'/auth/login'}>
+                  <TextButton color={'pink'} href={'/auth/login'}>
                     {i18n.goHomeAction}
                   </TextButton>
                 </Text>

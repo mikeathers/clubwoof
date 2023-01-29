@@ -18,35 +18,35 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./frontend",
+    "baseUrl": "./",
     "rootDir": "./",
     "paths": {
       "@clubwoof-components": [
-        "./components"
+        "./frontend/components"
       ],
       "@clubwoof-domains": [
-        "./domains"
+        "./frontend/domains"
       ],
       "@clubwoof-styles": [
-        "./styles"
+        "./frontend/styles"
       ],
       "@clubwoof-hooks": [
-        "./hooks"
+        "./frontend/hooks"
       ],
       "@clubwoof-constants": [
-        "./constants.ts"
+        "./frontend/constants.ts"
       ],
       "@clubwoof-test-utils": [
-        "./test-utils"
+        "./frontend/test-utils"
       ],
       "@clubwoof-context": [
-        "./context"
+        "./frontend/context"
       ],
       "@clubwoof-i18n": [
-        "../i18n/locales"
+        "./i18n/locales"
       ],
       "@clubwoof-utils": [
-        "./utils"
+        "./frontend/utils"
       ]
     }
   },

@@ -33,7 +33,7 @@ export const CompleteRegistrationComponent: React.FC<
           <TextButton
             marginTop={'space1x'}
             href={'/account/details'}
-            colour={'pureWhite'}
+            color={'pureWhite'}
             underline
           >
             Help us get to know you

@@ -13,7 +13,7 @@ import {
 import {UrlObject} from 'url'
 
 export interface StyledTextButtonProps {
-  colour?: keyof Colors
+  color?: keyof Colors
   href: string | UrlObject
   fontWeight?: keyof FontWeights
   fontSize?: keyof FontSizes
@@ -23,15 +23,15 @@ export interface StyledTextButtonProps {
 }
 
 export const StyledTextButton = styled(Link)<StyledTextButtonProps>`
-  color: ${({colour}) => (colour ? colors[colour] : colors.darkBlue)};
+  color: ${({color}) => (color ? colors[color] : colors.darkBlue)};
   font-weight: ${({fontWeight}) =>
     fontWeight ? fontWeights[fontWeight] : fontWeights.bold};
   text-decoration: none;
   font-size: ${({fontSize}) => (fontSize ? fontSizes[fontSize] : fontSizes.m)};
-  border-bottom: ${({underline, colour}) => {
-    if (colour && underline) return `2px solid ${colors[colour]}`
-    if (!colour && underline) return `2px solid ${colors.darkBlue}`
-    if (!colour && !underline) return ''
+  border-bottom: ${({underline, color}) => {
+    if (color && underline) return `2px solid ${colors[color]}`
+    if (!color && underline) return `2px solid ${colors.darkBlue}`
+    if (!color && !underline) return ''
   }};
   margin-top: ${({marginTop}) => (marginTop ? spacing[marginTop] : 0)};
   margin-bottom: ${({marginBottom}) => (marginBottom ? spacing[marginBottom] : 0)};

@@ -109,7 +109,7 @@ export const ForgotPasswordComponent: React.FC<ForgotPasswordComponentProps> = (
           <Box direction={'column'} marginTop={'space2x'} centerContent>
             <Text marginBottom={'space1x'}>
               {i18n.login}{' '}
-              <TextButton colour={'pink'} href={ROUTE_PATHS.LOGIN}>
+              <TextButton color={'pink'} href={ROUTE_PATHS.LOGIN}>
                 {i18n.loginAction}
               </TextButton>
             </Text>

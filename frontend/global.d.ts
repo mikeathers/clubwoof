@@ -131,6 +131,12 @@ declare global {
       passwordTooLong: string
     }
   }
+
+  type i18nErrorPage = {
+    heading: string
+    subHeading: string
+    goHome: string
+  }
 }
 
 export {}

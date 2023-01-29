@@ -29,7 +29,7 @@ export const Underlined: StoryFn<TextButtonProps> = () => (
 )
 
 export const DifferentColour: StoryFn<TextButtonProps> = () => (
-  <TextButton href={'/'} colour={'pink'}>
+  <TextButton href={'/'} color={'pink'}>
     Go home
   </TextButton>
 )
