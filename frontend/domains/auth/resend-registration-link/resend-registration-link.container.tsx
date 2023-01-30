@@ -1,6 +1,7 @@
 import {ResendRegistrationLinkComponent} from './resend-registration-link.component'
 import {useSafeAsync} from '@clubwoof-hooks'
 import {Auth} from '@aws-amplify/auth'
+import {withAuthenticatedRedirect} from '@clubwoof-hoc'
 
 interface ResendRegistrationLinkProps {
   i18n: i18nResendRegistrationLinkPage
@@ -33,3 +34,5 @@ export const ResendRegistrationLink: React.FC<ResendRegistrationLinkProps> = (pr
     />
   )
 }
+
+export default withAuthenticatedRedirect(ResendRegistrationLink)

@@ -1,1 +1,1 @@
-export * from './complete-registration.container'
+export {default as CompleteRegistration} from './complete-registration.container'

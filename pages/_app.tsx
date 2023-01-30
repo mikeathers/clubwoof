@@ -8,6 +8,7 @@ import {ErrorBoundary} from '@clubwoof-components'
 import {dev} from '@clubwoof-constants'
 
 import '../frontend/styles/globals.css'
+import {useTranslation} from 'next-export-i18n'
 
 Auth.configure({
   mandatorySignIn: false,
@@ -18,8 +19,10 @@ Auth.configure({
 })
 
 function App({Component, pageProps}: AppProps) {
+  const {t} = useTranslation()
+
   return (
-    <ErrorBoundary>
+    <ErrorBoundary i18n={t('pages.errorPage')}>
       <Head>
         <title>clubwoof | your dog, our playground </title>
       </Head>

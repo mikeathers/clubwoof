@@ -47,6 +47,9 @@
       ],
       "@clubwoof-utils": [
         "./frontend/utils"
+      ],
+      "@clubwoof-hoc": [
+        "./frontend/hoc"
       ]
     }
   },

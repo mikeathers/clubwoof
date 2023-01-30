@@ -8,6 +8,7 @@ import {ROUTE_PATHS, TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
 import {useSafeAsync} from '@clubwoof-hooks'
 
 import {CompleteRegistrationComponent} from './complete-registration.component'
+import {withAuthenticatedRedirect} from '@clubwoof-hoc'
 
 interface CompleteRegistrationProps {
   i18n: i18nCompleteRegistrationPage
@@ -79,3 +80,5 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
     />
   )
 }
+
+export default withAuthenticatedRedirect(CompleteRegistration)

@@ -5,6 +5,7 @@ import {logUserIn} from '@clubwoof-utils'
 import {useSafeAsync} from '@clubwoof-hooks'
 
 import {LoginComponent} from './login.component'
+import {withAuthenticatedRedirect} from '@clubwoof-hoc'
 
 interface LoginProps {
   i18n: i18nLoginPage
@@ -47,3 +48,5 @@ export const Login: React.FC<LoginProps> = (props) => {
     />
   )
 }
+
+export default withAuthenticatedRedirect(Login)

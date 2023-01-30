@@ -1,1 +1,1 @@
-export * from './resend-registration-link.container'
+export {default as ResendRegistrationLink} from './resend-registration-link.container'

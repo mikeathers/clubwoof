@@ -23,3 +23,7 @@ export const forgotPasswordPageI18nMock: i18nForgotPasswordPage = {
 export const completeForgotPasswordPageI18nMock: i18nCompleteForgotPasswordPage = {
   ...JSON.parse(JSON.stringify(en.pages.auth.completeForgotPasswordPage)),
 }
+
+export const errorPageI18nMock: i18nErrorPage = {
+  ...JSON.parse(JSON.stringify(en.pages.errorPage)),
+}

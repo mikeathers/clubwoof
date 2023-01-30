@@ -1,50 +1,40 @@
-import React, {Component, ReactNode} from 'react'
-import {ErrorPage} from './error-page'
+import React from 'react'
+import Image from 'next/image'
 
-interface ErrorBoundaryProps {
-  children: ReactNode | ReactNode[]
+import {ROUTE_PATHS} from '@clubwoof-constants'
+import {Content, Layout, Text, TextButton} from '@clubwoof-components'
+
+import {DogImage} from './error-boundary.styles'
+
+interface ErrorBoundaryComponentProps {
+  i18n: i18nErrorPage
 }
-interface ErrorBoundaryState {
-  hasError: boolean
-}
 
-export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
-    super(props)
-    this.state = {hasError: false}
-  }
-
-  static getDerivedStateFromError(error: unknown) {
-    console.log('GetDerivedStateFromError:', error)
-
-    return {hasError: true}
-  }
-
-  componentDidMount() {
-    window.addEventListener('unhandledrejection', this.onUnhandledRejection)
-  }
-
-  componentDidCatch(error: unknown, errorInfo: unknown) {
-    console.log('Unexpected error occurred!', error, errorInfo)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('unhandledrejection', this.onUnhandledRejection)
-  }
-
-  onUnhandledRejection = (event: PromiseRejectionEvent) => {
-    event.promise.catch((error) => {
-      this.setState(ErrorBoundary.getDerivedStateFromError(error))
-    })
-  }
-
-  render() {
-    const {hasError} = this.state
-    const {children} = this.props
-    if (hasError) {
-      return <ErrorPage />
-    }
-
-    return children
-  }
+export const ErrorBoundaryComponent: React.FC<ErrorBoundaryComponentProps> = (props) => {
+  const {i18n} = props
+  const heading = i18n.heading
+    ? i18n.heading
+    : 'Ooops.. it looks like something went terribly wrong!'
+  const subHeading = i18n.subHeading
+    ? i18n.subHeading
+    : 'Let&apos;s get you back on the right path.'
+  const goHome = i18n.goHome ? i18n.goHome : 'Go home'
+  return (
+    <Layout backgroundColor={'pink'} showLanguageSelection={false}>
+      <Content>
+        <DogImage>
+          <Image src={'/beagle.png'} alt={'beagle'} fill />
+        </DogImage>
+        <Text element={'h1'} color={'pureWhite'} marginBottom={'space3x'}>
+          {heading}
+        </Text>
+        <Text element={'h2'} color={'pureWhite'} marginBottom={'space3x'}>
+          {subHeading}
+        </Text>
+        <TextButton underline color={'pureWhite'} href={ROUTE_PATHS.LOGIN}>
+          {goHome}
+        </TextButton>
+      </Content>
+    </Layout>
+  )
 }
