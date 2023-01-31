@@ -19,6 +19,15 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
+  overrides: [
+    {
+      files: ['./src/*-stack'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/no-unused-vars': 0,
+      },
+    },
+  ],
   rules: {
     '@typescript-eslint/restrict-template-expressions': 0,
     '@typescript-eslint/ban-ts-comment': 0,

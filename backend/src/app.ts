@@ -3,8 +3,9 @@ import 'source-map-support/register'
 import {App} from 'aws-cdk-lib'
 
 import {StaticSiteStack} from './static-site-stack'
-import {BackendStack} from './backend-stack'
+import {CognitoStack} from './cognito-stack'
 import CONFIG from './config'
+import {ServicesStack} from './services-stack'
 
 const app = new App()
 
@@ -32,7 +33,7 @@ new StaticSiteStack(app, 'clubwoof-website-prod', {
   deploymentEnvironment: 'prod',
 })
 
-new BackendStack(app, 'clubwoof-backend-dev', {
+new CognitoStack(app, 'clubwoof-cognito-dev', {
   stackName: 'clubwoof-backend-dev',
   // env: {
   //   account: process.env.AWS_ACCOUNT_ID,
@@ -46,7 +47,33 @@ new BackendStack(app, 'clubwoof-backend-dev', {
   deploymentEnvironment: 'dev',
 })
 
-new BackendStack(app, 'clubwoof-backend-prod', {
+new CognitoStack(app, 'clubwoof-cognito-prod', {
+  stackName: 'clubwoof-backend-prod',
+  env: {
+    // account: process.env.AWS_ACCOUNT_ID,
+    // region: process.env.AWS_DEFAULT_REGION,
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
+  },
+  tags: {env: 'prod'},
+  deploymentEnvironment: 'prod',
+})
+
+new ServicesStack(app, 'clubwoof-services-dev', {
+  stackName: 'clubwoof-backend-dev',
+  // env: {
+  //   account: process.env.AWS_ACCOUNT_ID,
+  //   region: process.env.AWS_DEFAULT_REGION,
+  // },
+  env: {
+    account: CONFIG.AWS_ACCOUNT_ID,
+    region: CONFIG.AWS_DEFAULT_REGION,
+  },
+  tags: {env: 'dev'},
+  deploymentEnvironment: 'dev',
+})
+
+new ServicesStack(app, 'clubwoof-services-prod', {
   stackName: 'clubwoof-backend-prod',
   env: {
     // account: process.env.AWS_ACCOUNT_ID,

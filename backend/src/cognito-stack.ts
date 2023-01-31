@@ -14,7 +14,7 @@ interface BackendStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
 }
 
-export class BackendStack extends Stack {
+export class CognitoStack extends Stack {
   constructor(scope: Construct, id: string, props: BackendStackProps) {
     super(scope, id, props)
 

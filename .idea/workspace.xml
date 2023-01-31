@@ -2,36 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/frontend/domains/app/home/home.component.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/app/home/home.container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/app/home/home.styles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/app/home/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/domains/app/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/hoc/with-authenticated-redirect/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/hoc/with-authenticated-redirect/with-authenticated-redirect.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/hoc/with-unauthentication-redirect/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/hoc/with-unauthentication-redirect/with-unauthenticated-redirect.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/hoc/with-unauthentication-redirect/with-unauthenticated-redirect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/auth-state.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/app/home/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/api-gateway/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/database/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/handlers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/lambdas/persist-events/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/lambdas/users/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/services-stack.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/utils/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/validators/validators.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/error-boundary/error-boundary.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/error-boundary/error-boundary.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/context/auth/auth.context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/context/auth/auth.context.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/context/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/context/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/complete-forgot-password.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/complete-forgot-password.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-forgot-password/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/forgot-password.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/forgot-password.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/forgot-password/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/register/register.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/register/register.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/resend-registration-link/resend-registration-link.container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/domains/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/hoc/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hoc/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/hoc/with-authenticated-redirect/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/hoc/with-authenticated-redirect/with-authenticated-redirect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test-utils/__mocks__/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/test-utils/__mocks__/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/backend-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/functions/mapping-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/utils/mapping-function.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +82,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src" />
+      <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/frontend/components" />
-      <recent name="$PROJECT_DIR$/.storybook" />
-      <recent name="$PROJECT_DIR$/storybook" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.With unauthenticated redirect">
@@ -229,7 +216,11 @@
       <workItem from="1674747001048" duration="4278000" />
       <workItem from="1674815367269" duration="5028000" />
       <workItem from="1674821039471" duration="32226000" />
-      <workItem from="1675084392957" duration="9636000" />
+      <workItem from="1675084392957" duration="11326000" />
+      <workItem from="1675170091996" duration="6767000" />
+      <workItem from="1675181619001" duration="71000" />
+      <workItem from="1675181697238" duration="1924000" />
+      <workItem from="1675193482865" duration="2211000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -285,7 +276,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/hoc/with-unauthentication-redirect/with-unauthenticated-redirect.tsx</url>
           <line>11</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>

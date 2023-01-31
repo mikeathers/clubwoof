@@ -43,7 +43,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.js",
-    "src/**/*"
+    "src/**/*",
+    "**/*.d.ts"
   ],
   "exclude": ["node_modules", "**/node_modules/*", "cdk.out", "out"]
 }
