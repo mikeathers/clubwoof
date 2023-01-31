@@ -1,7 +1,9 @@
-import {ResendRegistrationLinkComponent} from './resend-registration-link.component'
-import {useSafeAsync} from '@clubwoof-hooks'
 import {Auth} from '@aws-amplify/auth'
+
+import {useSafeAsync} from '@clubwoof-hooks'
 import {withAuthenticatedRedirect} from '@clubwoof-hoc'
+
+import {ResendRegistrationLinkComponent} from './resend-registration-link.component'
 
 interface ResendRegistrationLinkProps {
   i18n: i18nResendRegistrationLinkPage

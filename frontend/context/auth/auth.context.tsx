@@ -36,7 +36,7 @@ export type CognitoUserAttributes = {
 
 const useAuth = (): AuthContextValue => {
   const context = useContext(AuthContext)
-
+  console.log(context?.state)
   if (!context) throw new Error('useAuth must be wrapped in an AuthProvider')
 
   const {state, dispatch} = context

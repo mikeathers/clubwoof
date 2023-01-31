@@ -1,7 +1,8 @@
 import {useAuth} from '@clubwoof-context'
 import {useRouter} from 'next/router'
-import {ComponentPropsWithRef} from 'react'
+import {ComponentPropsWithRef, useEffect} from 'react'
 import {NextComponentType} from 'next'
+import {ROUTE_PATHS} from '@clubwoof-constants'
 
 export function withAuthenticatedRedirect<P>(WrapperComponent: React.FC<P>): {
   (props: ComponentPropsWithRef<NextComponentType> & P): JSX.Element | null
@@ -9,14 +10,16 @@ export function withAuthenticatedRedirect<P>(WrapperComponent: React.FC<P>): {
 } {
   const AnonymousCheck = (props: ComponentPropsWithRef<NextComponentType> & P) => {
     const {
-      state: {isAuthenticated, isAuthenticating},
+      state: {isAuthenticated},
     } = useAuth()
     const router = useRouter()
 
-    if (isAuthenticated) {
-      router.push('/dashboard')
-      return null
-    }
+    useEffect(() => {
+      if (isAuthenticated) {
+        router.push(ROUTE_PATHS.APP_HOME)
+        return
+      }
+    }, [router.isReady])
 
     return <WrapperComponent {...props} />
   }

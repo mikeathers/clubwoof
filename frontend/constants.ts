@@ -30,4 +30,6 @@ export enum ROUTE_PATHS {
   REGISTER = '/auth/register',
   RESEND_REGISTRATION_LINK = '/auth/resend-registration-link',
   FORGOT_PASSWORD = '/auth/forgot-password',
+  APP_HOME = '/app/home',
+  HOME = '/',
 }

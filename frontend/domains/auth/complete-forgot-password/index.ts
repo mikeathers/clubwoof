@@ -1,1 +1,1 @@
-export * from './complete-forgot-password.container'
+export {default as CompleteForgotPassword} from './complete-forgot-password.container'

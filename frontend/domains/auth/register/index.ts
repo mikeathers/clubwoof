@@ -1,1 +1,1 @@
-export * from './register.container'
+export {default as Register} from './register.container'

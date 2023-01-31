@@ -1,10 +1,7 @@
 import React from 'react'
-import Image from 'next/image'
 
 import {ROUTE_PATHS} from '@clubwoof-constants'
 import {Content, Layout, Text, TextButton} from '@clubwoof-components'
-
-import {DogImage} from './error-boundary.styles'
 
 interface ErrorBoundaryComponentProps {
   i18n: i18nErrorPage
@@ -22,9 +19,6 @@ export const ErrorBoundaryComponent: React.FC<ErrorBoundaryComponentProps> = (pr
   return (
     <Layout backgroundColor={'pink'} showLanguageSelection={false}>
       <Content>
-        <DogImage>
-          <Image src={'/beagle.png'} alt={'beagle'} fill />
-        </DogImage>
         <Text element={'h1'} color={'pureWhite'} marginBottom={'space3x'}>
           {heading}
         </Text>

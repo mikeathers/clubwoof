@@ -1,6 +1,7 @@
-import {ForgotPasswordComponent} from './forgot-password.component'
-import {useSafeAsync} from '@clubwoof-hooks'
 import {Auth} from '@aws-amplify/auth'
+import {useSafeAsync} from '@clubwoof-hooks'
+import {withAuthenticatedRedirect} from '@clubwoof-hoc'
+import {ForgotPasswordComponent} from './forgot-password.component'
 
 interface ForgotPasswordProps {
   i18n: i18nForgotPasswordPage
@@ -33,3 +34,4 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = (props) => {
     />
   )
 }
+export default withAuthenticatedRedirect(ForgotPassword)

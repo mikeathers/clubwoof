@@ -6,6 +6,7 @@ import {useAuth} from '@clubwoof-context'
 import {useEffect} from 'react'
 import {ROUTE_PATHS} from '@clubwoof-constants'
 import {logUserIn} from '@clubwoof-utils'
+import {withAuthenticatedRedirect} from '@clubwoof-hoc'
 
 export interface CompleteForgotPasswordProps {
   i18n: i18nCompleteForgotPasswordPage
@@ -65,3 +66,5 @@ export const CompleteForgotPassword: React.FC<CompleteForgotPasswordProps> = (pr
     />
   )
 }
+
+export default withAuthenticatedRedirect(CompleteForgotPassword)

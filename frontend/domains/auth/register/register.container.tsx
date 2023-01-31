@@ -2,6 +2,7 @@ import {Auth} from '@aws-amplify/auth'
 
 import {TEMP_PWD_LOCALSTORAGE_KEY} from '@clubwoof-constants'
 import {useSafeAsync} from '@clubwoof-hooks'
+import {withAuthenticatedRedirect} from '@clubwoof-hoc'
 
 import {RegisterComponent} from './register.component'
 
@@ -44,3 +45,5 @@ export const Register: React.FC<RegisterProps> = (props) => {
     />
   )
 }
+
+export default withAuthenticatedRedirect(Register)
