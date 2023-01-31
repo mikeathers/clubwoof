@@ -97,7 +97,7 @@ export const getRewriteFunction = (props: GetReWriteFunctionProps): IFunction =>
   return new Function(scope, `ViewerResponseFunction-${deploymentEnvironment}`, {
     functionName: `RedirectURIFunction-${deploymentEnvironment}`,
     code: FunctionCode.fromFile({
-      filePath: join(__dirname, '..', '..', 'functions', 'mapping-function.js'),
+      filePath: join(__dirname, '..', '..', 'utils', 'mapping-function.js'),
     }),
     comment: 'adds index.html to requests',
   })

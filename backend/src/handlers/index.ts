@@ -25,7 +25,7 @@ export class Handlers extends Construct {
   }
 
   private createUsersHandler(usersTable: ITable): NodejsFunction {
-    const lambdaName = `Users Lambda Function (${this.deploymentEnvironment})`
+    const lambdaName = `UsersLambdaFunction-${this.deploymentEnvironment}`
 
     const handleProps: NodejsFunctionProps = {
       functionName: lambdaName,
@@ -50,7 +50,7 @@ export class Handlers extends Construct {
   }
 
   private createPersistEventsHandler(eventsTable: ITable): NodejsFunction {
-    const lambdaName = `Persist Events Lambda Function (${this.deploymentEnvironment})`
+    const lambdaName = `PersistEventsLambdaFunction-${this.deploymentEnvironment}`
 
     const handleProps: NodejsFunctionProps = {
       functionName: lambdaName,
