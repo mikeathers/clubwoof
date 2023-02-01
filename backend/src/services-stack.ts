@@ -23,6 +23,7 @@ export class ServicesStack extends Stack {
       url: CONFIG.DOMAIN_NAME,
       hostedZone,
       name: 'WebsiteCertificate',
+      region: 'eu-west-2',
     })
 
     const databases = new Database(this, 'Databases', deploymentEnvironment)
