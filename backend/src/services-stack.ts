@@ -43,6 +43,7 @@ export class ServicesStack extends Stack {
     })
 
     new ARecord(this, 'AliasRecord', {
+      recordName: CONFIG.API_URL,
       zone: hostedZone,
       target: RecordTarget.fromAlias(new ApiGateway(api.apiGateway)),
     })

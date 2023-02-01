@@ -15,9 +15,9 @@ export class Database extends Construct {
   ) {
     super(scope, id)
 
+    this.deploymentEnvironment = deploymentEnvironment
     this.usersTable = this.createUsersTable()
     this.eventsTable = this.createEventsTable()
-    this.deploymentEnvironment = deploymentEnvironment
   }
 
   private createUsersTable(): ITable {
