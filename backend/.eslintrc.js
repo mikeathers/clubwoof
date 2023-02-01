@@ -21,25 +21,17 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['**/*.ts', '**/*.tsx'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: './tsconfig.eslint.json',
-        tsconfigRootDir: './',
-      },
-      rules: {
-        '@typescript-eslint/restrict-template-expressions': 0,
-        '@typescript-eslint/ban-ts-comment': 0,
-      },
-    },
-    {
-      files: ['./src/lambdas/**/*'],
+      files: ['./src/*-stack'],
       rules: {
         '@typescript-eslint/no-explicit-any': 0,
-        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/no-unused-vars': 0,
       },
     },
   ],
+  rules: {
+    '@typescript-eslint/restrict-template-expressions': 0,
+    '@typescript-eslint/ban-ts-comment': 0,
+  },
   globals: {
     page: true,
     browser: true,

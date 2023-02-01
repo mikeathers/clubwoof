@@ -1,7 +1,7 @@
 import {Construct} from 'constructs'
 import {NodejsFunction, NodejsFunctionProps} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {ITable} from 'aws-cdk-lib/aws-dynamodb'
-import {LayerVersion, Runtime} from 'aws-cdk-lib/aws-lambda'
+import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {join} from 'path'
 import {DeploymentEnvironment} from '../types'
 
@@ -9,18 +9,16 @@ interface HandlersProps {
   usersTable: ITable
   eventsTable: ITable
   deploymentEnvironment: DeploymentEnvironment
-  awsSdkLayer: LayerVersion
 }
 
 export class Handlers extends Construct {
   public readonly usersHandler: NodejsFunction
   public readonly persistEventsHandler: NodejsFunction
   private readonly deploymentEnvironment: DeploymentEnvironment
-  private readonly awsSdkLayer: LayerVersion
 
   constructor(scope: Construct, id: string, props: HandlersProps) {
     super(scope, id)
-    this.awsSdkLayer = props.awsSdkLayer
+
     this.deploymentEnvironment = props.deploymentEnvironment
     this.usersHandler = this.createUsersHandler(props.usersTable)
     this.persistEventsHandler = this.createPersistEventsHandler(props.eventsTable)
@@ -39,7 +37,6 @@ export class Handlers extends Construct {
         TABLE_NAME: usersTable.tableName,
       },
       runtime: Runtime.NODEJS_18_X,
-      layers: [this.awsSdkLayer],
     }
 
     const usersFunction = new NodejsFunction(this, lambdaName, {
