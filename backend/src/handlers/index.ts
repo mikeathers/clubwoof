@@ -38,7 +38,7 @@ export class Handlers extends Construct {
         PRIMARY_KEY: 'id',
         TABLE_NAME: usersTable.tableName,
       },
-      runtime: Runtime.NODEJS_18_X,
+      runtime: Runtime.NODEJS_14_X,
       layers: [this.awsSdkLayer],
     }
 
