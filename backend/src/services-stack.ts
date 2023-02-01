@@ -20,7 +20,7 @@ export class ServicesStack extends Stack {
 
     const certificate = createCertificate({
       scope: this,
-      url: CONFIG.DOMAIN_NAME,
+      url: CONFIG.API_URL,
       hostedZone,
       name: 'WebsiteCertificate',
       region: 'eu-west-2',

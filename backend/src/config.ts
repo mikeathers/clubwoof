@@ -10,6 +10,7 @@ interface ConfigProps {
   DOMAIN_NAME: string
   DEV_URL: string
   STORYBOOK_URL: string
+  API_URL: string
 }
 const CONFIG: ConfigProps = {
   STACK_PREFIX: 'clubwoof',
@@ -23,6 +24,7 @@ const CONFIG: ConfigProps = {
   DOMAIN_NAME: 'clubwoof.co.uk',
   DEV_URL: 'dev.clubwoof.co.uk',
   STORYBOOK_URL: 'storybook.clubwoof.co.uk',
+  API_URL: 'api.clubwoof.co.uk',
 }
 
 export default CONFIG

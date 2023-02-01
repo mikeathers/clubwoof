@@ -28,7 +28,7 @@ export class ApiGateway extends Construct {
       handler: usersHandler,
       proxy: false,
       domainName: {
-        domainName: `api.${CONFIG.DOMAIN_NAME}`,
+        domainName: CONFIG.API_URL,
         certificate: this.certificate,
       },
     })
