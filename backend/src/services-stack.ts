@@ -6,6 +6,7 @@ import {Handlers} from './handlers'
 import {ApiGateway} from './api-gateway'
 import {createCertificate, getHostedZone} from './aws'
 import CONFIG from './config'
+import {CnameRecord} from 'aws-cdk-lib/aws-route53'
 
 interface ServicesStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
@@ -26,6 +27,12 @@ export class ServicesStack extends Stack {
       region: 'eu-west-2',
     })
 
+    new CnameRecord(this, 'Api CNAME Record', {
+      recordName: 'ApiGateway',
+      zone: hostedZone,
+      domainName: CONFIG.API_URL,
+    })
+
     const databases = new Database(this, 'Databases', deploymentEnvironment)
 
     const handlers = new Handlers(this, 'Handlers', {
@@ -34,7 +41,7 @@ export class ServicesStack extends Stack {
       deploymentEnvironment,
     })
 
-    const apiGateway = new ApiGateway(this, 'ApiGateway', {
+    new ApiGateway(this, 'ApiGateway', {
       usersHandler: handlers.usersHandler,
       certificate,
       deploymentEnvironment,
