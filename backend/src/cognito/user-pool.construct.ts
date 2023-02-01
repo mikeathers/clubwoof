@@ -6,6 +6,9 @@ import {
   NumberAttribute,
   UserPool,
 } from 'aws-cdk-lib/aws-cognito'
+import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
+import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
+import {CognitoUserPoolsAuthorizer} from 'aws-cdk-lib/aws-apigateway'
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {Construct} from 'constructs'
@@ -13,20 +16,15 @@ import {Duration, RemovalPolicy, Stack} from 'aws-cdk-lib'
 
 import {DeploymentEnvironment} from '../types'
 import CONFIG from '../config'
-import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
-import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
 
 export class UserPoolConstruct {
-  // @ts-ignore
   public userPool: UserPool
-  private readonly scope: Construct
-  // @ts-ignore
-  private customMessagesTrigger: NodejsFunction
-  // @ts-ignore
-  private postConfirmationTrigger: NodejsFunction
-  // @ts-ignore
-  private certificate: ICertificate
+  public authorizer: CognitoUserPoolsAuthorizer
 
+  private readonly scope: Construct
+  private readonly customMessagesTrigger: NodejsFunction
+  private readonly postConfirmationTrigger: NodejsFunction
+  private certificate: ICertificate
   private readonly deploymentEnvironment: DeploymentEnvironment
   private readonly isProduction: boolean
 
@@ -39,27 +37,16 @@ export class UserPoolConstruct {
     this.deploymentEnvironment = deploymentEnvironment
     this.isProduction = this.deploymentEnvironment === 'prod'
     this.certificate = certificate
-    this.createLambdas()
-    this.createUserPool()
+    this.postConfirmationTrigger = this.createPostConfirmationTrigger()
+    this.customMessagesTrigger = this.createCustomMessagesTrigger()
+    this.userPool = this.createUserPool()
+    this.authorizer = this.createAuthorizer()
     this.createPolicyAndAssignToRole()
     this.addSES()
   }
 
-  private createLambdas() {
-    this.customMessagesTrigger = new NodejsFunction(this.scope, 'custom-messages', {
-      runtime: Runtime.NODEJS_16_X,
-      memorySize: 1024,
-      timeout: Duration.seconds(6),
-      handler: 'main',
-      entry: join(__dirname, '..', 'cognito', 'triggers', 'custom-messages', 'index.ts'),
-      bundling: {externalModules: ['aws-sdk']},
-      environment: {
-        FRONTEND_BASE_URL: this.isProduction
-          ? CONFIG.FRONTEND_BASE_URL_PROD
-          : CONFIG.FRONTEND_BASE_URL_DEV,
-      },
-    })
-    this.postConfirmationTrigger = new NodejsFunction(this.scope, 'post-confirmation', {
+  private createPostConfirmationTrigger() {
+    return new NodejsFunction(this.scope, 'post-confirmation', {
       runtime: Runtime.NODEJS_16_X,
       memorySize: 1024,
       timeout: Duration.seconds(6),
@@ -73,6 +60,22 @@ export class UserPoolConstruct {
         'index.ts',
       ),
       bundling: {externalModules: ['aws-sdk']},
+    })
+  }
+
+  private createCustomMessagesTrigger() {
+    return new NodejsFunction(this.scope, 'custom-messages', {
+      runtime: Runtime.NODEJS_16_X,
+      memorySize: 1024,
+      timeout: Duration.seconds(6),
+      handler: 'main',
+      entry: join(__dirname, '..', 'cognito', 'triggers', 'custom-messages', 'index.ts'),
+      bundling: {externalModules: ['aws-sdk']},
+      environment: {
+        FRONTEND_BASE_URL: this.isProduction
+          ? CONFIG.FRONTEND_BASE_URL_PROD
+          : CONFIG.FRONTEND_BASE_URL_DEV,
+      },
     })
   }
 
@@ -101,7 +104,7 @@ export class UserPoolConstruct {
   }
 
   private createUserPool() {
-    this.userPool = new UserPool(this.scope, 'clubwoof-user-pool', {
+    return new UserPool(this.scope, 'clubwoof-user-pool', {
       userPoolName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
       selfSignUpEnabled: true,
       signInAliases: {
@@ -137,6 +140,14 @@ export class UserPoolConstruct {
         customMessage: this.customMessagesTrigger,
         postConfirmation: this.postConfirmationTrigger,
       },
+    })
+  }
+
+  private createAuthorizer() {
+    return new CognitoUserPoolsAuthorizer(this.scope, 'UserPoolAuthorizer', {
+      cognitoUserPools: [this.userPool],
+      authorizerName: 'UserPoolAuthorizer',
+      identitySource: 'method.request.header.Authorization',
     })
   }
 }

@@ -35,7 +35,6 @@
     "baseUrl": "./src",
     "rootDir": "../",
     "paths": {
-      "/opt/nodejs/aws-sdk": ["./layers/aws-sdk/nodejs"],
       "@clubwoof-styles": [
         "../../frontend/styles"
       ]

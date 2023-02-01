@@ -1,8 +1,6 @@
-/* eslint-disable */
-
 import {v4 as uuidv4} from 'uuid'
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda'
-import {DynamoDB} from '/opt/nodejs/aws-sdk'
+import {DynamoDB} from 'aws-sdk'
 
 import {CreateUserRequest} from '../../types'
 import {validateCreateUserRequest} from '../../validators/validators'

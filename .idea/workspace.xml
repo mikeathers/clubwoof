@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/cognito-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito/user-pool.construct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/handlers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/handlers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/users/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/lambdas/users/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/layers/aws-sdk/nodejs/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/layers/aws-sdk/nodejs/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/layers/aws-sdk/nodejs/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

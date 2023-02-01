@@ -9,12 +9,15 @@ import {
 } from './cognito'
 import {createCertificate, getHostedZone} from './aws'
 import CONFIG from './config'
+import {CognitoUserPoolsAuthorizer} from 'aws-cdk-lib/aws-apigateway'
 
 interface BackendStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
 }
 
 export class CognitoStack extends Stack {
+  public authorizer: CognitoUserPoolsAuthorizer
+
   constructor(scope: Construct, id: string, props: BackendStackProps) {
     super(scope, id, props)
 
@@ -27,16 +30,19 @@ export class CognitoStack extends Stack {
       name: 'WebsiteCertificate',
     })
 
-    const {userPool} = new UserPoolConstruct(
+    const {userPool, authorizer} = new UserPoolConstruct(
       this,
       props.deploymentEnvironment,
       certificate,
     )
+    this.authorizer = authorizer
+
     const {userPoolClient} = new UserPoolClientConstruct(
       this,
       userPool,
       props.deploymentEnvironment,
     )
+
     const {identityPool} = new IdentityPoolConstruct(
       this,
       userPool,
