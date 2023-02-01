@@ -8,6 +8,7 @@ import {createCertificate, getHostedZone} from './aws'
 import CONFIG from './config'
 import {ARecord, RecordTarget} from 'aws-cdk-lib/aws-route53'
 import {ApiGateway} from 'aws-cdk-lib/aws-route53-targets'
+import {Code, LayerVersion, Runtime} from 'aws-cdk-lib/aws-lambda'
 
 interface ServicesStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
@@ -30,10 +31,18 @@ export class ServicesStack extends Stack {
 
     const databases = new Database(this, 'Databases', deploymentEnvironment)
 
+    // 👇 3rd party library layer
+    const awsSdkLayer = new LayerVersion(this, 'aws-sdk-layer', {
+      compatibleRuntimes: [Runtime.NODEJS_14_X, Runtime.NODEJS_16_X, Runtime.NODEJS_18_X],
+      code: Code.fromAsset('src/layers/aws-sdk'),
+      description: 'Uses a 3rd party library called aws-sdk',
+    })
+
     const handlers = new Handlers(this, 'Handlers', {
       usersTable: databases.usersTable,
       eventsTable: databases.eventsTable,
       deploymentEnvironment,
+      awsSdkLayer,
     })
 
     const api = new Api(this, 'ApiGateway', {

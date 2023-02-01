@@ -1,9 +1,12 @@
-import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda'
-import {addCorsHeader, errorHasMessage} from '../../utils'
-import {DynamoDB} from 'aws-sdk'
+/* eslint-disable */
+
 import {v4 as uuidv4} from 'uuid'
+import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda'
+import {DynamoDB} from '/opt/nodejs/aws-sdk'
+
 import {CreateUserRequest} from '../../types'
 import {validateCreateUserRequest} from '../../validators/validators'
+import {addCorsHeader, errorHasMessage} from '../../utils'
 
 const dbClient = new DynamoDB.DocumentClient()
 
