@@ -3,10 +3,11 @@ import {DeploymentEnvironment} from './types'
 import {Construct} from 'constructs'
 import {Database} from './database'
 import {Handlers} from './handlers'
-import {ApiGateway} from './api-gateway'
+import {Api} from './api-gateway'
 import {createCertificate, getHostedZone} from './aws'
 import CONFIG from './config'
-import {CnameRecord} from 'aws-cdk-lib/aws-route53'
+import {ARecord, RecordTarget} from 'aws-cdk-lib/aws-route53'
+import {ApiGateway} from 'aws-cdk-lib/aws-route53-targets'
 
 interface ServicesStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
@@ -27,12 +28,6 @@ export class ServicesStack extends Stack {
       region: 'eu-west-2',
     })
 
-    new CnameRecord(this, 'Api CNAME Record', {
-      recordName: 'ApiGateway',
-      zone: hostedZone,
-      domainName: CONFIG.API_URL,
-    })
-
     const databases = new Database(this, 'Databases', deploymentEnvironment)
 
     const handlers = new Handlers(this, 'Handlers', {
@@ -41,10 +36,15 @@ export class ServicesStack extends Stack {
       deploymentEnvironment,
     })
 
-    new ApiGateway(this, 'ApiGateway', {
+    const api = new Api(this, 'ApiGateway', {
       usersHandler: handlers.usersHandler,
       certificate,
       deploymentEnvironment,
+    })
+
+    new ARecord(this, 'AliasRecord', {
+      zone: hostedZone,
+      target: RecordTarget.fromAlias(new ApiGateway(api.apiGateway)),
     })
   }
 }

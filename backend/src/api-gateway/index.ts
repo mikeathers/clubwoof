@@ -10,18 +10,19 @@ interface ApiGatewayProps {
   certificate: ICertificate
   deploymentEnvironment: DeploymentEnvironment
 }
-export class ApiGateway extends Construct {
+export class Api extends Construct {
   private readonly certificate: ICertificate
   private readonly deploymentEnvironment: DeploymentEnvironment
+  public apiGateway: LambdaRestApi
 
   constructor(scope: Construct, id: string, props: ApiGatewayProps) {
     super(scope, id)
     this.deploymentEnvironment = props.deploymentEnvironment
     this.certificate = props.certificate
-    this.createUsersApi(props.usersHandler)
+    this.apiGateway = this.createUsersApi(props.usersHandler)
   }
 
-  private createUsersApi(usersHandler: IFunction) {
+  private createUsersApi(usersHandler: IFunction): LambdaRestApi {
     const apiName = `Users Api (${this.deploymentEnvironment})`
     const api = new LambdaRestApi(this, apiName, {
       restApiName: apiName,
@@ -41,5 +42,6 @@ export class ApiGateway extends Construct {
     singleUser.addMethod('GET')
     singleUser.addMethod('DELETE')
     singleUser.addMethod('PUT')
+    return api
   }
 }

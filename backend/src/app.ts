@@ -34,7 +34,7 @@ new StaticSiteStack(app, 'clubwoof-website-prod', {
 })
 
 new CognitoStack(app, 'clubwoof-cognito-dev', {
-  stackName: 'clubwoof-backend-dev',
+  stackName: 'clubwoof-cognito-dev',
   // env: {
   //   account: process.env.AWS_ACCOUNT_ID,
   //   region: process.env.AWS_DEFAULT_REGION,
@@ -48,7 +48,7 @@ new CognitoStack(app, 'clubwoof-cognito-dev', {
 })
 
 new CognitoStack(app, 'clubwoof-cognito-prod', {
-  stackName: 'clubwoof-backend-prod',
+  stackName: 'clubwoof-cognito-prod',
   env: {
     // account: process.env.AWS_ACCOUNT_ID,
     // region: process.env.AWS_DEFAULT_REGION,
@@ -60,7 +60,7 @@ new CognitoStack(app, 'clubwoof-cognito-prod', {
 })
 
 new ServicesStack(app, 'clubwoof-services-dev', {
-  stackName: 'clubwoof-backend-dev',
+  stackName: 'clubwoof-services-dev',
   // env: {
   //   account: process.env.AWS_ACCOUNT_ID,
   //   region: process.env.AWS_DEFAULT_REGION,
@@ -74,7 +74,7 @@ new ServicesStack(app, 'clubwoof-services-dev', {
 })
 
 new ServicesStack(app, 'clubwoof-services-prod', {
-  stackName: 'clubwoof-backend-prod',
+  stackName: 'clubwoof-services-prod',
   env: {
     // account: process.env.AWS_ACCOUNT_ID,
     // region: process.env.AWS_DEFAULT_REGION,
