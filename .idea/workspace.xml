@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/backend/src/layers/aws-sdk/nodejs/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/handlers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/handlers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/users/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/lambdas/users/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/scripts/build-frontend.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +265,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/.eslintrc.js</url>
           <line>93</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
