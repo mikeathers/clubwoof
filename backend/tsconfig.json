@@ -35,6 +35,7 @@
     "baseUrl": "./src",
     "rootDir": "../",
     "paths": {
+      "/opt/nodejs/aws-sdk": ["./layers/aws-sdk/nodejs"],
       "@clubwoof-styles": [
         "../../frontend/styles"
       ]
@@ -46,5 +47,5 @@
     "src/**/*",
     "**/*.d.ts"
   ],
-  "exclude": ["node_modules", "**/node_modules/*", "cdk.out", "out"]
+  "exclude": ["node_modules", "**/node_modules/*", "cdk.out", "out"],
 }
