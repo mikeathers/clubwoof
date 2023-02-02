@@ -45,7 +45,7 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
     restApiId: api.restApiId,
     name: 'User Api',
     type: 'COGNITO_USER_POOLS',
-    identitySource: 'method.request.header.Authorization',
+    identitySource: 'Authorization',
     providerArns: [userPool.userPoolArn],
   })
 
