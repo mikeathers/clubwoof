@@ -14,8 +14,8 @@ import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {Construct} from 'constructs'
 import {Duration, RemovalPolicy, Stack} from 'aws-cdk-lib'
 
-import {DeploymentEnvironment} from '../types'
-import CONFIG from '../config'
+import {DeploymentEnvironment} from '../../types'
+import CONFIG from '../../config'
 
 export class UserPoolConstruct {
   public userPool: UserPool
@@ -51,14 +51,7 @@ export class UserPoolConstruct {
       memorySize: 1024,
       timeout: Duration.seconds(6),
       handler: 'main',
-      entry: join(
-        __dirname,
-        '..',
-        'cognito',
-        'triggers',
-        'post-confirmation',
-        'index.ts',
-      ),
+      entry: join(__dirname, './triggers/post-confirmation/index.ts'),
       bundling: {externalModules: ['aws-sdk']},
     })
   }
@@ -69,7 +62,7 @@ export class UserPoolConstruct {
       memorySize: 1024,
       timeout: Duration.seconds(6),
       handler: 'main',
-      entry: join(__dirname, '..', 'cognito', 'triggers', 'custom-messages', 'index.ts'),
+      entry: join(__dirname, './triggers/custom-messages/index.ts'),
       bundling: {externalModules: ['aws-sdk']},
       environment: {
         FRONTEND_BASE_URL: this.isProduction

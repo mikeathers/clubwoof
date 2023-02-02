@@ -1,7 +1,8 @@
 import {Construct} from 'constructs'
-import {AttributeType, BillingMode, ITable, Table} from 'aws-cdk-lib/aws-dynamodb'
-import {RemovalPolicy} from 'aws-cdk-lib'
+import {ITable} from 'aws-cdk-lib/aws-dynamodb'
 import {DeploymentEnvironment} from '../types'
+import {createUsersTable} from './users'
+import {createEventsTable} from './events'
 
 export class Database extends Construct {
   public readonly usersTable: ITable
@@ -16,36 +17,7 @@ export class Database extends Construct {
     super(scope, id)
 
     this.deploymentEnvironment = deploymentEnvironment
-    this.usersTable = this.createUsersTable()
-    this.eventsTable = this.createEventsTable()
-  }
-
-  private createUsersTable(): ITable {
-    const tableName = `Users-${this.deploymentEnvironment}`
-    const usersTable = new Table(this, tableName, {
-      partitionKey: {
-        name: 'id',
-        type: AttributeType.STRING,
-      },
-      tableName: tableName,
-      removalPolicy: RemovalPolicy.DESTROY,
-      billingMode: BillingMode.PAY_PER_REQUEST,
-    })
-    return usersTable
-  }
-
-  private createEventsTable(): ITable {
-    const tableName = `Events-${this.deploymentEnvironment}`
-
-    const eventsTable = new Table(this, tableName, {
-      partitionKey: {
-        name: 'id',
-        type: AttributeType.STRING,
-      },
-      tableName: tableName,
-      removalPolicy: RemovalPolicy.DESTROY,
-      billingMode: BillingMode.PAY_PER_REQUEST,
-    })
-    return eventsTable
+    this.usersTable = createUsersTable({scope: this, deploymentEnvironment})
+    this.eventsTable = createEventsTable({scope: this, deploymentEnvironment})
   }
 }

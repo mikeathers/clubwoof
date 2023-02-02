@@ -1,6 +1,6 @@
-import CustomMessage, {CustomMessageReturnValue} from './custom-message'
 import _ from 'lodash'
 import {colors} from '@clubwoof-styles'
+import CustomMessage, {CustomMessageReturnValue} from './custom-message'
 
 export const completeSignup = (
   props: CustomMessage,

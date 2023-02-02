@@ -6,8 +6,8 @@ import {
   UserPoolClientIdentityProvider,
 } from 'aws-cdk-lib/aws-cognito'
 
-import {DeploymentEnvironment} from '../types'
-import CONFIG from '../config'
+import {DeploymentEnvironment} from '../../types'
+import CONFIG from '../../config'
 
 export class UserPoolClientConstruct {
   // @ts-ignore
