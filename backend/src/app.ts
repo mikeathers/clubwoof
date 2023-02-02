@@ -29,7 +29,7 @@ new StaticSiteStack(app, 'clubwoof-website-prod', {
   deploymentEnvironment: 'prod',
 })
 
-const {authorizer: devAuthorizer} = new CognitoStack(app, 'clubwoof-cognito-dev', {
+const {userPool: devUserPool} = new CognitoStack(app, 'clubwoof-cognito-dev', {
   stackName: 'clubwoof-cognito-dev',
   env: {
     account: process.env.AWS_ACCOUNT_ID || CONFIG.AWS_ACCOUNT_ID,
@@ -39,7 +39,7 @@ const {authorizer: devAuthorizer} = new CognitoStack(app, 'clubwoof-cognito-dev'
   deploymentEnvironment: 'dev',
 })
 
-const {authorizer: prodAuthorizer} = new CognitoStack(app, 'clubwoof-cognito-prod', {
+const {userPool: prodUserPool} = new CognitoStack(app, 'clubwoof-cognito-prod', {
   stackName: 'clubwoof-cognito-prod',
   env: {
     account: CONFIG.AWS_ACCOUNT_ID,
@@ -57,7 +57,7 @@ new ServicesStack(app, 'clubwoof-services-dev', {
   },
   tags: {env: 'dev'},
   deploymentEnvironment: 'dev',
-  authorizer: devAuthorizer,
+  userPool: devUserPool,
 })
 
 new ServicesStack(app, 'clubwoof-services-prod', {
@@ -68,5 +68,5 @@ new ServicesStack(app, 'clubwoof-services-prod', {
   },
   tags: {env: 'prod'},
   deploymentEnvironment: 'prod',
-  authorizer: prodAuthorizer,
+  userPool: prodUserPool,
 })

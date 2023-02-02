@@ -8,7 +8,6 @@ import {
 } from 'aws-cdk-lib/aws-cognito'
 import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
 import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
-import {CognitoUserPoolsAuthorizer} from 'aws-cdk-lib/aws-apigateway'
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {Construct} from 'constructs'
@@ -19,8 +18,6 @@ import CONFIG from '../../config'
 
 export class UserPoolConstruct {
   public userPool: UserPool
-  public authorizer: CognitoUserPoolsAuthorizer
-
   private readonly scope: Construct
   private readonly customMessagesTrigger: NodejsFunction
   private readonly postConfirmationTrigger: NodejsFunction
@@ -40,7 +37,6 @@ export class UserPoolConstruct {
     this.postConfirmationTrigger = this.createPostConfirmationTrigger()
     this.customMessagesTrigger = this.createCustomMessagesTrigger()
     this.userPool = this.createUserPool()
-    this.authorizer = this.createAuthorizer()
     this.createPolicyAndAssignToRole()
     this.addSES()
   }
@@ -133,14 +129,6 @@ export class UserPoolConstruct {
         customMessage: this.customMessagesTrigger,
         postConfirmation: this.postConfirmationTrigger,
       },
-    })
-  }
-
-  private createAuthorizer() {
-    return new CognitoUserPoolsAuthorizer(this.scope, 'UserPoolAuthorizer', {
-      cognitoUserPools: [this.userPool],
-      authorizerName: 'UserPoolAuthorizer',
-      identitySource: 'method.request.header.Authorization',
     })
   }
 }

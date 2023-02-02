@@ -1,18 +1,19 @@
+import {ARecord, RecordTarget} from 'aws-cdk-lib/aws-route53'
+import {ApiGateway} from 'aws-cdk-lib/aws-route53-targets'
+import {UserPool} from 'aws-cdk-lib/aws-cognito'
 import {Stack, StackProps} from 'aws-cdk-lib'
-import {DeploymentEnvironment} from './types'
 import {Construct} from 'constructs'
+
+import {DeploymentEnvironment} from './types'
 import {Database} from './database'
 import {Handlers} from './handlers'
 import {Api} from './api-gateway'
 import {createCertificate, getHostedZone} from './aws'
 import CONFIG from './config'
-import {ARecord, RecordTarget} from 'aws-cdk-lib/aws-route53'
-import {ApiGateway} from 'aws-cdk-lib/aws-route53-targets'
-import {CognitoUserPoolsAuthorizer} from 'aws-cdk-lib/aws-apigateway'
 
 interface ServicesStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
-  authorizer: CognitoUserPoolsAuthorizer
+  userPool: UserPool
 }
 
 export class ServicesStack extends Stack {
@@ -43,7 +44,7 @@ export class ServicesStack extends Stack {
       certificate,
       deploymentEnvironment,
       usersLambdaIntegration,
-      authorizer: props.authorizer,
+      userPool: props.userPool,
     })
 
     new ARecord(this, 'ApiGatewayAliasRecord', {
