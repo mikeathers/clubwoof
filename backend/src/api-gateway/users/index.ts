@@ -3,15 +3,19 @@ import {
   AuthorizationType,
   CognitoUserPoolsAuthorizer,
   Cors,
+  Deployment,
   LambdaIntegration,
   LambdaRestApi,
   MethodOptions,
   ResourceOptions,
+  Stage,
 } from 'aws-cdk-lib/aws-apigateway'
+import CONFIG from '../../config'
 import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
 import {DeploymentEnvironment} from '../../types'
 import {Construct} from 'constructs'
 import {UserPool} from 'aws-cdk-lib/aws-cognito'
+import {ServicePrincipal} from 'aws-cdk-lib/aws-iam'
 
 interface CreateUsersProps {
   scope: Construct
@@ -23,14 +27,40 @@ interface CreateUsersProps {
 }
 
 export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
-  const {scope, usersHandler, usersLambdaIntegration, deploymentEnvironment, userPool} =
-    props
+  const {
+    scope,
+    usersHandler,
+    usersLambdaIntegration,
+    certificate,
+    deploymentEnvironment,
+    userPool,
+  } = props
+
   const apiName = `Users Api (${deploymentEnvironment})`
+
   const api = new LambdaRestApi(scope, apiName, {
+    deploy: false,
     restApiName: apiName,
     handler: usersHandler,
     proxy: false,
+    domainName: {
+      domainName: CONFIG.API_URL,
+      certificate,
+    },
   })
+
+  usersHandler.grantInvoke(new ServicePrincipal('apigateway.amazonaws.com'))
+
+  const deployment = new Deployment(scope, 'UserApiDeployment', {
+    api,
+  })
+
+  const stage = new Stage(scope, 'UserApiStage', {
+    deployment,
+    stageName: deploymentEnvironment,
+  })
+
+  api.deploymentStage = stage
 
   const authorizer = new CognitoUserPoolsAuthorizer(scope, 'UsersAPIAuthorizer', {
     cognitoUserPools: [userPool],
