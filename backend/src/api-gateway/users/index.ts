@@ -19,37 +19,30 @@ import {ServicePrincipal} from 'aws-cdk-lib/aws-iam'
 
 interface CreateUsersProps {
   scope: Construct
-  usersHandler: IFunction
-  usersLambdaIntegration: LambdaIntegration
+  usersLambdaV1: IFunction
+  usersLambdaIntegrationV1: LambdaIntegration
   certificate: ICertificate
   deploymentEnvironment: DeploymentEnvironment
   userPool: UserPool
 }
 
 export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
-  const {
-    scope,
-    usersHandler,
-    usersLambdaIntegration,
-    certificate,
-    deploymentEnvironment,
-    userPool,
-  } = props
+  const {scope, usersLambdaV1, certificate, deploymentEnvironment, userPool} = props
 
   const apiName = `Users Api (${deploymentEnvironment}) Version 1`
 
   const api = new LambdaRestApi(scope, apiName, {
     deploy: false,
     restApiName: apiName,
-    handler: usersHandler,
+    handler: usersLambdaV1,
     proxy: false,
     domainName: {
-      domainName: `${CONFIG.API_URL}/v1`,
+      domainName: `${CONFIG.API_URL}`,
       certificate,
     },
   })
 
-  usersHandler.grantInvoke(new ServicePrincipal('apigateway.amazonaws.com'))
+  usersLambdaV1.grantInvoke(new ServicePrincipal('apigateway.amazonaws.com'))
 
   const deployment = new Deployment(scope, 'UserApiDeployment', {
     api,
@@ -84,14 +77,14 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
     },
   }
 
-  const users = api.root.addResource('users', optionsWithCors)
-  users.addMethod('GET', usersLambdaIntegration, methodOptions)
-  users.addMethod('POST', usersLambdaIntegration, methodOptions)
+  const users = api.root.addResource('v1').addResource('users', optionsWithCors)
+  users.addMethod('GET', new LambdaIntegration(usersLambdaV1), methodOptions)
+  users.addMethod('POST', new LambdaIntegration(usersLambdaV1), methodOptions)
 
-  const singleUser = api.root.addResource('{id}')
-  singleUser.addMethod('GET', usersLambdaIntegration, methodOptions)
-  singleUser.addMethod('DELETE', usersLambdaIntegration, methodOptions)
-  singleUser.addMethod('PUT', usersLambdaIntegration, methodOptions)
+  const singleUser = users.addResource('{id}')
+  singleUser.addMethod('GET', new LambdaIntegration(usersLambdaV1), methodOptions)
+  singleUser.addMethod('DELETE', new LambdaIntegration(usersLambdaV1), methodOptions)
+  singleUser.addMethod('PUT', new LambdaIntegration(usersLambdaV1), methodOptions)
 
   return api
 }

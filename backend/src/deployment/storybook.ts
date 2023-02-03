@@ -20,15 +20,15 @@ interface StorybookDeploymentProps {
 
 export const storybookDeployment = (props: StorybookDeploymentProps): void => {
   const {scope, hostedZone, responseHeadersPolicy} = props
-  const deploymentEnvironment = 'dev'
+  const deploymentEnvironment = 'Dev'
   const url = CONFIG.STORYBOOK_URL
 
-  new CfnOutput(scope, 'storybookUrl', {
+  new CfnOutput(scope, 'StorybookUrl', {
     value: url,
   })
 
   const bucket = createBucket({
-    bucketName: `${CONFIG.STACK_PREFIX}-storybook-bucket`,
+    bucketName: `${CONFIG.STACK_PREFIX}StorybookBucket`,
     scope,
     deploymentEnvironment,
   })
@@ -38,13 +38,13 @@ export const storybookDeployment = (props: StorybookDeploymentProps): void => {
     bucket,
     filePath: './storybook-build',
     deploymentEnvironment,
-    deploymentName: `${CONFIG.STACK_PREFIX}-storybook-bucket-deployment`,
+    deploymentName: `${CONFIG.STACK_PREFIX}StorybookBucketDeployment`,
   })
 
   const accessIdentity = handleAccessIdentity({
     scope,
     bucket,
-    name: `${CONFIG.STACK_PREFIX}-storybook-cloud-front-origin-access-identity`,
+    name: `${CONFIG.STACK_PREFIX}StorybookCloudFrontOriginAccessIdentity`,
   })
 
   const certificate = createCertificate({
@@ -62,7 +62,7 @@ export const storybookDeployment = (props: StorybookDeploymentProps): void => {
     accessIdentity,
     responseHeadersPolicy,
     deploymentEnvironment,
-    distributionName: `${CONFIG.STACK_PREFIX}-storybook-cloudfront-distribution`,
+    distributionName: `${CONFIG.STACK_PREFIX}StorybookCloudfrontDistribution`,
   })
 
   createARecordForDistribution({

@@ -1,4 +1,4 @@
-export type DeploymentEnvironment = 'dev' | 'prod'
+export type DeploymentEnvironment = 'Dev' | 'Prod'
 
 export type CreateUserRequest = {
   id: string

@@ -10,7 +10,6 @@ import {DeploymentEnvironment} from '../../types'
 import CONFIG from '../../config'
 
 export class UserPoolClientConstruct {
-  // @ts-ignore
   public userPoolClient: UserPoolClient
   private readonly scope: Construct
   private readonly userPool: UserPool
@@ -24,7 +23,7 @@ export class UserPoolClientConstruct {
     this.scope = scope
     this.userPool = userPool
     this.deploymentEnvironment = deploymentEnvironment
-    this.createUserPoolClient()
+    this.userPoolClient = this.createUserPoolClient()
   }
 
   private createUserPoolClient() {
@@ -59,8 +58,8 @@ export class UserPoolClientConstruct {
       })
       .withCustomAttributes(...['numberOfDogs'])
 
-    this.userPoolClient = new UserPoolClient(this.scope, 'clubwoof-user-pool-client', {
-      userPoolClientName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
+    return new UserPoolClient(this.scope, `${CONFIG.STACK_PREFIX}UserPoolClient`, {
+      userPoolClientName: `${CONFIG.STACK_PREFIX}${this.deploymentEnvironment}`,
       userPool: this.userPool,
       authFlows: {
         adminUserPassword: true,

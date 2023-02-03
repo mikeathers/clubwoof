@@ -26,8 +26,10 @@ export interface CreateBucketDeploymentProps {
 export const createBucket = (props: CreateBucketProps): IBucket => {
   const {scope, bucketName, deploymentEnvironment} = props
 
+  const parsedBucketName = `${bucketName}-${deploymentEnvironment}`.toLowerCase()
+
   return new Bucket(scope, `${bucketName}-${deploymentEnvironment}`, {
-    bucketName: `${bucketName}-${deploymentEnvironment}`,
+    bucketName: parsedBucketName,
     publicReadAccess: false,
     autoDeleteObjects: true,
     removalPolicy: RemovalPolicy.DESTROY,

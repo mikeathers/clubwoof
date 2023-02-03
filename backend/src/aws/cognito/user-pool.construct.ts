@@ -32,7 +32,7 @@ export class UserPoolConstruct {
   ) {
     this.scope = scope
     this.deploymentEnvironment = deploymentEnvironment
-    this.isProduction = this.deploymentEnvironment === 'prod'
+    this.isProduction = this.deploymentEnvironment === 'Prod'
     this.certificate = certificate
     this.postConfirmationTrigger = this.createPostConfirmationTrigger()
     this.customMessagesTrigger = this.createCustomMessagesTrigger()
@@ -42,7 +42,7 @@ export class UserPoolConstruct {
   }
 
   private createPostConfirmationTrigger() {
-    return new NodejsFunction(this.scope, 'post-confirmation', {
+    return new NodejsFunction(this.scope, 'PostConfirmationTrigger', {
       runtime: Runtime.NODEJS_16_X,
       memorySize: 1024,
       timeout: Duration.seconds(6),
@@ -53,7 +53,7 @@ export class UserPoolConstruct {
   }
 
   private createCustomMessagesTrigger() {
-    return new NodejsFunction(this.scope, 'custom-messages', {
+    return new NodejsFunction(this.scope, 'CustomMessagesTrigger', {
       runtime: Runtime.NODEJS_16_X,
       memorySize: 1024,
       timeout: Duration.seconds(6),
@@ -75,7 +75,7 @@ export class UserPoolConstruct {
     })
 
     this.postConfirmationTrigger.role?.attachInlinePolicy(
-      new Policy(this.scope, 'post-confirm-trigger-policy', {
+      new Policy(this.scope, 'PostConfirmTriggerPolicy', {
         statements: [adminAddUserToGroupPolicyStatement],
       }),
     )
@@ -93,8 +93,8 @@ export class UserPoolConstruct {
   }
 
   private createUserPool() {
-    return new UserPool(this.scope, 'clubwoof-user-pool', {
-      userPoolName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
+    return new UserPool(this.scope, 'ClubwoofUserPool', {
+      userPoolName: `${CONFIG.STACK_PREFIX}${this.deploymentEnvironment}`,
       selfSignUpEnabled: true,
       signInAliases: {
         email: true,

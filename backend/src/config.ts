@@ -13,7 +13,7 @@ interface ConfigProps {
   API_URL: string
 }
 const CONFIG: ConfigProps = {
-  STACK_PREFIX: 'clubwoof',
+  STACK_PREFIX: 'Clubwoof',
   DEPLOY_ENVIRONMENT: process.env.DEPLOY_ENVIRONMENT || 'dev',
   DEPLOY_REGION: process.env.CDK_DEFAULT_REGION || 'eu-west-2',
   FRONTEND_BASE_URL_DEV: 'https://dev.clubwoof.co.uk',

@@ -6,7 +6,7 @@ import {Construct} from 'constructs'
 
 import {DeploymentEnvironment} from './types'
 import {Database} from './database'
-import {Handlers} from './handlers'
+import {Lambdas} from './lambdas'
 import {Api} from './api-gateway'
 import {createCertificate, getHostedZone} from './aws'
 import CONFIG from './config'
@@ -33,17 +33,17 @@ export class ServicesStack extends Stack {
 
     const databases = new Database(this, 'Databases', deploymentEnvironment)
 
-    const {usersHandler, usersLambdaIntegration} = new Handlers(this, 'Handlers', {
+    const {usersLambdaV1, usersLambdaIntegrationV1} = new Lambdas(this, 'Handlers', {
       usersTable: databases.usersTable,
       eventsTable: databases.eventsTable,
       deploymentEnvironment,
     })
 
     const api = new Api(this, 'ApiGateway', {
-      usersHandler,
+      usersLambdaV1,
       certificate,
       deploymentEnvironment,
-      usersLambdaIntegration,
+      usersLambdaIntegrationV1,
       userPool: props.userPool,
     })
 

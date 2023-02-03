@@ -23,7 +23,7 @@ interface WebsiteDeploymentProps {
 
 export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
   const {scope, deploymentEnvironment, hostedZone, responseHeadersPolicy} = props
-  const isProduction = deploymentEnvironment === 'prod'
+  const isProduction = deploymentEnvironment === 'Prod'
   const url = isProduction ? CONFIG.DOMAIN_NAME : CONFIG.DEV_URL
 
   new CfnOutput(scope, 'urlBase', {
@@ -31,7 +31,7 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
   })
 
   const bucket = createBucket({
-    bucketName: `${CONFIG.STACK_PREFIX}-website-bucket`,
+    bucketName: `${CONFIG.STACK_PREFIX}WebsiteBucket`,
     scope,
     deploymentEnvironment,
   })
@@ -41,13 +41,13 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
     bucket,
     filePath: isProduction ? './frontend-build/prod' : './frontend-build/dev',
     deploymentEnvironment,
-    deploymentName: `${CONFIG.STACK_PREFIX}-website-bucket-deployment`,
+    deploymentName: `${CONFIG.STACK_PREFIX}WebsiteBucketDeployment`,
   })
 
   const accessIdentity = handleAccessIdentity({
     scope,
     bucket,
-    name: `${CONFIG.STACK_PREFIX}-website-cloud-front-origin-access-identity`,
+    name: `${CONFIG.STACK_PREFIX}WebsiteCloudFrontOriginAccessIdentity`,
   })
 
   const certificate = createCertificate({
@@ -71,7 +71,7 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
     responseHeadersPolicy,
     functionAssociation: rewriteFunction,
     deploymentEnvironment,
-    distributionName: `${CONFIG.STACK_PREFIX}-website-cloudfront-distribution`,
+    distributionName: `${CONFIG.STACK_PREFIX}WebsiteCloudfrontDistribution`,
   })
 
   createARecordForDistribution({

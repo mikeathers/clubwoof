@@ -8,11 +8,11 @@ import {DeploymentEnvironment} from '../types'
 import {createUsersApi} from './users'
 
 interface ApiGatewayProps {
-  usersHandler: IFunction
+  usersLambdaV1: IFunction
+  usersLambdaIntegrationV1: LambdaIntegration
   certificate: ICertificate
-  deploymentEnvironment: DeploymentEnvironment
-  usersLambdaIntegration: LambdaIntegration
   userPool: UserPool
+  deploymentEnvironment: DeploymentEnvironment
 }
 
 export class Api extends Construct {
@@ -21,8 +21,8 @@ export class Api extends Construct {
   constructor(scope: Construct, id: string, props: ApiGatewayProps) {
     super(scope, id)
     const {
-      usersHandler,
-      usersLambdaIntegration,
+      usersLambdaV1,
+      usersLambdaIntegrationV1,
       userPool,
       certificate,
       deploymentEnvironment,
@@ -30,8 +30,8 @@ export class Api extends Construct {
 
     this.apiGateway = createUsersApi({
       scope: this,
-      usersHandler,
-      usersLambdaIntegration,
+      usersLambdaV1,
+      usersLambdaIntegrationV1,
       userPool,
       deploymentEnvironment,
       certificate,

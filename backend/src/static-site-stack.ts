@@ -19,7 +19,7 @@ export class StaticSiteStack extends Stack {
 
     const responseHeadersPolicy = getSecurityHeader(this)
 
-    if (deploymentEnvironment === 'dev') {
+    if (deploymentEnvironment === 'Dev') {
       storybookDeployment({
         scope: this,
         hostedZone,

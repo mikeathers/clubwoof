@@ -12,18 +12,12 @@ import {DeploymentEnvironment} from '../../types'
 import CONFIG from '../../config'
 
 export class IdentityPoolConstruct {
-  // @ts-ignore
   public identityPool: CfnIdentityPool
   private readonly scope: Construct
-  // @ts-ignore
   private readonly userPool: UserPool
-  // @ts-ignore
   private readonly userPoolClient: UserPoolClient
-  // @ts-ignore
   private adminRole: Role
-  // @ts-ignore
   private anonymousRole: Role
-  // @ts-ignore
   private userRole: Role
   private readonly deploymentEnvironment: DeploymentEnvironment
 
@@ -38,17 +32,17 @@ export class IdentityPoolConstruct {
     this.userPoolClient = userPoolClient
     this.deploymentEnvironment = deploymentEnvironment
 
-    this.createIdentityPool()
-    this.createAdminCognitoGroupRole()
-    this.createAnonymousCognitoGroupRole()
-    this.createUserCognitoGroupRole()
+    this.identityPool = this.createIdentityPool()
+    this.adminRole = this.createAdminCognitoGroupRole()
+    this.anonymousRole = this.createAnonymousCognitoGroupRole()
+    this.userRole = this.createUserCognitoGroupRole()
     this.createUserGroupsAndAttachRoles()
   }
 
   private createIdentityPool() {
-    this.identityPool = new CfnIdentityPool(this.scope, 'clubwoof-identity-pool', {
+    return new CfnIdentityPool(this.scope, `${CONFIG.STACK_PREFIX}IdentityPool`, {
       allowUnauthenticatedIdentities: true,
-      identityPoolName: `${CONFIG.STACK_PREFIX}-${this.deploymentEnvironment}`,
+      identityPoolName: `${CONFIG.STACK_PREFIX}${this.deploymentEnvironment}`,
       cognitoIdentityProviders: [
         {
           clientId: this.userPoolClient.userPoolClientId,
@@ -59,7 +53,7 @@ export class IdentityPoolConstruct {
   }
 
   private createUserCognitoGroupRole() {
-    this.userRole = new Role(this.scope, 'user-group-role', {
+    return new Role(this.scope, 'UserGroupRole', {
       description: 'Default role for authenticated users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -82,7 +76,7 @@ export class IdentityPoolConstruct {
   }
 
   private createAnonymousCognitoGroupRole() {
-    this.anonymousRole = new Role(this.scope, 'anonymous-group-role', {
+    return new Role(this.scope, 'AnonymousGroupRole', {
       description: 'Default role for anonymous users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -105,7 +99,7 @@ export class IdentityPoolConstruct {
   }
 
   private createAdminCognitoGroupRole() {
-    this.adminRole = new Role(this.scope, 'admins-group-role', {
+    return new Role(this.scope, 'AdminsGroupRole', {
       description: 'Default role for administrator users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -128,7 +122,7 @@ export class IdentityPoolConstruct {
   }
 
   private createUserGroupsAndAttachRoles() {
-    new CfnUserPoolGroup(this.scope, 'users-group', {
+    new CfnUserPoolGroup(this.scope, 'UsersGroup', {
       groupName: 'Users',
       userPoolId: this.userPool.userPoolId,
       description: 'The default group for authenticated users',
@@ -136,7 +130,7 @@ export class IdentityPoolConstruct {
       roleArn: this.userRole.roleArn,
     })
 
-    new CfnUserPoolGroup(this.scope, 'admins-group', {
+    new CfnUserPoolGroup(this.scope, 'AdminsGroup', {
       groupName: 'Admins',
       userPoolId: this.userPool.userPoolId,
       description: 'The group for admin users with specific privileges',
@@ -144,7 +138,7 @@ export class IdentityPoolConstruct {
       roleArn: this.adminRole.roleArn,
     })
 
-    new CfnIdentityPoolRoleAttachment(this.scope, 'identity-pool-role-attachment', {
+    new CfnIdentityPoolRoleAttachment(this.scope, 'IdentityPoolRoleAttachment', {
       identityPoolId: this.identityPool.ref,
       roles: {
         authenticated: this.userRole.roleArn,
