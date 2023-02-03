@@ -40,7 +40,7 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
     distributionName,
   } = props
 
-  const distributionProps = {
+  const distributionProps: DistributionProps = {
     certificate,
     domainNames: [url],
     defaultRootObject: 'index.html',

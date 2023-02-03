@@ -9,8 +9,8 @@ import {ServicesStack} from './services-stack'
 
 const app = new App()
 
-new StaticSiteStack(app, 'clubwoof-website-dev', {
-  stackName: 'clubwoof-website-dev',
+new StaticSiteStack(app, 'ClubwoofWebsiteDev', {
+  stackName: 'ClubwoofWebsiteDev',
   env: {
     account: process.env.AWS_ACCOUNT_ID || CONFIG.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION || CONFIG.AWS_DEFAULT_REGION,
@@ -19,8 +19,8 @@ new StaticSiteStack(app, 'clubwoof-website-dev', {
   deploymentEnvironment: 'Dev',
 })
 
-new StaticSiteStack(app, 'clubwoof-website-prod', {
-  stackName: 'clubwoof-website-prod',
+new StaticSiteStack(app, 'ClubwoofWebsiteProd', {
+  stackName: 'ClubwoofWebsiteProd',
   env: {
     account: CONFIG.AWS_ACCOUNT_ID,
     region: CONFIG.AWS_DEFAULT_REGION,
@@ -29,8 +29,8 @@ new StaticSiteStack(app, 'clubwoof-website-prod', {
   deploymentEnvironment: 'Prod',
 })
 
-const {userPool: devUserPool} = new CognitoStack(app, 'clubwoof-cognito-dev', {
-  stackName: 'clubwoof-cognito-dev',
+const {userPool: devUserPool} = new CognitoStack(app, 'ClubwoofCognitoDev', {
+  stackName: 'ClubwoofCognitoDev',
   env: {
     account: process.env.AWS_ACCOUNT_ID || CONFIG.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION || CONFIG.AWS_DEFAULT_REGION,
@@ -39,8 +39,8 @@ const {userPool: devUserPool} = new CognitoStack(app, 'clubwoof-cognito-dev', {
   deploymentEnvironment: 'Dev',
 })
 
-const {userPool: prodUserPool} = new CognitoStack(app, 'clubwoof-cognito-prod', {
-  stackName: 'clubwoof-cognito-prod',
+const {userPool: prodUserPool} = new CognitoStack(app, 'ClubwoofCognitoProd', {
+  stackName: 'ClubwoofCognitoProd',
   env: {
     account: CONFIG.AWS_ACCOUNT_ID,
     region: CONFIG.AWS_DEFAULT_REGION,
@@ -49,8 +49,8 @@ const {userPool: prodUserPool} = new CognitoStack(app, 'clubwoof-cognito-prod', 
   deploymentEnvironment: 'Prod',
 })
 
-new ServicesStack(app, 'clubwoof-services-dev', {
-  stackName: 'clubwoof-services-dev',
+new ServicesStack(app, 'ClubwoofServicesDev', {
+  stackName: 'ClubwoofServicesDev',
   env: {
     account: process.env.AWS_ACCOUNT_ID || CONFIG.AWS_ACCOUNT_ID,
     region: process.env.AWS_DEFAULT_REGION || CONFIG.AWS_DEFAULT_REGION,
@@ -60,8 +60,8 @@ new ServicesStack(app, 'clubwoof-services-dev', {
   userPool: devUserPool,
 })
 
-new ServicesStack(app, 'clubwoof-services-prod', {
-  stackName: 'clubwoof-services-prod',
+new ServicesStack(app, 'ClubwoofServicesProd', {
+  stackName: 'ClubwoofServicesProd',
   env: {
     account: CONFIG.AWS_ACCOUNT_ID,
     region: CONFIG.AWS_DEFAULT_REGION,
