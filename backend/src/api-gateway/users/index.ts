@@ -8,7 +8,6 @@ import {
   MethodOptions,
   ResourceOptions,
 } from 'aws-cdk-lib/aws-apigateway'
-import CONFIG from '../../config'
 import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
 import {DeploymentEnvironment} from '../../types'
 import {Construct} from 'constructs'
@@ -24,28 +23,18 @@ interface CreateUsersProps {
 }
 
 export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
-  const {
-    scope,
-    usersHandler,
-    usersLambdaIntegration,
-    certificate,
-    deploymentEnvironment,
-    userPool,
-  } = props
+  const {scope, usersHandler, usersLambdaIntegration, deploymentEnvironment, userPool} =
+    props
   const apiName = `Users Api (${deploymentEnvironment})`
   const api = new LambdaRestApi(scope, apiName, {
     restApiName: apiName,
     handler: usersHandler,
     proxy: false,
-    domainName: {
-      domainName: CONFIG.API_URL,
-      certificate,
-    },
   })
 
-  const authorizer = new CognitoUserPoolsAuthorizer(scope, 'SpaceUserAuthorizer', {
+  const authorizer = new CognitoUserPoolsAuthorizer(scope, 'UsersAPIAuthorizer', {
     cognitoUserPools: [userPool],
-    authorizerName: 'SpaceUserAuthorizer',
+    authorizerName: 'UsersAPIAuthorizer',
     identitySource: 'method.request.header.Authorization',
   })
 
