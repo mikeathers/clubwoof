@@ -36,7 +36,7 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
     userPool,
   } = props
 
-  const apiName = `Users Api (${deploymentEnvironment})`
+  const apiName = `Users Api (${deploymentEnvironment}) Version 1`
 
   const api = new LambdaRestApi(scope, apiName, {
     deploy: false,
@@ -44,7 +44,7 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
     handler: usersHandler,
     proxy: false,
     domainName: {
-      domainName: CONFIG.API_URL,
+      domainName: `${CONFIG.API_URL}/v1`,
       certificate,
     },
   })
