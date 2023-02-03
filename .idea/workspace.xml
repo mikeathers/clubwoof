@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/users/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/users/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +67,11 @@
       <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src/api-gateway/users" />
       <recent name="$PROJECT_DIR$/backend/src/handlers/users" />
       <recent name="$PROJECT_DIR$/backend/src/handlers/events" />
       <recent name="$PROJECT_DIR$/backend/src/aws/helpers" />
       <recent name="$PROJECT_DIR$/backend/src/aws" />
-      <recent name="$PROJECT_DIR$/backend/src" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.With unauthenticated redirect">

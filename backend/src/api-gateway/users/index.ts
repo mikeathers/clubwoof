@@ -1,10 +1,12 @@
 import {IFunction} from 'aws-cdk-lib/aws-lambda'
 import {
   AuthorizationType,
-  CfnAuthorizer,
+  CognitoUserPoolsAuthorizer,
+  Cors,
   LambdaIntegration,
   LambdaRestApi,
   MethodOptions,
+  ResourceOptions,
 } from 'aws-cdk-lib/aws-apigateway'
 import CONFIG from '../../config'
 import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
@@ -41,22 +43,37 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
     },
   })
 
-  const authorizer = new CfnAuthorizer(scope, 'ApiAuthorizer', {
-    restApiId: api.restApiId,
-    name: 'UserApiAuthorizer',
-    type: 'COGNITO_USER_POOLS',
-    identitySource: 'Authorization',
-    providerArns: [userPool.userPoolArn],
+  // const authorizer = new CfnAuthorizer(scope, 'ApiAuthorizer', {
+  //   restApiId: api.restApiId,
+  //   name: 'UserApiAuthorizer',
+  //   type: 'COGNITO_USER_POOLS',
+  //   identitySource: 'Authorization',
+  //   providerArns: [userPool.userPoolArn],
+  // })
+
+  const authorizer = new CognitoUserPoolsAuthorizer(scope, 'SpaceUserAuthorizer', {
+    cognitoUserPools: [userPool],
+    authorizerName: 'SpaceUserAuthorizer',
+    identitySource: 'method.request.header.Authorization',
   })
+
+  authorizer._attachToApi(api)
 
   const methodOptions: MethodOptions = {
     authorizationType: AuthorizationType.COGNITO,
     authorizer: {
-      authorizerId: authorizer.ref,
+      authorizerId: authorizer.authorizerId,
     },
   }
 
-  const users = api.root.addResource('users')
+  const optionsWithCors: ResourceOptions = {
+    defaultCorsPreflightOptions: {
+      allowOrigins: Cors.ALL_ORIGINS,
+      allowMethods: Cors.ALL_METHODS,
+    },
+  }
+
+  const users = api.root.addResource('users', optionsWithCors)
   users.addMethod('GET', usersLambdaIntegration, methodOptions)
   users.addMethod('POST', usersLambdaIntegration, methodOptions)
 
