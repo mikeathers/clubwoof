@@ -50,7 +50,7 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
 
   const stage = new Stage(scope, 'UserApiStage', {
     deployment,
-    stageName: deploymentEnvironment,
+    stageName: deploymentEnvironment.toLowerCase(),
   })
 
   api.deploymentStage = stage
