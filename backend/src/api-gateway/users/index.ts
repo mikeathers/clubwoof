@@ -43,14 +43,6 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
     },
   })
 
-  // const authorizer = new CfnAuthorizer(scope, 'ApiAuthorizer', {
-  //   restApiId: api.restApiId,
-  //   name: 'UserApiAuthorizer',
-  //   type: 'COGNITO_USER_POOLS',
-  //   identitySource: 'Authorization',
-  //   providerArns: [userPool.userPoolArn],
-  // })
-
   const authorizer = new CognitoUserPoolsAuthorizer(scope, 'SpaceUserAuthorizer', {
     cognitoUserPools: [userPool],
     authorizerName: 'SpaceUserAuthorizer',
