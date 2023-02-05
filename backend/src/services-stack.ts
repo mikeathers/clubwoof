@@ -3,6 +3,7 @@ import {ApiGateway} from 'aws-cdk-lib/aws-route53-targets'
 import {UserPool} from 'aws-cdk-lib/aws-cognito'
 import {Stack, StackProps} from 'aws-cdk-lib'
 import {Construct} from 'constructs'
+import {Auth} from '@aws-amplify/auth'
 
 import {DeploymentEnvironment} from './types'
 import {Database} from './database'
@@ -10,7 +11,6 @@ import {Lambdas} from './lambdas'
 import {Api} from './api-gateway'
 import {createCertificate, getHostedZone} from './aws'
 import CONFIG, {DEV_CONFIG, PROD_CONFIG} from './config'
-import {Auth} from '@aws-amplify/auth'
 
 interface ServicesStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment

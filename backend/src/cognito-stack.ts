@@ -63,7 +63,7 @@ export class CognitoStack extends Stack {
       value: identityPool.ref,
     })
 
-    new CfnOutput(this, 'region', {
+    new CfnOutput(this, 'Region', {
       value: Stack.of(this).region,
     })
   }

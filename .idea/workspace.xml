@@ -3,45 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/account/complete-registration.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/account/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/dog-on-phone.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/logo-small.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/pink-bubbles-2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/pink-bubbles-3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/pink-bubbles.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/purple-bubbles.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/thirteen.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/yellow-bubble.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend-build/zip/dev/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/users/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/users/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cdk-exports-dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/cdk-exports-prod.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cdk-exports-prod.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/cognito-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/cognito-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services-stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/dog-on-phone.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/logo-small.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/pink-bubbles-2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/pink-bubbles-3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/pink-bubbles.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/project.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/purple-bubbles.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/thirteen.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storybook-build/yellow-bubble.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +211,7 @@
       <workItem from="1675181697238" duration="1924000" />
       <workItem from="1675193482865" duration="15581000" />
       <workItem from="1675324302332" duration="3610000" />
-      <workItem from="1675431122012" duration="16453000" />
+      <workItem from="1675431122012" duration="18203000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

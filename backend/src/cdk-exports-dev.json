@@ -1,9 +1,9 @@
 {
   "ClubwoofCognitoDev": {
+    "UserPoolClientId": "8ksti2cn3d0i34cjv3t3och9h",
     "ExportsOutputFnGetAttClubwoofUserPoolC77318F3Arn8ACDD13F": "arn:aws:cognito-idp:eu-west-2:222743583620:userpool/eu-west-2_ben0SckmT",
-    "userPoolClientId": "8ksti2cn3d0i34cjv3t3och9h",
-    "region": "eu-west-2",
-    "userPoolId": "eu-west-2_ben0SckmT",
-    "identityPoolId": "eu-west-2:94247e2f-3d5f-4c3f-ac58-980f55c8ff05"
+    "UserPoolId": "eu-west-2_ben0SckmT",
+    "IdentityPoolId": "eu-west-2:94247e2f-3d5f-4c3f-ac58-980f55c8ff05",
+    "region": "eu-west-2"
   }
 }
