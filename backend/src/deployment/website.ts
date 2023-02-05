@@ -1,4 +1,4 @@
-import {CfnOutput, Stack} from 'aws-cdk-lib'
+import {Stack} from 'aws-cdk-lib'
 import {IHostedZone} from 'aws-cdk-lib/aws-route53'
 import {ResponseHeadersPolicy} from 'aws-cdk-lib/aws-cloudfront'
 
@@ -25,10 +25,6 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
   const {scope, deploymentEnvironment, hostedZone, responseHeadersPolicy} = props
   const isProduction = deploymentEnvironment === 'Prod'
   const url = isProduction ? CONFIG.DOMAIN_NAME : CONFIG.DEV_URL
-
-  new CfnOutput(scope, 'urlBase', {
-    value: url,
-  })
 
   const bucket = createBucket({
     bucketName: `${CONFIG.STACK_PREFIX}WebsiteBucket`,

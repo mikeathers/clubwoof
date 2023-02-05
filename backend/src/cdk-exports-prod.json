@@ -1,0 +1,8 @@
+{
+  "clubwoof-backend-prod": {
+    "userPoolClientId": "",
+    "region": "",
+    "userPoolId": "",
+    "identityPoolId": ""
+  }
+}

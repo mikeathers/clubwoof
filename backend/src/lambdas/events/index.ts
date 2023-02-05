@@ -13,7 +13,7 @@ interface EventsLambdaProps {
   deploymentEnvironment: DeploymentEnvironment
 }
 
-export function createEventsLambda(props: EventsLambdaProps): NodejsFunction {
+export function createEventsLambdaV1(props: EventsLambdaProps): NodejsFunction {
   const {scope, deploymentEnvironment, table} = props
   const lambdaName = `EventsLambda-${deploymentEnvironment}`
 

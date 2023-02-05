@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
+      <change afterPath="$PROJECT_DIR$/backend/src/api-gateway/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/cdk-exports-dev.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/cdk-exports-prod.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/functions/auth/get-user-info.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/functions/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/functions/auth/login.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/functions/auth/register.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/lambdas/auth/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/cloudfront/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/users/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/users/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/deployment/storybook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/deployment/storybook.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/deployment/website.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/deployment/website.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/events/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/lambdas/events/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/lambdas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services-stack.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,34 +54,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/michaelatherton/Development/clubwoof/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/jest&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/Users/michaelatherton/.nvm/versions/node/v18.12.1/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/michaelatherton/Development/clubwoof/backend/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs.jest.jest_package": "/Users/michaelatherton/Development/clubwoof/node_modules/jest",
+    "nodejs_interpreter_path": "/Users/michaelatherton/.nvm/versions/node/v18.12.1/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/michaelatherton/Development/clubwoof/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/Users/michaelatherton/Development/clubwoof/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/.github/deploy" />
-      <recent name="$PROJECT_DIR$/.github" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src/api-gateway/users" />
@@ -209,7 +224,7 @@
       <workItem from="1675181697238" duration="1924000" />
       <workItem from="1675193482865" duration="15581000" />
       <workItem from="1675324302332" duration="3610000" />
-      <workItem from="1675431122012" duration="7979000" />
+      <workItem from="1675431122012" duration="14496000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>

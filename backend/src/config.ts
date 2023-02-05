@@ -1,3 +1,6 @@
+import prodConfig from './cdk-exports-prod.json'
+import devConfig from './cdk-exports-dev.json'
+
 interface ConfigProps {
   STACK_PREFIX: string
   DEPLOY_ENVIRONMENT: string
@@ -12,6 +15,28 @@ interface ConfigProps {
   STORYBOOK_URL: string
   API_URL: string
 }
+
+interface CognitoConfig {
+  REGION: string
+  USER_POOL_ID: string
+  IDENTITY_POOL_ID: string
+  USER_POOL_WEB_CLIENT_ID: string
+}
+
+export const PROD_CONFIG: CognitoConfig = {
+  REGION: prodConfig['clubwoof-backend-prod'].region,
+  USER_POOL_ID: prodConfig['clubwoof-backend-prod'].userPoolId,
+  IDENTITY_POOL_ID: prodConfig['clubwoof-backend-prod'].identityPoolId,
+  USER_POOL_WEB_CLIENT_ID: prodConfig['clubwoof-backend-prod'].userPoolClientId,
+}
+
+export const DEV_CONFIG: CognitoConfig = {
+  REGION: devConfig['clubwoof-backend-dev'].region,
+  USER_POOL_ID: devConfig['clubwoof-backend-dev'].userPoolId,
+  IDENTITY_POOL_ID: devConfig['clubwoof-backend-dev'].identityPoolId,
+  USER_POOL_WEB_CLIENT_ID: devConfig['clubwoof-backend-dev'].userPoolClientId,
+}
+
 const CONFIG: ConfigProps = {
   STACK_PREFIX: 'Clubwoof',
   DEPLOY_ENVIRONMENT: process.env.DEPLOY_ENVIRONMENT || 'dev',

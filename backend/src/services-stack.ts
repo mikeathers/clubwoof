@@ -9,7 +9,8 @@ import {Database} from './database'
 import {Lambdas} from './lambdas'
 import {Api} from './api-gateway'
 import {createCertificate, getHostedZone} from './aws'
-import CONFIG from './config'
+import CONFIG, {DEV_CONFIG, PROD_CONFIG} from './config'
+import {Auth} from '@aws-amplify/auth'
 
 interface ServicesStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
@@ -20,6 +21,17 @@ export class ServicesStack extends Stack {
   constructor(scope: Construct, id: string, props: ServicesStackProps) {
     super(scope, id, props)
     const {deploymentEnvironment} = props
+    const isProd = deploymentEnvironment === 'Prod'
+
+    Auth.configure({
+      mandatorySignIn: false,
+      region: isProd ? PROD_CONFIG.REGION : DEV_CONFIG.REGION,
+      userPoolId: isProd ? PROD_CONFIG.USER_POOL_ID : DEV_CONFIG.USER_POOL_ID,
+      identityPoolId: isProd ? PROD_CONFIG.IDENTITY_POOL_ID : DEV_CONFIG.IDENTITY_POOL_ID,
+      userPoolWebClientId: isProd
+        ? PROD_CONFIG.USER_POOL_WEB_CLIENT_ID
+        : DEV_CONFIG.USER_POOL_WEB_CLIENT_ID,
+    })
 
     const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
 
@@ -33,7 +45,12 @@ export class ServicesStack extends Stack {
 
     const databases = new Database(this, 'Databases', deploymentEnvironment)
 
-    const {usersLambdaV1, usersLambdaIntegrationV1} = new Lambdas(this, 'Handlers', {
+    const {
+      usersLambdaV1,
+      usersLambdaIntegrationV1,
+      authLambdaV1,
+      authLambdaIntegrationV1,
+    } = new Lambdas(this, 'Lambdas', {
       usersTable: databases.usersTable,
       eventsTable: databases.eventsTable,
       deploymentEnvironment,
@@ -41,16 +58,18 @@ export class ServicesStack extends Stack {
 
     const api = new Api(this, 'ApiGateway', {
       usersLambdaV1,
+      usersLambdaIntegrationV1,
+      authLambdaV1,
+      authLambdaIntegrationV1,
       certificate,
       deploymentEnvironment,
-      usersLambdaIntegrationV1,
       userPool: props.userPool,
     })
 
     new ARecord(this, 'ApiGatewayAliasRecord', {
       recordName: CONFIG.API_URL,
       zone: hostedZone,
-      target: RecordTarget.fromAlias(new ApiGateway(api.apiGateway)),
+      target: RecordTarget.fromAlias(new ApiGateway(api.usersApiGateway)),
     })
   }
 }

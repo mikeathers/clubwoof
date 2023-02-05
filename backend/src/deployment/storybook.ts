@@ -1,4 +1,4 @@
-import {CfnOutput, Stack} from 'aws-cdk-lib'
+import {Stack} from 'aws-cdk-lib'
 import {IHostedZone} from 'aws-cdk-lib/aws-route53'
 import {ResponseHeadersPolicy} from 'aws-cdk-lib/aws-cloudfront'
 
@@ -22,10 +22,6 @@ export const storybookDeployment = (props: StorybookDeploymentProps): void => {
   const {scope, hostedZone, responseHeadersPolicy} = props
   const deploymentEnvironment = 'Dev'
   const url = CONFIG.STORYBOOK_URL
-
-  new CfnOutput(scope, 'StorybookUrl', {
-    value: url,
-  })
 
   const bucket = createBucket({
     bucketName: `${CONFIG.STACK_PREFIX}StorybookBucket`,
