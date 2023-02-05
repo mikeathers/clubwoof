@@ -8,7 +8,7 @@
     "setup": "npm install && npm install --prefix src",
     "deploy:frontend:prod": "npx cdk deploy ClubwoofWebsiteProd --force --toolkit-stack-name cdk-toolkit-master --require-approval never",
     "deploy:services:prod": "npx cdk deploy ClubwoofServicesProd --force --toolkit-stack-name cdk-toolkit-master --require-approval never",
-    "deploy:cognito:prod": "npx cdk deploy ClubwoofCognitoProd --force --toolkit-stack-name cdk-toolkit-master --require-approval never --outputs-file ./src/cdk-exports-dev.json",
+    "deploy:cognito:prod": "npx cdk deploy ClubwoofCognitoProd --force --toolkit-stack-name cdk-toolkit-master --require-approval never --outputs-file ./src/cdk-exports-prod.json",
     "deploy:backend:prod": "npm run deploy:cognito:prod && deploy:services:prod",
     "deploy:all:prod": "npm run deploy-backend-prod && npm run deploy-frontend-prod",
     "deploy:frontend:dev": "npx cdk deploy ClubwoofWebsiteDev --force --toolkit-stack-name cdk-toolkit-master --require-approval never",

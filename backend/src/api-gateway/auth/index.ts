@@ -58,7 +58,7 @@ export function createAuthApi(props: CreateAuthProps): LambdaRestApi {
     handler: authLambdaV1,
     proxy: false,
     domainName: {
-      domainName: `${CONFIG.API_URL}`,
+      domainName: `${CONFIG.AUTH_API_URL}`,
       certificate,
     },
   })

@@ -1,6 +1,3 @@
-import prodConfig from './cdk-exports-prod.json'
-import devConfig from './cdk-exports-dev.json'
-
 interface ConfigProps {
   STACK_PREFIX: string
   DEPLOY_ENVIRONMENT: string
@@ -13,28 +10,26 @@ interface ConfigProps {
   DOMAIN_NAME: string
   DEV_URL: string
   STORYBOOK_URL: string
-  API_URL: string
+  USERS_API_URL: string
+  AUTH_API_URL: string
 }
 
 interface CognitoConfig {
-  REGION: string
   USER_POOL_ID: string
   IDENTITY_POOL_ID: string
   USER_POOL_WEB_CLIENT_ID: string
 }
 
 export const PROD_CONFIG: CognitoConfig = {
-  REGION: prodConfig['clubwoof-backend-prod'].region,
-  USER_POOL_ID: prodConfig['clubwoof-backend-prod'].userPoolId,
-  IDENTITY_POOL_ID: prodConfig['clubwoof-backend-prod'].identityPoolId,
-  USER_POOL_WEB_CLIENT_ID: prodConfig['clubwoof-backend-prod'].userPoolClientId,
+  USER_POOL_ID: '',
+  IDENTITY_POOL_ID: '',
+  USER_POOL_WEB_CLIENT_ID: '',
 }
 
 export const DEV_CONFIG: CognitoConfig = {
-  REGION: devConfig['clubwoof-backend-dev'].region,
-  USER_POOL_ID: devConfig['clubwoof-backend-dev'].userPoolId,
-  IDENTITY_POOL_ID: devConfig['clubwoof-backend-dev'].identityPoolId,
-  USER_POOL_WEB_CLIENT_ID: devConfig['clubwoof-backend-dev'].userPoolClientId,
+  USER_POOL_ID: 'eu-west-2_ben0SckmT',
+  IDENTITY_POOL_ID: 'eu-west-2:94247e2f-3d5f-4c3f-ac58-980f55c8ff05',
+  USER_POOL_WEB_CLIENT_ID: '8ksti2cn3d0i34cjv3t3och9h',
 }
 
 const CONFIG: ConfigProps = {
@@ -49,7 +44,8 @@ const CONFIG: ConfigProps = {
   DOMAIN_NAME: 'clubwoof.co.uk',
   DEV_URL: 'dev.clubwoof.co.uk',
   STORYBOOK_URL: 'storybook.clubwoof.co.uk',
-  API_URL: 'api.clubwoof.co.uk',
+  USERS_API_URL: 'users.clubwoof.co.uk',
+  AUTH_API_URL: 'auth.clubwoof.co.uk',
 }
 
 export default CONFIG

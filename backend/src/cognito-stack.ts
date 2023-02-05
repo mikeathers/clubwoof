@@ -51,15 +51,15 @@ export class CognitoStack extends Stack {
     )
 
     // Outputs
-    new CfnOutput(this, 'userPoolId', {
+    new CfnOutput(this, 'UserPoolId', {
       value: userPool.userPoolId,
     })
 
-    new CfnOutput(this, 'userPoolClientId', {
+    new CfnOutput(this, 'UserPoolClientId', {
       value: userPoolClient.userPoolClientId,
     })
 
-    new CfnOutput(this, 'identityPoolId', {
+    new CfnOutput(this, 'IdentityPoolId', {
       value: identityPool.ref,
     })
 

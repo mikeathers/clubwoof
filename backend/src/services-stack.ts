@@ -25,7 +25,7 @@ export class ServicesStack extends Stack {
 
     Auth.configure({
       mandatorySignIn: false,
-      region: isProd ? PROD_CONFIG.REGION : DEV_CONFIG.REGION,
+      region: CONFIG.REGION,
       userPoolId: isProd ? PROD_CONFIG.USER_POOL_ID : DEV_CONFIG.USER_POOL_ID,
       identityPoolId: isProd ? PROD_CONFIG.IDENTITY_POOL_ID : DEV_CONFIG.IDENTITY_POOL_ID,
       userPoolWebClientId: isProd
@@ -37,7 +37,7 @@ export class ServicesStack extends Stack {
 
     const certificate = createCertificate({
       scope: this,
-      url: CONFIG.API_URL,
+      url: CONFIG.USERS_API_URL,
       hostedZone,
       name: 'WebsiteCertificate',
       region: 'eu-west-2',
@@ -67,7 +67,7 @@ export class ServicesStack extends Stack {
     })
 
     new ARecord(this, 'ApiGatewayAliasRecord', {
-      recordName: CONFIG.API_URL,
+      recordName: CONFIG.USERS_API_URL,
       zone: hostedZone,
       target: RecordTarget.fromAlias(new ApiGateway(api.usersApiGateway)),
     })

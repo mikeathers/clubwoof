@@ -57,7 +57,7 @@ export function createUsersApi(props: CreateUsersProps): LambdaRestApi {
     handler: usersLambdaV1,
     proxy: false,
     domainName: {
-      domainName: `${CONFIG.API_URL}`,
+      domainName: `${CONFIG.USERS_API_URL}`,
       certificate,
     },
   })
