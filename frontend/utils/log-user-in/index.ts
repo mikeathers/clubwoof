@@ -31,6 +31,9 @@ export const logUserIn = async (props: LoginProps): Promise<User> => {
 
   console.log('user: ', user)
 
+  Auth.currentUserCredentials().then((res) => {
+    console.log('CREDS: ', res)
+  })
   Auth.currentSession().then((res) => {
     const accessToken = res.getAccessToken()
     const jwt = accessToken.getJwtToken()

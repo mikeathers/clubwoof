@@ -54,6 +54,7 @@ export class IdentityPoolConstruct {
 
   private createUserCognitoGroupRole() {
     return new Role(this.scope, 'UserGroupRole', {
+      roleName: 'UserGroupRole',
       description: 'Default role for authenticated users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -71,12 +72,16 @@ export class IdentityPoolConstruct {
         ManagedPolicy.fromAwsManagedPolicyName(
           'service-role/AWSLambdaBasicExecutionRole',
         ),
+        ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AmazonAPIGatewayInvokeFullAccess',
+        ),
       ],
     })
   }
 
   private createAnonymousCognitoGroupRole() {
     return new Role(this.scope, 'AnonymousGroupRole', {
+      roleName: 'AnonymousGroupRole',
       description: 'Default role for anonymous users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -93,6 +98,9 @@ export class IdentityPoolConstruct {
       managedPolicies: [
         ManagedPolicy.fromAwsManagedPolicyName(
           'service-role/AWSLambdaBasicExecutionRole',
+        ),
+        ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AmazonAPIGatewayInvokeFullAccess',
         ),
       ],
     })
@@ -116,6 +124,9 @@ export class IdentityPoolConstruct {
       managedPolicies: [
         ManagedPolicy.fromAwsManagedPolicyName(
           'service-role/AWSLambdaBasicExecutionRole',
+        ),
+        ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AmazonAPIGatewayInvokeFullAccess',
         ),
       ],
     })
