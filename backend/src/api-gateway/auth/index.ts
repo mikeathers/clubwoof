@@ -13,10 +13,12 @@ import {
 import {Construct} from 'constructs'
 import {ServicePrincipal} from 'aws-cdk-lib/aws-iam'
 import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
+import {UserPool} from 'aws-cdk-lib/aws-cognito'
+import {ARecord, IHostedZone, RecordTarget} from 'aws-cdk-lib/aws-route53'
 
 import CONFIG from '../../config'
 import {DeploymentEnvironment} from '../../types'
-import {UserPool} from 'aws-cdk-lib/aws-cognito'
+import {ApiGateway} from 'aws-cdk-lib/aws-route53-targets'
 
 interface CreateAuthProps {
   scope: Construct
@@ -25,10 +27,12 @@ interface CreateAuthProps {
   certificate: ICertificate
   deploymentEnvironment: DeploymentEnvironment
   userPool: UserPool
+  hostedZone: IHostedZone
 }
 
 export function createAuthApi(props: CreateAuthProps): LambdaRestApi {
-  const {scope, authLambdaV1, certificate, deploymentEnvironment, userPool} = props
+  const {scope, authLambdaV1, certificate, deploymentEnvironment, userPool, hostedZone} =
+    props
 
   const restApiName = `Auth Api (${deploymentEnvironment}) Version 1`
 
@@ -107,6 +111,12 @@ export function createAuthApi(props: CreateAuthProps): LambdaRestApi {
 
   const getUserInfo = root.addResource('get-user-info', optionsWithCors)
   getUserInfo.addMethod('GET', new LambdaIntegration(authLambdaV1), methodOptions)
+
+  new ARecord(scope, 'AuthApiAliasRecord', {
+    recordName: CONFIG.AUTH_API_URL,
+    zone: hostedZone,
+    target: RecordTarget.fromAlias(new ApiGateway(api)),
+  })
 
   return api
 }

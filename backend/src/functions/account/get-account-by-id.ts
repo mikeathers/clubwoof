@@ -1,10 +1,10 @@
 import {DynamoDB} from 'aws-sdk'
 
-interface GetUserByIdProps {
+interface GetAccountByIdProps {
   id: string
   dbClient: DynamoDB.DocumentClient
 }
-export const getUserById = async (props: GetUserByIdProps) => {
+export const getAccountById = async (props: GetAccountByIdProps) => {
   const {id, dbClient} = props
   try {
     const TableName = process.env.TABLE_NAME

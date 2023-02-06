@@ -4,7 +4,7 @@ interface GetAllUsersProps {
   dbClient: DynamoDB.DocumentClient
 }
 
-export const getAllUsers = async (props: GetAllUsersProps) => {
+export const getAllAccounts = async (props: GetAllUsersProps) => {
   const {dbClient} = props
   const queryResponse = await dbClient
     .scan({

@@ -1,9 +1,9 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda'
 import {DynamoDB} from 'aws-sdk'
 import {addCorsHeader, errorHasMessage} from '../../utils'
-import {createUser} from './create-user'
-import {getUserById} from './get-user-by-id'
-import {getAllUsers} from './get-all-users'
+import {createAccount} from './create-account'
+import {getAccountById} from './get-account-by-id'
+import {getAllAccounts} from './get-all-accounts'
 
 const dbClient = new DynamoDB.DocumentClient()
 
@@ -21,14 +21,14 @@ async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResu
     switch (event.httpMethod) {
       case 'GET':
         if (event.pathParameters !== null && event.pathParameters.id) {
-          result.body = await getUserById({id: event.pathParameters.id, dbClient})
+          result.body = await getAccountById({id: event.pathParameters.id, dbClient})
         } else {
-          result.body = await getAllUsers({dbClient})
+          result.body = await getAllAccounts({dbClient})
         }
         break
       case 'POST':
-        await createUser({event, dbClient})
-        result.body = 'User has been created successfully.'
+        await createAccount({event, dbClient})
+        result.body = 'Account has been created successfully.'
         break
     }
   } catch (err) {

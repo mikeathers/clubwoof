@@ -1,5 +1,3 @@
-import {ARecord, RecordTarget} from 'aws-cdk-lib/aws-route53'
-import {ApiGateway} from 'aws-cdk-lib/aws-route53-targets'
 import {UserPool} from 'aws-cdk-lib/aws-cognito'
 import {Stack, StackProps} from 'aws-cdk-lib'
 import {Construct} from 'constructs'
@@ -8,8 +6,8 @@ import {Auth} from '@aws-amplify/auth'
 import {DeploymentEnvironment} from './types'
 import {Database} from './database'
 import {Lambdas} from './lambdas'
-import {Api} from './api-gateway'
-import {createCertificate, getHostedZone} from './aws'
+import {Apis} from './api-gateway'
+import {createApiCertificates, getHostedZone} from './aws'
 import CONFIG, {DEV_CONFIG, PROD_CONFIG} from './config'
 
 interface ServicesStackProps extends StackProps {
@@ -35,12 +33,14 @@ export class ServicesStack extends Stack {
 
     const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
 
-    const certificate = createCertificate({
+    const certificates = createApiCertificates({
       scope: this,
-      url: CONFIG.USERS_API_URL,
       hostedZone,
-      name: 'WebsiteCertificate',
       region: 'eu-west-2',
+      certificates: [
+        {name: 'AccountApiCertificate', url: CONFIG.ACCOUNT_API_URL},
+        {name: 'AuthApiCertificate', url: CONFIG.AUTH_API_URL},
+      ],
     })
 
     const databases = new Database(this, 'Databases', deploymentEnvironment)
@@ -51,25 +51,20 @@ export class ServicesStack extends Stack {
       authLambdaV1,
       authLambdaIntegrationV1,
     } = new Lambdas(this, 'Lambdas', {
-      usersTable: databases.usersTable,
+      usersTable: databases.accountsTable,
       eventsTable: databases.eventsTable,
       deploymentEnvironment,
     })
 
-    const api = new Api(this, 'ApiGateway', {
-      usersLambdaV1,
-      usersLambdaIntegrationV1,
+    new Apis(this, 'ApiGateway', {
+      accountLambdaV1: usersLambdaV1,
+      accountLambdaIntegrationV1: usersLambdaIntegrationV1,
       authLambdaV1,
       authLambdaIntegrationV1,
-      certificate,
       deploymentEnvironment,
       userPool: props.userPool,
-    })
-
-    new ARecord(this, 'ApiGatewayAliasRecord', {
-      recordName: CONFIG.USERS_API_URL,
-      zone: hostedZone,
-      target: RecordTarget.fromAlias(new ApiGateway(api.usersApiGateway)),
+      certificates,
+      hostedZone,
     })
   }
 }

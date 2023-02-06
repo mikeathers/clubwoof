@@ -4,7 +4,7 @@ import {ITable} from 'aws-cdk-lib/aws-dynamodb'
 import {LambdaIntegration} from 'aws-cdk-lib/aws-apigateway'
 
 import {DeploymentEnvironment} from '../types'
-import {createUsersLambdaIntegrationV1, createUsersLambdaV1} from './users'
+import {createAccountLambdaIntegrationV1, createAccountLambdaV1} from './account'
 import {createEventsLambdaIntegrationV1, createEventsLambdaV1} from './events'
 import {createAuthLambdaIntegrationV1, createAuthLambdaV1} from './auth'
 
@@ -26,13 +26,13 @@ export class Lambdas extends Construct {
     super(scope, id)
     const {usersTable, eventsTable, deploymentEnvironment} = props
 
-    this.usersLambdaV1 = createUsersLambdaV1({
+    this.usersLambdaV1 = createAccountLambdaV1({
       scope: this,
       table: usersTable,
       deploymentEnvironment,
     })
 
-    this.usersLambdaIntegrationV1 = createUsersLambdaIntegrationV1({
+    this.usersLambdaIntegrationV1 = createAccountLambdaIntegrationV1({
       scope: this,
       lambda: this.usersLambdaV1,
       deploymentEnvironment,

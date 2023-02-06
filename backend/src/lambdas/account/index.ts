@@ -13,9 +13,9 @@ interface UserLambdaProps {
   deploymentEnvironment: DeploymentEnvironment
 }
 
-export function createUsersLambdaV1(props: UserLambdaProps): NodejsFunction {
+export function createAccountLambdaV1(props: UserLambdaProps): NodejsFunction {
   const {scope, deploymentEnvironment, table} = props
-  const lambdaName = `UsersLambda-${deploymentEnvironment}`
+  const lambdaName = `AccountLambda-${deploymentEnvironment}`
 
   const lambdaProps: NodejsFunctionProps = {
     functionName: lambdaName,
@@ -29,38 +29,38 @@ export function createUsersLambdaV1(props: UserLambdaProps): NodejsFunction {
     runtime: Runtime.NODEJS_14_X,
   }
 
-  const usersLambda = new NodejsFunction(scope, lambdaName, {
-    entry: join(__dirname, '../../functions/users/index.ts'),
+  const accountLambda = new NodejsFunction(scope, lambdaName, {
+    entry: join(__dirname, '../../functions/account/index.ts'),
     ...lambdaProps,
   })
 
-  table.grantReadWriteData(usersLambda)
+  table.grantReadWriteData(accountLambda)
 
-  return usersLambda
+  return accountLambda
 }
 
-interface CreateUsersLambdaIntegrationProps {
+interface CreateAccountLambdaIntegrationProps {
   scope: Construct
   lambda: NodejsFunction
   deploymentEnvironment: DeploymentEnvironment
 }
 
-export function createUsersLambdaIntegrationV1(
-  props: CreateUsersLambdaIntegrationProps,
+export function createAccountLambdaIntegrationV1(
+  props: CreateAccountLambdaIntegrationProps,
 ): LambdaIntegration {
   const {scope, lambda, deploymentEnvironment} = props
 
-  const usersLambdaV1 = new Version(scope, `UsersLambda${deploymentEnvironment}V1`, {
+  const accountLambdaV1 = new Version(scope, `AccountLambda${deploymentEnvironment}V1`, {
     lambda,
   })
 
-  const usersLambdaV1Alias = new Alias(
+  const accountLambdaV1Alias = new Alias(
     scope,
-    `UsersLambda${deploymentEnvironment}V1Alias`,
+    `AccountLambda${deploymentEnvironment}V1Alias`,
     {
-      aliasName: 'UsersLambdaV1',
-      version: usersLambdaV1,
+      aliasName: 'AccountLambdaV1',
+      version: accountLambdaV1,
     },
   )
-  return new LambdaIntegration(usersLambdaV1Alias)
+  return new LambdaIntegration(accountLambdaV1Alias)
 }

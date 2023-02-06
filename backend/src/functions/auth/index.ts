@@ -1,7 +1,7 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda'
 
 import {addCorsHeader, errorHasMessage} from '../../utils'
-import {getUserInfo} from './get-user-info'
+import {getAccountInfo} from './get-account-info'
 import {login} from './login'
 import {register} from './register'
 
@@ -18,8 +18,8 @@ async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResu
   try {
     switch (event.httpMethod) {
       case 'GET':
-        if (event.path.includes('get-user-info')) {
-          result.body = JSON.stringify(await getUserInfo())
+        if (event.path.includes('get-account-info')) {
+          result.body = JSON.stringify(await getAccountInfo())
         }
         break
       case 'POST':

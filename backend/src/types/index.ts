@@ -1,6 +1,6 @@
 export type DeploymentEnvironment = 'Dev' | 'Prod'
 
-export type CreateUserRequest = {
+export type CreateAccountRequest = {
   id: string
   address: string
   postCode: string

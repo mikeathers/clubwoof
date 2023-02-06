@@ -1,46 +1,52 @@
 import {Construct} from 'constructs'
 import {IFunction} from 'aws-cdk-lib/aws-lambda'
 import {LambdaIntegration, LambdaRestApi} from 'aws-cdk-lib/aws-apigateway'
-import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
 import {UserPool} from 'aws-cdk-lib/aws-cognito'
 
 import {DeploymentEnvironment} from '../types'
-import {createUsersApi} from './users'
+import {createAccountApi} from './account'
 import {createAuthApi} from './auth'
+import {IHostedZone} from 'aws-cdk-lib/aws-route53'
+import {CreatedCertificates} from '../aws'
 
-interface ApiGatewayProps {
-  usersLambdaV1: IFunction
-  usersLambdaIntegrationV1: LambdaIntegration
+interface ApisProps {
+  accountLambdaV1: IFunction
+  accountLambdaIntegrationV1: LambdaIntegration
   authLambdaV1: IFunction
   authLambdaIntegrationV1: LambdaIntegration
-  certificate: ICertificate
   userPool: UserPool
   deploymentEnvironment: DeploymentEnvironment
+  certificates: CreatedCertificates
+  hostedZone: IHostedZone
 }
 
-export class Api extends Construct {
-  public usersApiGateway: LambdaRestApi
+export class Apis extends Construct {
+  public accountApiGateway: LambdaRestApi
   public authApiGateway: LambdaRestApi
 
-  constructor(scope: Construct, id: string, props: ApiGatewayProps) {
+  constructor(scope: Construct, id: string, props: ApisProps) {
     super(scope, id)
     const {
-      usersLambdaV1,
-      usersLambdaIntegrationV1,
+      accountLambdaV1,
+      accountLambdaIntegrationV1,
       authLambdaV1,
       authLambdaIntegrationV1,
       userPool,
-      certificate,
       deploymentEnvironment,
+      certificates,
+      hostedZone,
     } = props
 
-    this.usersApiGateway = createUsersApi({
+    const {authCertificate, accountCertificate} = certificates
+
+    this.accountApiGateway = createAccountApi({
       scope: this,
-      usersLambdaV1,
-      usersLambdaIntegrationV1,
+      accountLambdaV1,
+      accountLambdaIntegrationV1,
       deploymentEnvironment,
-      certificate,
       userPool,
+      certificate: accountCertificate,
+      hostedZone,
     })
 
     this.authApiGateway = createAuthApi({
@@ -48,8 +54,9 @@ export class Api extends Construct {
       authLambdaV1,
       authLambdaIntegrationV1,
       deploymentEnvironment,
-      certificate,
       userPool,
+      certificate: authCertificate,
+      hostedZone,
     })
   }
 }

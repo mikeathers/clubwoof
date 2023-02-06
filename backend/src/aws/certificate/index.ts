@@ -19,3 +19,36 @@ export const createCertificate = (props: CreateCertificateProps): ICertificate =
     region: region || 'us-east-1', // Cloudfront only checks this region for certificates.
   })
 }
+
+interface Certificate {
+  url: string
+  name: string
+}
+export interface CreateApiCertificatesProps {
+  scope: Stack
+  hostedZone: IHostedZone
+  certificates: Certificate[]
+  region?: 'eu-west-2' | 'us-east-1'
+}
+
+export interface CreatedCertificates {
+  accountCertificate: ICertificate
+  authCertificate: ICertificate
+}
+export const createApiCertificates = (
+  props: CreateApiCertificatesProps,
+): CreatedCertificates => {
+  const {scope, hostedZone, certificates, region} = props
+
+  const createdCerts = certificates.map((certificate) => {
+    return createCertificate({
+      scope,
+      url: certificate.url,
+      hostedZone,
+      name: certificate.name,
+      region,
+    })
+  })
+
+  return {accountCertificate: createdCerts[0], authCertificate: createdCerts[1]}
+}

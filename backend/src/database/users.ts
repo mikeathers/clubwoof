@@ -3,15 +3,15 @@ import {RemovalPolicy} from 'aws-cdk-lib'
 import {DeploymentEnvironment} from '../types'
 import {Construct} from 'constructs'
 
-interface CreateUsersTableProps {
+interface CreateAccountsTableProps {
   scope: Construct
   deploymentEnvironment: DeploymentEnvironment
 }
 
-export function createUsersTable(props: CreateUsersTableProps): ITable {
+export function createAccountsTable(props: CreateAccountsTableProps): ITable {
   const {scope, deploymentEnvironment} = props
-  const tableName = `Users-${deploymentEnvironment}`
-  const usersTable = new Table(scope, tableName, {
+  const tableName = `Accounts-${deploymentEnvironment}`
+  const accountsTable = new Table(scope, tableName, {
     partitionKey: {
       name: 'id',
       type: AttributeType.STRING,
@@ -20,5 +20,5 @@ export function createUsersTable(props: CreateUsersTableProps): ITable {
     removalPolicy: RemovalPolicy.DESTROY,
     billingMode: BillingMode.PAY_PER_REQUEST,
   })
-  return usersTable
+  return accountsTable
 }

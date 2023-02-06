@@ -10,7 +10,7 @@ interface ConfigProps {
   DOMAIN_NAME: string
   DEV_URL: string
   STORYBOOK_URL: string
-  USERS_API_URL: string
+  ACCOUNT_API_URL: string
   AUTH_API_URL: string
 }
 
@@ -44,7 +44,7 @@ const CONFIG: ConfigProps = {
   DOMAIN_NAME: 'clubwoof.co.uk',
   DEV_URL: 'dev.clubwoof.co.uk',
   STORYBOOK_URL: 'storybook.clubwoof.co.uk',
-  USERS_API_URL: 'users.clubwoof.co.uk',
+  ACCOUNT_API_URL: 'account.clubwoof.co.uk',
   AUTH_API_URL: 'auth.clubwoof.co.uk',
 }
 
