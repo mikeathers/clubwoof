@@ -85,29 +85,25 @@ export function createAuthApi(props: CreateAuthProps): LambdaRestApi {
   const root = api.root.addResource('v1').addResource('auth', optionsWithCors)
 
   const register = root.addResource('register', optionsWithCors)
-  register.addMethod('POST', new LambdaIntegration(authLambdaV1), methodOptions)
+  register.addMethod('POST', new LambdaIntegration(authLambdaV1))
 
   const login = root.addResource('login', optionsWithCors)
-  login.addMethod('POST', new LambdaIntegration(authLambdaV1), methodOptions)
+  login.addMethod('POST', new LambdaIntegration(authLambdaV1))
 
   const forgotPassword = root.addResource('forgot-password', optionsWithCors)
-  forgotPassword.addMethod('POST', new LambdaIntegration(authLambdaV1), methodOptions)
+  forgotPassword.addMethod('POST', new LambdaIntegration(authLambdaV1))
 
   const completeForgotPassword = root.addResource(
     'complete-forgot-password',
     optionsWithCors,
   )
-  completeForgotPassword.addMethod(
-    'POST',
-    new LambdaIntegration(authLambdaV1),
-    methodOptions,
-  )
+  completeForgotPassword.addMethod('POST', new LambdaIntegration(authLambdaV1))
 
   const confirmSignUp = root.addResource('confirm-sign-up', optionsWithCors)
-  confirmSignUp.addMethod('POST', new LambdaIntegration(authLambdaV1), methodOptions)
+  confirmSignUp.addMethod('POST', new LambdaIntegration(authLambdaV1))
 
   const resendConfirmEmail = root.addResource('resend-confirm-email', optionsWithCors)
-  resendConfirmEmail.addMethod('POST', new LambdaIntegration(authLambdaV1), methodOptions)
+  resendConfirmEmail.addMethod('POST', new LambdaIntegration(authLambdaV1))
 
   const getUserInfo = root.addResource('get-user-info', optionsWithCors)
   getUserInfo.addMethod('GET', new LambdaIntegration(authLambdaV1), methodOptions)
