@@ -72,9 +72,7 @@ export class IdentityPoolConstruct {
         ManagedPolicy.fromAwsManagedPolicyName(
           'service-role/AWSLambdaBasicExecutionRole',
         ),
-        ManagedPolicy.fromAwsManagedPolicyName(
-          'service-role/AmazonAPIGatewayInvokeFullAccess',
-        ),
+        ManagedPolicy.fromAwsManagedPolicyName('AmazonAPIGatewayInvokeFullAccess'),
       ],
     })
   }
@@ -99,15 +97,14 @@ export class IdentityPoolConstruct {
         ManagedPolicy.fromAwsManagedPolicyName(
           'service-role/AWSLambdaBasicExecutionRole',
         ),
-        ManagedPolicy.fromAwsManagedPolicyName(
-          'service-role/AmazonAPIGatewayInvokeFullAccess',
-        ),
+        ManagedPolicy.fromAwsManagedPolicyName('AmazonAPIGatewayInvokeFullAccess'),
       ],
     })
   }
 
   private createAdminCognitoGroupRole() {
     return new Role(this.scope, 'AdminsGroupRole', {
+      roleName: 'AdminsGroupRole',
       description: 'Default role for administrator users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -125,9 +122,7 @@ export class IdentityPoolConstruct {
         ManagedPolicy.fromAwsManagedPolicyName(
           'service-role/AWSLambdaBasicExecutionRole',
         ),
-        ManagedPolicy.fromAwsManagedPolicyName(
-          'service-role/AmazonAPIGatewayInvokeFullAccess',
-        ),
+        ManagedPolicy.fromAwsManagedPolicyName('AmazonAPIGatewayInvokeFullAccess'),
       ],
     })
   }
