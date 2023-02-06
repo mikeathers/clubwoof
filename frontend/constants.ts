@@ -3,17 +3,17 @@ import prodConfig from '../outputs/cdk-exports-prod.json'
 import devConfig from '../outputs/cdk-exports-dev.json'
 
 const prodConstants = {
-  REGION: prodConfig['ClubwoofBackendProd'].Region,
-  USER_POOL_ID: prodConfig['ClubwoofBackendProd'].UserPoolId,
-  IDENTITY_POOL_ID: prodConfig['ClubwoofBackendProd'].IdentityPoolId,
-  USER_POOL_WEB_CLIENT_ID: prodConfig['ClubwoofBackendProd'].UserPoolClientId,
+  REGION: prodConfig['ClubwoofCognitoProd'].Region,
+  USER_POOL_ID: prodConfig['ClubwoofCognitoProd'].UserPoolId,
+  IDENTITY_POOL_ID: prodConfig['ClubwoofCognitoProd'].IdentityPoolId,
+  USER_POOL_WEB_CLIENT_ID: prodConfig['ClubwoofCognitoProd'].UserPoolClientId,
 }
 
 const devConstants = {
-  REGION: devConfig['ClubwoofBackendDev'].Region,
-  USER_POOL_ID: devConfig['ClubwoofBackendDev'].UserPoolId,
-  IDENTITY_POOL_ID: devConfig['ClubwoofBackendDev'].IdentityPoolId,
-  USER_POOL_WEB_CLIENT_ID: devConfig['ClubwoofBackendDev'].UserPoolClientId,
+  REGION: devConfig['ClubwoofCognitoDev'].Region,
+  USER_POOL_ID: devConfig['ClubwoofCognitoDev'].UserPoolId,
+  IDENTITY_POOL_ID: devConfig['ClubwoofCognitoDev'].IdentityPoolId,
+  USER_POOL_WEB_CLIENT_ID: devConfig['ClubwoofCognitoDev'].UserPoolClientId,
 }
 
 export const dev =

@@ -39,8 +39,13 @@ fi
 
 
 echo "--- 🚀 Changing directory to backend..."
-cd backend
+if [ "$runningManually" = true ]
+  then cd ../../backend
+fi
 
+if [ "$runningManually" = false ]
+  then cd backend
+fi
 
 
 echo "--- 🚀 Zipping website build..."

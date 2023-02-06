@@ -58,6 +58,8 @@ export function createAccountApi(props: CreateAccountApiProps): LambdaRestApi {
     defaultCorsPreflightOptions: {
       allowOrigins: Cors.ALL_ORIGINS,
       allowMethods: Cors.ALL_METHODS,
+      allowHeaders: ['Content-Type', 'X-Amz-Date', 'Authorization', 'X-Api-Key'],
+      allowCredentials: true,
     },
   }
 

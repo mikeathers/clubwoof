@@ -8,6 +8,7 @@ interface LoginProps {
   router: NextRouter
   addUserToState: () => Promise<void>
   goToDashboard?: boolean
+  isPasswordChange?: boolean
 }
 
 interface UserAttributes {
@@ -24,9 +25,20 @@ interface User extends CognitoUser {
   }
 }
 export const logUserIn = async (props: LoginProps): Promise<User> => {
-  const {email, password, router, addUserToState, goToDashboard} = props
+  const {email, password, router, addUserToState, goToDashboard, isPasswordChange} = props
   localStorage.removeItem(TEMP_PWD_LOCALSTORAGE_KEY)
   const user = (await Auth.signIn(email, password)) as User
+
+  console.log('user: ', user)
+
+  Auth.currentSession().then((res) => {
+    const accessToken = res.getAccessToken()
+    const jwt = accessToken.getJwtToken()
+    console.log('session: ', res)
+    //You can print them to see the full objects
+    console.log(`myAccessToken: ${JSON.stringify(accessToken)}`)
+    console.log(`myJwt: ${jwt}`)
+  })
 
   if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
     const {requiredAttributes} = user.challengeParam
@@ -40,7 +52,9 @@ export const logUserIn = async (props: LoginProps): Promise<User> => {
       userAttributes.family_name = 'User'
     }
 
-    await Auth.completeNewPassword(user, password, userAttributes)
+    if (isPasswordChange) {
+      await Auth.completeNewPassword(user, password, userAttributes)
+    }
   }
 
   addUserToState()

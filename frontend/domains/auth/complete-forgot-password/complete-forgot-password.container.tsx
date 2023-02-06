@@ -49,6 +49,7 @@ export const CompleteForgotPassword: React.FC<CompleteForgotPasswordProps> = (pr
           router,
           addUserToState,
           goToDashboard: true,
+          isPasswordChange: true,
         })
       }
     }
