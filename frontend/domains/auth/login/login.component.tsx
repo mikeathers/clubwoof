@@ -8,6 +8,7 @@ import {useFormHelpers, useSafeAsync} from '@clubwoof-hooks'
 
 import {formSchema, inputs} from './form-helpers'
 import {Content, DogImage, FormInput, SubmitButton} from './login.styles'
+import {ROUTE_PATHS} from '@clubwoof-constants'
 
 interface LoginProps {
   i18n: i18nLoginPage
@@ -102,13 +103,13 @@ export const LoginComponent: React.FC<LoginProps> = (props) => {
           <Box direction={'column'} marginTop={'space2x'} centerContent>
             <Text color={'pureWhite'} marginBottom={'space1x'}>
               {i18n.forgotYourPassword}{' '}
-              <TextButton color={'yellow'} href={'/auth/forgot-password'}>
+              <TextButton color={'yellow'} href={ROUTE_PATHS.FORGOT_PASSWORD}>
                 {i18n.forgotYourPasswordAction}
               </TextButton>
             </Text>
             <Text color={'pureWhite'}>
               {i18n.signUp}{' '}
-              <TextButton color={'yellow'} href={'/auth/register'}>
+              <TextButton color={'yellow'} href={ROUTE_PATHS.REGISTER}>
                 {i18n.signUpAction}
               </TextButton>
             </Text>

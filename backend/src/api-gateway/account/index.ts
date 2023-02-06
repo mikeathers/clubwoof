@@ -87,12 +87,16 @@ export function createAccountApi(props: CreateAccountApiProps): LambdaRestApi {
 
   authorizer._attachToApi(api)
 
-  const root = api.root.addResource('v1').addResource('account', optionsWithCors)
+  const root = api.root.addResource('v1', optionsWithCors)
 
-  root.addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
-  root.addMethod('POST', new LambdaIntegration(accountLambdaV1), methodOptions)
+  const createUser = root.addResource('create-account')
+  createUser.addMethod('POST', new LambdaIntegration(accountLambdaV1), methodOptions)
 
-  const getUserById = root.addResource('{id}')
+  const getAllAccounts = root.addResource('get-all-accounts')
+  getAllAccounts.addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
+
+  const getUserById = root.addResource('get-user')
+  getUserById.addResource('{id}')
   getUserById.addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
   getUserById.addMethod('DELETE', new LambdaIntegration(accountLambdaV1), methodOptions)
   getUserById.addMethod('PUT', new LambdaIntegration(accountLambdaV1), methodOptions)

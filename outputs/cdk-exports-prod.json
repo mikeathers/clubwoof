@@ -1,8 +1,8 @@
 {
-  "clubwoof-backend-prod": {
-    "userPoolClientId": "5d424lgt47qra8300csf442ite",
-    "region": "eu-west-2",
-    "userPoolId": "eu-west-2_B7v7LKJqm",
-    "identityPoolId": "eu-west-2:d5728899-1969-4a4f-b3f4-38888e64f205"
+  "ClubwoofBackendProd": {
+    "UserPoolClientId": "",
+    "Region": "",
+    "UserPoolId": "",
+    "IdentityPoolId": ""
   }
 }

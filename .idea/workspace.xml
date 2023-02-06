@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/account/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/account/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/auth/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/functions/auth/get-account-info.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/functions/auth/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/functions/auth/login.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/functions/auth/register.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/auth/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/lambdas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/login/login.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/base-url-dev.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/base-url-prod.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/cdk-exports-dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/cdk-exports-prod.json" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/cdk-exports-prod.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +224,7 @@
       <workItem from="1675181697238" duration="1924000" />
       <workItem from="1675193482865" duration="15581000" />
       <workItem from="1675324302332" duration="3610000" />
-      <workItem from="1675431122012" duration="21537000" />
+      <workItem from="1675431122012" duration="24662000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
