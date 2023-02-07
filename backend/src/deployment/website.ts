@@ -50,7 +50,7 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
     scope,
     url,
     hostedZone,
-    name: 'WebsiteCertificate',
+    name: `${CONFIG.STACK_PREFIX}WebsiteCertificate`,
   })
 
   const rewriteFunction = getRewriteFunction({
@@ -75,6 +75,6 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
     hostedZone,
     url,
     distribution,
-    name: 'WebsiteARecord',
+    name: `${CONFIG.STACK_PREFIX}WebsiteARecord`,
   })
 }

@@ -4,7 +4,7 @@ import {DeploymentEnvironment} from '../types'
 import {createAccountsTable} from './users'
 import {createEventsTable} from './events'
 
-export class Database extends Construct {
+export class Databases extends Construct {
   public readonly accountsTable: ITable
   public readonly eventsTable: ITable
   private readonly deploymentEnvironment: DeploymentEnvironment

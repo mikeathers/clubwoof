@@ -3,12 +3,11 @@ import {
   AuthorizationType,
   CognitoUserPoolsAuthorizer,
   Cors,
-  Deployment,
   LambdaIntegration,
   LambdaRestApi,
   MethodOptions,
   ResourceOptions,
-  Stage,
+  RestApi,
 } from 'aws-cdk-lib/aws-apigateway'
 import CONFIG from '../../config'
 import {DeploymentEnvironment} from '../../types'
@@ -39,13 +38,17 @@ export function createAccountApi(props: CreateAccountApiProps): LambdaRestApi {
     hostedZone,
   } = props
 
-  const restApiName = `Account Api (${deploymentEnvironment}) Version 1`
+  const restApiName = `${CONFIG.STACK_PREFIX} Account Api (${deploymentEnvironment}) Version 1`
 
-  const authorizer = new CognitoUserPoolsAuthorizer(scope, 'AccountApiAuthorizer', {
-    cognitoUserPools: [userPool],
-    authorizerName: 'AccountApiAuthorizer',
-    identitySource: 'method.request.header.Authorization',
-  })
+  const authorizer = new CognitoUserPoolsAuthorizer(
+    scope,
+    `${CONFIG.STACK_PREFIX}AccountApiAuthorizer`,
+    {
+      cognitoUserPools: [userPool],
+      authorizerName: `${CONFIG.STACK_PREFIX}AccountApiAuthorizer`,
+      identitySource: 'method.request.header.Authorization',
+    },
+  )
 
   const methodOptions: MethodOptions = {
     authorizationType: AuthorizationType.COGNITO,
@@ -58,16 +61,19 @@ export function createAccountApi(props: CreateAccountApiProps): LambdaRestApi {
     defaultCorsPreflightOptions: {
       allowOrigins: Cors.ALL_ORIGINS,
       allowMethods: Cors.ALL_METHODS,
-      allowHeaders: ['Content-Type', 'X-Amz-Date', 'Authorization', 'X-Api-Key'],
+      allowHeaders: [
+        'Content-Type',
+        'X-Amz-Date',
+        'Authorization',
+        'X-Api-Key',
+        'X-Amz-Security-Token',
+      ],
       allowCredentials: true,
     },
   }
 
-  const api = new LambdaRestApi(scope, restApiName, {
-    deploy: false,
+  const api = new RestApi(scope, restApiName, {
     restApiName,
-    handler: accountLambdaV1,
-    proxy: false,
     domainName: {
       domainName: `${CONFIG.ACCOUNT_API_URL}`,
       certificate,
@@ -76,34 +82,25 @@ export function createAccountApi(props: CreateAccountApiProps): LambdaRestApi {
 
   accountLambdaV1.grantInvoke(new ServicePrincipal('apigateway.amazonaws.com'))
 
-  const deployment = new Deployment(scope, 'UserApiDeployment', {
-    api,
-  })
-
-  const stage = new Stage(scope, 'UserApiStage', {
-    deployment,
-    stageName: deploymentEnvironment.toLowerCase(),
-  })
-
-  api.deploymentStage = stage
-
   authorizer._attachToApi(api)
 
   const root = api.root.addResource('v1', optionsWithCors)
 
-  const createUser = root.addResource('create-account')
-  createUser.addMethod('POST', new LambdaIntegration(accountLambdaV1), methodOptions)
+  root
+    .addResource('get-all-accounts')
+    .addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
 
-  const getAllAccounts = root.addResource('get-all-accounts')
-  getAllAccounts.addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
+  root
+    .addResource('create-account')
+    .addMethod('POST', new LambdaIntegration(accountLambdaV1), methodOptions)
 
-  const getUserById = root.addResource('get-user')
+  const getUserById = root.addResource('get-account-by-id')
   getUserById.addResource('{id}')
   getUserById.addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
   getUserById.addMethod('DELETE', new LambdaIntegration(accountLambdaV1), methodOptions)
   getUserById.addMethod('PUT', new LambdaIntegration(accountLambdaV1), methodOptions)
 
-  new ARecord(scope, 'AccountApiAliasRecord', {
+  new ARecord(scope, `${CONFIG.STACK_PREFIX}AccountApiAliasRecord`, {
     recordName: CONFIG.ACCOUNT_API_URL,
     zone: hostedZone,
     target: RecordTarget.fromAlias(new ApiGateway(api)),

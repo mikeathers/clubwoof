@@ -47,7 +47,7 @@ export const storybookDeployment = (props: StorybookDeploymentProps): void => {
     scope,
     url,
     hostedZone,
-    name: 'StorybookCertificate',
+    name: `${CONFIG.STACK_PREFIX}StorybookCertificate`,
   })
 
   const distribution = createDistribution({
@@ -66,6 +66,6 @@ export const storybookDeployment = (props: StorybookDeploymentProps): void => {
     hostedZone,
     url,
     distribution,
-    name: 'StorybookARecord',
+    name: `${CONFIG.STACK_PREFIX}StorybookARecord`,
   })
 }

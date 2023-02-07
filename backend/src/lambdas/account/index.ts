@@ -6,16 +6,17 @@ import {LambdaIntegration} from 'aws-cdk-lib/aws-apigateway'
 import {Construct} from 'constructs'
 
 import {DeploymentEnvironment} from '../../types'
+import CONFIG from '../../config'
 
-interface UserLambdaProps {
+interface AccountLambdaProps {
   scope: Construct
   table: ITable
   deploymentEnvironment: DeploymentEnvironment
 }
 
-export function createAccountLambdaV1(props: UserLambdaProps): NodejsFunction {
+export function createAccountLambdaV1(props: AccountLambdaProps): NodejsFunction {
   const {scope, deploymentEnvironment, table} = props
-  const lambdaName = `AccountLambda-${deploymentEnvironment}`
+  const lambdaName = `${CONFIG.STACK_PREFIX}AccountLambda-${deploymentEnvironment}`
 
   const lambdaProps: NodejsFunctionProps = {
     functionName: lambdaName,
@@ -50,15 +51,19 @@ export function createAccountLambdaIntegrationV1(
 ): LambdaIntegration {
   const {scope, lambda, deploymentEnvironment} = props
 
-  const accountLambdaV1 = new Version(scope, `AccountLambda${deploymentEnvironment}V1`, {
-    lambda,
-  })
+  const accountLambdaV1 = new Version(
+    scope,
+    `${CONFIG.STACK_PREFIX}AccountLambda${deploymentEnvironment}V1`,
+    {
+      lambda,
+    },
+  )
 
   const accountLambdaV1Alias = new Alias(
     scope,
-    `AccountLambda${deploymentEnvironment}V1Alias`,
+    `${CONFIG.STACK_PREFIX}AccountLambda${deploymentEnvironment}V1Alias`,
     {
-      aliasName: 'AccountLambdaV1',
+      aliasName: `${CONFIG.STACK_PREFIX}AccountLambdaV1`,
       version: accountLambdaV1,
     },
   )

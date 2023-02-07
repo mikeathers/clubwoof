@@ -10,6 +10,7 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront'
 
 import {DeploymentEnvironment} from '../../types'
+import CONFIG from '../../config'
 
 export const isMasterBranch = (branchName: string): boolean => {
   return branchName === 'main'
@@ -94,11 +95,15 @@ export const handleAccessIdentity = (
 
 export const getRewriteFunction = (props: GetReWriteFunctionProps): IFunction => {
   const {scope, deploymentEnvironment} = props
-  return new Function(scope, `ViewerResponseFunction-${deploymentEnvironment}`, {
-    functionName: `RedirectURIFunction-${deploymentEnvironment}`,
-    code: FunctionCode.fromFile({
-      filePath: join(__dirname, './mapping-function.js'),
-    }),
-    comment: 'adds index.html to requests',
-  })
+  return new Function(
+    scope,
+    `${CONFIG.STACK_PREFIX}ViewerResponseFunction-${deploymentEnvironment}`,
+    {
+      functionName: `${CONFIG.STACK_PREFIX}RedirectURIFunction-${deploymentEnvironment}`,
+      code: FunctionCode.fromFile({
+        filePath: join(__dirname, './mapping-function.js'),
+      }),
+      comment: 'adds index.html to requests',
+    },
+  )
 }

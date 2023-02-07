@@ -54,7 +54,7 @@ export class IdentityPoolConstruct {
 
   private createUserCognitoGroupRole() {
     return new Role(this.scope, 'UserGroupRole', {
-      roleName: 'UserGroupRole',
+      roleName: `${CONFIG.STACK_PREFIX}UserGroupRole`,
       description: 'Default role for authenticated users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -79,7 +79,7 @@ export class IdentityPoolConstruct {
 
   private createAnonymousCognitoGroupRole() {
     return new Role(this.scope, 'AnonymousGroupRole', {
-      roleName: 'AnonymousGroupRole',
+      roleName: `${CONFIG.STACK_PREFIX}AnonymousGroupRole`,
       description: 'Default role for anonymous users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -104,7 +104,7 @@ export class IdentityPoolConstruct {
 
   private createAdminCognitoGroupRole() {
     return new Role(this.scope, 'AdminsGroupRole', {
-      roleName: 'AdminsGroupRole',
+      roleName: `${CONFIG.STACK_PREFIX}AdminsGroupRole`,
       description: 'Default role for administrator users',
       assumedBy: new FederatedPrincipal(
         'cognito-identity.amazonaws.com',
@@ -129,7 +129,7 @@ export class IdentityPoolConstruct {
 
   private createUserGroupsAndAttachRoles() {
     new CfnUserPoolGroup(this.scope, 'UsersGroup', {
-      groupName: 'Users',
+      groupName: `${CONFIG.STACK_PREFIX}UsersGroupRole`,
       userPoolId: this.userPool.userPoolId,
       description: 'The default group for authenticated users',
       precedence: 3,
@@ -137,7 +137,7 @@ export class IdentityPoolConstruct {
     })
 
     new CfnUserPoolGroup(this.scope, 'AdminsGroup', {
-      groupName: 'Admins',
+      groupName: `${CONFIG.STACK_PREFIX}AdminsGroupRole`,
       userPoolId: this.userPool.userPoolId,
       description: 'The group for admin users with specific privileges',
       precedence: 2,

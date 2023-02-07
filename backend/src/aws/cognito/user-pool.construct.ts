@@ -42,18 +42,22 @@ export class UserPoolConstruct {
   }
 
   private createPostConfirmationTrigger() {
-    return new NodejsFunction(this.scope, 'PostConfirmationTrigger', {
-      runtime: Runtime.NODEJS_16_X,
-      memorySize: 1024,
-      timeout: Duration.seconds(6),
-      handler: 'main',
-      entry: join(__dirname, './triggers/post-confirmation/index.ts'),
-      bundling: {externalModules: ['aws-sdk']},
-    })
+    return new NodejsFunction(
+      this.scope,
+      `${CONFIG.STACK_PREFIX}PostConfirmationTrigger`,
+      {
+        runtime: Runtime.NODEJS_16_X,
+        memorySize: 1024,
+        timeout: Duration.seconds(6),
+        handler: 'main',
+        entry: join(__dirname, './triggers/post-confirmation/index.ts'),
+        bundling: {externalModules: ['aws-sdk']},
+      },
+    )
   }
 
   private createCustomMessagesTrigger() {
-    return new NodejsFunction(this.scope, 'CustomMessagesTrigger', {
+    return new NodejsFunction(this.scope, `${CONFIG.STACK_PREFIX}CustomMessagesTrigger`, {
       runtime: Runtime.NODEJS_16_X,
       memorySize: 1024,
       timeout: Duration.seconds(6),

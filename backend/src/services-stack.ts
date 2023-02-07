@@ -3,7 +3,7 @@ import {Stack, StackProps} from 'aws-cdk-lib'
 import {Construct} from 'constructs'
 
 import {DeploymentEnvironment} from './types'
-import {Database} from './database'
+import {Databases} from './database'
 import {Lambdas} from './lambdas'
 import {Apis} from './api-gateway'
 import {createApiCertificates, getHostedZone} from './aws'
@@ -25,18 +25,31 @@ export class ServicesStack extends Stack {
       scope: this,
       hostedZone,
       region: 'eu-west-2',
-      certificates: [{name: 'AccountApiCertificate', url: CONFIG.ACCOUNT_API_URL}],
+      certificates: [
+        {
+          name: `${CONFIG.STACK_PREFIX}AccountApiCertificate`,
+          url: CONFIG.ACCOUNT_API_URL,
+        },
+      ],
     })
 
-    const databases = new Database(this, 'Databases', deploymentEnvironment)
-
-    const {accountLambdaV1, accountLambdaIntegrationV1} = new Lambdas(this, 'Lambdas', {
-      usersTable: databases.accountsTable,
-      eventsTable: databases.eventsTable,
+    const databases = new Databases(
+      this,
+      `${CONFIG.STACK_PREFIX}Databases`,
       deploymentEnvironment,
-    })
+    )
 
-    new Apis(this, 'ApiGateway', {
+    const {accountLambdaV1, accountLambdaIntegrationV1} = new Lambdas(
+      this,
+      `${CONFIG.STACK_PREFIX}Lambdas`,
+      {
+        usersTable: databases.accountsTable,
+        eventsTable: databases.eventsTable,
+        deploymentEnvironment,
+      },
+    )
+
+    new Apis(this, `${CONFIG.STACK_PREFIX}ApiGateway`, {
       accountLambdaV1,
       accountLambdaIntegrationV1,
       deploymentEnvironment,

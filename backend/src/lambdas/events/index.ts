@@ -6,6 +6,7 @@ import {LambdaIntegration} from 'aws-cdk-lib/aws-apigateway'
 import {Construct} from 'constructs'
 
 import {DeploymentEnvironment} from '../../types'
+import CONFIG from '../../config'
 
 interface EventsLambdaProps {
   scope: Construct
@@ -15,7 +16,7 @@ interface EventsLambdaProps {
 
 export function createEventsLambdaV1(props: EventsLambdaProps): NodejsFunction {
   const {scope, deploymentEnvironment, table} = props
-  const lambdaName = `EventsLambda-${deploymentEnvironment}`
+  const lambdaName = `${CONFIG.STACK_PREFIX}EventsLambda-${deploymentEnvironment}`
 
   const handleProps: NodejsFunctionProps = {
     functionName: lambdaName,
@@ -50,15 +51,19 @@ export function createEventsLambdaIntegrationV1(
 ): LambdaIntegration {
   const {scope, lambda, deploymentEnvironment} = props
 
-  const eventsLambdaV1 = new Version(scope, `EventsLambda${deploymentEnvironment}V1`, {
-    lambda,
-  })
+  const eventsLambdaV1 = new Version(
+    scope,
+    `${CONFIG.STACK_PREFIX}EventsLambda${deploymentEnvironment}V1`,
+    {
+      lambda,
+    },
+  )
 
   const eventsLambdaV1Alias = new Alias(
     scope,
-    `EventsLambda${deploymentEnvironment}V1Alias`,
+    `${CONFIG.STACK_PREFIX}EventsLambda${deploymentEnvironment}V1Alias`,
     {
-      aliasName: 'EventsLambdaV1',
+      aliasName: `${CONFIG.STACK_PREFIX}EventsLambdaV1`,
       version: eventsLambdaV1,
     },
   )

@@ -65,6 +65,7 @@ export class UserPoolClientConstruct {
         adminUserPassword: true,
         custom: true,
         userSrp: true,
+        userPassword: true,
       },
       supportedIdentityProviders: [UserPoolClientIdentityProvider.COGNITO],
       readAttributes: clientReadAttributes,
