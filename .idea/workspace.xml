@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/backend/src/event-bus/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/event-bus/queue.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/functions/account/delete-account.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/functions/account/update-account.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/database/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/database/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/accounts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/account/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/account/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/functions/account/create-account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/create-account.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/functions/account/get-account-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/get-account-by-id.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/functions/account/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/functions/events/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/events/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/account/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/lambdas/account/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/lambdas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/lambdas/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services-stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services-stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/validators/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/validators/account.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

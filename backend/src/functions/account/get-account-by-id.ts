@@ -8,7 +8,8 @@ export const getAccountById = async (props: GetAccountByIdProps) => {
   const {id, dbClient} = props
   try {
     const TableName = process.env.TABLE_NAME
-    const Key = id
+    const Key = 'id'
+    const Value = id
 
     const queryResponse = await dbClient
       .query({
@@ -16,10 +17,10 @@ export const getAccountById = async (props: GetAccountByIdProps) => {
         IndexName: Key,
         KeyConditionExpression: '#zz = :zzzz',
         ExpressionAttributeNames: {
-          '#zz': process.env.PRIMARY_KEY ?? '',
+          '#zz': Key,
         },
         ExpressionAttributeValues: {
-          ':zzzz': Key,
+          ':zzzz': Value,
         },
       })
       .promise()

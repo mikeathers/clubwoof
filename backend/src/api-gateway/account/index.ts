@@ -94,11 +94,19 @@ export function createAccountApi(props: CreateAccountApiProps): LambdaRestApi {
     .addResource('create-account')
     .addMethod('POST', new LambdaIntegration(accountLambdaV1), methodOptions)
 
-  const getUserById = root.addResource('get-account-by-id')
-  getUserById.addResource('{id}')
-  getUserById.addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
-  getUserById.addMethod('DELETE', new LambdaIntegration(accountLambdaV1), methodOptions)
-  getUserById.addMethod('PUT', new LambdaIntegration(accountLambdaV1), methodOptions)
+  const getAccountById = root.addResource('get-account-by-id')
+  getAccountById
+    .addResource('{id}')
+    .addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
+
+  root
+    .addResource('update-account')
+    .addMethod('PUT', new LambdaIntegration(accountLambdaV1), methodOptions)
+
+  const deleteAccount = root.addResource('delete-account')
+  deleteAccount
+    .addResource('{id}')
+    .addMethod('DELETE', new LambdaIntegration(accountLambdaV1), methodOptions)
 
   new ARecord(scope, `${CONFIG.STACK_PREFIX}AccountApiAliasRecord`, {
     recordName: CONFIG.ACCOUNT_API_URL,

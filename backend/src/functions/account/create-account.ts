@@ -1,19 +1,13 @@
 import {APIGatewayProxyEvent} from 'aws-lambda'
-import {AWSError, DynamoDB, EventBridge} from 'aws-sdk'
+import {DynamoDB, EventBridge} from 'aws-sdk'
 
-import {CreateAccountRequest} from '../../types'
-import {PromiseResult} from 'aws-sdk/lib/request'
+import {CreateAccountRequest, QueryResult} from '../../types'
 import {validateCreateAccountRequest} from '../../validators'
 import {v4 as uuidv4} from 'uuid'
 
 interface CreateAccountProps {
   event: APIGatewayProxyEvent
   dbClient: DynamoDB.DocumentClient
-}
-
-interface CreateAccountResult {
-  message: string
-  result?: PromiseResult<DynamoDB.DocumentClient.PutItemOutput, AWSError>
 }
 
 interface CheckAccountDetailsAlreadyExistProps {
@@ -38,9 +32,7 @@ const publishCreateUserEvent = async (requestDetails: CreateAccountRequest) => {
   await ebClient.putEvents(params).promise()
 }
 
-export const createAccount = async (
-  props: CreateAccountProps,
-): Promise<CreateAccountResult> => {
+export const createAccount = async (props: CreateAccountProps): Promise<QueryResult> => {
   const {event, dbClient} = props
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const authId = event.requestContext.authorizer?.claims['sub'] as string
@@ -105,7 +97,6 @@ const checkAccountDetailsAlreadyExists = async (
         },
       })
       .promise()
-    console.log('ITEMS: ', queryResponse.Items)
     if (queryResponse.Items && queryResponse.Items.length > 0) {
       return true
     }
