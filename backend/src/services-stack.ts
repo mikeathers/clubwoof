@@ -8,6 +8,8 @@ import {Lambdas} from './lambdas'
 import {Apis} from './api-gateway'
 import {createApiCertificates, getHostedZone} from './aws'
 import CONFIG from './config'
+import {EventBridge} from './event-bus'
+import {EventQueue} from './event-bus/queue'
 
 interface ServicesStackProps extends StackProps {
   deploymentEnvironment: DeploymentEnvironment
@@ -39,13 +41,30 @@ export class ServicesStack extends Stack {
       deploymentEnvironment,
     )
 
+    const {eventBus, eventRule} = new EventBridge(
+      this,
+      `${CONFIG.STACK_PREFIX}EventBus`,
+      {
+        deploymentEnvironment,
+        account: this.account,
+      },
+    )
+
+    const {eventQueue} = new EventQueue(this, `${CONFIG.STACK_PREFIX}EventQueue`, {
+      deploymentEnvironment,
+    })
+
     const {accountLambdaV1, accountLambdaIntegrationV1} = new Lambdas(
       this,
       `${CONFIG.STACK_PREFIX}Lambdas`,
       {
-        usersTable: databases.accountsTable,
+        accountsTable: databases.accountsTable,
         eventsTable: databases.eventsTable,
         deploymentEnvironment,
+        eventBusArn: eventBus.eventBusArn,
+        eventBusName: eventBus.eventBusName,
+        accountRule: eventRule,
+        eventQueue,
       },
     )
 

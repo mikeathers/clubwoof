@@ -7,15 +7,17 @@ import {Construct} from 'constructs'
 
 import {DeploymentEnvironment} from '../../types'
 import CONFIG from '../../config'
+import {PolicyStatement} from 'aws-cdk-lib/aws-iam'
 
 interface AccountLambdaProps {
   scope: Construct
   table: ITable
   deploymentEnvironment: DeploymentEnvironment
+  eventBusName: string
 }
 
 export function createAccountLambdaV1(props: AccountLambdaProps): NodejsFunction {
-  const {scope, deploymentEnvironment, table} = props
+  const {scope, deploymentEnvironment, table, eventBusName} = props
   const lambdaName = `${CONFIG.STACK_PREFIX}AccountLambda-${deploymentEnvironment}`
 
   const lambdaProps: NodejsFunctionProps = {
@@ -26,6 +28,7 @@ export function createAccountLambdaV1(props: AccountLambdaProps): NodejsFunction
     environment: {
       PRIMARY_KEY: 'id',
       TABLE_NAME: table.tableName,
+      EVENT_BUS_NAME: eventBusName,
     },
     runtime: Runtime.NODEJS_14_X,
   }
@@ -36,6 +39,12 @@ export function createAccountLambdaV1(props: AccountLambdaProps): NodejsFunction
   })
 
   table.grantReadWriteData(accountLambda)
+  accountLambda.addToRolePolicy(
+    new PolicyStatement({
+      actions: ['dynamodb:Query'],
+      resources: ['*'],
+    }),
+  )
 
   return accountLambda
 }

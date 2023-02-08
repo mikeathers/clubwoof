@@ -26,10 +26,11 @@ async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResu
           result.body = await getAllAccounts({dbClient})
         }
         break
-      case 'POST':
-        await createAccount({event, dbClient})
-        result.body = 'Account has been created successfully.'
+      case 'POST': {
+        const res = await createAccount({event, dbClient})
+        result.body = JSON.stringify(res)
         break
+      }
     }
   } catch (err) {
     console.error(err)

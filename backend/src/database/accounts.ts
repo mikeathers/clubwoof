@@ -21,5 +21,14 @@ export function createAccountsTable(props: CreateAccountsTableProps): ITable {
     removalPolicy: RemovalPolicy.DESTROY,
     billingMode: BillingMode.PAY_PER_REQUEST,
   })
+
+  accountsTable.addGlobalSecondaryIndex({
+    indexName: 'authId',
+    partitionKey: {
+      name: 'authId',
+      type: AttributeType.STRING,
+    },
+  })
+
   return accountsTable
 }

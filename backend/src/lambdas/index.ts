@@ -6,11 +6,20 @@ import {LambdaIntegration} from 'aws-cdk-lib/aws-apigateway'
 import {DeploymentEnvironment} from '../types'
 import {createAccountLambdaIntegrationV1, createAccountLambdaV1} from './account'
 import {createEventsLambdaIntegrationV1, createEventsLambdaV1} from './events'
+import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
+import {Rule} from 'aws-cdk-lib/aws-events'
+import {LambdaFunction, SqsQueue} from 'aws-cdk-lib/aws-events-targets'
+import {IQueue} from 'aws-cdk-lib/aws-sqs'
+import {SqsEventSource} from 'aws-cdk-lib/aws-lambda-event-sources'
 
 interface HandlersProps {
-  usersTable: ITable
+  accountsTable: ITable
   eventsTable: ITable
   deploymentEnvironment: DeploymentEnvironment
+  eventBusName: string
+  eventBusArn: string
+  accountRule: Rule
+  eventQueue: IQueue
 }
 
 export class Lambdas extends Construct {
@@ -21,12 +30,20 @@ export class Lambdas extends Construct {
 
   constructor(scope: Construct, id: string, props: HandlersProps) {
     super(scope, id)
-    const {usersTable, eventsTable, deploymentEnvironment} = props
+    const {
+      accountsTable,
+      eventsTable,
+      deploymentEnvironment,
+      eventBusArn,
+      accountRule,
+      eventQueue,
+    } = props
 
     this.accountLambdaV1 = createAccountLambdaV1({
       scope: this,
-      table: usersTable,
+      table: accountsTable,
       deploymentEnvironment,
+      eventBusName: eventBusArn,
     })
 
     this.accountLambdaIntegrationV1 = createAccountLambdaIntegrationV1({
@@ -46,5 +63,20 @@ export class Lambdas extends Construct {
       lambda: this.eventsLambdaV1,
       deploymentEnvironment,
     })
+
+    const policyStatement = new PolicyStatement({
+      actions: ['events:Put*'],
+      resources: [eventBusArn],
+    })
+
+    this.accountLambdaV1.role?.attachInlinePolicy(
+      new Policy(this, 'EventBusPolicy', {
+        statements: [policyStatement],
+      }),
+    )
+
+    accountRule.addTarget(new LambdaFunction(this.eventsLambdaV1))
+    accountRule.addTarget(new SqsQueue(eventQueue))
+    this.eventsLambdaV1.addEventSource(new SqsEventSource(eventQueue, {batchSize: 1}))
   }
 }
