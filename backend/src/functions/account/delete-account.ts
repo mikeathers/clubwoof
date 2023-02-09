@@ -21,8 +21,8 @@ export const deleteAccount = async (props: DeleteAccountProps): Promise<QueryRes
   const result = await dbClient.delete(params).promise()
   if (result.Attributes) {
     await publishDeleteAccountEvent({
-      idOfDeletedAccount: id,
-      idOFUserWhoTriggerEvent: authenticatedUserId,
+      id,
+      userWhoDeletedAccountId: authenticatedUserId,
     })
 
     return {
