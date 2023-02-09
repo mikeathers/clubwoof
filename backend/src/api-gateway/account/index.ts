@@ -95,15 +95,14 @@ export function createAccountApi(props: CreateAccountApiProps): LambdaRestApi {
     .addMethod('POST', new LambdaIntegration(accountLambdaV1), methodOptions)
 
   const getAccountById = root.addResource('get-account-by-id')
-  getAccountById
-    .addResource('{id}')
-    .addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
+  getAccountById.addMethod('GET', new LambdaIntegration(accountLambdaV1), methodOptions)
 
   root
     .addResource('update-account')
     .addMethod('PUT', new LambdaIntegration(accountLambdaV1), methodOptions)
 
   const deleteAccount = root.addResource('delete-account')
+
   deleteAccount
     .addResource('{id}')
     .addMethod('DELETE', new LambdaIntegration(accountLambdaV1), methodOptions)

@@ -5,10 +5,12 @@ export type DeploymentEnvironment = 'Dev' | 'Prod'
 
 export type CreateAccountRequest = {
   id: string
-  address: string
+  addressLineOne: string
+  doorNumber: string
+  townCity: string
   postCode: string
   numberOfDogs: number
-  authId: string
+  authenticatedUserId: string
   comment: string
   numberOfWalksRequired: number
   firstName: string
@@ -16,7 +18,24 @@ export type CreateAccountRequest = {
   emailAddress: string
 }
 
+export type UpdateAccountRequest = Pick<
+  CreateAccountRequest,
+  | 'id'
+  | 'doorNumber'
+  | 'addressLineOne'
+  | 'townCity'
+  | 'postCode'
+  | 'numberOfDogs'
+  | 'numberOfWalksRequired'
+  | 'lastName'
+  | 'firstName'
+  | 'emailAddress'
+>
+
 export type QueryResult = {
-  message: string
-  result?: PromiseResult<DynamoDB.DocumentClient.PutItemOutput, AWSError>
+  message?: string
+  result?:
+    | PromiseResult<DynamoDB.DocumentClient.PutItemOutput, AWSError>
+    | string
+    | DynamoDB.DocumentClient.AttributeMap
 }

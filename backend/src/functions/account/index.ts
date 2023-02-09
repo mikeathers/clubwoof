@@ -20,16 +20,21 @@ async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResu
   addCorsHeader(event)
 
   try {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    const authenticatedUserId = event.requestContext.authorizer?.claims['sub'] as string
+
     switch (event.httpMethod) {
       case 'GET':
         if (event.pathParameters?.id) {
-          result.body = await getAccountById({id: event.pathParameters.id, dbClient})
+          result.body = JSON.stringify(
+            await getAccountById({id: event.pathParameters.id, dbClient}),
+          )
         } else {
-          result.body = await getAllAccounts({dbClient})
+          result.body = JSON.stringify(await getAllAccounts({dbClient}))
         }
         break
       case 'POST': {
-        const res = await createAccount({event, dbClient})
+        const res = await createAccount({event, dbClient, authenticatedUserId})
         result.body = JSON.stringify(res)
         break
       }
@@ -40,7 +45,11 @@ async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResu
       }
       case 'DELETE': {
         if (event.pathParameters?.id) {
-          const res = await deleteAccount({id: event.pathParameters?.id, dbClient})
+          const res = await deleteAccount({
+            dbClient,
+            id: event.pathParameters?.id,
+            authenticatedUserId,
+          })
           result.body = JSON.stringify(res)
         } else {
           throw new Error('An account Id is missing from the request.')

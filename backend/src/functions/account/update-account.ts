@@ -1,18 +1,9 @@
-import {CreateAccountRequest, QueryResult} from '../../types'
 import {DynamoDB} from 'aws-sdk'
 import {APIGatewayProxyEvent} from 'aws-lambda'
 
-type UpdateAccount = Pick<
-  CreateAccountRequest,
-  | 'id'
-  | 'address'
-  | 'postCode'
-  | 'numberOfDogs'
-  | 'numberOfWalksRequired'
-  | 'lastName'
-  | 'firstName'
-  | 'emailAddress'
->
+import {QueryResult, UpdateAccountRequest} from '../../types'
+import {getByPrimaryKey} from '../../aws'
+import {publishUpdateAccountEvent} from '../../event-bus'
 
 interface UpdateAccountProps {
   event: APIGatewayProxyEvent
@@ -24,11 +15,12 @@ export const updateAccount = async (props: UpdateAccountProps): Promise<QueryRes
   const {dbClient, event} = props
 
   if (event.body) {
-    console.log('EVENT BODY: ', event.body)
-    const updateAccountData = JSON.parse(event.body) as UpdateAccount
+    const updateAccountData = JSON.parse(event.body) as UpdateAccountRequest
     const {
       id,
-      address,
+      doorNumber,
+      addressLineOne,
+      townCity,
       postCode,
       numberOfWalksRequired,
       numberOfDogs,
@@ -37,14 +29,30 @@ export const updateAccount = async (props: UpdateAccountProps): Promise<QueryRes
       emailAddress,
     } = updateAccountData
 
+    const accountExists = await getByPrimaryKey({
+      queryKey: 'id',
+      queryValue: id,
+      tableName,
+      dbClient,
+    })
+
+    if (!accountExists) {
+      return {
+        message: `Account with Id: ${id} does not exist and could not be updated.`,
+      }
+    }
+
     const params = {
       TableName: tableName,
       Key: {id},
       UpdateExpression:
-        'SET address = :address, postCode = :postCode, numberOfWalksRequired = :numberOfWalksRequired, ' +
-        'numberOfDogs = :numberOfDogs, lastName = :lastName, firstName = :firstName, emailAddress = :emailAddress',
+        'SET addressLineOne = :addressLineOne, doorNumber = :doorNumber, townCity = :townCity, postCode = :postCode,' +
+        ' numberOfWalksRequired = :numberOfWalksRequired, numberOfDogs = :numberOfDogs, lastName = :lastName,' +
+        ' firstName = :firstName, emailAddress = :emailAddress',
       ExpressionAttributeValues: {
-        ':address': address,
+        ':doorNumber': doorNumber,
+        ':addressLineOne': addressLineOne,
+        ':townCity': townCity,
         ':postCode': postCode,
         ':numberOfWalksRequired': numberOfWalksRequired,
         ':numberOfDogs': numberOfDogs,
@@ -56,7 +64,9 @@ export const updateAccount = async (props: UpdateAccountProps): Promise<QueryRes
     }
 
     const result = await dbClient.update(params).promise()
-    console.log('RESULT: ', result)
+
+    await publishUpdateAccountEvent(updateAccountData)
+
     return {
       message: 'Account updated successfully.',
       result,

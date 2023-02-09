@@ -1,32 +1,34 @@
 import {DynamoDB} from 'aws-sdk'
+import {QueryResult} from '../../types'
+import {getByPrimaryKey} from '../../aws'
 
 interface GetAccountByIdProps {
   id: string
   dbClient: DynamoDB.DocumentClient
 }
-export const getAccountById = async (props: GetAccountByIdProps) => {
+export const getAccountById = async (
+  props: GetAccountByIdProps,
+): Promise<QueryResult> => {
   const {id, dbClient} = props
-  try {
-    const TableName = process.env.TABLE_NAME
-    const Key = 'id'
-    const Value = id
+  const tableName = process.env.TABLE_NAME ?? ''
+  const queryKey = 'id'
+  const queryValue = id
 
-    const queryResponse = await dbClient
-      .query({
-        TableName: TableName ?? '',
-        IndexName: Key,
-        KeyConditionExpression: '#zz = :zzzz',
-        ExpressionAttributeNames: {
-          '#zz': Key,
-        },
-        ExpressionAttributeValues: {
-          ':zzzz': Value,
-        },
-      })
-      .promise()
-    return JSON.stringify(queryResponse.Items)
-  } catch (err) {
-    console.log(err)
-    throw err
+  const queryResponse = await getByPrimaryKey({
+    queryKey,
+    queryValue,
+    tableName,
+    dbClient,
+  })
+
+  if (queryResponse.Item) {
+    return {
+      message: 'Account has been found.',
+      result: queryResponse.Item,
+    }
+  }
+
+  return {
+    message: `Account with Id: ${id} does not exist.`,
   }
 }

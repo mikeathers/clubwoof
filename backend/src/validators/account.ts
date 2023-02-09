@@ -4,8 +4,14 @@ export class MissingFieldError extends Error {}
 
 // eslint-disable-next-line
 export const validateCreateAccountRequest = (arg: CreateAccountRequest): void => {
-  if (!arg.address) {
-    throw new MissingFieldError('Value for address required!')
+  if (!arg.doorNumber) {
+    throw new MissingFieldError('Value for doorNumber required!')
+  }
+  if (!arg.townCity) {
+    throw new MissingFieldError('Value for townCity required!')
+  }
+  if (!arg.addressLineOne) {
+    throw new MissingFieldError('Value for addressLineOne required!')
   }
   if (!arg.postCode) {
     throw new MissingFieldError('Value for postCode required!')
@@ -22,7 +28,7 @@ export const validateCreateAccountRequest = (arg: CreateAccountRequest): void =>
   if (!arg.comment) {
     throw new MissingFieldError('Value for comment required!')
   }
-  if (!arg.authId) {
-    throw new MissingFieldError('Value for authId required!')
+  if (!arg.authenticatedUserId) {
+    throw new MissingFieldError('Value for authenticatedUserId required!')
   }
 }

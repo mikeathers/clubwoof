@@ -23,9 +23,9 @@ export function createAccountsTable(props: CreateAccountsTableProps): ITable {
   })
 
   accountsTable.addGlobalSecondaryIndex({
-    indexName: 'authId',
+    indexName: 'authenticatedUserId',
     partitionKey: {
-      name: 'authId',
+      name: 'authenticatedUserId',
       type: AttributeType.STRING,
     },
   })
