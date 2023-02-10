@@ -23,7 +23,7 @@ export interface CreateDistributionProps {
   accessIdentity: OriginAccessIdentity
   responseHeadersPolicy: ResponseHeadersPolicy
   functionAssociation?: IFunction
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   distributionName: string
 }
 
@@ -36,7 +36,7 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
     accessIdentity,
     responseHeadersPolicy,
     functionAssociation,
-    deploymentEnvironment,
+    stage,
     distributionName,
   } = props
 
@@ -77,6 +77,6 @@ export const createDistribution = (props: CreateDistributionProps): IDistributio
     }
   }
 
-  const name = `${distributionName}-${deploymentEnvironment}`
+  const name = `${distributionName}-${stage}`
   return new Distribution(scope, name, getDistributionProps())
 }

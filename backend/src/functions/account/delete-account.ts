@@ -33,6 +33,5 @@ export const deleteAccount = async (props: DeleteAccountProps): Promise<QueryRes
 
   return {
     message: `Account ${id} was not deleted because it does not exist.`,
-    result,
   }
 }

@@ -4,7 +4,7 @@ import {DeploymentEnvironment} from '../types'
 import CONFIG from '../config'
 
 interface EventsProps {
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   account: string
 }
 
@@ -14,8 +14,8 @@ export class EventBus extends Construct {
 
   constructor(scope: Construct, id: string, props: EventsProps) {
     super(scope, id)
-    const {account, deploymentEnvironment} = props
-    const eventBusName = `${CONFIG.STACK_PREFIX}EventBus-${deploymentEnvironment}`
+    const {account, stage} = props
+    const eventBusName = `${CONFIG.STACK_PREFIX}EventBus-${stage}`
 
     this.eventBus = new events.EventBus(scope, eventBusName, {
       eventBusName,

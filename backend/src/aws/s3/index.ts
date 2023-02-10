@@ -12,23 +12,23 @@ import {DeploymentEnvironment} from '../../types'
 export interface CreateBucketProps {
   scope: Stack
   bucketName: string
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
 }
 
 export interface CreateBucketDeploymentProps {
   scope: Stack
   bucket: IBucket
   filePath: string
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   deploymentName: string
 }
 
 export const createBucket = (props: CreateBucketProps): IBucket => {
-  const {scope, bucketName, deploymentEnvironment} = props
+  const {scope, bucketName, stage} = props
 
-  const parsedBucketName = `${bucketName}-${deploymentEnvironment}`.toLowerCase()
+  const parsedBucketName = `${bucketName}-${stage}`.toLowerCase()
 
-  return new Bucket(scope, `${bucketName}-${deploymentEnvironment}`, {
+  return new Bucket(scope, `${bucketName}-${stage}`, {
     bucketName: parsedBucketName,
     publicReadAccess: false,
     autoDeleteObjects: true,
@@ -42,9 +42,9 @@ export const createBucket = (props: CreateBucketProps): IBucket => {
 export const createBucketDeployment = (
   props: CreateBucketDeploymentProps,
 ): BucketDeployment => {
-  const {scope, bucket, filePath, deploymentEnvironment, deploymentName} = props
+  const {scope, bucket, filePath, stage, deploymentName} = props
 
-  return new BucketDeployment(scope, `${deploymentName}-${deploymentEnvironment}`, {
+  return new BucketDeployment(scope, `${deploymentName}-${stage}`, {
     destinationBucket: bucket,
     sources: [Source.asset(filePath)],
   })

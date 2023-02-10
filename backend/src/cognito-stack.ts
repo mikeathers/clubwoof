@@ -12,7 +12,7 @@ import CONFIG from './config'
 import {UserPool} from 'aws-cdk-lib/aws-cognito'
 
 interface BackendStackProps extends StackProps {
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
 }
 
 export class CognitoStack extends Stack {
@@ -20,6 +20,7 @@ export class CognitoStack extends Stack {
 
   constructor(scope: Construct, id: string, props: BackendStackProps) {
     super(scope, id, props)
+    const {stage} = props
 
     const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
 
@@ -30,24 +31,16 @@ export class CognitoStack extends Stack {
       name: 'WebsiteCertificate',
     })
 
-    const {userPool} = new UserPoolConstruct(
-      this,
-      props.deploymentEnvironment,
-      certificate,
-    )
+    const {userPool} = new UserPoolConstruct(this, stage, certificate)
     this.userPool = userPool
 
-    const {userPoolClient} = new UserPoolClientConstruct(
-      this,
-      userPool,
-      props.deploymentEnvironment,
-    )
+    const {userPoolClient} = new UserPoolClientConstruct(this, userPool, stage)
 
     const {identityPool} = new IdentityPoolConstruct(
       this,
       userPool,
       userPoolClient,
-      props.deploymentEnvironment,
+      stage,
     )
 
     // Outputs

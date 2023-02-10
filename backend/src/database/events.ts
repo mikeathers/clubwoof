@@ -22,5 +22,14 @@ export function createEventsTable(props: CreateEventsTableProps): ITable {
     removalPolicy: RemovalPolicy.DESTROY,
     billingMode: BillingMode.PAY_PER_REQUEST,
   })
+
+  eventsTable.addGlobalSecondaryIndex({
+    indexName: 'accountId',
+    partitionKey: {
+      name: 'accountId',
+      type: AttributeType.STRING,
+    },
+  })
+
   return eventsTable
 }

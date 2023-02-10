@@ -7,7 +7,6 @@ import {createEventsTable} from './events'
 export class Databases extends Construct {
   public readonly accountsTable: ITable
   public readonly eventsTable: ITable
-  private readonly deploymentEnvironment: DeploymentEnvironment
 
   constructor(
     scope: Construct,
@@ -15,8 +14,6 @@ export class Databases extends Construct {
     deploymentEnvironment: DeploymentEnvironment,
   ) {
     super(scope, id)
-
-    this.deploymentEnvironment = deploymentEnvironment
     this.accountsTable = createAccountsTable({scope: this, deploymentEnvironment})
     this.eventsTable = createEventsTable({scope: this, deploymentEnvironment})
   }

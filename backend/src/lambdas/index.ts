@@ -4,8 +4,8 @@ import {ITable} from 'aws-cdk-lib/aws-dynamodb'
 import {LambdaIntegration} from 'aws-cdk-lib/aws-apigateway'
 
 import {DeploymentEnvironment} from '../types'
-import {createAccountLambdaIntegrationV1, createAccountLambdaV1} from './account'
-import {createEventsLambdaIntegrationV1, createEventsLambdaV1} from './events'
+import {AccountLambda, AccountLambdaIntegration} from './account'
+import {EventsLambda, EventsLambdaIntegration} from './events'
 import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
 import {Rule} from 'aws-cdk-lib/aws-events'
 import {LambdaFunction, SqsQueue} from 'aws-cdk-lib/aws-events-targets'
@@ -15,11 +15,12 @@ import {SqsEventSource} from 'aws-cdk-lib/aws-lambda-event-sources'
 interface HandlersProps {
   accountsTable: ITable
   eventsTable: ITable
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   eventBusName: string
   eventBusArn: string
   accountRule: Rule
   eventQueue: IQueue
+  deadLetterQueue: IQueue
 }
 
 export class Lambdas extends Construct {
@@ -33,36 +34,42 @@ export class Lambdas extends Construct {
     const {
       accountsTable,
       eventsTable,
-      deploymentEnvironment,
+      stage,
       eventBusArn,
       accountRule,
       eventQueue,
+      deadLetterQueue,
     } = props
 
-    this.accountLambdaV1 = createAccountLambdaV1({
+    const {accountLambdaV1} = new AccountLambda({
       scope: this,
       table: accountsTable,
-      deploymentEnvironment,
+      stage,
       eventBusName: eventBusArn,
     })
+    this.accountLambdaV1 = accountLambdaV1
 
-    this.accountLambdaIntegrationV1 = createAccountLambdaIntegrationV1({
+    const {accountLambdaIntegrationV1} = new AccountLambdaIntegration({
       scope: this,
-      lambda: this.accountLambdaV1,
-      deploymentEnvironment,
+      lambda: accountLambdaV1,
+      stage: stage,
     })
+    this.accountLambdaIntegrationV1 = accountLambdaIntegrationV1
 
-    this.eventsLambdaV1 = createEventsLambdaV1({
+    const {eventsLambdaV1} = new EventsLambda({
       scope: this,
       table: eventsTable,
-      deploymentEnvironment,
+      stage,
+      deadLetterQueue,
     })
+    this.eventsLambdaV1 = eventsLambdaV1
 
-    this.eventsLambdaIntegrationV1 = createEventsLambdaIntegrationV1({
+    const {eventsLambdaIntegrationV1} = new EventsLambdaIntegration({
       scope: this,
-      lambda: this.eventsLambdaV1,
-      deploymentEnvironment,
+      lambda: eventsLambdaV1,
+      stage,
     })
+    this.eventsLambdaIntegrationV1 = eventsLambdaIntegrationV1
 
     const policyStatement = new PolicyStatement({
       actions: ['events:Put*'],
@@ -75,8 +82,8 @@ export class Lambdas extends Construct {
       }),
     )
 
-    accountRule.addTarget(new LambdaFunction(this.eventsLambdaV1))
+    accountRule.addTarget(new LambdaFunction(eventsLambdaV1))
     accountRule.addTarget(new SqsQueue(eventQueue))
-    this.eventsLambdaV1.addEventSource(new SqsEventSource(eventQueue, {batchSize: 1}))
+    eventsLambdaV1.addEventSource(new SqsEventSource(eventQueue, {batchSize: 1}))
   }
 }

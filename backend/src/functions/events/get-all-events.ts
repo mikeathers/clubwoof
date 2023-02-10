@@ -1,13 +1,11 @@
 import {DynamoDB} from 'aws-sdk'
 import {QueryResult} from '../../types'
 
-interface GetAllAccountsProps {
+interface GetAllEventsProps {
   dbClient: DynamoDB.DocumentClient
 }
 
-export const getAllAccounts = async (
-  props: GetAllAccountsProps,
-): Promise<QueryResult> => {
+export const getAllEvents = async (props: GetAllEventsProps): Promise<QueryResult> => {
   const {dbClient} = props
   const queryResponse = await dbClient
     .scan({

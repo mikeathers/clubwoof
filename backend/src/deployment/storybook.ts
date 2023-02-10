@@ -26,14 +26,14 @@ export const storybookDeployment = (props: StorybookDeploymentProps): void => {
   const bucket = createBucket({
     bucketName: `${CONFIG.STACK_PREFIX}StorybookBucket`,
     scope,
-    deploymentEnvironment,
+    stage: deploymentEnvironment,
   })
 
   createBucketDeployment({
     scope,
     bucket,
     filePath: './storybook-build',
-    deploymentEnvironment,
+    stage: deploymentEnvironment,
     deploymentName: `${CONFIG.STACK_PREFIX}StorybookBucketDeployment`,
   })
 
@@ -57,7 +57,7 @@ export const storybookDeployment = (props: StorybookDeploymentProps): void => {
     certificate,
     accessIdentity,
     responseHeadersPolicy,
-    deploymentEnvironment,
+    stage: deploymentEnvironment,
     distributionName: `${CONFIG.STACK_PREFIX}StorybookCloudfrontDistribution`,
   })
 

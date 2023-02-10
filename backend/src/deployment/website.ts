@@ -16,27 +16,27 @@ import {
 
 interface WebsiteDeploymentProps {
   scope: Stack
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   hostedZone: IHostedZone
   responseHeadersPolicy: ResponseHeadersPolicy
 }
 
 export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
-  const {scope, deploymentEnvironment, hostedZone, responseHeadersPolicy} = props
-  const isProduction = deploymentEnvironment === 'Prod'
+  const {scope, stage, hostedZone, responseHeadersPolicy} = props
+  const isProduction = stage === 'Prod'
   const url = isProduction ? CONFIG.DOMAIN_NAME : CONFIG.DEV_URL
 
   const bucket = createBucket({
     bucketName: `${CONFIG.STACK_PREFIX}WebsiteBucket`,
     scope,
-    deploymentEnvironment,
+    stage,
   })
 
   createBucketDeployment({
     scope,
     bucket,
     filePath: isProduction ? './frontend-build/prod' : './frontend-build/dev',
-    deploymentEnvironment,
+    stage: stage,
     deploymentName: `${CONFIG.STACK_PREFIX}WebsiteBucketDeployment`,
   })
 
@@ -55,7 +55,7 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
 
   const rewriteFunction = getRewriteFunction({
     scope,
-    deploymentEnvironment,
+    stage,
   })
 
   const distribution = createDistribution({
@@ -66,7 +66,7 @@ export const websiteDeployment = (props: WebsiteDeploymentProps): void => {
     accessIdentity,
     responseHeadersPolicy,
     functionAssociation: rewriteFunction,
-    deploymentEnvironment,
+    stage,
     distributionName: `${CONFIG.STACK_PREFIX}WebsiteCloudfrontDistribution`,
   })
 

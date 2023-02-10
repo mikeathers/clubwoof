@@ -11,6 +11,7 @@ interface ConfigProps {
   DEV_URL: string
   STORYBOOK_URL: string
   ACCOUNT_API_URL: string
+  EVENTS_API_URL: string
 }
 
 const CONFIG: ConfigProps = {
@@ -26,6 +27,7 @@ const CONFIG: ConfigProps = {
   DEV_URL: 'dev.clubwoof.co.uk',
   STORYBOOK_URL: 'storybook.clubwoof.co.uk',
   ACCOUNT_API_URL: 'account.clubwoof.co.uk',
+  EVENTS_API_URL: 'events.clubwoof.co.uk',
 }
 
 export default CONFIG

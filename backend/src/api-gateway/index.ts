@@ -5,42 +5,60 @@ import {UserPool} from 'aws-cdk-lib/aws-cognito'
 import {IHostedZone} from 'aws-cdk-lib/aws-route53'
 
 import {DeploymentEnvironment} from '../types'
-import {createAccountApi} from './account'
+import {AccountApi} from './account'
 import {CreatedCertificates} from '../aws'
+import {EventsApi} from './events'
 
 interface ApisProps {
   accountLambdaV1: IFunction
   accountLambdaIntegrationV1: LambdaIntegration
+  eventsLambdaV1: IFunction
+  eventsLambdaIntegrationV1: LambdaIntegration
   userPool: UserPool
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   certificates: CreatedCertificates
   hostedZone: IHostedZone
 }
 
 export class Apis extends Construct {
-  public accountApiGateway: LambdaRestApi
+  public accountApi: LambdaRestApi
+  public eventsApi: LambdaRestApi
 
   constructor(scope: Construct, id: string, props: ApisProps) {
     super(scope, id)
     const {
       accountLambdaV1,
       accountLambdaIntegrationV1,
+      eventsLambdaIntegrationV1,
+      eventsLambdaV1,
       userPool,
-      deploymentEnvironment,
+      stage,
       certificates,
       hostedZone,
     } = props
 
-    const {accountCertificate} = certificates
+    const {accountCertificate, eventsCertificate} = certificates
 
-    this.accountApiGateway = createAccountApi({
+    const {accountApi} = new AccountApi({
       scope: this,
       accountLambdaV1,
       accountLambdaIntegrationV1,
-      deploymentEnvironment,
+      stage,
       userPool,
       certificate: accountCertificate,
       hostedZone,
     })
+    this.accountApi = accountApi
+
+    const {eventsApi} = new EventsApi({
+      scope: this,
+      eventsLambdaV1,
+      eventsLambdaIntegrationV1,
+      stage,
+      userPool,
+      certificate: eventsCertificate,
+      hostedZone,
+    })
+    this.eventsApi = eventsApi
   }
 }

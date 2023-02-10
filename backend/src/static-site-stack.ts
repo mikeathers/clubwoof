@@ -7,19 +7,19 @@ import {getHostedZone, getSecurityHeader} from './aws'
 import CONFIG from './config'
 
 interface StaticSiteStackProps extends StackProps {
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
 }
 
 export class StaticSiteStack extends Stack {
   constructor(scope: Construct, id: string, props: StaticSiteStackProps) {
     super(scope, id, props)
-    const {deploymentEnvironment} = props
+    const {stage} = props
 
     const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
 
     const responseHeadersPolicy = getSecurityHeader(this)
 
-    if (deploymentEnvironment === 'Dev') {
+    if (stage === 'Dev') {
       storybookDeployment({
         scope: this,
         hostedZone,
@@ -28,7 +28,7 @@ export class StaticSiteStack extends Stack {
     }
     websiteDeployment({
       scope: this,
-      deploymentEnvironment,
+      stage,
       hostedZone,
       responseHeadersPolicy,
     })

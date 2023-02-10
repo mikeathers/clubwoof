@@ -12,69 +12,83 @@ import {PolicyStatement} from 'aws-cdk-lib/aws-iam'
 interface AccountLambdaProps {
   scope: Construct
   table: ITable
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   eventBusName: string
 }
 
-export function createAccountLambdaV1(props: AccountLambdaProps): NodejsFunction {
-  const {scope, deploymentEnvironment, table, eventBusName} = props
-  const lambdaName = `${CONFIG.STACK_PREFIX}AccountLambda-${deploymentEnvironment}`
-
-  const lambdaProps: NodejsFunctionProps = {
-    functionName: lambdaName,
-    bundling: {
-      externalModules: ['aws-sdk'],
-    },
-    environment: {
-      PRIMARY_KEY: 'id',
-      TABLE_NAME: table.tableName,
-      EVENT_BUS_NAME: eventBusName,
-    },
-    runtime: Runtime.NODEJS_14_X,
+export class AccountLambda {
+  public accountLambdaV1: NodejsFunction
+  constructor(props: AccountLambdaProps) {
+    this.accountLambdaV1 = this.createAccountLambdaV1(props)
   }
 
-  const accountLambda = new NodejsFunction(scope, lambdaName, {
-    entry: join(__dirname, '../../functions/account/index.ts'),
-    ...lambdaProps,
-  })
+  private createAccountLambdaV1(props: AccountLambdaProps): NodejsFunction {
+    const {scope, stage, table, eventBusName} = props
+    const lambdaName = `${CONFIG.STACK_PREFIX}AccountLambda-${stage}`
 
-  table.grantReadWriteData(accountLambda)
-  accountLambda.addToRolePolicy(
-    new PolicyStatement({
-      actions: ['dynamodb:Query'],
-      resources: ['*'],
-    }),
-  )
+    const lambdaProps: NodejsFunctionProps = {
+      functionName: lambdaName,
+      bundling: {
+        externalModules: ['aws-sdk'],
+      },
+      environment: {
+        PRIMARY_KEY: 'id',
+        TABLE_NAME: table.tableName,
+        EVENT_BUS_NAME: eventBusName,
+      },
+      runtime: Runtime.NODEJS_14_X,
+    }
 
-  return accountLambda
+    const accountLambda = new NodejsFunction(scope, lambdaName, {
+      entry: join(__dirname, '../../functions/account/index.ts'),
+      ...lambdaProps,
+    })
+
+    table.grantReadWriteData(accountLambda)
+    accountLambda.addToRolePolicy(
+      new PolicyStatement({
+        actions: ['dynamodb:Query'],
+        resources: ['*'],
+      }),
+    )
+
+    return accountLambda
+  }
 }
 
-interface CreateAccountLambdaIntegrationProps {
+interface AccountLambdaIntegrationProps {
   scope: Construct
   lambda: NodejsFunction
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
 }
 
-export function createAccountLambdaIntegrationV1(
-  props: CreateAccountLambdaIntegrationProps,
-): LambdaIntegration {
-  const {scope, lambda, deploymentEnvironment} = props
+export class AccountLambdaIntegration {
+  public accountLambdaIntegrationV1: LambdaIntegration
+  constructor(props: AccountLambdaIntegrationProps) {
+    this.accountLambdaIntegrationV1 = this.createAccountLambdaIntegrationV1(props)
+  }
 
-  const accountLambdaV1 = new Version(
-    scope,
-    `${CONFIG.STACK_PREFIX}AccountLambda${deploymentEnvironment}V1`,
-    {
-      lambda,
-    },
-  )
+  private createAccountLambdaIntegrationV1(
+    props: AccountLambdaIntegrationProps,
+  ): LambdaIntegration {
+    const {scope, lambda, stage} = props
 
-  const accountLambdaV1Alias = new Alias(
-    scope,
-    `${CONFIG.STACK_PREFIX}AccountLambda${deploymentEnvironment}V1Alias`,
-    {
-      aliasName: `${CONFIG.STACK_PREFIX}AccountLambdaV1`,
-      version: accountLambdaV1,
-    },
-  )
-  return new LambdaIntegration(accountLambdaV1Alias)
+    const accountLambdaV1 = new Version(
+      scope,
+      `${CONFIG.STACK_PREFIX}AccountLambda${stage}V1`,
+      {
+        lambda,
+      },
+    )
+
+    const accountLambdaV1Alias = new Alias(
+      scope,
+      `${CONFIG.STACK_PREFIX}AccountLambda${stage}V1Alias`,
+      {
+        aliasName: `${CONFIG.STACK_PREFIX}AccountLambdaV1`,
+        version: accountLambdaV1,
+      },
+    )
+    return new LambdaIntegration(accountLambdaV1Alias)
+  }
 }

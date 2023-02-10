@@ -21,7 +21,7 @@ export const getAccountById = async (
     dbClient,
   })
 
-  if (queryResponse.Item) {
+  if (queryResponse && queryResponse.Item) {
     return {
       message: 'Account has been found.',
       result: queryResponse.Item,

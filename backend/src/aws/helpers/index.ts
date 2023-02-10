@@ -28,7 +28,7 @@ export interface GetUrlProps {
 
 interface GetReWriteFunctionProps {
   scope: Construct
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
 }
 
 export const getBranchedSubDomainName = (props: GetSubDomainNameProps): string => {
@@ -94,16 +94,12 @@ export const handleAccessIdentity = (
 }
 
 export const getRewriteFunction = (props: GetReWriteFunctionProps): IFunction => {
-  const {scope, deploymentEnvironment} = props
-  return new Function(
-    scope,
-    `${CONFIG.STACK_PREFIX}ViewerResponseFunction-${deploymentEnvironment}`,
-    {
-      functionName: `${CONFIG.STACK_PREFIX}RedirectURIFunction-${deploymentEnvironment}`,
-      code: FunctionCode.fromFile({
-        filePath: join(__dirname, './mapping-function.js'),
-      }),
-      comment: 'adds index.html to requests',
-    },
-  )
+  const {scope, stage} = props
+  return new Function(scope, `${CONFIG.STACK_PREFIX}ViewerResponseFunction-${stage}`, {
+    functionName: `${CONFIG.STACK_PREFIX}RedirectURIFunction-${stage}`,
+    code: FunctionCode.fromFile({
+      filePath: join(__dirname, './mapping-function.js'),
+    }),
+    comment: 'adds index.html to requests',
+  })
 }

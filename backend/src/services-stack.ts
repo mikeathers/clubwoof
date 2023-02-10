@@ -11,14 +11,14 @@ import CONFIG from './config'
 import {EventBus, EventQueue} from './event-bus'
 
 interface ServicesStackProps extends StackProps {
-  deploymentEnvironment: DeploymentEnvironment
+  stage: DeploymentEnvironment
   userPool: UserPool
 }
 
 export class ServicesStack extends Stack {
   constructor(scope: Construct, id: string, props: ServicesStackProps) {
     super(scope, id, props)
-    const {deploymentEnvironment} = props
+    const {stage, userPool} = props
 
     const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
 
@@ -31,43 +31,51 @@ export class ServicesStack extends Stack {
           name: `${CONFIG.STACK_PREFIX}AccountApiCertificate`,
           url: CONFIG.ACCOUNT_API_URL,
         },
+        {
+          name: `${CONFIG.STACK_PREFIX}EventApiCertificate`,
+          url: CONFIG.EVENTS_API_URL,
+        },
       ],
     })
 
-    const databases = new Databases(
-      this,
-      `${CONFIG.STACK_PREFIX}Databases`,
-      deploymentEnvironment,
-    )
+    const databases = new Databases(this, `${CONFIG.STACK_PREFIX}Databases`, stage)
 
     const {eventBus, eventRule} = new EventBus(this, `${CONFIG.STACK_PREFIX}EventBus`, {
-      deploymentEnvironment,
+      stage,
       account: this.account,
     })
 
-    const {eventQueue} = new EventQueue(this, `${CONFIG.STACK_PREFIX}EventQueue`, {
-      deploymentEnvironment,
-    })
-
-    const {accountLambdaV1, accountLambdaIntegrationV1} = new Lambdas(
+    const {eventQueue, deadLetterQueue} = new EventQueue(
       this,
-      `${CONFIG.STACK_PREFIX}Lambdas`,
+      `${CONFIG.STACK_PREFIX}EventQueue`,
       {
-        accountsTable: databases.accountsTable,
-        eventsTable: databases.eventsTable,
-        deploymentEnvironment,
-        eventBusArn: eventBus.eventBusArn,
-        eventBusName: eventBus.eventBusName,
-        accountRule: eventRule,
-        eventQueue,
+        stage,
       },
     )
+
+    const {
+      accountLambdaV1,
+      accountLambdaIntegrationV1,
+      eventsLambdaIntegrationV1,
+      eventsLambdaV1,
+    } = new Lambdas(this, `${CONFIG.STACK_PREFIX}Lambdas`, {
+      accountsTable: databases.accountsTable,
+      eventsTable: databases.eventsTable,
+      stage,
+      eventBusArn: eventBus.eventBusArn,
+      eventBusName: eventBus.eventBusName,
+      accountRule: eventRule,
+      eventQueue,
+      deadLetterQueue,
+    })
 
     new Apis(this, `${CONFIG.STACK_PREFIX}ApiGateway`, {
       accountLambdaV1,
       accountLambdaIntegrationV1,
-      deploymentEnvironment,
-      userPool: props.userPool,
+      eventsLambdaV1,
+      eventsLambdaIntegrationV1,
+      stage,
+      userPool,
       certificates,
       hostedZone,
     })

@@ -16,7 +16,7 @@ new StaticSiteStack(app, 'ClubwoofWebsiteDev', {
     region: process.env.AWS_DEFAULT_REGION || CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'dev'},
-  deploymentEnvironment: 'Dev',
+  stage: 'Dev',
 })
 
 new StaticSiteStack(app, 'ClubwoofWebsiteProd', {
@@ -26,7 +26,7 @@ new StaticSiteStack(app, 'ClubwoofWebsiteProd', {
     region: CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'prod'},
-  deploymentEnvironment: 'Prod',
+  stage: 'Prod',
 })
 
 const {userPool: devUserPool} = new CognitoStack(app, 'ClubwoofCognitoDev', {
@@ -36,7 +36,7 @@ const {userPool: devUserPool} = new CognitoStack(app, 'ClubwoofCognitoDev', {
     region: process.env.AWS_DEFAULT_REGION || CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'dev'},
-  deploymentEnvironment: 'Dev',
+  stage: 'Dev',
 })
 
 const {userPool: prodUserPool} = new CognitoStack(app, 'ClubwoofCognitoProd', {
@@ -46,7 +46,7 @@ const {userPool: prodUserPool} = new CognitoStack(app, 'ClubwoofCognitoProd', {
     region: CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'prod'},
-  deploymentEnvironment: 'Prod',
+  stage: 'Prod',
 })
 
 new ServicesStack(app, 'ClubwoofServicesDev', {
@@ -56,7 +56,7 @@ new ServicesStack(app, 'ClubwoofServicesDev', {
     region: process.env.AWS_DEFAULT_REGION || CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'dev'},
-  deploymentEnvironment: 'Dev',
+  stage: 'Dev',
   userPool: devUserPool,
 })
 
@@ -67,6 +67,6 @@ new ServicesStack(app, 'ClubwoofServicesProd', {
     region: CONFIG.AWS_DEFAULT_REGION,
   },
   tags: {env: 'prod'},
-  deploymentEnvironment: 'Prod',
+  stage: 'Prod',
   userPool: prodUserPool,
 })

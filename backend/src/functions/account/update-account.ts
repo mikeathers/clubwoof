@@ -60,7 +60,7 @@ export const updateAccount = async (props: UpdateAccountProps): Promise<QueryRes
         ':firstName': firstName,
         ':emailAddress': emailAddress,
       },
-      ReturnValues: 'UPDATED_NEW',
+      ReturnValues: 'ALL_NEW',
     }
 
     const result = await dbClient.update(params).promise()

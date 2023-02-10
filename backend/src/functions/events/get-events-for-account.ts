@@ -1,6 +1,6 @@
 import {DynamoDB} from 'aws-sdk'
 import {QueryResult} from '../../types'
-import {getByPrimaryKey} from '../../aws'
+import {queryBySecondaryKey} from '../../aws'
 
 interface GetEventsForAccountProps {
   id: string
@@ -11,24 +11,24 @@ export const getEventsForAccount = async (
 ): Promise<QueryResult> => {
   const {id, dbClient} = props
   const tableName = process.env.TABLE_NAME ?? ''
-  const queryKey = 'id'
+  const queryKey = 'accountId'
   const queryValue = id
 
-  const queryResponse = await getByPrimaryKey({
+  const queryResponse = await queryBySecondaryKey({
     queryKey,
     queryValue,
     tableName,
     dbClient,
   })
 
-  if (queryResponse.Item) {
+  if (queryResponse && queryResponse.length > 0) {
     return {
-      message: 'Account has been found.',
-      result: queryResponse.Item,
+      message: 'Events have been found.',
+      result: queryResponse,
     }
   }
 
   return {
-    message: `Account with Id: ${id} does not exist.`,
+    message: `No events for account with id: ${id} exist.`,
   }
 }

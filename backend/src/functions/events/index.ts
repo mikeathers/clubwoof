@@ -3,10 +3,8 @@ import {DynamoDB} from 'aws-sdk'
 import {v4 as uuidv4} from 'uuid'
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda'
 import {addCorsHeader, errorHasMessage} from '../../utils'
-import {getAllAccounts} from '../account/get-all-accounts'
-import {createAccount} from '../account/create-account'
-import {updateAccount} from '../account/update-account'
-import {deleteAccount} from '../account/delete-account'
+import {getEventsForAccount} from './get-events-for-account'
+import {getAllEvents} from './get-all-events'
 
 const dbClient = new DynamoDB.DocumentClient()
 
@@ -18,13 +16,11 @@ async function handler(event: any) {
     await handleSqsEvent(event)
     return
   }
-
   if (isEventBridgeEvent) {
     await handleEventBridgeEvent(event)
     return
   }
-
-  handleApiGatewayEvent(event)
+  return await handleApiGatewayEvent(event)
 }
 
 const handleApiGatewayEvent = async (event: APIGatewayProxyEvent) => {
@@ -38,42 +34,20 @@ const handleApiGatewayEvent = async (event: APIGatewayProxyEvent) => {
   addCorsHeader(event)
 
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    const authenticatedUserId = event.requestContext.authorizer?.claims['sub'] as string
-
     switch (event.httpMethod) {
       case 'GET':
         if (event.path.includes('get-events-for-account') && event.pathParameters?.id) {
-          result.body = JSON.stringify(
+          const events = JSON.stringify(
             await getEventsForAccount({id: event.pathParameters.id, dbClient}),
           )
+          console.log('EVENTS FOR ACCOUNT: ', events)
+          result.body = events
         } else {
-          result.body = JSON.stringify(await getAllAccounts({dbClient}))
+          const events = JSON.stringify(await getAllEvents({dbClient}))
+          console.log('ALL EVENTS: ', events)
+          result.body = events
         }
         break
-      case 'POST': {
-        const res = await createAccount({event, dbClient, authenticatedUserId})
-        result.body = JSON.stringify(res)
-        break
-      }
-      case 'PUT': {
-        const res = await updateAccount({event, dbClient})
-        result.body = JSON.stringify(res)
-        break
-      }
-      case 'DELETE': {
-        if (event.pathParameters?.id) {
-          const res = await deleteAccount({
-            dbClient,
-            id: event.pathParameters?.id,
-            authenticatedUserId,
-          })
-          result.body = JSON.stringify(res)
-        } else {
-          throw new Error('An account Id is missing from the request.')
-        }
-        break
-      }
     }
   } catch (err) {
     console.error(err)
@@ -87,8 +61,11 @@ const handleApiGatewayEvent = async (event: APIGatewayProxyEvent) => {
 
 const handleSqsEvent = async (event: any) => {
   for (const record of event.Records) {
+    if (!record.body.detail) return
+
     const item = {
       id: uuidv4(),
+      accountId: record.body.detail.accountId,
       ...JSON.parse(record.body),
     }
 
@@ -104,6 +81,7 @@ const handleSqsEvent = async (event: any) => {
 const handleEventBridgeEvent = async (event: any) => {
   const item = {
     id: uuidv4(),
+    accountId: event.detail.accountId,
     ...event,
   }
 

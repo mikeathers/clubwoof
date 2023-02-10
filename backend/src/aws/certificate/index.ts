@@ -33,7 +33,7 @@ export interface CreateApiCertificatesProps {
 
 export interface CreatedCertificates {
   accountCertificate: ICertificate
-  authCertificate: ICertificate
+  eventsCertificate: ICertificate
 }
 export const createApiCertificates = (
   props: CreateApiCertificatesProps,
@@ -50,5 +50,5 @@ export const createApiCertificates = (
     })
   })
 
-  return {accountCertificate: createdCerts[0], authCertificate: createdCerts[1]}
+  return {accountCertificate: createdCerts[0], eventsCertificate: createdCerts[1]}
 }

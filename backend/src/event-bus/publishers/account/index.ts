@@ -1,21 +1,21 @@
 import {EventBridge} from 'aws-sdk'
-import {CreateAccountRequest, UpdateAccountRequest} from '../../../types'
+import {CreateAccountEvent, DeleteAccountEvent, UpdateAccountEvent} from '../../events'
 
-const ebClient = new EventBridge()
+const eventBridge = new EventBridge()
 
 const updateIdToAccountId = (
-  event: CreateAccountRequest | UpdateAccountRequest | DeleteAccountEventProps,
+  event: CreateAccountEvent | UpdateAccountEvent | DeleteAccountEvent,
 ) => {
   const accountId = event.id
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {id, ...rest} = event
-  const updatedEvent = {
+  return {
     ...rest,
     accountId,
   }
-  return updatedEvent
 }
 
-export const publishCreateAccountEvent = async (requestDetails: CreateAccountRequest) => {
+export const publishCreateAccountEvent = async (requestDetails: CreateAccountEvent) => {
   const updatedEvent = updateIdToAccountId(requestDetails)
   const params = {
     Entries: [
@@ -29,10 +29,10 @@ export const publishCreateAccountEvent = async (requestDetails: CreateAccountReq
     ],
   }
 
-  await ebClient.putEvents(params).promise()
+  await eventBridge.putEvents(params).promise()
 }
 
-export const publishUpdateAccountEvent = async (requestDetails: UpdateAccountRequest) => {
+export const publishUpdateAccountEvent = async (requestDetails: UpdateAccountEvent) => {
   const updatedEvent = updateIdToAccountId(requestDetails)
   const params = {
     Entries: [
@@ -46,17 +46,10 @@ export const publishUpdateAccountEvent = async (requestDetails: UpdateAccountReq
     ],
   }
 
-  await ebClient.putEvents(params).promise()
+  await eventBridge.putEvents(params).promise()
 }
 
-interface DeleteAccountEventProps {
-  id: string
-  userWhoDeletedAccountId: string
-}
-
-export const publishDeleteAccountEvent = async (
-  requestDetails: DeleteAccountEventProps,
-) => {
+export const publishDeleteAccountEvent = async (requestDetails: DeleteAccountEvent) => {
   const updatedEvent = updateIdToAccountId(requestDetails)
   const params = {
     Entries: [
@@ -70,5 +63,5 @@ export const publishDeleteAccountEvent = async (
     ],
   }
 
-  await ebClient.putEvents(params).promise()
+  await eventBridge.putEvents(params).promise()
 }
