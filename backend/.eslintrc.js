@@ -34,8 +34,16 @@ module.exports = {
       },
     },
     {
-      files: ['./src/lambdas/**/*'],
+      files: ['./src/lambdas/**/*', '**/*.test.ts'],
       rules: {
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+      },
+    },
+    {
+      files: ['**/*.test.ts'],
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/no-unsafe-member-access': 0,
       },

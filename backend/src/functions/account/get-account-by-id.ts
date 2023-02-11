@@ -1,5 +1,5 @@
 import {DynamoDB} from 'aws-sdk'
-import {QueryResult} from '../../types'
+import {HttpStatusCode, QueryResult} from '../../types'
 import {getByPrimaryKey} from '../../aws'
 
 interface GetAccountByIdProps {
@@ -23,12 +23,18 @@ export const getAccountById = async (
 
   if (queryResponse && queryResponse.Item) {
     return {
-      message: 'Account has been found.',
-      result: queryResponse.Item,
+      body: {
+        message: 'Account has been found.',
+        result: queryResponse.Item,
+      },
+      statusCode: HttpStatusCode.OK,
     }
   }
 
   return {
-    message: `Account with Id: ${id} does not exist.`,
+    body: {
+      message: `Account with Id: ${id} does not exist.`,
+    },
+    statusCode: HttpStatusCode.BAD_REQUEST,
   }
 }

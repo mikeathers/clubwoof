@@ -1,7 +1,7 @@
 import {DynamoDB} from 'aws-sdk'
 import {APIGatewayProxyEvent} from 'aws-lambda'
 
-import {QueryResult, UpdateAccountRequest} from '../../types'
+import {HttpStatusCode, QueryResult, UpdateAccountRequest} from '../../types'
 import {getByPrimaryKey} from '../../aws'
 import {publishUpdateAccountEvent} from '../../event-bus'
 
@@ -38,7 +38,10 @@ export const updateAccount = async (props: UpdateAccountProps): Promise<QueryRes
 
     if (!accountExists) {
       return {
-        message: `Account with Id: ${id} does not exist and could not be updated.`,
+        body: {
+          message: `Account with Id: ${id} does not exist and could not be updated.`,
+        },
+        statusCode: HttpStatusCode.BAD_REQUEST,
       }
     }
 
@@ -68,12 +71,18 @@ export const updateAccount = async (props: UpdateAccountProps): Promise<QueryRes
     await publishUpdateAccountEvent(updateAccountData)
 
     return {
-      message: 'Account updated successfully.',
-      result,
+      body: {
+        message: 'Account updated successfully.',
+        result,
+      },
+      statusCode: HttpStatusCode.OK,
     }
   }
 
   return {
-    message: 'Event has no body so account cannot be updated.',
+    body: {
+      message: 'Event has no body so account cannot be updated.',
+    },
+    statusCode: HttpStatusCode.INTERNAL_SERVER,
   }
 }

@@ -1,5 +1,5 @@
 import {DynamoDB} from 'aws-sdk'
-import {QueryResult} from '../../types'
+import {HttpStatusCode, QueryResult} from '../../types'
 import {publishDeleteAccountEvent} from '../../event-bus'
 
 interface DeleteAccountProps {
@@ -26,12 +26,18 @@ export const deleteAccount = async (props: DeleteAccountProps): Promise<QueryRes
     })
 
     return {
-      message: `Account ${id} has been deleted successfully.`,
-      result,
+      body: {
+        message: `Account ${id} has been deleted successfully.`,
+        result,
+      },
+      statusCode: HttpStatusCode.OK,
     }
   }
 
   return {
-    message: `Account ${id} was not deleted because it does not exist.`,
+    body: {
+      message: `Account ${id} was not deleted because it does not exist.`,
+    },
+    statusCode: HttpStatusCode.BAD_REQUEST,
   }
 }
