@@ -2,22 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1d494e-5961-434c-8be3-f5cfce352a14" name="Changes" comment="fix: adds package.lock">
-      <change afterPath="$PROJECT_DIR$/backend/src/functions/account/account.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test-utils/__mocks__/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test-utils/__mocks__/sample-api-gateway-event.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/api-gateway/account/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api-gateway/account/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/functions/account/create-account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/create-account.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/functions/account/delete-account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/delete-account.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/functions/account/get-account-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/get-account-by-id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/functions/account/get-all-accounts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/get-all-accounts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/functions/account/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/functions/account/update-account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/functions/account/update-account.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/app/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/auth/complete-forgot-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/auth/complete-forgot-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/auth/complete-registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/auth/complete-registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/auth/forgot-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/auth/forgot-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/auth/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/auth/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/auth/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/auth/resend-registration-link.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/auth/resend-registration-link.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/dev/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/dev/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/zip/dev/storybook.build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/zip/dev/storybook.build.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend-build/zip/dev/website.build.zip" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend-build/zip/dev/website.build.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/aws/cognito/user-pool.construct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/aws/cognito/user-pool.construct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storybook-build/iframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/iframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storybook-build/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storybook-build/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/cdk-exports-dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/cdk-exports-dev.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +44,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2JECSOcPnaiBoyIcKxiDZE0kvbD" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -70,6 +73,9 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReadonlyStatusHandler">
+    <option name="SHOW_DIALOG" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src" />
@@ -221,6 +227,13 @@
       <workItem from="1675324302332" duration="3610000" />
       <workItem from="1675431122012" duration="29784000" />
       <workItem from="1676022427494" duration="22755000" />
+      <workItem from="1676382815300" duration="7000" />
+      <workItem from="1676463569575" duration="32371000" />
+      <workItem from="1676835167469" duration="4545000" />
+      <workItem from="1676901505636" duration="3574000" />
+      <workItem from="1676991942141" duration="3766000" />
+      <workItem from="1677251447878" duration="3225000" />
+      <workItem from="1677280873387" duration="6466000" />
     </task>
     <task id="LOCAL-00001" summary="fix: adds package.lock">
       <created>1671836959214</created>
@@ -270,7 +283,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/domains/auth/complete-registration/complete-registration.container.tsx</url>
-          <line>45</line>
+          <line>52</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -286,25 +299,21 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/backend/src/functions/account/get-all-accounts.ts</url>
           <line>13</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/backend/src/functions/account/get-all-accounts.ts</url>
           <line>12</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/backend/src/functions/account/index.ts</url>
           <line>25</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/backend/src/functions/account/create-account.ts</url>
           <line>26</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>

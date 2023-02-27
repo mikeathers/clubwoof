@@ -26,6 +26,13 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
       router.push(ROUTE_PATHS.RESEND_REGISTRATION_LINK)
       return
     }
+
+    if (router.query.email && router.query.code) {
+      window.location.replace(
+        `com.clubwoof.development://completeRegistration/${router.query.code}/${router.query.email}`,
+      )
+    }
+
     const completeRegistration = async () => {
       if (
         typeof router.query.email === 'string' &&
@@ -68,7 +75,7 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
     }
 
     completeRegistration()
-  }, [run, addUserToState, router.isReady])
+  }, [run, addUserToState, router.isReady, router.query])
 
   return (
     <CompleteRegistrationComponent

@@ -1,9 +1,9 @@
 {
   "ClubwoofCognitoDev": {
-    "UserPoolClientId": "6r4irrdit7sgo1ne1ied99vd53",
-    "ExportsOutputFnGetAttClubwoofUserPoolC77318F3Arn8ACDD13F": "arn:aws:cognito-idp:eu-west-2:222743583620:userpool/eu-west-2_brUDiWGb6",
-    "UserPoolId": "eu-west-2_brUDiWGb6",
+    "UserPoolClientId": "3iabrekro7k51tvdf22qek1va7",
+    "ExportsOutputFnGetAttClubwoofUserPoolC77318F3Arn8ACDD13F": "arn:aws:cognito-idp:eu-west-2:222743583620:userpool/eu-west-2_O24LMxuTt",
+    "UserPoolId": "eu-west-2_O24LMxuTt",
     "Region": "eu-west-2",
-    "IdentityPoolId": "eu-west-2:75fc3b98-c56c-41fb-b0eb-57d2cb464558"
+    "IdentityPoolId": "eu-west-2:df7d3984-9e32-4b5d-af0d-9bb71eeb51ac"
   }
 }

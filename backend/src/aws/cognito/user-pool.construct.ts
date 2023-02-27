@@ -106,16 +106,6 @@ export class UserPoolConstruct {
       autoVerify: {
         email: true,
       },
-      standardAttributes: {
-        givenName: {
-          required: true,
-          mutable: true,
-        },
-        familyName: {
-          required: true,
-          mutable: true,
-        },
-      },
       customAttributes: {
         numberOfDogs: new NumberAttribute({mutable: true}),
         isAdmin: new BooleanAttribute({mutable: true}),

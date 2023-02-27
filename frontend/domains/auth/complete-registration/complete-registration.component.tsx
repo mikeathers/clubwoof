@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import {Box, Layout, Text, TextButton} from '@clubwoof-components'
 import {DogImage} from './complete-registration.styles'
+import {useEffect} from 'react'
 
 export interface CompleteRegistrationComponentProps {
   i18n: i18nCompleteRegistrationPage
