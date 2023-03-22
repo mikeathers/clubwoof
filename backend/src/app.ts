@@ -57,7 +57,6 @@ new ServicesStack(app, 'ClubwoofServicesDev', {
   },
   tags: {env: 'dev'},
   stage: 'Dev',
-  userPool: devUserPool,
 })
 
 new ServicesStack(app, 'ClubwoofServicesProd', {
@@ -68,5 +67,4 @@ new ServicesStack(app, 'ClubwoofServicesProd', {
   },
   tags: {env: 'prod'},
   stage: 'Prod',
-  userPool: prodUserPool,
 })

@@ -7,7 +7,6 @@ import {
   UserPool,
 } from 'aws-cdk-lib/aws-cognito'
 import {Policy, PolicyStatement} from 'aws-cdk-lib/aws-iam'
-import {ICertificate} from 'aws-cdk-lib/aws-certificatemanager'
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs'
 import {Runtime} from 'aws-cdk-lib/aws-lambda'
 import {Construct} from 'constructs'
@@ -21,19 +20,13 @@ export class UserPoolConstruct {
   private readonly scope: Construct
   private readonly customMessagesTrigger: NodejsFunction
   private readonly postConfirmationTrigger: NodejsFunction
-  private certificate: ICertificate
   private readonly deploymentEnvironment: DeploymentEnvironment
   private readonly isProduction: boolean
 
-  constructor(
-    scope: Construct,
-    deploymentEnvironment: DeploymentEnvironment,
-    certificate: ICertificate,
-  ) {
+  constructor(scope: Construct, deploymentEnvironment: DeploymentEnvironment) {
     this.scope = scope
     this.deploymentEnvironment = deploymentEnvironment
     this.isProduction = this.deploymentEnvironment === 'Prod'
-    this.certificate = certificate
     this.postConfirmationTrigger = this.createPostConfirmationTrigger()
     this.customMessagesTrigger = this.createCustomMessagesTrigger()
     this.userPool = this.createUserPool()

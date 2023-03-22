@@ -1,4 +1,3 @@
-import {UserPool} from 'aws-cdk-lib/aws-cognito'
 import {Stack, StackProps} from 'aws-cdk-lib'
 import {Construct} from 'constructs'
 
@@ -12,13 +11,12 @@ import {EventBus, EventQueue} from './event-bus'
 
 interface ServicesStackProps extends StackProps {
   stage: DeploymentEnvironment
-  userPool: UserPool
 }
 
 export class ServicesStack extends Stack {
   constructor(scope: Construct, id: string, props: ServicesStackProps) {
     super(scope, id, props)
-    const {stage, userPool} = props
+    const {stage} = props
 
     const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
 
@@ -75,7 +73,6 @@ export class ServicesStack extends Stack {
       eventsLambdaV1,
       eventsLambdaIntegrationV1,
       stage,
-      userPool,
       certificates,
       hostedZone,
     })

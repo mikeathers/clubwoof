@@ -7,8 +7,6 @@ import {
   UserPoolClientConstruct,
   UserPoolConstruct,
 } from './aws/cognito'
-import {createCertificate, getHostedZone} from './aws'
-import CONFIG from './config'
 import {UserPool} from 'aws-cdk-lib/aws-cognito'
 
 interface BackendStackProps extends StackProps {
@@ -22,16 +20,7 @@ export class CognitoStack extends Stack {
     super(scope, id, props)
     const {stage} = props
 
-    const hostedZone = getHostedZone({scope: this, domainName: CONFIG.DOMAIN_NAME})
-
-    const certificate = createCertificate({
-      scope: this,
-      url: CONFIG.DOMAIN_NAME,
-      hostedZone,
-      name: 'WebsiteCertificate',
-    })
-
-    const {userPool} = new UserPoolConstruct(this, stage, certificate)
+    const {userPool} = new UserPoolConstruct(this, stage)
     this.userPool = userPool
 
     const {userPoolClient} = new UserPoolClientConstruct(this, userPool, stage)

@@ -28,8 +28,10 @@ export const CompleteRegistration: React.FC<CompleteRegistrationProps> = (props)
     }
 
     if (router.query.email && router.query.code) {
+      console.log('email', router.query.email)
+      console.log('code', router.query.code)
       window.location.replace(
-        `com.clubwoof.development://completeRegistration/${router.query.code}/${router.query.email}`,
+        `com.heatio.development://completeRegistration/${router.query.code}/${router.query.emailAddress}`,
       )
     }
 
